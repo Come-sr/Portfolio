@@ -1,0 +1,93 @@
+body {
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	margin: 0 20%;
+	color: #8dcc8b;
+	background-color: #221f2c;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	transition: .25s ease;
+}
+
+p {
+	text-align: justify;
+	font-size: 1.2rem;
+}
+h2 {
+  font-size: 30px;
+  text-decoration: underline overline #FF6F61;
+}
+#barro {
+  margin-left: auto;
+  margin-right: auto;
+	height: 7px;
+	width: 90%;
+	background-color: #FF6F61;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.header {
+	font-size: 1.5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-bottom: 2rem;
+	padding: 1rem;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	z-index: 201;
+	font-weight: 700;
+}
+
+.header h1 {
+	font-size: 2.5em;
+	text-align: center;
+	margin: 1rem 0 0 0;
+	flex-grow: 1;
+}
+
+.header img {
+	width: 150px;
+	height: auto;
+	margin-left: 1rem;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin-top: 1rem;
+}
+
+.blurred-box {
+	filter: blur(7px);
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100%;
+	z-index: -1;
+}
