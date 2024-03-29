@@ -48,7 +48,7 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	color: rgb(0, 0, 0);
+	color:#d84b4b ;
 	font-weight: 400;
 	font-style: normal;
 	font-family: "Whisper", cursive;
@@ -79,7 +79,7 @@ body {
 	flex-wrap: wrap;
 	margin-bottom: 2rem;
 	padding: 1rem;
-	background-color: white;
+	background-color:#2274A5;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	border-bottom: 1px solid #ddd;
 	z-index: 201;
@@ -156,11 +156,11 @@ body {
   }
   
   .word {
+	color: #bf4343 ;
 	font-weight: 400;
 	font-size: 40px;
 	font-family: "Montserrat", sans-serif;
 	font-optical-sizing: auto;
-	font-weight: 240;
 	font-style: normal;
   }
 
