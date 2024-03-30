@@ -6,8 +6,8 @@ body {
 	min-height: 100vh;
 	flex-direction: column;
 	margin: 0 20%;
-	color: #27302d ;
-	background-color: #c2d3bd ;
+	color:#24272B ;
+	background: linear-gradient(to right, #F26B83, #619cc1);
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -22,7 +22,7 @@ body {
   color: inherit;
   box-sizing: border-box;
   transition: color 0.2s, color 0.25s;
-  color:#d84b4b ;
+  color:#39FF14  ;
   width: 90%;
   margin-top: 0.6rem;
 }
@@ -54,14 +54,14 @@ p {
 }
 h2 {
   font-size: 30px;
-  text-decoration: underline overline #d84b4b ;
+  text-decoration: underline overline #39FF14  ;
 }
 #barrogothead {
   margin-left: auto;
   margin-right: auto;
 	height: 5px;
 	width: 90%;
-	background-color: #d84b4b ;
+	background-color: #39FF14  ;
 	margin-top: 12rem;
 }
 #barro {
@@ -69,7 +69,7 @@ h2 {
 	margin-right: auto;
 	  height: 5px;
 	  width: 90%;
-	  background-color:#d84b4b ;
+	  background-color:#39FF14 ;
 	  margin-top: 0.2rem;
   }
 .container {

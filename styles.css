@@ -48,7 +48,7 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	color:#d84b4b ;
+	color:#0A6AA6 ;
 	font-weight: 400;
 	font-style: normal;
 	font-family: "Whisper", cursive;
@@ -156,7 +156,7 @@ body {
   }
   
   .word {
-	color: #bf4343 ;
+	color:#24272B ;
 	font-weight: 400;
 	font-size: 40px;
 	font-family: "Montserrat", sans-serif;
