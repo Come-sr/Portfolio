@@ -54,6 +54,7 @@ body {
 	margin-right: auto;
 	display:flex;
 	height: auto;
+	max-inline-size: 500px;
 }
 	a {
 	color: inherit;
@@ -63,15 +64,15 @@ body {
 
 p {
 	text-align: justify;
-	font-size: 1.2rem;
+	font-size: 25px;
 }
 
 ul {
 	text-align: justify;
-	font-size: 1.2rem;
+	font-size: 25px;
 }
 h2 {
-  font-size: 30px;
+  font-size: 35px;
   text-decoration: underline overline #39FF14  ;
 }
 #barrogothead {
@@ -110,7 +111,8 @@ h2 {
 	-webkit-backdrop-filter: blur(11.1px);
 	padding: 38px;
 	justify-content: center;
-	margin-top: 6rem;
+	margin-top: 4rem;
+	margin-bottom: 6rem;
   }	
 
   #barro {
