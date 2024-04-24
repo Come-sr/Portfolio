@@ -8,13 +8,13 @@ body {
 	min-height: 100vh;
 	flex-direction: column;
 	margin: 0 20%;
-	color:#18272F ;
+	color: #5d4787;
+
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
-	background: linear-gradient(306deg,#f25e95,#f26b83,#0a6aa6);
-	background-size: 100% 100%;
-	animation: gradient-animation 18s ease infinite;
+	background-color: #d0d1ee;
+
   }
   
   @keyframes gradient-animation {
@@ -39,7 +39,7 @@ body {
   color: inherit;
   box-sizing: border-box;
   transition: color 0.2s, color 0.25s;
-  color:#39FF14  ;
+  color:#e8c547  ;
   width: 90%;
   margin-top: 0.6rem;
 }
@@ -70,14 +70,14 @@ p {
 }
 h2 {
   font-size: 30px;
-  text-decoration: underline overline #39FF14  ;
+  text-decoration: underline overline #e8c547  ;
 }
 #barrogothead {
   margin-left: auto;
   margin-right: auto;
 	height: 5px;
 	width: 90%;
-	background-color: #39FF14  ;
+	background-color: #e8c547  ;
 	margin-top: 12rem;
 }
 
@@ -86,7 +86,7 @@ h2 {
 	margin-right: auto;
 	  height: 5px;
 	  width: 90%;
-	  background-color: #39FF14  ;
+	  background-color: #e8c547  ;
 	  margin-top: 6rem;
   }
 
@@ -117,7 +117,7 @@ h2 {
 	margin-right: auto;
 	  height: 5px;
 	  width: 90%;
-	  background-color:#39FF14 ;
+	  background-color:#e8c547 ;
 	  margin-top: 0.2rem;
 	  margin-bottom: 10px;
   }
@@ -133,7 +133,7 @@ h2 {
 	margin-bottom: 32px;
 	border-radius: 6px;
 	padding: 8px 16px;
-	box-shadow: 0 0 10px #39FF14, 0 0 20px rgba(57, 255, 20, 0.5);
+	box-shadow: 0 0 10px #e8c547, 0 0 20px rgba(57, 255, 20, 0.5);
 }
 
 .header {
