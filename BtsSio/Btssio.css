@@ -13,7 +13,7 @@ body {
     font-weight: 500;
     font-style: normal;
 	background-color: #d0d1ee;
-
+	scroll-behavior: smooth;
   }
   
   @keyframes gradient-animation {
@@ -40,7 +40,8 @@ body {
   transition: color 0.2s, color 0.25s;
   color:#e8c547  ;
   width: 90%;
-  margin-top: 0.6rem;
+  margin-top: 12px;
+  margin-bottom: 24px;
 }
 .header {
 	/* your existing CSS */
@@ -78,6 +79,7 @@ h2 {
 	width: 90%;
 	background-color: #e8c547  ;
 	margin-top: 12rem;
+	margin-bottom: 24px;
 }
 
 #barrogotsmallhead {
@@ -86,8 +88,9 @@ h2 {
 	  height: 5px;
 	  width: 90%;
 	  background-color: #e8c547  ;
-	  margin-top: 6rem;
-  }
+	  margin-top: 12px;
+	  margin-bottom: 24px;
+	  }
 
   .BOITEFLOU {
 	background: rgba(255, 255, 255, 0.15);
@@ -119,8 +122,9 @@ h2 {
 	  width: 90%;
 	  background-color:#e8c547 ;
 	  margin-top: 0.2rem;
-	  margin-bottom: 10px;
-  }
+	  margin-top: 6px;
+	  margin-bottom: 64px;
+	}
 
 .container {
 	display: flex;

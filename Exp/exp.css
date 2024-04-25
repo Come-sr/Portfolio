@@ -40,7 +40,7 @@ body {
   box-sizing: border-box;
   transition: color 0.2s, color 0.25s;
   color:#e8c547  ;
-  width: 90%;
+  width: 80%;
   margin-top: 0.6rem;
 }
 .header {
@@ -76,18 +76,20 @@ h2 {
   margin-left: auto;
   margin-right: auto;
 	height: 5px;
-	width: 90%;
+	width: 80%;
 	background-color: #e8c547  ;
 	margin-top: 12rem;
+	margin-bottom: 24px;
 }
 
 #barrogotsmallhead {
 	margin-left: auto;
 	margin-right: auto;
 	  height: 5px;
-	  width: 90%;
+	  width: 80%;
 	  background-color: #e8c547  ;
-	  margin-top: 6rem;
+	  margin-top: 24px;
+	  margin-bottom: 24px;
   }
 
   .BOITEFLOU {
@@ -98,6 +100,7 @@ h2 {
 	-webkit-backdrop-filter: blur(11.1px);
 	padding: 64px;
 	justify-content: center;
+	margin-bottom: 6rem;
   }	
 
   .BOITEFLOU2 {
@@ -116,10 +119,10 @@ h2 {
 	margin-left: auto;
 	margin-right: auto;
 	  height: 5px;
-	  width: 90%;
+	  width: 80%;
 	  background-color:#e8c547 ;
-	  margin-top: 0.2rem;
-	  margin-bottom: 10px;
+	  margin-top: 12px;
+	  margin-bottom: 24px;
   }
 
 .container {
