@@ -14,19 +14,6 @@ body {
     font-style: normal;
 	background-color: #d0d1ee;
   }
-  
-  @keyframes gradient-animation {
-	0% {
-	  background-position: 0% 50%;
-	}
-	50% {
-	  background-position: 100% 50%;
-	}
-	100% {
-	  background-position: 0% 50%;
-	}
-}
-
 
 .hash {
 	background-image: repeating-linear-gradient(-45deg, transparent, transparent 8px, currentcolor 8px, currentcolor 10px);
@@ -111,7 +98,7 @@ h2 {
 	-webkit-backdrop-filter: blur(11.1px);
 	padding: 38px;
 	justify-content: center;
-	margin-top: 4rem;
+	margin-top: -3rem;
 	margin-bottom: 6rem;
   }	
 
