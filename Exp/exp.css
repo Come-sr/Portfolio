@@ -8,12 +8,12 @@ body {
 	min-height: 100vh;
 	flex-direction: column;
 	margin: 0 20%;
-	color: #5d4787;
+	color: #75fe60;
 
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
-	background-color: #d0d1ee;
+	background-color: #53636e;
 
   }
   
@@ -39,7 +39,7 @@ body {
   color: inherit;
   box-sizing: border-box;
   transition: color 0.2s, color 0.25s;
-  color:#e8c547  ;
+  color:#0a171f  ;
   width: 80%;
   margin-top: 0.6rem;
 }
@@ -70,14 +70,14 @@ p {
 }
 h2 {
   font-size: 30px;
-  text-decoration: underline overline #e8c547  ;
+  text-decoration: underline overline #0a171f  ;
 }
 #barrogothead {
   margin-left: auto;
   margin-right: auto;
 	height: 5px;
 	width: 80%;
-	background-color: #e8c547  ;
+	background-color: #75fe60  ;
 	margin-top: 12rem;
 	margin-bottom: 24px;
 }
@@ -87,7 +87,7 @@ h2 {
 	margin-right: auto;
 	  height: 5px;
 	  width: 80%;
-	  background-color: #e8c547  ;
+	  background-color: #75fe60  ;
 	  margin-top: 24px;
 	  margin-bottom: 24px;
   }
@@ -120,7 +120,7 @@ h2 {
 	margin-right: auto;
 	  height: 5px;
 	  width: 80%;
-	  background-color:#e8c547 ;
+	  background-color:#75fe60 ;
 	  margin-top: 12px;
 	  margin-bottom: 24px;
   }
@@ -289,6 +289,7 @@ h1 {
 	background: var(--bgColor);
 	position: relative;
 	padding-inline: 1.5rem;
+	color: #123528;
   }
   ul li .title {
 	overflow: hidden;

@@ -8,11 +8,11 @@ body {
 	min-height: 100vh;
 	flex-direction: column;
 	margin: 0 20%;
-	color: #5d4787;
+	color: #75fe60;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-style: normal;
-	background-color: #d0d1ee;
+	background-color: #53636e;
 	scroll-behavior: smooth;
   }
   
@@ -38,7 +38,7 @@ body {
   color: inherit;
   box-sizing: border-box;
   transition: color 0.2s, color 0.25s;
-  color:#e8c547  ;
+  color:#0a171f  ;
   width: 90%;
   margin-top: 12px;
   margin-bottom: 24px;
@@ -78,17 +78,18 @@ body {
 p {
 	text-align: justify;
 	font-size: 1.2rem;
+	color: #fdfefe;
 }
 h2 {
   font-size: 30px;
-  text-decoration: underline overline #e8c547  ;
+  text-decoration: underline overline #75fe60  ;
 }
 #barrogothead {
   margin-left: auto;
   margin-right: auto;
 	height: 5px;
 	width: 90%;
-	background-color: #e8c547  ;
+	background-color: #75fe60  ;
 	margin-top: 12rem;
 	margin-bottom: 24px;
 }
@@ -98,7 +99,7 @@ h2 {
 	margin-right: auto;
 	  height: 5px;
 	  width: 90%;
-	  background-color: #e8c547  ;
+	  background-color: #75fe60  ;
 	  margin-top: 12px;
 	  margin-bottom: 24px;
 	  }
@@ -131,7 +132,7 @@ h2 {
 	margin-right: auto;
 	  height: 5px;
 	  width: 90%;
-	  background-color:#e8c547 ;
+	  background-color:#75fe60 ;
 	  margin-top: 0.2rem;
 	  margin-top: 6px;
 	  margin-bottom: 64px;

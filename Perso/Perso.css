@@ -8,11 +8,11 @@ body {
 	min-height: 100vh;
 	flex-direction: column;
 	margin: 0 20%;
-	color: #5d4787;
-    font-family: "Roboto", sans-serif;
+	color: #75fe60;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-style: normal;
-	background-color: #d0d1ee;
+	background-color: #53636e;
   }
   
   @keyframes gradient-animation {
@@ -63,6 +63,7 @@ body {
 p {
 	text-align: justify;
 	font-size: 25px;
+	color: #fdfefe;
 }
 
 ul {
@@ -71,14 +72,14 @@ ul {
 }
 h2 {
   font-size: 35px;
-  text-decoration: underline overline #e8c547  ;
+  text-decoration: underline overline #123528  ;
 }
 #barrogothead {
   margin-left: auto;
   margin-right: auto;
 	height: 5px;
 	width: 90%;
-	background-color: #e8c547  ;
+	background-color: #123528  ;
 	margin-top: 12rem;
 }
 
@@ -87,7 +88,7 @@ h2 {
 	margin-right: auto;
 	  height: 5px;
 	  width: 90%;
-	  background-color: #e8c547  ;
+	  background-color: #123528  ;
 	  margin-top: 6rem;
   }
 
