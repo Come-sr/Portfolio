@@ -1,85 +1,91 @@
-body {
-	font-family: 'Montserrat', sans-serif;
-	background: linear-gradient(to bottom right, #2c3a66, #1a2540);
-	color: #c9fbb6;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	min-height: 100vh;
-  }
-  
-  .header {
-	font-family: "Fjalla One", sans-serif;
-	font-size: 2.5em;
-	text-align: center;
-	color: #c9fbb6;
-	text-transform: uppercase;
-	letter-spacing: 2.4px;
-	text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-  }
-  
-  .BOITEFLOU {
-	background: rgba(201, 251, 182, 0.1);
-	border-radius: 16px;
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	padding: 2rem;
-	margin: 1rem 0;
-	max-width: 1000px;
-	width: 90%;
-  }
-  
-  h2 {
-	font-family: "Fjalla One", sans-serif;
-	font-size: 2.4rem;
-	color: #c9fbb6;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	margin-top: 1.5rem;
-	margin-bottom: 1rem;
-	text-decoration: underline overline #FFA07A;
-  }
-  
-  p {
-	font-size: 1.2rem;
-	line-height: 1.6;
-	text-align: justify;
-	color: white;
-  }
-  
-  embed {
-	width: 100%;
-	height: 700px;
-	border: none;
-	margin-top: 1rem;
-  }
-  
-  .hash {
-	height: 2px;
-	background-color: #FFA07A;
-	width: 100%;
-	margin: 1.5rem 0;
-  }
-  
-  @media (max-width: 768px) {
-	.header {
-	  font-size: 2em;
-	}
-  
-	h2 {
-	  font-size: 1.5em;
-	}
-  
-	p {
-	  font-size: 0.9rem;
-	}
-  
-	embed {
-	  height: 500px;
-	}
-  }
+body, html {
+    font-family: 'Roboto', sans-serif; /* Changed from Montserrat to Roboto */
+    background: linear-gradient(to bottom right, #2c3a66, #1a2540);
+    color: #c9fbb6;/* Slightly lighter shade of green */
+    margin: 0;
+    padding: 0;
+    line-height: 1.7; /* Increased line height for better readability */
+}
+
+.page-container {
+    max-width: 850px; /* Slightly wider container */
+    margin: 0 auto;
+    padding: 2.5rem; /* Increased padding */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2.5rem; /* Increased margin */
+}
+
+h1, h2 {
+    font-family: "Poppins", sans-serif; /* Changed from Fjalla One to Poppins */
+    color: #d0ffc0; /* Matching the body text color */
+}
+
+h1 {
+    font-size: 2.7rem; /* Slightly larger */
+    margin-bottom: 1.2rem;
+}
+
+h2 {
+    font-size: 2rem; /* Slightly larger */
+    border-bottom: 2px solid #d0ffc0;
+    padding-bottom: 0.7rem;
+    margin-top: 2.5rem;
+}
+
+p {
+    color: #f0f0f0; /* Slightly off-white for better contrast */
+    margin-bottom: 1.2rem;
+}
+
+.certification-logos {
+    display: flex;
+    justify-content: space-around;
+    margin: 2.5rem 0;
+}
+
+.certification-logos img {
+    width: 110px; /* Slightly larger logos */
+    height: auto;
+    transition: transform 0.3s ease; /* Added transition for hover effect */
+}
+
+.certification-logos img:hover {
+    transform: scale(1.1); /* Added hover effect */
+}
+
+.lycee-image {
+    width: 100%;
+    max-width: 650px; /* Slightly larger max-width */
+    height: auto;
+    border-radius: 15px; /* Increased border radius */
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        padding: 1.2rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    .certification-logos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .certification-logos img {
+        margin-bottom: 1.2rem;
+        width: 100px; /* Adjusted size for mobile */
+    }
+
+}
