@@ -2,8 +2,8 @@ body, html {
 	margin: 0;
 	padding: 0;
 	font-family: 'Montserrat', sans-serif;
-	background: linear-gradient(to bottom right, #2c3a66, #1a2540);
-	color: #c9fbb6;
+	background: #0d1117;
+	color: #f1f3f5;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
@@ -14,7 +14,7 @@ body, html {
 	max-width: 800px;
 	margin: 2rem auto 6rem;
 	padding: 2rem;
-	background-color: rgba(201, 251, 182, 0.1);
+    background-color: rgba(13, 17, 23, 0.6); /* Slightly transparent background */
 	backdrop-filter: blur(10px);
 	border-radius: 15px;
   }
@@ -27,7 +27,7 @@ body, html {
   h1 {
 	font-family: "Fjalla One", sans-serif;
 	font-size: 3rem;
-	color: #c9fbb6;
+    color: #f1f3f5; /* Matching the body text color */
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	margin-bottom: 0.5rem;
@@ -45,7 +45,7 @@ body, html {
 	top: 0;
 	width: 2px;
 	height: 100%;
-	background-color: #c9fbb6;
+    background-color: #f1f3f5; /* Matching the body text color */
   }
   
   .timeline-item {
@@ -62,7 +62,7 @@ body, html {
 	width: 14px;
 	height: 14px;
 	border-radius: 50%;
-	background-color: #c9fbb6;
+	background: white;
   }
   
   .timeline-content {
@@ -74,13 +74,13 @@ body, html {
   
   .timeline-content h2 {
 	margin-top: 0;
-	color: #c9fbb6;
+	color: #02f3cb;
 	font-size: 1.4rem;
   }
   
   .timeline-content .date {
 	font-size: 0.9rem;
-	color: #a7d7a0;
+	color: #02f3cbdc;
 	margin-bottom: 0.5rem;
   }
   
