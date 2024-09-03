@@ -17,8 +17,8 @@ body, html {
     top: 1rem;
     right: 1rem;
     padding: 5px;
-    width: 74px; 
-    height: 74px;
+    width: 59px; 
+    height: 59px;
     z-index: 999;
   }
 
@@ -140,16 +140,20 @@ h1 span:hover {
 }
 
 nav {
-    width: 100%;
+    width: 98%;
     background-color: rgba(94, 231, 216, 0.1); /* Primary color with low opacity */
     backdrop-filter: blur(10px);
     padding: 1rem 0;
     position: fixed;
-    bottom: 0;
-    left: 0;
+    bottom: 1%;
+    left: 1%;
     display: flex;
     justify-content: center;
     gap: 2rem;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
 }
 
 
