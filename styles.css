@@ -12,6 +12,18 @@ body, html {
     overflow: hidden;
 }
 
+.LinkIN {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 5px;
+    width: 74px; 
+    height: 74px;
+    z-index: 999;
+  }
+
+
+
 .background {
     position: fixed;
     top: 0;
@@ -88,6 +100,8 @@ span {
     }
   }
 
+ 
+
 .container {
     font-size: 177px;
     position: fixed;
@@ -137,6 +151,7 @@ nav {
     justify-content: center;
     gap: 2rem;
 }
+
 
 nav a {
     color: #f1f3f5; /* Text color */

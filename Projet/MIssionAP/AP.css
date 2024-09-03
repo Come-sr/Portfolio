@@ -45,22 +45,30 @@ p {
 }
 
 img {
-    width: 400px;  /* Adjust as needed */
-    height: 300px; /* Adjust as needed */
-    background-color: #f0f0f0; /* Light gray background */
-    border-radius: 10px; /* Rounded corners */
-    overflow: hidden; /* Ensures content doesn't overflow rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 2%;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
   }
-
+  
+  img:hover {
+    transform: scale(1.05); /* Enlarge the image by 5% */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Larger shadow for more emphasis */
+    z-index: 1; /* Ensures the hovered image appears above others */
+  }
+  
   .img2 {
     margin-left: 20px;
     margin-top: 60px;
-    width: 400px;  /* Adjust as needed */
-    height: 300px; /* Adjust as needed */
-    background-color: #f0f0f0; /* Light gray background */
-    border-radius: 10px; /* Rounded corners */
-    overflow: hidden; /* Ensures content doesn't overflow rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  @media (max-width: 999) {
+    .img2 {
+      margin-left: 0;
+      margin-top: 20px;
+    }
   }
