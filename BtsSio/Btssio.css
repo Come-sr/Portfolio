@@ -43,7 +43,7 @@ header {
 
 h1, h2 {
     font-family: "Fjalla One", sans-serif;
-    color: #5ee7d8;
+    color: whitesmoke;
 }
 
 h1 {
@@ -53,6 +53,7 @@ h1 {
 }
 
 h2 {
+    color: white;
     font-size: 1.8rem;
     border-bottom: 2px solid #5ee7d8;
     padding-bottom: 0.5rem;
@@ -86,10 +87,13 @@ ul {
 
 .lycee-image {
     width: 100%;
-    max-width: 600px;
+    max-width: 64%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     height: auto;
     border-radius: 10px;
-    margin: 1rem 0;
+    margin-top: 30px;
     box-shadow: 0 4px 8px rgba(2, 243, 203, 0.2);
 }
 

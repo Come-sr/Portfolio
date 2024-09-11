@@ -19,6 +19,16 @@ body, html {
 	backdrop-filter: blur(10px);
 	border-radius: 15px;
   }
+
+  .container2 {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+      background-color: rgba(94, 231, 216, 0.1); /* Primary color with low opacity */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    }
   
   .header {
 	text-align: center;
