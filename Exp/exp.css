@@ -3,7 +3,7 @@ body, html {
 	padding: 0;
 	font-family: 'Montserrat', sans-serif;
 	background: #0d1117;
-	color: #f1f3f5;
+	color: #ffffff;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
@@ -86,17 +86,17 @@ body, html {
   
   .timeline-content p, .timeline-content a {
 	margin-bottom: 0;
-	color: #e1f8dc;
+	color: #ffffff;
   }
   
   a {
-	color: #c9fbb6;
+	color: #ffffff;
 	text-decoration: none;
 	transition: color 0.3s ease;
   }
   
   a:hover {
-	color: #a7d7a0;
+	color: #000000;
   }
   
   nav {
@@ -113,7 +113,7 @@ body, html {
   }
   
   nav a {
-	color: #c9fbb6;
+	color: #ffffff;
 	text-decoration: none;
 	font-size: 1.2rem;
 	padding: 0.5rem 1rem;
@@ -122,7 +122,7 @@ body, html {
   }
   
   nav a:hover {
-	background-color: #c9fbb6;
+	background-color: #ffffff;
 	color: #2c3a66;
   }
   
@@ -144,5 +144,22 @@ body, html {
 	  padding: 1rem;
 	}
 	
+  }
+  
+  img {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2%;
+    max-width: 50%;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
+  }
+  
+  img:hover {
+    transform: scale(1.05); /* Enlarge the image by 5% */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Larger shadow for more emphasis */
+    z-index: 1; /* Ensures the hovered image appears above others */
   }
   
