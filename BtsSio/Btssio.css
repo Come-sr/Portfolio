@@ -76,8 +76,8 @@ ul {
 }
 
 .certification-logos img {
-    width: 100px;
-    height: auto;
+    width: 20%;
+    height: 20%;
     transition: transform 0.3s ease;
 }
 
