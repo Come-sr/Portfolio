@@ -12,6 +12,17 @@ body, html {
     overflow: hidden;
 }
 
+
+.LinkIN {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 5px;
+    width: 59px; 
+    height: 59px;
+    z-index: 999;
+}
+
 .background {
     position: fixed;
     top: 0;
