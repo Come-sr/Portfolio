@@ -1,6 +1,6 @@
 body, html {
     font-family: 'Roboto', sans-serif;
-    background-color: #0d1117; 
+    background-color: #1c1f24; /* Dark background */
     color: #f1f3f5; /* Text color */
     margin: 0;
     padding: 0;
@@ -19,7 +19,6 @@ body, html {
     max-width: 850px;
     margin: 0 auto;
     padding: 2.5rem;
-    background-color: rgba(13, 17, 23, 0.6); 
 }
 
 .cv-container {
@@ -27,6 +26,7 @@ body, html {
     justify-content: center;
     margin-top: 2rem;
 }
+
 .cv-embed {
     width: 100%;
     height: 800px; 
@@ -47,19 +47,17 @@ h1, h2 {
 h1 {
     font-size: 2.7rem;
     margin-bottom: 1.2rem;
-    
 }
 
 h2 {
     font-size: 2rem;
-    border-bottom: 2px solid #5ee7d8;
+    border-bottom: 2px solid #8678f9; /* Pastel teal */
     padding-bottom: 0.7rem;
     margin-top: 2.5rem;
 }
 
 p {
-    color: #c9c9c9; 
+    color: #c9c9c9; /* Light gray */
     margin-bottom: 1.2rem;
     text-align: justify;
 }
-

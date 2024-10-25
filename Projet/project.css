@@ -2,8 +2,8 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-  color: #f1f3f5;
-  background-color: #0d1117;
+  color: #f1f3f5; /* Original text color */
+  background-color: #1c1f24; /* Dark background */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +15,7 @@ body, html {
   max-width: 1400px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: rgba(94, 231, 216, 0.1);
+  background-color: rgba(255, 182, 193, 0.1); /* Light pastel pink */
   backdrop-filter: blur(10px);
   border-radius: 15px;
   margin-top: 33px;
@@ -26,7 +26,7 @@ body, html {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: rgba(94, 231, 216, 0.1);
+  background-color: rgba(173, 216, 230, 0.1); /* Light pastel blue */
   backdrop-filter: blur(10px);
   border-radius: 15px;
 }
@@ -39,7 +39,7 @@ body, html {
 h1 {
   font-family: "Fjalla One", sans-serif;
   font-size: 3rem;
-  color: #02f3cb;
+  color: #7852e3; /* Darker pastel pink for consistency with HTML */
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
@@ -48,7 +48,6 @@ h1 {
 h2 {
   font-size: 1.5rem;
   font-weight: 300;
-  margin-top: 0;
 }
 
 .mission-grid {
@@ -64,11 +63,11 @@ h2 {
 }
 
 .mission-card, .mission-card2 {
-  background-color: rgba(44, 58, 102, 0.6);
+  background-color: #1c1f24bb; /* Light pastel peach */
   border-radius: 10px;
   overflow: hidden;
   text-decoration: none;
-  color: #02f3cb;
+  color: #900C3F; /* Darker pastel pink for consistency with HTML */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -87,7 +86,7 @@ h2 {
 
 .mission-card:hover, .mission-card2:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(201, 251, 182, 0.3);
+  box-shadow: 0 5px 15px rgba(255, 160, 122, 0.3); /* Light pastel orange shadow */
 }
 
 .mission-card h3, .mission-card2 h3 {
@@ -95,6 +94,7 @@ h2 {
   margin: 0;
   font-size: 1.2rem;
   text-align: center;
+  color: #7852e3; /* Softer pink for headings */
 }
 
 .mission-card img, .mission-card2 img {

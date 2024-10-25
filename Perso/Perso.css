@@ -44,7 +44,7 @@ h1 {
 
 h2 {
     font-size: 2rem;
-    border-bottom: 2px solid #5ee7d8;
+    border-bottom: 2px solid #8678f9;
     padding-bottom: 0.7rem;
     margin-top: 2.5rem;
 }
@@ -53,8 +53,4 @@ p {
     color: #c9c9c9; /* Slightly darker gray for better contrast */
     margin-bottom: 1.2rem;
     text-align: justify;
-}
-
-.certification-logos {
-    /* Add styles for certification logos here */
 }

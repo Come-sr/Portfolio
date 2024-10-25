@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration Windows - HSH</title>
+    <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" type="text/css" href="AP.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<table style="position: fixed; top: 124px; left: 4%; border-collapse: collapse;">
+    <tr>
+      <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00; border-radius: 16px;">Informations Complémentaires :</th>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Outils :</strong> Windows Server 2022, Microsoft Word </td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Période :</strong> <i> 05/09 - 03/10</i> </td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00; border-radius: 16px;">Compétences Mises en Oeuvre</th>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #cccccc00;"> 
+        <strong> - Gérer le patrimoine informatique<br><br> 
+        - Mettre à disposition des utilisateurs <br> &nbsp;&nbsp;&nbsp;&nbsp; un service informatique<br><br> 
+        - Organiser son développement professionnel
+        </strong>
+      </td>
+    </tr>
+  </table>
+
+<body>
+    <div class="page-container">
+        <header class="header">
+            <h1>Administration Windows - Mise en Place des Services</h1>
+        </header>
+
+        <main>
+            <section>
+                <h2>Contexte</h2>
+                <p>Dans le cadre de notre projet d'administration Windows, nous avons mis en place des services d'authentification de domaine, de gestion de fichiers, et un service DHCP redondant. Cela implique la configuration de deux serveurs Active Directory (AD), ainsi que des services DNS et DHCP, afin d'assurer la continuité des services et une gestion centralisée des utilisateurs.</p>
+            </section>
+
+            
+            <section>
+                <h2>1. Schéma Réseau</h2>
+                <p>Notre infrastructure réseau se compose d’un serveur Windows 2022 et d’un ordinateur client connecté à ce serveur. Cela permet une gestion centralisée des ressources et des utilisateurs.</p>
+                <div style="     display: flex;
+                justify-content: center;
+                margin: 20px 0;">
+                <img src="../img/winserv1.png" alt="Schéma réseau"> </div>
+            </section>
+           
+
+            <section>
+                <h2>2. Infrastructure Active Directory</h2>
+                <p>Nous avons créé quatre unités d'organisation et quatre groupes d'utilisateurs pour faciliter la gestion des permissions au sein de l'organisation.</p>
+                <div style="     display: flex;
+                justify-content: center;
+                margin: 20px 0;">
+                <img src="../img/winserv2.png" alt="Schéma réseau"> </div>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>2.2. Scripts</h2>
+                <p>Pour connecter les différents lecteurs réseaux aux sessions d’utilisateurs lors de leur démarrage, nous avons créé des scripts. Voici un exemple du script <code>logon-comptables.bat</code> qui est utilisé pour connecter les utilisateurs au lecteur réseau approprié :</p>
+                <pre><code>@echo off
+Net use w: &lt;répertoire&gt;</code></pre>
+                <p>La ligne <code>@echo off</code> empêche l’affichage du terminal lors de l’exécution du script, et <code>Net use w: &lt;répertoire&gt;</code> connecte le répertoire à la lettre de lecteur W. Ce script est placé dans le répertoire NETLOGON du serveur Windows pour s'appliquer aux utilisateurs concernés.</p>
+            </section>
+
+            <section>
+                <h2>2.3. Service de fichiers</h2>
+                <p>Notre arborescence de fichiers comprend plusieurs dossiers partagés, organisés par groupe, ainsi que des dossiers personnels pour chaque utilisateur. Cela permet une gestion efficace des ressources et un accès sécurisé aux données.</p>
+                <div style="     display: flex;
+                justify-content: center;
+                margin: 20px 0;">
+                <img src="../img/winserv3.png" alt="Schéma réseau"> </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

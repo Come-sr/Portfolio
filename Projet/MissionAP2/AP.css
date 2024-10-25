@@ -1,74 +1,80 @@
 body, html {
-    font-family: 'Roboto', sans-serif;
-    background-color: #0d1117; /* Background color */
-    color: #f1f3f5; /* Text color */
-    margin: 0;
-    padding: 0;
-    line-height: 1.7;
+  font-family: 'Roboto', sans-serif;
+  background-color: #1c1f24; /* Background color */
+  color: #f1f3f5; /* Text color */
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
 }
 
 .page-container {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 2.5rem;
-    background-color: rgba(13, 17, 23, 0.6); /* Slightly transparent background */
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 2.5rem;
 }
 
 header {
-    text-align: center;
-    margin-bottom: 2.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
 h1, h2 {
-    font-family: "Poppins", sans-serif;
-    color: #f1f3f5; /* Matching the body text color */
+  font-family: "Poppins", sans-serif;
+  color: #f1f3f5; /* Matching the body text color */
 }
 
 h1 {
-    font-size: 2.7rem;
-    margin-bottom: 1.2rem;
-    
+  font-size: 2.7rem;
+  margin-bottom: 1.2rem;
 }
 
 h2 {
-    font-size: 2rem;
-    border-bottom: 2px solid #5ee7d8;
-    padding-bottom: 0.7rem;
-    margin-top: 2.5rem;
+  font-size: 2rem;
+  border-bottom: 2px solid #b59cd6; /* Lavender Mist */
+  padding-bottom: 0.7rem;
+  margin-top: 2.5rem;
 }
 
 p {
-    color: #c9c9c9; /* Slightly darker gray for better contrast */
-    margin-bottom: 1.2rem;
-    text-align: justify;
-    text-justify: inter-word;
+  color: #c9c9c9; /* Slightly darker gray for better contrast */
+  margin-bottom: 1.2rem;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 img {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 2%;
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
-  }
-  
-  img:hover {
-    transform: scale(1.05); /* Enlarge the image by 5% */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Larger shadow for more emphasis */
-    z-index: 1; /* Ensures the hovered image appears above others */
-  }
-  
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
+  justify-content:center;
+}
+
+img:hover {
+  transform: scale(1.05); /* Enlarge the image by 5% */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Larger shadow for more emphasis */
+  z-index: 1; /* Ensures the hovered image appears above others */
+}
+
+.img2 {
+  margin-left: 20px;
+  margin-top: 60px;
+}
+
+@media (max-width: 999px) {
   .img2 {
-    margin-left: 20px;
-    margin-top: 60px;
-  }
-  
-  @media (max-width: 999) {
-    .img2 {
       margin-left: 0;
       margin-top: 20px;
-    }
   }
+}
+
+/* Additional styles for the lavender colors */
+h1 {
+  color: #8678f9; /* Original lavender */
+}
+
+h2 {
+  color: #c49ed4; /* Lavender Blush */
+}
