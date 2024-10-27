@@ -2,72 +2,102 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-  color: #f1f3f5; /* Original text color */
-  background-color: #1c1f24; /* Dark background */
+  color: #f1f3f5;
+  background-color: #1c1f24;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.container {
+.container, .container2 {
   width: 90%;
   max-width: 1400px;
   margin: 2rem auto;
-  padding: 2rem;
-  background-color: rgba(255, 182, 193, 0.1); /* Light pastel pink */
-  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
-  margin-top: 33px;
+  overflow: hidden;
 }
 
-.container2 {
-  width: 90%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: rgba(173, 216, 230, 0.1); /* Light pastel blue */
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+.section-header:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.toggle-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+}
+
+.section-header.active .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.section-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.section-content.active {
+  max-height: 2000px; /* Ajustez cette valeur selon vos besoins */
 }
 
 .header {
-  text-align: center;
-  margin-bottom: 2rem;
+  text-align: left;
 }
 
 h1 {
   font-family: "Fjalla One", sans-serif;
-  font-size: 3rem;
-  color: #7852e3; /* Darker pastel pink for consistency with HTML */
+  font-size: 2.5rem;
+  color: #7852e3;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
 }
 
+.second-year h1 {
+  color: #c49ed4;
+}
+
+.apprenticeship h1 {
+  color: #f9c78d;
+}
+
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
+  margin: 0;
 }
 
 .mission-grid {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding: 2rem;
 }
 
 .testt {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 2rem;
 }
 
 .mission-card, .mission-card2 {
-  background-color: #1c1f24bb; /* Light pastel peach */
+  background-color: #1c1f24bb;
   border-radius: 10px;
   overflow: hidden;
   text-decoration: none;
-  color: #900C3F; /* Darker pastel pink for consistency with HTML */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -81,12 +111,11 @@ h2 {
 
 .mission-card2 {
   width: 48%;
-  margin: 1%;
 }
 
 .mission-card:hover, .mission-card2:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(255, 160, 122, 0.3); /* Light pastel orange shadow */
+  box-shadow: 0 5px 15px rgba(255, 160, 122, 0.3);
 }
 
 .mission-card h3, .mission-card2 h3 {
@@ -94,7 +123,15 @@ h2 {
   margin: 0;
   font-size: 1.2rem;
   text-align: center;
-  color: #7852e3; /* Softer pink for headings */
+  color: #7852e3;
+}
+
+.second-year .mission-card h3 {
+  color: #c49ed4;
+}
+
+.apprenticeship .mission-card2 h3 {
+  color: #f9c78d;
 }
 
 .mission-card img, .mission-card2 img {
@@ -120,16 +157,15 @@ h2 {
 @media screen and (max-width: 768px) {
   .container, .container2 {
       width: 95%;
-      padding: 1rem;
       margin: 1rem auto;
   }
 
   h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
   }
 
   h2 {
-      font-size: 1.2rem;
+      font-size: 1rem;
   }
 
   .mission-card, .mission-card2 {
