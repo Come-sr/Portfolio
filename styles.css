@@ -4,12 +4,25 @@ body, html {
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     color: hwb(210 95% 4%);
-    background-color: #1c1f24; /* Dark background */
+    background: linear-gradient(45deg, 
+    #8d7ef2, /* Darkened #b2a8fd */
+    #5e5bbd, /* Darkened #8678f9 */
+    #7168c0, /* Darkened #9a8dfd */
+    #6a5cd9  /* Darkened #8d7ef2 */
+);
+    background-size: 300% 300%;
+    animation: gradientAnimation 10s ease infinite;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .LinkIN {
@@ -22,68 +35,15 @@ body, html {
     z-index: 999;
 }
 
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.background::before,
-.background::after {
-    content: "";
-    position: absolute;
-    width: 300%;
-    height: 300%;
-    top: -100%;
-    left: -100%;
-    z-index: -1;
-}
-
-.background::before {
-    background: linear-gradient(
-        45deg,
-        #1c1f24,
-        #223040,
-        #141922,
-        #1c1f24,
-        #1a222e
-    );
-    animation: wave 25s infinite linear;
-}
-
-.background::after {
-    background: linear-gradient(
-        45deg,
-        #223040,
-        #141922,
-        #1c1f24,
-        #1a222e,
-        #2a3946
-    );
-    animation: wave 35s infinite linear;
-    opacity: 0.7;
-}
-
-@keyframes wave {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
 span {
     background: linear-gradient(
         90deg,
-        #b2a8fd,
-        #8678f9,
-        #9a8dfd,
-        #c7d2fe,
-        #b2a8fd
+        #1c1f24,
+        #262435,
+        #1b1e22,
+        #212429,
+        #1c1f24
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -118,7 +78,7 @@ span {
 h1 {
     font-size: 380px;
     font-family: "Fjalla One", sans-serif;
-    color: #5ee7d8; /* Pastel teal */
+    color: #1c1f24; /* Pastel teal */
     text-transform: uppercase;
     letter-spacing: 12px;
 }
@@ -136,6 +96,7 @@ nav {
     justify-content: center;
     gap: 2rem;
     border-radius: 24px;
+    z-index: 99000;
 }
 
 nav a {
