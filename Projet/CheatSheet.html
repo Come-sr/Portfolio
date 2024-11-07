@@ -140,6 +140,152 @@
       </tr>
     </table>
     
+
+
+    <h2>Troubleshooting Cisco Commands</h2>
+    <table>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>ping {hostname | system-address} [source source-address]</code></td>
+            <td>Used to diagnose basic network connectivity</td>
+        </tr>
+        <tr>
+            <td><code>speed {10 | 100 | 1000 | auto}</code></td>
+            <td>Configures the transmission speed of a network interface to the specified value in Mbps or enables automatic speed detection</td>
+        </tr>
+        <tr>
+            <td><code>duplex {auto | full | half}</code></td>
+            <td>Sets duplex to half, full or auto</td>
+        </tr>
+        <tr>
+            <td><code>cdp run / no cdp run</code></td>
+            <td>Enables or disables Cisco Discovery Protocol (CDP) for the device</td>
+        </tr>
+        <tr>
+            <td><code>show mac address-table</code></td>
+            <td>Displays the MAC address table</td>
+        </tr>
+        <tr>
+            <td><code>show cdp</code></td>
+            <td>Shows whether CDP is enabled globally</td>
+        </tr>
+        <tr>
+            <td><code>show cdp neighbors [detail]</code></td>
+            <td>Lists summary (or detailed) information about each neighbor connected to the device</td>
+        </tr>
+        <tr>
+            <td><code>show interfaces</code></td>
+            <td>Displays detailed information about interface status, settings, and counters</td>
+        </tr>
+        <tr>
+            <td><code>show interface status</code></td>
+            <td>Displays the interface line status</td>
+        </tr>
+        <tr>
+            <td><code>show interfaces switchport</code></td>
+            <td>Displays many configuration settings and current operational status, including VLAN trunking details</td>
+        </tr>
+        <tr>
+            <td><code>show interfaces trunk</code></td>
+            <td>Lists information about the currently operational trunks and the VLANs supported by those trunks</td>
+        </tr>
+        <tr>
+            <td><code>show vlan / show vlan brief</code></td>
+            <td>Lists each VLAN and all interfaces assigned to that VLAN but does not include trunks</td>
+        </tr>
+        <tr>
+            <td><code>show vtp status</code></td>
+            <td>Lists the current VLAN Trunk Protocol (VTP) status, including the current mode</td>
+        </tr>
+    </table>
+
+    <h2>Security Commands</h2>
+    <table>
+      <tr>
+      <th>Command</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>password {pass-value}</code></td>
+            <td>Lists the password that is required if the login command (with no other parameters) is configured</td>
+        </tr>
+        <tr>
+            <td><code>username {name} password {pass-value}</code></td>
+            <td>Defines one of possibly multiple user names and associated passwords used for user authentication</td>
+        </tr>
+        <tr>
+            <td><code>enable password {pass-value}</code></td>
+            <td>Defines the password required when using the enable command</td>
+        </tr>
+        <tr>
+            <td><code>enable secret {pass-value}</code></td>
+            <td>Sets the password required for any user to enter enable mode</td>
+        </tr>
+        <tr>
+            <td><code>service password-encryption</code></td>
+            <td>Directs the Cisco IOS software to encrypt the passwords, CHAP secrets, and similar data saved in its configuration file</td>
+        </tr>
+        <tr>
+            <td><code>ip domain-name {name}</code></td>
+            <td>Configures a DNS domain name</td>
+        </tr>
+        <tr>
+            <td><code>crypto key generate rsa</code></td>
+            <td>Creates and stores the keys required by SSH</td>
+        </tr>
+        <tr>
+            <td><code>transport input {telnet | ssh}</code></td>
+            <td>Defines whether Telnet or SSH access is allowed into this switch</td>
+        </tr>
+        <tr>
+            <td><code>access-list {access-list-number} {deny | permit} source [source-wildcard] [log]</code></td>
+            <td>Defines a standard IP access list</td>
+        </tr>
+        <tr>
+            <td><code>access-class</code></td>
+            <td>Restricts incoming and outgoing connections between a particular VTY (into a basic Cisco device) and the addresses in an access list</td>
+        </tr>
+        <tr>
+            <td><code>ip access-list {standard | extended} {access-list-name | access-list-number}</code></td>
+            <td>Defines an IP access list by name or number</td>
+        </tr>
+        <tr>
+            <td><code>permit source [source-wildcard]</code></td>
+            <td>Allows a packet to pass a named IP ACL</td>
+        </tr>
+        <tr>
+            <td><code>deny source [source-wildcard]</code></td>
+            <td>Sets conditions in a named IP ACL that will deny packets</td>
+        </tr>
+        <tr>
+            <td><code>ntp peer</code></td>
+            <td>Configures the software clock to synchronize a peer or to be synchronized by a peer</td>
+        </tr>
+        <tr>
+            <td><code>switchport port-security</code></td>
+            <td>Enables port security on the interface</td>
+        </tr>
+        <tr>
+            <td><code>switchport port-security maximum {maximum}</code></td>
+            <td>Sets the maximum number of secure MAC addresses on the port</td>
+        </tr>
+        <tr>
+            <td><code>switchport port-security mac-address {mac-addr | sticky [mac-addr]}</code></td>
+            <td>Adds a MAC address to the list of secure MAC addresses. The “sticky” option configures the MAC addresses as sticky on the interface</td>
+        </tr>
+        <tr>
+            <td><code>switchport port-security violation {shutdown | restrict | protect}</code></td>
+            <td>Sets the action to be taken when a security violation is detected</td>
+        </tr>
+        <tr>
+            <td><code>show port security [interface interface-id]</code></td>
+            <td>Displays information about security options configured on the interface</td>
+        </tr>
+    </table>
+
     <h2>Routing and IP Configuration</h2>
     <table>
       <tr>
