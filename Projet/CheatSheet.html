@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cisco Command Cheatsheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1c1f24;
+      color: #f1f3f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #7852e3;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #7852e3;
+      margin-top: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    th {
+      text-align: left;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container" style="background-color: #1c1f24;">
+    <h1>Cisco Command Cheatsheet</h1>
+
+
+
+
+    <h2>Basic Configuration</h2>
+    <table>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>enable</code></td>
+        <td>Enter privileged EXEC mode.</td>
+      </tr>
+      <tr>
+        <td><code>disable</code></td>
+        <td>Return to user EXEC mode.</td>
+      </tr>
+      <tr>
+        <td><code>configure terminal</code></td>
+        <td>Enter global configuration mode.</td>
+      </tr>
+      <tr>
+        <td><code>hostname [name]</code></td>
+        <td>Set the hostname of the device.</td>
+      </tr>
+      <tr>
+        <td><code>copy running-config startup-config</code></td>
+        <td>Save the current configuration.</td>
+      </tr>
+      <tr>
+        <td><code>show running-config</code></td>
+        <td>Display the current configuration.</td>
+      </tr>
+      <tr>
+        <td><code>show version</code></td>
+        <td>Display system hardware and software status.</td>
+      </tr>
+      <tr>
+        <td><code>reload</code></td>
+        <td>Reboot the router or switch.</td>
+      </tr>
+      <tr>
+        <td><code>clock set HH:MM:SS DD MMM YYYY</code></td>
+        <td>Set the system clock.</td>
+      </tr>
+    </table>
+    
+    <h2>VLANs and Trunking</h2>
+    <table>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>vlan [id]</code></td>
+        <td>Create a VLAN.</td>
+      </tr>
+      <tr>
+        <td><code>name [name]</code></td>
+        <td>Name the VLAN.</td>
+      </tr>
+      <tr>
+        <td><code>interface vlan [id]</code></td>
+        <td>Create a VLAN interface.</td>
+      </tr>
+      <tr>
+        <td><code>switchport mode access</code></td>
+        <td>Set the port to access mode.</td>
+      </tr>
+      <tr>
+        <td><code>switchport access vlan [id]</code></td>
+        <td>Assign the port to a VLAN.</td>
+      </tr>
+      <tr>
+        <td><code>switchport mode trunk</code></td>
+        <td>Set the port to trunk mode.</td>
+      </tr>
+      <tr>
+        <td><code>switchport trunk allowed vlan [list]</code></td>
+        <td>Configure allowed VLANs on a trunk port.</td>
+      </tr>
+      <tr>
+        <td><code>show vlan brief</code></td>
+        <td>Display a summary of configured VLANs.</td>
+      </tr>
+    </table>
+    
+    <h2>Routing and IP Configuration</h2>
+    <table>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>interface [interface]</code></td>
+        <td>Enter configuration mode for the specified interface.</td>
+      </tr>
+      <tr>
+        <td><code>ip address [ip] [mask]</code></td>
+        <td>Configure an IP address on the interface.</td>
+      </tr>
+      <tr>
+        <td><code>no shutdown</code></td>
+        <td>Activate the interface.</td>
+      </tr>
+      <tr>
+        <td><code>shutdown</code></td>
+        <td>Deactivate the interface.</td>
+      </tr>
+      <tr>
+        <td><code>ip route [network] [mask] [next-hop]</code></td>
+        <td>Add a static route.</td>
+      </tr>
+      <tr>
+        <td><code>show ip route</code></td>
+        <td>Display the IP routing table.</td>
+      </tr>
+    </table>
+    
+    <h2>OSPF Routing</h2>
+    <table>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>router ospf [process-id]</code></td>
+        <td>Enable OSPF and enter router configuration mode.</td>
+      </tr>
+      <tr>
+        <td><code>network [ip] [wildcard-mask] area [id]</code></td>
+        <td>Specify the networks to be advertised in OSPF.</td>
+      </tr>
+      <tr>
+        <td><code>show protocols</code></td>
+        <td>Display the configured routing protocols.</td>
+      </tr>
+    </table>
+    
+    <h2>VPN Configuration</h2>
+    <table>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>crypto isakmp policy [priority]</code></td>
+        <td>Create an ISAKMP policy.</td>
+      </tr>
+      <tr>
+        <td><code>authentication pre-share</code></td>
+        <td>Specify pre-shared key authentication.</td>
+      </tr>
+      <tr>
+        <td><code>crypto isakmp key [key] address [ip]</code></td>
+        <td>Configure the ISAKMP pre-shared key.</td>
+      </tr>
+      <tr>
+        <td><code>crypto ipsec transform-set [name]</code></td>
+        <td>Define an IPsec transform set.</td>
+      </tr>
+      <tr>
+        <td><code>crypto map [name] [seq] ipsec-isakmp</code></td>
+        <td>Create a crypto map.</td>
+      </tr>
+      <tr>
+        <td><code>set peer [ip]</code></td>
+        <td>Specify the peer IP address.</td>
+      </tr>
+      <tr>
+        <td><code>set transform-set [name]</code></td>
+        <td>Apply the transform set to the crypto map.</td>
+      </tr>
+      <tr>
+        <td><code>interface [interface]</code></td>
+        <td>Enter interface configuration mode.</td>
+      </tr>
+      <tr>
+        <td><code>crypto map [name]</code></td>
+        <td>Apply the crypto map to the interface.</td>
+      </tr>
+    </table>
+    
+    <h2>Useful Linux Commands</h2>
+    <table>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td><code>sudo apt update && sudo apt upgrade</code></td>
+        <td>Update and upgrade packages (Debian/Ubuntu).</td>
+      </tr>
+      <tr>
+        <td><code>sudo dnf update && sudo dnf upgrade</code></td>
+        <td>Update and upgrade packages (Fedora).</td>
+      </tr>
+      <tr>
+        <td><code>sudo apt install [package]</code></td>
+        <td>Install a package (Debian/Ubuntu).</td>
+      </tr>
+      <tr>
+        <td><code>sudo dnf install [package]</code></td>
+        <td>Install a package (Fedora).</td>
+      </tr>
+      <tr>
+        <td><code>ip a</code></td>
+        <td>Display network interfaces.</td>
+      </tr>
+      <tr>
+        <td><code>ping [ip/hostname]</code></td>
+        <td>Test network connectivity.</td>
+      </tr>
+      <tr>
+        <td><code>systemctl status [service]</code></td>
+        <td>Check the status of a service.</td>
+      </tr>
+      <tr>
+        <td><code>nano /etc/network/interfaces</code></td>
+        <td>Edit network interface configuration (Debian/Ubuntu).</td>
+      </tr>
+      <tr>
+        <td><code>sudo reboot</code></td>
+        <td>Reboot the system.</td>
+      </tr>
+    </table>
