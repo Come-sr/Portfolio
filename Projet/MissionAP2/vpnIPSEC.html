@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation VPN IPSEC Cisco</title>
+    <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" type="text/css" href="AP.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<table style="position: fixed; top: 124px; left: 4%; border-collapse: collapse;">
+    <tr>
+      <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Informations Complémentaires</th>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Outils :</strong>Serveur Linux Fedora, Service Asterisk</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Période :</strong> <i> 15/10 - 19/11</i> </td>
+    </tr>
+    <tr>
+      <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00; border-radius: 16px;">Compétences Mises en Oeuvre</th>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #cccccc00;"> 
+        <strong>- Gérer le patrimoine informatique <br><br> 
+        </strong> 
+
+        <strong>- Mettre à disposition des utilisateurs <br> &nbsp;&nbsp;&nbsp;&nbsp; un service informatique<br><br> 
+        </strong>
+
+        <strong>- Organiser son développement professionnel
+        </strong>
+
+      </td>
+    </tr>
+  </table>
+
+  <body>
+    <div class="page-container">
+        <header class="header">
+            <h1>Administration Réseaux - Mise en Place de la Téléphonie avec Asterisk</h1>
+        </header>
+
+        <main>
+            <section>
+                <h2>Contexte</h2>
+                <p>Dans le cadre de notre projet de mise en place d'infrastructure réseau, nous avons déployé un VPN IPSEC sur deux routeurs Cisco pour la gestion des appels, avec des fichiers de
+                   configuration.</p>
+            </section>
+
+            <section>
+                <h2>Qu'est ce qu'un VPN IPSEC</h2>
+                <p>Un VPN IPsec (Internet Protocol Security) est une technologie utilisée en entreprise pour 
+                  sécuriser les communications sur un réseau IP. Il chiffre les données échangées, garantissant 
+                  leur confidentialité. L'un des avantages clés d'IPsec est que la connexion reste active et 
+                  sécurisée en permanence, assurant une communication fiable entre différents sites ou pour 
+                  les employés à distance.</p>
+                <div style="display: flex; justify-content: center; margin: 20px 0;">
+                    <img src="https://static.tp-link.com/image-20210508162721-13_1620462537523g.png" alt="Schéma réseau téléphonie">
+                </div>
+            </section>
+
+            <section>
+                <h2>Schema du réseau</h2>
+                <p>Nous avons configuré les fichiers <code>pjsip.conf</code> pour la gestion des utilisateurs et <code>extensions.conf</code> pour définir les extensions et les règles de routage des appels. Ces fichiers permettent de gérer les appels et d’assurer la bonne communication entre les différents postes.</p>
+                <img src="vpnIPSEC.png" alt="Schéma réseau téléphonie">
