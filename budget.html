@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Fjalla+One&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        /* Hide scrollbar */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        * {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #f1f3f5;
+            background: linear-gradient(45deg, 
+                #8d7ef2,
+                #5e5bbd,
+                #7168c0,
+                #6a5cd9
+            );
+            background-size: 300% 300%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            height: calc(100vh - 4rem);
+        }
+
+        .sidebar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.5rem;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 2rem;
+        }
+
+        .accounts-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        .account-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .account-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .transactions {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .transaction-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .add-transaction {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: background 0.3s ease;
+        }
+
+        .add-transaction:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .budget-progress {
+            margin: 1.5rem 0;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #5ee7d8;
+            width: 65%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .amount {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .expense {
+            color: #ff7b7b;
+        }
+
+        .income {
+            color: #7bff9b;
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: "Fjalla One", sans-serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .chart-container {
+            margin-top: 1.5rem;
+            height: 200px;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <div class="sidebar">
+                <h2>Budget Overview</h2>
+                <div class="budget-progress">
+                    <div class="d-flex">
+                        <span>Monthly Budget</span>
+                        <span>$2,500 / $3,000</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 2rem">Categories</h3>
+                <div class="chart-container">
+                    <canvas id="categoryChart"></canvas>
+                </div>
+                
+                <button class="add-transaction">+ Add Transaction</button>
+            </div>
+
+            <div class="main-content">
+                <div class="accounts-overview">
+                    <div class="account-card">
+                        <h3>Checking Account</h3>
+                        <div class="amount">$4,280.50</div>
+                        <div style="color: rgba(255,255,255,0.6)">Available Balance</div>
+                    </div>
+                    <div class="account-card">
+                        <h3>Savings Account</h3>
+                        <div class="amount">$12,650.75</div>
+                        <div style="color: rgba(255,255,255,0.6)">Available Balance</div>
+                    </div>
+                    <div class="account-card">
+                        <h3>Credit Card</h3>
+                        <div class="amount expense">-$520.25</div>
+                        <div style="color: rgba(255,255,255,0.6)">Current Balance</div>
+                    </div>
+                </div>
+
+                <div class="transactions">
+                    <h2>Recent Transactions</h2>
+                    <ul class="transaction-list">
+                        <li class="transaction-item">
+                            <div>
+                                <div>Grocery Store</div>
+                                <span class="category-tag">Groceries</span>
+                            </div>
+                            <div class="amount expense">-$85.50</div>
+                        </li>
+                        <li class="transaction-item">
+                            <div>
+                                <div>Monthly Salary</div>
+                                <span class="category-tag">Income</span>
+                            </div>
+                            <div class="amount income">+$3,500.00</div>
+                        </li>
+                        <li class="transaction-item">
+                            <div>
+                                <div>Netflix Subscription</div>
+                                <span class="category-tag">Entertainment</span>
+                            </div>
+                            <div class="amount expense">-$14.99</div>
+                        </li>
+                        <li class="transaction-item">
+                            <div>
+                                <div>Electric Bill</div>
+                                <span class="category-tag">Utilities</span>
+                            </div>
+                            <div class="amount expense">-$95.40</div>
+                        </li>
+                        <li class="transaction-item">
+                            <div>
+                                <div>Restaurant</div>
+                                <span class="category-tag">Dining</span>
+                            </div>
+                            <div class="amount expense">-$45.80</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Add this Modal HTML inside your body, below the existing content -->
+<div id="transactionModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span id="closeModal" class="close-button">&times;</span>
+        <h2>Add Transaction</h2>
+        <form id="transactionForm">
+            <label for="transactionName">Transaction Name:</label>
+            <input type="text" id="transactionName" required>
+            <label for="transactionCategory">Category:</label>
+            <select id="transactionCategory" required>
+                <option value="Income">Income</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Dining">Dining</option>
+            </select>
+            <label for="transactionAmount">Amount:</label>
+            <input type="number" id="transactionAmount" step="0.01" required>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</div>
+<!-- Style for the modal -->
+<style>
+    /* Modal background and layout */
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+    
+    /* Modal content box */
+    .modal-content {
+        background: rgba(30, 30, 30, 1);
+        padding: 2rem;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+        position: relative;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Close button */
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5rem;
+        color: #f1f3f5;
+        cursor: pointer;
+    }
+    
+    /* Input, select, and button styling */
+    .modal-content input,
+    .modal-content select,
+    .modal-content button {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 1rem;
+        color: #f1f3f5;
+        background: rgba(50, 50, 50, 1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+    }
+    
+    .modal-content button {
+        background: rgba(94, 231, 216, 0.8);
+        border: none;
+        font-weight: 600;
+        transition: background 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .modal-content button:hover {
+        background: rgba(94, 231, 216, 1);
+    }
+    
+    /* Input and select focus effect */
+    .modal-content input:focus,
+    .modal-content select:focus {
+        border-color: rgba(94, 231, 216, 0.8);
+        outline: none;
+    }
+    
+    /* Heading color */
+    .modal-content h2 {
+        color: #f1f3f5;
+        margin-bottom: 1rem;
+    }
+    
+    /* Label styling */
+    .modal-content label {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        text-align: left;
+        color: #c7d2fe;
+        font-weight: 500;
+    }
+    </style>
+    
+
+
+    <script>
+        const modal = document.getElementById("transactionModal");
+        const addTransactionBtn = document.querySelector(".add-transaction");
+        const closeModal = document.getElementById("closeModal");
+        const transactionForm = document.getElementById("transactionForm");
+        const transactionList = document.querySelector(".transaction-list");
+    
+        // Balances for each category
+        const balances = {
+            income: 0,
+            groceries: 0,
+            entertainment: 0,
+            utilities: 0,
+            dining: 0,
+        };
+    
+        // Total balance
+        let totalBalance = 0;
+    
+        // DOM elements for dynamic balance updates
+        const totalBalanceElement = document.querySelector(".budget-progress .d-flex span:last-child");
+        const categoryElements = {
+            income: document.createElement("span"),
+            groceries: document.createElement("span"),
+            entertainment: document.createElement("span"),
+            utilities: document.createElement("span"),
+            dining: document.createElement("span"),
+        };
+    
+        // Initialize category balances display
+        document.querySelector(".chart-container").innerHTML = `
+            <ul style="list-style: none; padding: 0; margin: 1rem 0;">
+                ${Object.keys(categoryElements)
+                    .map(
+                        (category) =>
+                            `<li style="display: flex; justify-content: space-between;">
+                                <span>${category.charAt(0).toUpperCase() + category.slice(1)}:</span>
+                                <span id="${category}Amount">$0.00</span>
+                            </li>`
+                    )
+                    .join("")}
+            </ul>
+        `;
+    
+        // Update UI
+        const updateUI = () => {
+            totalBalanceElement.textContent = `$${totalBalance.toFixed(2)}`;
+            Object.keys(balances).forEach((category) => {
+                const categoryElement = document.getElementById(`${category}Amount`);
+                const balance = balances[category];
+                categoryElement.textContent = `${category === "income" ? "+" : "-"}$${Math.abs(balance).toFixed(2)}`;
+            });
+        };
+    
+        // Open modal
+        addTransactionBtn.addEventListener("click", () => {
+            modal.style.display = "flex";
+        });
+    
+        // Close modal
+        closeModal.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    
+        // Close modal when clicking outside it
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    
+        // Handle form submission
+        transactionForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+    
+            // Get input values
+            const name = document.getElementById("transactionName").value;
+            const category = document.getElementById("transactionCategory").value.toLowerCase();
+            const amount = parseFloat(document.getElementById("transactionAmount").value);
+    
+            // Adjust balances
+            if (category === "income") {
+                balances[category] += amount;
+                totalBalance += amount;
+            } else {
+                balances[category] += amount; // Negative numbers are inputted directly
+                totalBalance -= Math.abs(amount);
+            }
+    
+            // Add transaction to the list
+            const newTransaction = document.createElement("li");
+            newTransaction.classList.add("transaction-item");
+            newTransaction.innerHTML = `
+                <div>
+                    <div>${name}</div>
+                    <span class="category-tag">${category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                </div>
+                <div class="amount ${category === "income" ? "income" : "expense"}">
+                    ${category === "income" ? "+" : "-"}$${Math.abs(amount).toFixed(2)}
+                </div>
+            `;
+            transactionList.appendChild(newTransaction);
+    
+            // Update the UI and reset the form
+            updateUI();
+            transactionForm.reset();
+            modal.style.display = "none";
+        });
+    
+        // Initial UI setup
+        updateUI();
+    </script>
+    
+
+
+</body>
+</html>
