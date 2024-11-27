@@ -35,6 +35,15 @@ body, html {
     z-index: 999;
 }
 
+.LinkIN2 {
+    position: absolute;
+    top: 6rem;
+    right: 1rem;
+    padding: 5px;
+    width: 59px; 
+    height: 59px;
+    z-index: 999;
+}
 
 span {
     background: linear-gradient(
