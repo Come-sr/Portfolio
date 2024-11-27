@@ -3,323 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cheatsheet des Commandes Cisco</title>
+  <title>Cheatsheet Complet de Configuration Cisco</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Courier New', monospace;
       background-color: #1c1f24;
       color: #f1f3f5;
-      margin: 0;
+      line-height: 1.6;
       padding: 20px;
     }
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       background-color: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
-      padding: 20px;
+      padding: 30px;
     }
-    h1 {
-      text-align: center;
+    h1, h2 {
       color: #7852e3;
+      border-bottom: 2px solid #7852e3;
+      padding-bottom: 10px;
+    }
+    pre {
+      background-color: rgba(0,0,0,0.3);
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .section {
       margin-bottom: 30px;
-    }
-    h2 {
-      color: #7852e3;
-      margin-top: 30px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-    }
-    th, td {
-      padding: 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    th {
-      text-align: left;
-      background-color: rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
 <body>
-  <div class="container" style="background-color: #1c1f24;">
-    <h1>Cheatsheet des Commandes Cisco</h1>
+<div class="container">
+  <h1>Cacasheet Complet</h1>
 
-    <h2>Configuration de Base</h2>
-    <table>
-      <tr>
-        <th>Commande</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><code>enable</code></td>
-        <td>Accéder au mode EXEC privilégié.</td>
-      </tr>
-      <tr>
-        <td><code>disable</code></td>
-        <td>Retourner au mode EXEC utilisateur.</td>
-      </tr>
-      <tr>
-        <td><code>configure terminal</code></td>
-        <td>Passer en mode configuration globale.</td>
-      </tr>
-      <tr>
-        <td><code>hostname [nom]</code></td>
-        <td>Définir le nom de l’appareil.</td>
-      </tr>
-      <tr>
-        <td><code>copy running-config startup-config</code></td>
-        <td>Sauvegarder la configuration actuelle.</td>
-      </tr>
-      <tr>
-        <td><code>show running-config</code></td>
-        <td>Afficher la configuration actuelle.</td>
-      </tr>
-      <tr>
-        <td><code>show version</code></td>
-        <td>Afficher les informations sur le matériel et logiciel système.</td>
-      </tr>
-      <tr>
-        <td><code>reload</code></td>
-        <td>Redémarrer le routeur ou le switch.</td>
-      </tr>
-      <tr>
-        <td><code>clock set HH:MM:SS JJ MMM AAAA</code></td>
-        <td>Régler l’horloge système.</td>
-      </tr>
-    </table>
-
-    <h2>Configuration VLAN et Trunk</h2>
-    <table>
-      <tr>
-        <th>Commande</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><code>vlan [id]</code></td>
-        <td>Créer un VLAN.</td>
-      </tr>
-      <tr>
-        <td><code>name [nom]</code></td>
-        <td>Nommer le VLAN.</td>
-      </tr>
-      <tr>
-        <td><code>interface vlan [id]</code></td>
-        <td>Créer une interface VLAN.</td>
-      </tr>
-      <tr>
-        <td><code>switchport mode access</code></td>
-        <td>Définir le port en mode accès.</td>
-      </tr>
-      <tr>
-        <td><code>switchport access vlan [id]</code></td>
-        <td>Assigner le port à un VLAN.</td>
-      </tr>
-      <tr>
-        <td><code>switchport mode trunk</code></td>
-        <td>Définir le port en mode trunk.</td>
-      </tr>
-      <tr>
-        <td><code>switchport trunk allowed vlan [liste]</code></td>
-        <td>Configurer les VLAN autorisés sur un port trunk.</td>
-      </tr>
-      <tr>
-        <td><code>show vlan brief</code></td>
-        <td>Afficher un résumé des VLAN configurés.</td>
-      </tr>
-    </table>
-
-    <h2>Routage et Configuration IP</h2>
-    <table>
-      <tr>
-        <th>Commande</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><code>interface [interface]</code></td>
-        <td>Accéder au mode configuration pour l’interface spécifiée.</td>
-      </tr>
-      <tr>
-        <td><code>ip address [ip] [masque]</code></td>
-        <td>Configurer une adresse IP sur l’interface.</td>
-      </tr>
-      <tr>
-        <td><code>no shutdown</code></td>
-        <td>Activer l’interface.</td>
-      </tr>
-      <tr>
-        <td><code>shutdown</code></td>
-        <td>Désactiver l’interface.</td>
-      </tr>
-      <tr>
-        <td><code>ip route [réseau] [masque] [next-hop]</code></td>
-        <td>Ajouter une route statique.</td>
-      </tr>
-      <tr>
-        <td><code>show ip route</code></td>
-        <td>Afficher la table de routage IP.</td>
-      </tr>
-    </table>
-
-    <h2>Commandes de Sécurité</h2>
-    <table>
-      <tr>
-        <th>Commande</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><code>password {valeur-pass}</code></td>
-        <td>Définit un mot de passe pour le login.</td>
-      </tr>
-      <tr>
-        <td><code>enable secret {valeur-pass}</code></td>
-        <td>Définit un mot de passe pour le mode privilégié.</td>
-      </tr>
-      <tr>
-        <td><code>service password-encryption</code></td>
-        <td>Chiffre les mots de passe dans la configuration.</td>
-      </tr>
-      <tr>
-        <td><code>crypto key generate rsa</code></td>
-        <td>Génère les clés nécessaires pour SSH.</td>
-      </tr>
-      <tr>
-        <td><code>ip access-list [standard | extended] [nom]</code></td>
-        <td>Définir une liste de contrôle d'accès IP.</td>
-      </tr>
-      <tr>
-        <td><code>permit / deny source [masque]</code></td>
-        <td>Permet ou bloque les paquets dans une ACL.</td>
-      </tr>
-      <tr>
-        <td><code>switchport port-security</code></td>
-        <td>Activer la sécurité de port sur l’interface.</td>
-      </tr>
-    </table>
-
-    <h2>Configuration OSPF</h2>
-    <table>
-      <tr>
-        <th>Commande</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><code>router ospf [id]</code></td>
-        <td>Activer OSPF et entrer en mode configuration.</td>
-      </tr>
-      <tr>
-        <td><code>network [ip] [masque joker] area [id]</code></td>
-        <td>Spécifier les réseaux OSPF.</td>
-      </tr>
-      <tr>
-        <td><code>show ip ospf neighbor</code></td>
-        <td>Afficher les voisins OSPF.</td>
-      </tr>
-    </table>
-
-    <h2>Commandes de Dépannage</h2>
-    <table>
-      <tr>
-        <th>Commande</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td><code>ping [ip/hostname]</code></td>
-        <td>Vérifie la connectivité réseau.</td>
-      </tr>
-      <tr>
-        <td><code>show ip interface brief</code></td>
-        <td>Afficher l’état des interfaces IP.</td>
-      </tr>
-      <tr>
-        <td><code>show interfaces</code></td>
-        <td>Afficher des informations détaillées sur les interfaces.</td>
-      </tr>
-      <tr>
-        <td><code>show cdp neighbors</code></td>
-        <td>Voir les voisins CDP (Cisco Discovery Protocol).</td>
-      </tr>
-    </table>
-  </div>
-  <div class="container" style="background-color: #1c1f24;">
-
-  <!-- Basic Configuration -->
-  <section>
-    <h2>2. Configuration de base du Switch Cisco</h2>
-    <p>Pour configurer un switch Cisco en mode de base :</p>
-    <pre><code>Switch> enable
-Switch# configure terminal
-Switch(config)# hostname MonSwitch
-Switch(config)# interface vlan 1
-Switch(config-if)# ip address 192.168.1.1 255.255.255.0
-Switch(config-if)# no shutdown
-Switch(config-if)# exit
-Switch(config)# ip default-gateway 192.168.1.254
-Switch(config)# exit
-Switch# copy running-config startup-config</code></pre>
-</section>
-
-<section>
-    <h2>3. Configuration de base du Routeur Cisco</h2>
-    <p>Pour configurer un routeur Cisco avec une adresse IP de base :</p>
-    <pre><code>Router> enable
+  <div class="section">
+    <h2>1. Configuration Réseau de Base</h2>
+    <pre><code># Configuration initiale
+Router> enable
 Router# configure terminal
 Router(config)# hostname MonRouteur
-Router(config)# interface gigabitethernet 0/0
+
+# Configuration d'interface
+Router(config)# interface GigabitEthernet0/0
 Router(config-if)# ip address 192.168.1.1 255.255.255.0
 Router(config-if)# no shutdown
 Router(config-if)# exit
-Router(config)# ip routing
-Router(config)# exit
+
+# Sauvegarder la configuration
 Router# copy running-config startup-config</code></pre>
-</section>
+    <p><strong>Explication :</strong> Ces commandes définissent le nom de l'appareil, configurent une interface IP et sauvegardent la configuration.</p>
+  </div>
 
-<section>
-    <h2>4. Configuration des VLANs (Switch Cisco)</h2>
-    <p>Les VLANs (Virtual Local Area Networks) sont utilisés pour segmenter le réseau en sous-réseaux logiques. Voici comment configurer un VLAN sur un switch Cisco :</p>
-    <pre><code>Switch(config)# vlan 10
-Switch(config-vlan)# name "VLAN-10"
-Switch(config-vlan)# exit
-Switch(config)# interface range fastethernet 0/1 - 0/24
-Switch(config-if-range)# switchport mode access
-Switch(config-if-range)# switchport access vlan 10
-Switch(config-if-range)# exit</code></pre>
-</section>
+  <div class="section">
+    <h2>2. Configuration NAT (Network Address Translation)</h2>
+    <pre><code># Configuration NAT
+Router(config)# ip nat pool POOL_EXTERNE 203.0.113.1 203.0.113.10 netmask 255.255.255.0
+Router(config)# access-list 1 permit 192.168.1.0 0.0.0.255
+Router(config)# ip nat inside source list 1 pool POOL_EXTERNE overload
 
-<section>
-    <h2>5. Configuration d'un Routeur avec plusieurs interfaces</h2>
-    <p>Un routeur Cisco peut être configuré avec plusieurs interfaces pour séparer des réseaux. Voici un exemple pour configurer deux interfaces avec des adresses IP distinctes :</p>
-    <pre><code>Router> enable
-Router# configure terminal
-Router(config)# interface gigabitethernet 0/0
-Router(config-if)# ip address 192.168.1.1 255.255.255.0
-Router(config-if)# no shutdown
-Router(config-if)# exit
-Router(config)# interface gigabitethernet 0/1
-Router(config-if)# ip address 192.168.2.1 255.255.255.0
-Router(config-if)# no shutdown
-Router(config-if)# exit</code></pre>
-</section>
+# Définir les interfaces internes et externes
+Router(config)# interface GigabitEthernet0/0
+Router(config-if)# ip nat inside
+Router(config)# interface GigabitEthernet0/1
+Router(config-if)# ip nat outside</code></pre>
+    <p><strong>Explication :</strong> Configuration du NAT pour traduire les adresses IP privées en adresses publiques.</p>
+  </div>
 
-<section>
-    <h2>6. Vérification de la configuration</h2>
-    <p>Utilisez les commandes suivantes pour vérifier l'état et la configuration des interfaces réseau :</p>
-    <pre><code>Router# show running-config
-Router# show ip interface brief
-Router# show ip route
-Switch# show vlan brief</code></pre>
-</section>
+  <div class="section">
+    <h2>3. Configuration EtherChannel</h2>
+    <pre><code># Configuration EtherChannel
+Switch(config)# interface range GigabitEthernet0/1 - 2
+Switch(config-if-range)# channel-group 1 mode active
+Switch(config)# interface port-channel 1
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# switchport trunk allowed vlan 1-10</code></pre>
+    <p><strong>Explication :</strong> Crée un EtherChannel pour augmenter la bande passante et la redondance entre commutateurs.</p>
+  </div>
 
-<section>
-    <h2>7. Sauvegarder la configuration</h2>
-    <p>Pour enregistrer la configuration dans la mémoire de démarrage et la conserver après un redémarrage, utilisez la commande suivante :</p>
-    <pre><code>Router# copy running-config startup-config
-Switch# copy running-config startup-config</code></pre>
-</section>
+  <div class="section">
+    <h2>4. Configuration VPN IPSec</h2>
+    <pre><code># Configuration VPN IPSec de base
+Router(config)# crypto isakmp policy 10
+Router(config-isakmp)# encryption aes 256
+Router(config-isakmp)# hash sha
+Router(config-isakmp)# authentication pre-share
+Router(config-isakmp)# group 2
+Router(config-isakmp)# lifetime 86400
+Router(config)# crypto isakmp key CLEF_SECRETE address 203.0.113.2
 
+# Configuration du tunnel IPSec
+Router(config)# crypto ipsec transform-set VPN-SET esp-aes 256 esp-sha-hmac
+Router(config)# crypto map CARTE-VPN 10 ipsec-isakmp
+Router(config-crypto-map)# set peer 203.0.113.2
+Router(config-crypto-map)# set transform-set VPN-SET</code></pre>
+    <p><strong>Explication :</strong> Configuration de base d'un tunnel VPN IPSec entre deux routeurs.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Configuration Trunk</h2>
+    <pre><code># Configuration Trunk
+Switch(config)# interface GigabitEthernet0/1
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# switchport trunk allowed vlan 1,10,20,30
+Switch(config-if)# switchport trunk native vlan 1</code></pre>
+    <p><strong>Explication :</strong> Configuration d'une liaison trunk pour transporter plusieurs VLANs entre commutateurs.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Configuration de Routes Statiques et Dynamiques</h2>
+    <pre><code># Route Statique
+Router(config)# ip route 192.168.2.0 255.255.255.0 203.0.113.2
+
+# Route par Défaut
+Router(config)# ip route 0.0.0.0 0.0.0.0 203.0.113.1
+
+# OSPF (Routing Dynamique)
+Router(config)# router ospf 1
+Router(config-router)# network 192.168.1.0 0.0.0.255 area 0
+Router(config-router)# network 203.0.113.0 0.0.0.255 area 0</code></pre>
+    <p><strong>Explication :</strong> Configuration de routes statiques et dynamiques (OSPF) pour le routage entre réseaux.</p>
+  </div>
+
+  <div class="section">
+    <h2>Dépannage</h2>
+    <pre><code># Commandes de Diagnostic
+show ip interface brief
+show running-config
+show ip route
+show interfaces trunk
+show crypto isakmp sa
+ping [adresse_ip]
+traceroute [adresse_ip]</code></pre>
+    <p><strong>Conseil :</strong> Utilisez ces commandes pour diagnostiquer les problèmes de réseau, de routage et de connectivité.</p>
+  </div>
 </div>
-
 </body>
 </html>
