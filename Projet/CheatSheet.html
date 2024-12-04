@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheatsheet Complet de Configuration Cisco</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #1c1f24;
+      color: #f1f3f5;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 30px;
+    }
+    h1, h2 {
+      color: #7852e3;
+      border-bottom: 2px solid #7852e3;
+      padding-bottom: 10px;
+    }
+    pre {
+      background-color: rgba(0,0,0,0.3);
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Cacasheet Complet</h1>
+
+  <div class="section">
+    <h2>1. Configuration Réseau de Base</h2>
+    <pre><code># Configuration initiale
+Router> enable
+Router# configure terminal
+Router(config)# hostname MonRouteur
+
+# Configuration d'interface
+Router(config)# interface GigabitEthernet0/0
+Router(config-if)# ip address 192.168.1.1 255.255.255.0
+Router(config-if)# no shutdown
+Router(config-if)# exit
+
+# Sauvegarder la configuration
+Router# copy running-config startup-config</code></pre>
+    <p><strong>Explication :</strong> Ces commandes définissent le nom de l'appareil, configurent une interface IP et sauvegardent la configuration.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Configuration NAT (Network Address Translation)</h2>
+    <pre><code># Configuration NAT
+Router(config)# ip nat pool POOL_EXTERNE 203.0.113.1 203.0.113.10 netmask 255.255.255.0
+Router(config)# access-list 1 permit 192.168.1.0 0.0.0.255
+Router(config)# ip nat inside source list 1 pool POOL_EXTERNE overload
+
+# Définir les interfaces internes et externes
+Router(config)# interface GigabitEthernet0/0
+Router(config-if)# ip nat inside
+Router(config)# interface GigabitEthernet0/1
+Router(config-if)# ip nat outside</code></pre>
+    <p><strong>Explication :</strong> Configuration du NAT pour traduire les adresses IP privées en adresses publiques.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Configuration EtherChannel</h2>
+    <pre><code># Configuration EtherChannel
+Switch(config)# interface range GigabitEthernet0/1 - 2
+Switch(config-if-range)# channel-group 1 mode active
+Switch(config)# interface port-channel 1
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# switchport trunk allowed vlan 1-10</code></pre>
+    <p><strong>Explication :</strong> Crée un EtherChannel pour augmenter la bande passante et la redondance entre commutateurs.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Configuration VPN IPSec</h2>
+    <pre><code># Configuration VPN IPSec de base
+Router(config)# crypto isakmp policy 10
+Router(config-isakmp)# encryption aes 256
+Router(config-isakmp)# hash sha
+Router(config-isakmp)# authentication pre-share
+Router(config-isakmp)# group 2
+Router(config-isakmp)# lifetime 86400
+Router(config)# crypto isakmp key CLEF_SECRETE address 203.0.113.2
+
+# Configuration du tunnel IPSec
+Router(config)# crypto ipsec transform-set VPN-SET esp-aes 256 esp-sha-hmac
+Router(config)# crypto map CARTE-VPN 10 ipsec-isakmp
+Router(config-crypto-map)# set peer 203.0.113.2
+Router(config-crypto-map)# set transform-set VPN-SET</code></pre>
+    <p><strong>Explication :</strong> Configuration de base d'un tunnel VPN IPSec entre deux routeurs.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Configuration Trunk</h2>
+    <pre><code># Configuration Trunk
+Switch(config)# interface GigabitEthernet0/1
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# switchport trunk allowed vlan 1,10,20,30
+Switch(config-if)# switchport trunk native vlan 1</code></pre>
+    <p><strong>Explication :</strong> Configuration d'une liaison trunk pour transporter plusieurs VLANs entre commutateurs.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Configuration de Routes Statiques et Dynamiques</h2>
+    <pre><code># Route Statique
+Router(config)# ip route 192.168.2.0 255.255.255.0 203.0.113.2
+
+# Route par Défaut
+Router(config)# ip route 0.0.0.0 0.0.0.0 203.0.113.1
+
+# OSPF (Routing Dynamique)
+Router(config)# router ospf 1
+Router(config-router)# network 192.168.1.0 0.0.0.255 area 0
+Router(config-router)# network 203.0.113.0 0.0.0.255 area 0</code></pre>
+    <p><strong>Explication :</strong> Configuration de routes statiques et dynamiques (OSPF) pour le routage entre réseaux.</p>
+  </div>
+
+  <div class="section">
+    <h2>Dépannage</h2>
+    <pre><code># Commandes de Diagnostic
+show ip interface brief
+show running-config
+show ip route
+show interfaces trunk
+show crypto isakmp sa
+ping [adresse_ip]
+traceroute [adresse_ip]</code></pre>
+    <p><strong>Conseil :</strong> Utilisez ces commandes pour diagnostiquer les problèmes de réseau, de routage et de connectivité.</p>
+  </div>
+</div>
+</body>
+</html>
