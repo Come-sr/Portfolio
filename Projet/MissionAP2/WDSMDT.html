@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Recherche sur les Installations Multicast et Clonage de Postes</title>
+  <link rel="icon" href="../DND.gif">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="AP.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Whisper&display=swap" rel="stylesheet">  
+</head>
+<body>
+  <div class="page-container">
+    <header class="header">
+      <h1>Recherche sur les Installations Multicast et Clonage de Postes</h1>
+    </header>
+
+    <table style="position: fixed; top: 124px; left: 4%; border-collapse: collapse;">
+      <tr>
+        <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Informations Complémentaires</th>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Outils :</strong> Windows Serveur </td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Période :</strong> <i> 26/11 - 12/01</i> </td>
+      </tr>
+      <tr>
+        <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00; border-radius: 16px;">Compétences Mises en Oeuvre</th>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #cccccc00;"> 
+            <strong> - Gérer le patrimoine informatique<br><br> 
+                - Mettre à disposition des utilisateurs <br> &nbsp;&nbsp;&nbsp;&nbsp; un service informatique<br><br> 
+                - Organiser son développement professionnel
+            </strong>
+        </td>
+      </tr>
+    </table>
+
+    <main>
+        <section>
+            <h2>Contexte :</h2>
+            <p>Dans ce projet, nous avons exploré les solutions de déploiement multicast et de clonage de postes de travail. Nous avons comparé plusieurs outils, dont Windows Deployment Services (WDS) et Microsoft Deployment Toolkit (MDT), et avons mis en place la solution retenue pour les tests et le tutoriel.</p>
+            
+            <div style="text-align: center;">
+                <img src="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/deployment/deploy-windows-mdt/images/mdt-07-fig15.png" alt="Schéma d'installation multicast" style="width: 75%; height: auto;" />
+            </div>
+
+            <h2>Comparatif des Solutions de Déploiement</h2>
+            <p>Nous avons évalué différentes solutions pour le clonage et le déploiement de postes de travail. Voici un comparatif entre WDS, MDT et une autre solution choisie :</p>
+
+            <h3>WDS (Windows Deployment Services)</h3>
+            <p>WDS est une solution de déploiement d'images Windows. Elle permet de déployer des systèmes d'exploitation sur plusieurs machines à travers un réseau en utilisant un serveur central. WDS est bien adapté pour les environnements Windows mais peut nécessiter des outils supplémentaires pour la gestion avancée des images.</p>
+
+            <h3>MDT (Microsoft Deployment Toolkit)</h3>
+            <p>MDT est une solution de déploiement plus flexible et puissante qui offre plus de personnalisation que WDS. Il peut être intégré avec des outils comme SCCM et permet de déployer des systèmes d'exploitation, des applications et des paramètres de configuration à grande échelle.</p>
+
+            <h3>Solution de Clonage Alternative</h3>
+            <p>Nous avons également exploré une troisième solution pour le clonage de postes de travail, offrant des fonctionnalités spécifiques adaptées à des environnements non-Windows ou des configurations particulières.</p>
+
+            <h2>Mise en Place de la Solution Retenue</h2>
+            <p>Après une analyse approfondie, nous avons opté pour <strong>MDT</strong> comme solution de déploiement et de clonage des postes de travail. Voici les étapes de la mise en place :</p>
+            
+            <ol>
+                <li>Installation de MDT et configuration des serveurs nécessaires</li>
+                <li>Création des images de référence</li>
+                <li>Déploiement via le réseau avec un serveur de déploiement MDT</li>
+            </ol>
+
+            <h2>Tests et Validation</h2>
+            <p>Des tests ont été réalisés pour s'assurer que le processus de déploiement fonctionne de manière fluide sur les machines cibles. Nous avons également testé la rapidité et l'efficacité du clonage des postes de travail à grande échelle.</p>
+
+            <div style="text-align: center;">
+                <img src="https://www.pynetlabs.com/wp-content/uploads/2023/11/Topology-showing-MDT-Deployment.jpeg" alt="Schéma réseau MDT" style="width: 65%; height: auto;" />
+            </div>
+
+            <h2>Rédaction du Tutoriel</h2>
+            <p>Un tutoriel détaillé a été rédigé pour guider les utilisateurs dans l'utilisation de MDT pour le déploiement et le clonage de postes de travail. Il comprend des instructions étape par étape, des captures d'écran et des conseils pour éviter les erreurs courantes.</p>
+
+            <div style="text-align: center;">
+                <img src="https://www.networklab.fr/wp-content/uploads/2014/01/13.jpg" alt="Schéma tutoriel MDT" style="width: 65%; height: auto;" />
+            </div>
+        </section>
+    </main>
+
+<script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
