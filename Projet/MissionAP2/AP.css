@@ -47,13 +47,14 @@ img {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 2%;
+  max-width: 100%;
   height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
-  justify-content:center;
 }
 
 img:hover {
-  transform: scale(1.05); /* Enlarge the image by 5% */
+  transform: scale(1.10); /* Enlarge the image by 5% */
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Larger shadow for more emphasis */
   z-index: 1; /* Ensures the hovered image appears above others */
 }

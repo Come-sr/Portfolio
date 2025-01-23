@@ -2,8 +2,8 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-  color: #f1f3f5;
-  background-color: #1c1f24;
+  color: #ffffff;
+  background-color: #000000;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,9 +14,40 @@ body, html {
   width: 90%;
   max-width: 1400px;
   margin: 2rem auto;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* First Year Section Theme */
+.first-year {
+  background: linear-gradient(to right, rgba(120, 82, 227, 0.05), rgba(120, 82, 227, 0.02));
+  border: 1px solid rgba(120, 82, 227, 0.1);
+}
+
+.first-year .section-header:hover {
+  background-color: rgba(120, 82, 227, 0.1);
+}
+
+/* Second Year Section Theme */
+.second-year {
+  background: linear-gradient(to right, rgba(196, 158, 212, 0.05), rgba(196, 158, 212, 0.02));
+  border: 1px solid rgba(196, 158, 212, 0.1);
+}
+
+.second-year .section-header:hover {
+  background-color: rgba(196, 158, 212, 0.1);
+}
+
+/* Apprenticeship Section Theme */
+.apprenticeship {
+  background: linear-gradient(to right, rgba(249, 199, 141, 0.05), rgba(249, 199, 141, 0.02));
+  border: 1px solid rgba(249, 199, 141, 0.1);
+}
+
+.apprenticeship .section-header:hover {
+  background-color: rgba(249, 199, 141, 0.1);
 }
 
 .section-header {
@@ -26,16 +57,12 @@ body, html {
   padding: 1.5rem;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s;
-}
-
-.section-header:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .toggle-icon {
   font-size: 1.2rem;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .section-header.active .toggle-icon {
@@ -49,7 +76,7 @@ body, html {
 }
 
 .section-content.active {
-  max-height: 2000px; /* Ajustez cette valeur selon vos besoins */
+  max-height: 2000px;
 }
 
 .header {
@@ -79,46 +106,49 @@ h2 {
   margin: 0;
 }
 
-.mission-grid {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 2rem;
-}
-
-.testt {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 2rem;
+.mission-grid, .testt {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 2rem;
+    gap: 10px; /* Reduced from 2rem to 10px */
 }
 
 .mission-card, .mission-card2 {
-  background-color: #1c1f24bb;
-  border-radius: 10px;
-  overflow: hidden;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 10px;
-}
-
-.mission-card {
-  width: calc(25% - 20px);
+    margin: 10px;
+    width: calc(25% - 20px); /* Adjusted calculation to account for new margins */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .mission-card2 {
-  width: 48%;
+    width: 48%; /* Slightly adjusted to maintain proper spacing */
 }
 
-.mission-card:hover, .mission-card2:hover {
+.mission-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(255, 160, 122, 0.3);
+  box-shadow: 0 5px 15px rgba(120, 82, 227, 0.2);
+  border: 1px solid rgba(120, 82, 227, 0.3);
 }
 
-.mission-card h3, .mission-card2 h3 {
+.second-year .mission-card:hover {
+  box-shadow: 0 5px 15px rgba(196, 158, 212, 0.2);
+  border: 1px solid rgba(196, 158, 212, 0.3);
+}
+
+.mission-card2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(249, 199, 141, 0.2);
+  border: 1px solid rgba(249, 199, 141, 0.3);
+}
+
+.mission-card h3 {
   padding: 1rem;
   margin: 0;
   font-size: 1.2rem;
@@ -140,8 +170,14 @@ h2 {
   object-fit: cover;
   object-position: center;
   margin-top: auto;
+  transition: transform 0.3s ease;
 }
 
+.mission-card:hover img, .mission-card2:hover img {
+  transform: scale(1.05);
+}
+
+/* Mobile adjustments */
 @media screen and (max-width: 1200px) {
   .mission-card {
       width: calc(33.33% - 20px);
@@ -156,8 +192,8 @@ h2 {
 
 @media screen and (max-width: 768px) {
   .container, .container2 {
-      width: 95%;
-      margin: 1rem auto;
+        width: calc(100% - 20px);
+          margin: 1rem auto;
   }
 
   h1 {
