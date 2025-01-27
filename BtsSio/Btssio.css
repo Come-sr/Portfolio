@@ -1,104 +1,151 @@
-body, html {
-    font-family: 'Montserrat', sans-serif;
-    background-color: black;
-    color: #f1f3f5;
+/* Simplified Dark Theme */
+* {
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    box-sizing: border-box;
 }
 
-.background {
+body, html {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: #0a0a0a;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle cyber grid overlay */
+body::after {
+    content: '';
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #0d1117, #141922, #0a0e14, #0d1117, #1a222e);
-    animation: gradientAnimation 15s ease infinite;
+    background-image: 
+        linear-gradient(rgba(0, 255, 136, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 136, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
     z-index: -1;
 }
 
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 .page-container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 4rem 2rem;
 }
 
+/* Header */
 header {
     text-align: center;
-    margin-bottom: 2rem;
-}
-
-h1, h2 {
-    font-family: "Poppins", sans-serif;
-    color: whitesmoke;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-family: "Fjalla One", sans-serif;
+    font-size: 2.8rem;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
     margin-bottom: 1rem;
 }
 
 h2 {
-    color: white;
-    font-size: 1.8rem;
-    border-bottom: 2px solid #8678f9;
-    padding-bottom: 0.5rem;
-    margin-top: 2rem;
+    font-family: "Fjalla One", sans-serif;
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 3rem 0 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid rgba(0, 255, 136, 0.6);
+    position: relative;
+}
+
+/* Content Sections */
+section {
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+section:last-child {
+    border-bottom: none;
 }
 
 p, ul {
-    color: #f1f3f5;
-    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
 }
 
 ul {
     padding-left: 1.5rem;
 }
 
+li {
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+
+li::before {
+    content: "▹";
+    color: #00ff88;
+    position: absolute;
+    left: -1.2rem;
+}
+
+/* Certification Logos */
 .certification-logos {
-    display: flex;
-    justify-content: space-around;
-    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
 }
 
 .certification-logos img {
-    width: 20%;
-    height: 20%;
-    transition: transform 0.3s ease;
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+    filter: grayscale(0.8);
+    border-radius: 8px;
+    padding: 0.5rem;
 }
 
 .certification-logos img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    filter: grayscale(0) drop-shadow(0 0 8px rgba(0, 255, 136, 0.3));
 }
 
+/* Lycee Image */
 .lycee-image {
     width: 100%;
-    max-width: 64%;
+    max-width: 600px;
+    border-radius: 8px;
+    margin: 2rem auto;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 30px;
-    box-shadow: 0 4px 8px rgba(2, 243, 203, 0.2);
+    border: 1px solid rgba(0, 255, 136, 0.2);
 }
 
+/* Back Button */
+.back-button {
+    display: inline-block;
+    color: #00ff88;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: rgba(0, 255, 136, 0.1);
+    transform: translateX(-5px);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .page-container {
-        padding: 1rem;
+        padding: 2rem 1rem;
     }
 
     h1 {
@@ -106,15 +153,10 @@ ul {
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 
-    .certification-logos {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .certification-logos img {
-        margin-bottom: 1rem;
+    section {
+        padding: 1.5rem 0;
     }
 }

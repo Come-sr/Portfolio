@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vultures 2 Streaming</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .song-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .song-item {
+      width: 150px;
+      cursor: pointer;
+    }
+    .song-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .song-item p {
+      margin: 10px 0 0;
+      font-size: 1rem;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vultures 2</h1>
+  <div class="song-list">
+    <!-- Song 1 -->
+    <div class="song-item" onclick="playSong('song1.mp3')">
+      <img src="https://cdn-images.dzcdn.net/images/cover/058a48f2674108867cc392d5bdc97fe9/1900x1900-000000-80-0-0.jpg" alt="Song 1 Cover">
+      <p>Song 1</p>
+    </div>
+    <!-- Song 2 -->
+    <div class="song-item" onclick="playSong('song2.mp3')">
+      <img src="https://cdn-images.dzcdn.net/images/cover/058a48f2674108867cc392d5bdc97fe9/1900x1900-000000-80-0-0.jpg" alt="Song 2 Cover">
+      <p>Song 2</p>
+    </div>
+    <!-- Song 3 -->
+    <div class="song-item" onclick="playSong('song3.mp3')">
+      <img src="https://cdn-images.dzcdn.net/images/cover/058a48f2674108867cc392d5bdc97fe9/1900x1900-000000-80-0-0.jpg" alt="Song 3 Cover">
+      <p>Song 3</p>
+    </div>
+    <!-- Add more songs as needed -->
+  </div>
+
+  <audio id="audio-player" controls>
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function playSong(songUrl) {
+      const audioPlayer = document.getElementById('audio-player');
+      audioPlayer.src = songUrl;
+      audioPlayer.play();
+    }
+  </script>
+</body>
+</html>
