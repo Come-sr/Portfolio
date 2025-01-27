@@ -160,3 +160,34 @@ li::before {
         padding: 1.5rem 0;
     }
 }
+
+/* Back Button (Fixed Position) */
+.back-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    color: #00ff88;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-button:hover {
+    background: rgba(0, 255, 136, 0.1);
+    transform: translateX(-5px);
+}
+
+/* Responsive Design for Back Button */
+@media (max-width: 768px) {
+    .back-button {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}
