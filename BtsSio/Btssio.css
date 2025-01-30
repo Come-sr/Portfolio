@@ -63,8 +63,9 @@ h2 {
 /* Content Sections */
 section {
     margin-bottom: 3rem;
-    padding: 2rem 0;
+    padding: 1rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: justify;
 }
 
 section:last-child {
@@ -102,12 +103,13 @@ li::before {
 }
 
 .certification-logos img {
-    width: 100%;
+    width: 60%;
     height: auto;
     transition: all 0.3s ease;
     filter: grayscale(0.8);
     border-radius: 8px;
     padding: 0.5rem;
+    
 }
 
 .certification-logos img:hover {

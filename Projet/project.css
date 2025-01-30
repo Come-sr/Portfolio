@@ -5,6 +5,26 @@
   box-sizing: border-box;
 }
 
+/* Back Button */
+.back-button {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  display: inline-block;
+  color: #00ff88;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.back-button:hover {
+  background: rgba(0, 255, 136, 0.1);
+  transform: translateX(-5px);
+}
+
 body, html {
   font-family: 'Helvetica Neue', sans-serif;
   background: #0a0a0a;
@@ -277,3 +297,4 @@ h2 {
   box-shadow: 0 10px 20px rgba(255, 65, 108, 0.3) !important;
   border-color: rgba(255, 65, 108, 0.5) !important;
 }
+
