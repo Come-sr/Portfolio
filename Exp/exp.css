@@ -1,43 +1,67 @@
-body, html {
+/* Modern Dark Cybersecurity Theme */
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
-	background-color: black; /* Dark background */
-    color: #ffffff;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    box-sizing: border-box;
 }
-  
+
+body, html {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: #0a0a0a;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* Cyber grid overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 136, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 136, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+}
+
 .container {
     width: 90%;
     max-width: 800px;
     margin: 2rem auto 6rem;
     padding: 2rem;
-	background-color: #1c1f24; /* Dark background */
+    background: rgba(18, 18, 18, 0.9);
     backdrop-filter: blur(10px);
-    border-radius: 15px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
-  
+
 .header {
     text-align: center;
     margin-bottom: 2rem;
 }
-  
+
 h1 {
     font-family: "Fjalla One", sans-serif;
     font-size: 3rem;
-    color: #f0f0f0; /* Pastel Pink */
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
 }
-  
+
 .timeline {
     position: relative;
     padding: 2rem 0;
 }
-  
+
 .timeline::before {
     content: '';
     position: absolute;
@@ -45,15 +69,15 @@ h1 {
     top: 0;
     width: 2px;
     height: 100%;
-    background-color: #ffffff; /* Pastel Pink */
+    background: rgba(0, 255, 136, 0.6);
 }
-  
+
 .timeline-item {
     margin-bottom: 3rem;
     position: relative;
     padding-left: 2rem;
 }
-  
+
 .timeline-item::before {
     content: '';
     position: absolute;
@@ -62,102 +86,116 @@ h1 {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: #ffffff; /* Pastel Red */
+    background: #00ff88;
+    border: 2px solid rgba(0, 255, 136, 0.6);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
 }
-  
+
 .timeline-content {
-    background-color:#3e1f5c85;
+    background: rgba(30, 30, 30, 0.8);
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-  
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 255, 136, 0.1);
+}
+
 .timeline-content h2 {
     margin-top: 0;
-    color: #8678f9; /* Pastel Yellow */
+    color: #00ff88;
     font-size: 1.4rem;
 }
-  
+
 .timeline-content .date {
     font-size: 0.9rem;
-    color: #f6e3ff; /* Pastel Pink */
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 0.5rem;
 }
-  
+
 .timeline-content p, .timeline-content a {
     margin-bottom: 0;
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.85);
 }
-  
+
 a {
-    color: #ffffff;
+    color: #00ff88;
     text-decoration: none;
     transition: color 0.3s ease;
 }
-  
+
 a:hover {
-    color: #ffd1dc; /* Pastel Pink on hover */
-}
-  
-nav {
-    width: 100%;
-    background-color: rgba(201, 251, 182, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-  
-nav a {
     color: #ffffff;
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+    text-shadow: 0 0 8px rgba(0, 255, 136, 0.3);
 }
-  
-nav a:hover {
-    background-color: #ffcccb; /* Pastel Pink */
-    color: #0d1117;
-}
-  
-@media screen and (max-width: 600px) {
-    .container {
-        width: 95%;
-        padding: 1rem;
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .timeline-item {
-        padding-left: 1.5rem;
-    }
-    
-    .timeline-content {
-        padding: 1rem;
-    }
-}
-  
+
 img {
-    background-color: #f0f0f0;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 2%;
     max-width: 50%;
     height: auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 255, 136, 0.2);
 }
-  
+
 img:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    box-shadow: 0 8px 12px rgba(0, 255, 136, 0.2);
+}
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    color: #00ff88;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-button:hover {
+    background: rgba(0, 255, 136, 0.1);
+    transform: translateX(-5px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .timeline-item {
+        padding-left: 1.5rem;
+    }
+
+    .timeline-content {
+        padding: 1rem;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .back-button {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1rem;
+    }
 }

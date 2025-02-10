@@ -11,14 +11,14 @@ function toggleSection(header) {
     // Met à jour l'icône
     const icon = header.querySelector('.toggle-icon');
     icon.textContent = header.classList.contains('active') ? '▲' : '▼';
-}
-
-// Ouvre toutes les sections au chargement de la page
-document.addEventListener('DOMContentLoaded', function() {
+  }
+  
+  // Ferme toutes les sections au chargement de la page
+  document.addEventListener('DOMContentLoaded', function() {
     const headers = document.querySelectorAll('.section-header');
     headers.forEach(header => {
-        header.classList.add('active');
-        header.nextElementSibling.classList.add('active');
-        header.querySelector('.toggle-icon').textContent = '▲';
+      header.classList.remove('active'); // Remove active class
+      header.nextElementSibling.classList.remove('active'); // Collapse content
+      header.querySelector('.toggle-icon').textContent = '▼'; // Set icon to down arrow
     });
-});
+  });

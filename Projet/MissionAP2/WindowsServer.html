@@ -11,6 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
+<a href="../index.html" class="back-button">
+  ← Retour au Portfolio
+</a>
+
+<a href="/index.html" class="back-button">
+  ← Retour au Portfolio
+</a>
+
 <table style="position: fixed; top: 124px; left: 4%; border-collapse: collapse;">
     <tr>
       <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Informations Complémentaires</th>
@@ -44,20 +52,14 @@
             <section>
                 <h2>Contexte</h2>
                 <p>Dans le cadre de notre projet d'administration Windows, nous avons mis en place des services d'authentification de domaine, de gestion de fichiers, et un service DHCP redondant. Cela implique la configuration de deux serveurs Active Directory (AD), ainsi que des services DNS et DHCP, afin d'assurer la continuité des services et une gestion centralisée des utilisateurs.</p>
-            </section>
 
-            
-            <section>
                 <h2>1. Schéma Réseau</h2>
                 <p>Notre infrastructure réseau se compose d’un serveur Windows 2022 et d’un ordinateur client connecté à ce serveur. Cela permet une gestion centralisée des ressources et des utilisateurs.</p>
                 <div style="     display: flex;
                 justify-content: center;
                 margin: 20px 0;">
                 <img src="../img/winserv1.png" alt="Schéma réseau"> </div>
-            </section>
-           
 
-            <section>
                 <h2>2. Infrastructure Active Directory</h2>
                 <p>Nous avons créé quatre unités d'organisation et quatre groupes d'utilisateurs pour faciliter la gestion des permissions au sein de l'organisation.</p>
                 <div style="     display: flex;
@@ -68,17 +70,13 @@
 
                     </tbody>
                 </table>
-            </section>
 
-            <section>
                 <h2>2.2. Scripts</h2>
                 <p>Pour connecter les différents lecteurs réseaux aux sessions d’utilisateurs lors de leur démarrage, nous avons créé des scripts. Voici un exemple du script <code>logon-comptables.bat</code> qui est utilisé pour connecter les utilisateurs au lecteur réseau approprié :</p>
                 <pre><code>@echo off
 Net use w: &lt;répertoire&gt;</code></pre>
                 <p>La ligne <code>@echo off</code> empêche l’affichage du terminal lors de l’exécution du script, et <code>Net use w: &lt;répertoire&gt;</code> connecte le répertoire à la lettre de lecteur W. Ce script est placé dans le répertoire NETLOGON du serveur Windows pour s'appliquer aux utilisateurs concernés.</p>
-            </section>
 
-            <section>
                 <h2>2.3. Service de fichiers</h2>
                 <p>Notre arborescence de fichiers comprend plusieurs dossiers partagés, organisés par groupe, ainsi que des dossiers personnels pour chaque utilisateur. Cela permet une gestion efficace des ressources et un accès sécurisé aux données.</p>
                 <div style="     display: flex;

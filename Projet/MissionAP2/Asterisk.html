@@ -11,6 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
+<a href="/index.html" class="back-button">
+  ← Retour au Portfolio
+</a>
+
 <table style="position: fixed; top: 124px; left: 4%; border-collapse: collapse;">
     <tr>
       <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Informations Complémentaires</th>
@@ -44,17 +48,13 @@
                 <p>Dans le cadre de notre projet de mise en place de services de téléphonie IP, nous avons déployé un serveur Fedora avec le service <a style="color: aqua;" href="https://www.asterisk.org/">Asterisk</a> pour la gestion des appels, avec des fichiers de
                    configuration <code>pjsip.conf</code> et <code>extensions.conf</code>. Nous avons également configuré les services DHCP et TFTP pour la prise en charge des téléphones IP,
                     et installé le logiciel 3CXPhone sur les postes sous Windows 10. </p>
-            </section>
 
-            <section>
                 <h2>1. Schéma Réseau</h2>
                 <p>Notre infrastructure réseau inclut un serveur Asterisk, Deux téléphones IP virtuel sur des machines Windows 10. Cette configuration permet une communication centralisée et une gestion efficace des ressources téléphoniques au sein de l'organisation.</p>
                 <div style="display: flex; justify-content: center; margin: 20px 0;">
                     <img src="../img/asterisk-network.png" alt="Schéma réseau téléphonie">
                 </div>
-            </section>
 
-            <section>
                 <h2>2. Configuration Asterisk</h2>
                 <p>Nous avons configuré les fichiers <code>pjsip.conf</code> pour la gestion des utilisateurs et <code>extensions.conf</code> pour définir les extensions et les règles de routage des appels. Ces fichiers permettent de gérer les appels et d’assurer la bonne communication entre les différents postes.</p>
                 <pre><code>

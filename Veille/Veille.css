@@ -1,24 +1,108 @@
-body, html {
-    font-family: 'Roboto', sans-serif;
-    background-color: #1c1f24; /* Dark background */
-    color: #f1f3f5; /* Text color */
+/* Simplified Dark Theme */
+* {
     margin: 0;
     padding: 0;
-    line-height: 1.7;
+    box-sizing: border-box;
 }
 
-.img img {
+body, html {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: #0a0a0a;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle cyber grid overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    margin-top: auto;
-    justify-content: space-around;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 136, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 136, 0.02) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .page-container {
-    max-width: 850px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 2.5rem;
+    padding: 4rem 2rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+}
+
+h1, h2 {
+    font-family: "Fjalla One", sans-serif;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid rgba(0, 255, 136, 0.6);
+    position: relative;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.profile-section-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24vh;
+}
+
+.profile-section {
+    display: flex;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    background-color: #222;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    border: 2px solid rgba(0, 255, 136, 0.6);
+    background-image: url('tempo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-text h2 {
+    color: rgba(0, 255, 136, 0.6);
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.profile-text p {
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .cv-container {
@@ -29,35 +113,53 @@ body, html {
 
 .cv-embed {
     width: 100%;
-    height: 800px; 
-    max-width: 800px; 
+    height: 800px;
+    max-width: 800px;
     border: none;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
+/* Back Button (Fixed Position) */
+.back-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    color: #00ff88;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
 }
 
-h1, h2 {
-    font-family: "Poppins", sans-serif;
-    color: #f1f3f5;
+.back-button:hover {
+    background: rgba(0, 255, 136, 0.1);
+    transform: translateX(-5px);
 }
 
-h1 {
-    font-size: 2.7rem;
-    margin-bottom: 1.2rem;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 2rem 1rem;
+    }
 
-h2 {
-    font-size: 2rem;
-    border-bottom: 2px solid #8678f9; /* Pastel teal */
-    padding-bottom: 0.7rem;
-    margin-top: 2.5rem;
-}
+    h1 {
+        font-size: 2rem;
+    }
 
-p {
-    color: #c9c9c9; /* Light gray */
-    margin-bottom: 1.2rem;
-    text-align: justify;
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-image {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+    }
 }
