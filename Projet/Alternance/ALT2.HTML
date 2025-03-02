@@ -17,7 +17,7 @@
 
     <div class="page-container">
         <header class="header">
-            <h1>Missions "GLPI"</h1>
+            <h1>GLPI</h1>
         </header>
         <div class="BOITEFLOU">
             <h2>Qu'est-ce que GLPI?</h2>
@@ -28,20 +28,48 @@
                 <li>Inventaire des équipements : suivi détaillé des ordinateurs, périphériques, logiciels, et autres ressources.</li>
                 <li>Gestion des incidents : enregistrement et suivi des problèmes techniques rencontrés par les utilisateurs.</li>
                 <li>Planification des interventions : organisation des tâches de maintenance et des interventions techniques.</li>
-                <li>Gestion des licences : suivi des logiciels installés et de leurs licences.</li>
             </ul>
-            <img style="    max-width: 70%;" src="https://glpi-project.org/wp-content/uploads/GLPI_Logo-color.png" alt="Interface GLPI" />
             
-            <h2>Étapes du Projet</h2>            
-            <img src="https://siocours.lycees.nouvelle-aquitaine.pro/lib/exe/fetch.php/si7/configuration/glpi_si7_39.png" alt="Configuration GLPI" />
             
-            <h3>Personnalisation et utilisation:</h3>
+            <h2>La configurtation du serveur</h2>    
+            
+            <p>Une des missions m'ayant été confiées depuis mon arrivée au pôle universitaire a été la configuration d'un serveur GLPI. Les objectifs principaux de la 
+                configuration de ce serveur ont été d'avoir un inventaire le plus complet possible du parc informatique du pôle, ordinateur, switch, borne WIFI etc.</p>
+            <img src="Images/GLPI1.png" alt="Configuration GLPI" style="margin: -1px;" />
+            
+            <h2 style="margin: 20px;">Étapes du Projet :</h2>
+
             <ul>
-                <li>Création des catégories d'équipements</li>
-                <li>Importation de l'inventaire initial</li>
-                <li>Configuration des règles d'escalade pour les tickets</li>
-                <li>Mise en place des tableaux de bord personnalisés</li>
+                <li>Création des règles d'assignation de logiciels</li>
+                <li>Importation des téléphones et des bornes WI-FI</li>
+                <li>Configuration du service de ticketing</li>
             </ul>
             
+
+            <h2>Configuration des règles d'assignation de logiciels</h2>
+
+            <p> Les règles d’assignation logicielle de GLPI filtrent les logiciels remontés par les agents GLPI lors de 
+                l’inventaire des machines. Elles permettent de regrouper automatiquement les logiciels dans la section correspondante, facilitant ainsi leur gestion.</p>
+
+                <img src="Images/GLPI2.png" alt="Configuration GLPI" style="margin: -1px;" />
+
+            <h2>Configuration du service de ticketing</h2>
+
+            <p> La mise en place du service de ticketing a commence par la configuration de l'envoi de mail automatique lors de la création d'un ticket. 
+                Ensuite, la configuration des collecteurs mails. </p>
+
+                <p style="margin-top: -5px;"> Dès qu'un e-mail nécessitant un support ou une intervention est reçu, il suffit de le déplacer dans un dossier spécifique de notre boîte mail. GLPI, 
+                    configuré pour scanner ces dossiers toutes les 10 minutes, va alors créer un ticket à partir de l'e-mail, assignant automatiquement l'expéditeur comme demandeur. </p>
+
+                <div style="display: flex; gap: 40px; justify-content:center; margin-top: 20px;">
+                    <img src="Images/GLPI3.png" alt="Configuration GLPI" style="margin: -1px; max-width: 100%;" />
+                    <img src="Images/GLPI4.png" alt="Configuration GLPI" style="margin: -1px; max-width: 100%;" />
+                </div>
+
+                <p style="margin: 12px;"> Il ne reste plus qu'à attribuer un technicien pour prendre en charge l'intervention, qui pourra communiquer directement via GLPI. Le serveur GLPI enverra ensuite toutes les mises à 
+                    jour du ticket au demandeur, permettant ainsi de centraliser l'historique des interventions et de leurs échanges.</p>
+
+                    <img src="Images/GLPI5.png" alt="Configuration GLPI" style="margin: -1px;" />
+
 </body>
 </html>
