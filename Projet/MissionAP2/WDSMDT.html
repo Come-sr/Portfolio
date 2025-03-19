@@ -54,40 +54,39 @@
                 <img src="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/deployment/deploy-windows-mdt/images/mdt-07-fig15.png" alt="Schéma d'installation multicast" style="width: 75%; height: auto;" />
             </div>
 
-            <h2>Comparatif des Solutions de Déploiement</h2>
-            <p>Nous avons évalué différentes solutions pour le clonage et le déploiement de postes de travail. Voici un comparatif entre WDS, MDT et une autre solution choisie :</p>
+            <h2>Q'est ce que sont WDS et MDT?</h2>
 
-            <h3>WDS (Windows Deployment Services)</h3>
+            <h3 style="color: #00ff884d;">WDS (Windows Deployment Services)</h3>
             <p>WDS est une solution de déploiement d'images Windows. Elle permet de déployer des systèmes d'exploitation sur plusieurs machines à travers un réseau en utilisant un serveur central. WDS est bien adapté pour les environnements Windows mais peut nécessiter des outils supplémentaires pour la gestion avancée des images.</p>
 
-            <h3>MDT (Microsoft Deployment Toolkit)</h3>
-            <p>MDT est une solution de déploiement plus flexible et puissante qui offre plus de personnalisation que WDS. Il peut être intégré avec des outils comme SCCM et permet de déployer des systèmes d'exploitation, des applications et des paramètres de configuration à grande échelle.</p>
-
-            <h3>Solution de Clonage Alternative</h3>
-            <p>Nous avons également exploré une troisième solution pour le clonage de postes de travail, offrant des fonctionnalités spécifiques adaptées à des environnements non-Windows ou des configurations particulières.</p>
+            <h3 style="color: #00ff884d;">MDT (Microsoft Deployment Toolkit)</h3>
+            <p>Microsoft Deployment Toolkit (MDT) permet de personnaliser les images système (ajout
+              d'applications, configurations spécifiques, etc.) avant de les importer dans Windows
+              Deployment Services (WDS). Une fois l'image configurée et importée, WDS s'occupe de son déploiement sur les postes via des méthodes comme le multicast.</p>
 
             <h2>Mise en Place de la Solution Retenue</h2>
             <p>Après une analyse approfondie, nous avons opté pour <strong>MDT</strong> comme solution de déploiement et de clonage des postes de travail. Voici les étapes de la mise en place :</p>
             
             <ol>
-                <li>Installation de MDT et configuration des serveurs nécessaires</li>
-                <li>Création des images de référence</li>
-                <li>Déploiement via le réseau avec un serveur de déploiement MDT</li>
+                <li>Installation de WDS et MDT</li>
+                <li>Configuration de WDS et MDT</li>
+                <li>Ajout et configuration d'un systeme d'exploitation avec MDT</li>
+                <li>Création d'une tâche de déploiement avec MDT</li>
+                <li>Test du déploiement multicast</li>
+                <li>Ajout des logiciels</li>
+                <li>Création d'un tutoriel</li>
             </ol>
-
-            <h2>Tests et Validation</h2>
-            <p>Des tests ont été réalisés pour s'assurer que le processus de déploiement fonctionne de manière fluide sur les machines cibles. Nous avons également testé la rapidité et l'efficacité du clonage des postes de travail à grande échelle.</p>
-
-            <div style="text-align: center;">
-                <img src="https://www.pynetlabs.com/wp-content/uploads/2023/11/Topology-showing-MDT-Deployment.jpeg" alt="Schéma réseau MDT" style="width: 65%; height: auto;" />
-            </div>
 
             <h2>Rédaction du Tutoriel</h2>
             <p>Un tutoriel détaillé a été rédigé pour guider les utilisateurs dans l'utilisation de MDT pour le déploiement et le clonage de postes de travail. Il comprend des instructions étape par étape, des captures d'écran et des conseils pour éviter les erreurs courantes.</p>
 
-            <div style="text-align: center;">
-                <img src="https://www.networklab.fr/wp-content/uploads/2014/01/13.jpg" alt="Schéma tutoriel MDT" style="width: 65%; height: auto;" />
-            </div>
+            <h2>Retour Personnel :</h2>
+            <p>Ce projet m'a permis de découvrir WDS et MDT. J'ai appris à configurer et à utiliser MDT pour configurer le deploiment. Bien que la mise en place de la solution ait été complexe, j'ai
+               apprécié le défi et les compétences acquises. La rédaction du tutoriel m'a également permis de renforcer mes compétences en redaction.</p>
+        </section>
+
+
+
         </section>
     </main>
 
