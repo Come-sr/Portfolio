@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mise à jour des téléphones IP</title>
+    <link rel="stylesheet" type="text/css" href="Alt.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Whisper&display=swap" rel="stylesheet">
+    <link rel="icon" href="../DND.gif">
+</head>
+<body>
+    
+    <a href="../Projet.html" class="back-button">
+        ← Retour aux Missions
+    </a>
+
+    <div class="page-container">
+        <header class="header">
+            <h1>Mise à jour et déploiement de poste informatique</h1>
+        </header>
+        
+        <div class="BOITEFLOU">
+            <h2>Déploiement de système d'exploitation </h2>
+            <p> Chaque année pendant les vacances d'été et avant la rentrée scolaire, il est nécessaire de mettre à jour les postes informatiques du pôle et des bâtiments que nous gérons, ce qui
+            représente près d'une quinzaine de salles informatiques. </p>
+
+            <p> Le déploiement de système d'exploitation s'effectue avec Windows MDT en lite touch, Windows Deployment Services (WDS) et Microsoft Deployment Toolkit (MDT) en mode Lite Touch sont 
+            utilisés pour simplifier le déploiement des ordinateurs. Ce processus permet de sélectionner facilement la version de Windows (10 ou 11), de nommer la machine, et de choisir l'Unité 
+            Organisationnelle (OU) dans Active Directory où l'ordinateur sera rangé.
+
+            <br><br>
+
+            Les OUs facilitent la gestion et la supervision des postes, notamment avec des outils comme Veyon, en permettant une organisation logique et hiérarchique des ressources.</p>
+
+            <img src="Images/deploiement.png" alt="Configuration GLPI" style="display: block; margin: 0 auto;" />
+
+            <h2>Déploiement de logiciels</h2>
+
+            <p>En plus de l'installation de Windows, il est nécessaire de déployer des logiciels sur les postes informatiques. Pour cela, nous utilisons WAPT, un outil de déploiement de logiciels.
+                Dans les masters des OS que nous déployons, un agent WAPT est integré, ce qui permet de déployer automatiquement les logiciels.
+                étant en partenariat avec l'UCA, la plupart des logiciels proviennent de leur dépôt, ce qui facilite le déploiement. 
+                Cependant, un technicien du service informatique crée également ses propres paquets pour répondre à des besoins spécifiques.</p>
+
+                
+                <img src="Images/deploiement2.png" alt="Configuration GLPI" style="display: block; margin: 0 auto;" />
+
+        </div>
+    </div>
+</body>
+</html>
