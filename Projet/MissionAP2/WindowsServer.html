@@ -70,8 +70,8 @@
 
                 <h2>2.2. Scripts</h2>
                 <p>Pour connecter les différents lecteurs réseaux aux sessions d’utilisateurs lors de leur démarrage, nous avons créé des scripts. Voici un exemple du script <code>logon-comptables.bat</code> qui est utilisé pour connecter les utilisateurs au lecteur réseau approprié :</p>
-                <pre><code>@echo off
-Net use w: &lt;répertoire&gt;</code></pre>
+                <pre><code>@echo off <br>Net use w: &lt;\\serveur\partage&gt;</code></pre>
+                <br>
                 <p>La ligne <code>@echo off</code> empêche l’affichage du terminal lors de l’exécution du script, et <code>Net use w: &lt;répertoire&gt;</code> connecte le répertoire à la lettre de lecteur W. Ce script est placé dans le répertoire NETLOGON du serveur Windows pour s'appliquer aux utilisateurs concernés.</p>
 
                 <h2>2.3. Service de fichiers</h2>
