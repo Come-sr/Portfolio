@@ -38,7 +38,6 @@ body::after {
 /* Header */
 header {
     text-align: center;
-    margin-bottom: 4rem;
     padding: 2rem 0;
 }
 
@@ -106,10 +105,10 @@ li::before {
     width: 60%;
     height: auto;
     transition: all 0.3s ease;
-    filter: grayscale(0.8);
+    filter: grayscale(0.3);
     border-radius: 8px;
     padding: 0.5rem;
-    
+    border-radius: 16px;
 }
 
 .certification-logos img:hover {
