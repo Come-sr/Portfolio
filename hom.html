@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Society Intranet</title>
+    <title>Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -15,6 +15,16 @@
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --glow: 0 0 15px rgba(42, 157, 143, 0.2);
         }
+
+        /* Light theme variables */
+        body.light-theme {
+            --bg-dark: #f0f2f5;
+            --bg-light: #ffffff;
+            --text-main: #2d3748;
+            --text-secondary: #718096;
+            --glow: 0 0 15px rgba(42, 157, 143, 0.1);
+        }
+
 
         * {
             margin: 0;
@@ -30,6 +40,34 @@
             min-height: 100vh;
         }
 
+        .mode-toggle {
+    /* ... existing styles ... */
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.mode-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(42, 157, 143, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.mode-toggle:hover::after {
+    width: 100px;
+    height: 100px;
+}
+
+.mode-toggle:active {
+    transform: scale(0.95);
+}
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -138,68 +176,177 @@
                 font-size: 2rem;
             }
         }
-    </style>
+        .mode-toggle {
+            background: var(--bg-light);
+            border: none;
+            color: var(--text-main);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .mode-toggle:hover {
+            background: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .social-link {
+        color: var(--text-secondary);
+        font-size: 1.5rem;
+        transition: var(--transition);
+        text-decoration: none;
+    }
+
+    .social-link:hover {
+        color: var(--primary);
+        transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+        .social-links {
+            gap: 1.5rem;
+        }
+    }
+
+    .button-container {
+    display: flex;
+    justify-content: center; /* Center align horizontally */
+    align-items: center; /* Center align vertically */
+    gap: 1rem; /* Space between buttons */
+}
+</style>
+
 </head>
+
 <body>
     <div class="container">
         <header>
-            <h1>HSH Vichy</h1>
-            <button class="theme-toggle" onclick="toggleTheme()">
-                <i class="fas fa-sun"></i>
-                Light Mode
-            </button>
+            <h1>Up to date</h1>
+            <div class="button-container">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-sun"></i>
+                    Light Mode
+                </button>
+                <button class="mode-toggle" onclick="toggleUrlMode()">
+                    <i class="fas fa-globe"></i>
+                    Public Mode
+                </button>
+            </div>
         </header>
         
         <div class="grid">
-            <a href="NAGIOS_URL" class="service-card">
+            <a href="https://nas.20te4.cloud" class="service-card" data-service="nas">
                 <i class="fas fa-server"></i>
-                <h3>Nagios</h3>
-                <p>Comprehensive infrastructure monitoring and alerting</p>
+                <h3>NAS</h3>
+                <p>Centralized storage and file management</p>
             </a>
 
-            <a href="GLPI_URL" class="service-card">
-                <i class="fas fa-tasks"></i>
-                <h3>GLPI</h3>
-                <p>IT asset management and ticketing system</p>
+            <a href="https://overseer.20te4.cloud" class="service-card" data-service="overseer">
+                <i class="fas fa-tv"></i>
+                <h3>Overseerr</h3>
+                <p>Media request management system</p>
             </a>
 
-            <a href="UPTIME_KUMA_URL" class="service-card">
-                <i class="fas fa-heartbeat"></i>
-                <h3>Uptime Kuma</h3>
-                <p>Real-time service availability monitoring</p>
+            <a href="https://paperless.20te4.cloud" class="service-card" data-service="paperless">
+                <i class="fas fa-file-alt"></i>
+                <h3>Paperless</h3>
+                <p>Document archiving and organization</p>
             </a>
 
-            <a href="#" class="service-card">
-                <i class="fas fa-network-wired"></i>
-                <h3>Network Map</h3>
-                <p>Interactive network topology visualization</p>
+            <a href="https://plextats.20te4.cloud" class="service-card" data-service="plextats">
+                <i class="fas fa-chart-line"></i>
+                <h3>Plextats</h3>
+                <p>Plex media server analytics</p>
             </a>
 
-            <a href="#" class="service-card">
-                <i class="fas fa-database"></i>
-                <h3>DB Admin</h3>
-                <p>Database management and optimization</p>
+            <a href="https://prowlarr.20te4.cloud" class="service-card" data-service="prowlarr">
+                <i class="fas fa-search"></i>
+                <h3>Prowlarr</h3>
+                <p>Indexer aggregator for media searches</p>
             </a>
 
-            <a href="#" class="service-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Security Hub</h3>
-                <p>Threat monitoring and analysis center</p>
+            <a href="https://qbit.20te4.cloud" class="service-card" data-service="qbit">
+                <i class="fas fa-download"></i>
+                <h3>qBittorrent</h3>
+                <p>Torrent download management interface</p>
             </a>
 
-            <a href="#" class="service-card">
-                <i class="fas fa-cloud"></i>
-                <h3>Cloud Portal</h3>
-                <p>Multi-cloud management interface</p>
+            <a href="https://radarr.20te4.cloud" class="service-card" data-service="radarr">
+                <i class="fas fa-film"></i>
+                <h3>Radarr</h3>
+                <p>Movie collection management</p>
             </a>
 
-            <a href="#" class="service-card">
-                <i class="fas fa-code"></i>
-                <h3>DevOps Tools</h3>
-                <p>CI/CD pipelines and automation services</p>
+            <a href="https://read.20te4.cloud" class="service-card" data-service="read">
+                <i class="fas fa-book"></i>
+                <h3>Read</h3>
+                <p>E-book and document reader</p>
+            </a>
+
+            <a href="https://sonar.20te4.cloud" class="service-card" data-service="sonarr">
+                <i class="fas fa-tv"></i>
+                <h3>Sonarr</h3>
+                <p>TV show download automation</p>
+            </a>
+
+            <a href="https://supervision.20te4.cloud" class="service-card" data-service="supervision">
+                <i class="fas fa-eye"></i>
+                <h3>Supervision</h3>
+                <p>System monitoring dashboard</p>
+            </a>
+
+            <a href="https://tools.20te4.cloud" class="service-card" data-service="tools">
+                <i class="fas fa-tools"></i>
+                <h3>Tools</h3>
+                <p>Utilities and maintenance scripts</p>
             </a>
         </div>
     </div>
+
+
+
+    <footer>
+        <div class="container">
+            <nav class="social-links">
+                <a href="https://www.last.fm" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-lastfm"></i>
+                </a>
+                <a href="https://anilist.co" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-tv"></i>
+                </a>
+                <a href="https://youtube.com" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://mail.proton.me" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-inbox"></i>
+                </a>
+            </nav>
+        </div>
+    </footer>
+
+</body>
 
     <script>
         function toggleTheme() {
@@ -224,5 +371,105 @@
             }
         });
     </script>
+
+<script>
+    // Add URL configuration
+    const serviceUrls = {
+        nas: { public: 'https://nas.20te4.cloud', local: 'http://192.168.0.11:58677' },
+        overseer: { public: 'https://overseer.20te4.cloud', local: 'http://192.168.0.11:5055' },
+        paperless: { public: 'https://paperless.20te4.cloud', local: 'http://192.168.0.11:50309' },
+        plextats: { public: 'https://plextats.20te4.cloud', local: 'http://192.168.0.11:8181' },
+        prowlarr: { public: 'https://prowlarr.20te4.cloud', local: 'http://192.168.0.11:9696' },
+        qbit: { public: 'https://qbit.20te4.cloud', local: 'http://192.168.0.11:8080' },
+        radarr: { public: 'https://radarr.20te4.cloud', local: 'http://192.168.0.11:7878' },
+        read: { public: 'https://read.20te4.cloud', local: 'http://192.168.0.11:2060' },
+        sonarr: { public: 'https://sonar.20te4.cloud', local: 'http://192.168.0.11:8989' },
+        supervision: { public: 'https://supervision.20te4.cloud', local: 'http://192.168.0.11:12624' },
+        tools: { public: 'https://tools.20te4.cloud', local: 'http://192.168.0.11:3005' }
+    };
+
+    function toggleUrlMode() {
+        const modeToggle = document.querySelector('.mode-toggle');
+        const isLocal = document.body.classList.toggle('local-mode');
+        const services = document.querySelectorAll('.service-card[data-service]');
+
+        services.forEach(service => {
+            const serviceName = service.dataset.service;
+            service.href = isLocal ? serviceUrls[serviceName].local : serviceUrls[serviceName].public;
+        });
+
+        modeToggle.innerHTML = isLocal 
+            ? `<i class="fas fa-home"></i> Local Mode`
+            : `<i class="fas fa-globe"></i> Public Mode`;
+
+        localStorage.setItem('urlMode', isLocal ? 'local' : 'public');
+    }
+
+    //Function to toggle theme
+    function toggleUrlMode() {
+    const modeToggle = document.querySelector('.mode-toggle');
+    const isLocal = document.body.classList.toggle('local-mode');
+    const services = document.querySelectorAll('.service-card[data-service]');
+
+    // Add animation class
+    modeToggle.classList.add('animating');
+    
+    services.forEach(service => {
+        const serviceName = service.dataset.service;
+        service.href = isLocal ? serviceUrls[serviceName].local : serviceUrls[serviceName].public;
+    });
+
+    // Update button after animation
+    setTimeout(() => {
+        modeToggle.innerHTML = isLocal 
+            ? `<i class="fas fa-home"></i> Local Mode`
+            : `<i class="fas fa-globe"></i> Public Mode`;
+        modeToggle.classList.remove('animating');
+    }, 300);
+
+    localStorage.setItem('urlMode', isLocal ? 'local' : 'public');
+}
+        // Updated toggle function
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            const isLight = body.classList.toggle('light-theme');
+            
+            themeToggle.innerHTML = isLight 
+                ? `<i class="fas fa-moon"></i> Dark Mode`
+                : `<i class="fas fa-sun"></i> Light Mode`;
+
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        }
+
+        // Initialize theme
+window.addEventListener('DOMContentLoaded', () => {
+    // Theme initialization
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const themeToggle = document.querySelector('.theme-toggle');
+    
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        themeToggle.innerHTML = `<i class="fas fa-moon"></i> Dark Mode`;
+    } else {
+        themeToggle.innerHTML = `<i class="fas fa-sun"></i> Light Mode`;
+    }
+
+    // URL mode initialization
+    const urlMode = localStorage.getItem('urlMode') || 'public';
+    const modeToggle = document.querySelector('.mode-toggle');
+    
+    if (urlMode === 'local') {
+        document.body.classList.add('local-mode');
+        modeToggle.innerHTML = `<i class="fas fa-home"></i> Local Mode`;
+        document.querySelectorAll('.service-card[data-service]').forEach(service => {
+            service.href = serviceUrls[service.dataset.service].local;
+        });
+    }
+});
+
+</script>
+
+
 </body>
 </html>
