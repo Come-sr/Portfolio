@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Gestion d'un Load Balancer HAProxy avec Docker Swarm</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 20px auto; padding: 0 15px; background-color: #f4f4f4; }
+        h1, h2, h3 { color: #2c3e50; }
+        pre { background-color: #ecf0f1; border: 1px solid #ddd; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: "Courier New", Courier, monospace; color: #c0392b; }
+        .command { color: #2980b9; font-weight: bold; }
+        .comment { color: #7f8c8d; }
+        .section-title { border-bottom: 2px solid #2c3e50; padding-bottom: 5px; margin-top: 30px; }
+        .note { background-color: #e8f6f3; border-left: 5px solid #1abc9c; padding: 10px; margin-bottom: 15px; }
+        .warning { background-color: #fef9e7; border-left: 5px solid #f39c12; padding: 10px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <h1 class="section-title">Gestion d'un Load Balancer HAProxy avec Docker Swarm</h1>
+
+    <p>Ce document répertorie les commandes essentielles pour déployer, gérer et déboguer un service HAProxy agissant comme un équilibreur de charge dans un environnement Docker Swarm. Il inclut les étapes de configuration, de déploiement et les outils de diagnostic face aux problèmes courants.</p>
+
+    <h2 class="section-title">1. Préparation de la Configuration HAProxy</h2>
+
+    <p>Créez un fichier <code>haproxy.cfg</code> avec la configuration de votre équilibreur de charge. Voici un exemple basé sur notre scénario :</p>
+    <pre><code>
+<span class="comment"># /etc/haproxy/haproxy.cfg</span>
+global
+  daemon
+  maxconn 256
+
+defaults
+  mode http
+  timeout connect 10s   <span class="comment"># Augmenté pour résoudre le timeout Layer 4</span>
+  timeout client  50s
+  timeout server  50s
+
+frontend http-in
+  bind *:80
+  default_backend webservers
+
+backend webservers
+  balance roundrobin
+  server node1 192.168.0.77:8080 check
+  server node2 192.168.10.14:8080 check
+  server node3 192.168.0.127:8080 check
+
+listen stats
+  bind *:1936
+  mode http
+  stats enable
+  stats uri /stats
+  stats refresh 10s
+    </code></pre>
+    <div class="note">
+        <strong>Note :</strong> Assurez-vous que le nom du <code>backend</code> (ici <code>webservers</code>) correspond au <code>default_backend</code> du <code>frontend</code>.
+        Le <code>timeout connect</code> a été augmenté à <code>10s</code> pour prévenir les erreurs de "Layer4 timeout" si les serveurs backends mettent du temps à répondre.
+    </div>
+
+    <h2 class="section-title">2. Création et Gestion du Service HAProxy</h2>
+
+    <h3 class="section-title">2.1. Création du Docker Config</h3>
+    <p>Pour que Docker Swarm puisse distribuer votre fichier <code>haproxy.cfg</code> aux conteneurs, il doit être stocké en tant que "config" dans le Swarm.</p>
+    <pre><code class="command">docker config create haproxy-config haproxy.cfg</code></pre>
+    <p>Ceci prend le contenu du fichier local <code>haproxy.cfg</code> et le stocke sous le nom <code>haproxy-config</code> dans le Swarm.</p>
+
+    <h3 class="section-title">2.2. Lancement du Service HAProxy</h3>
+    <p>Lancez le service HAProxy en le reliant à votre config et à un réseau Swarm (ex: <code>apache-network</code>, doit être un réseau <code>overlay</code>).</p>
+    <pre><code class="command">docker service create \
+  --name haproxy-service \
+  --constraint 'node.hostname == docker-m1' \
+  --network apache-network \
+  --publish published=80,target=80,protocol=tcp,mode=host \
+  --publish published=1936,target=1936,protocol=tcp,mode=host \
+  --config source=haproxy-config,target=/etc/haproxy/haproxy.cfg \
+  haproxytech/haproxy-debian:2.0</code></pre>
+    <div class="note">
+        <strong>Explication des options :</strong>
+        <ul>
+            <li><code>--name haproxy-service</code> : Nom du service.</li>
+            <li><code>--constraint 'node.hostname == docker-m1'</code> : Déploie le service uniquement sur le nœud <code>docker-m1</code>.</li>
+            <li><code>--network apache-network</code> : Connecte le service au réseau Swarm <code>apache-network</code>.</li>
+            <li><code>--publish published=80,target=80,protocol=tcp,mode=host</code> : Expose le port 80 du conteneur sur le port 80 de l'hôte (mode host pour le trafic HTTP).</li>
+            <li><code>--publish published=1936,target=1936,protocol=tcp,mode=host</code> : Expose le port 1936 du conteneur (page de stats) sur le port 1936 de l'hôte.</li>
+            <li><code>--config source=haproxy-config,target=/etc/haproxy/haproxy.cfg</code> : Monte la config Swarm <code>haproxy-config</code> dans le conteneur.</li>
+            <li><code>haproxytech/haproxy-debian:2.0</code> : L'image Docker de HAProxy utilisée.</li>
+        </ul>
+    </div>
+
+    <h3 class="section-title">2.3. Vérification du Statut du Service</h3>
+    <p>Pour voir si le service est en cours d'exécution et obtenir l'ID de son conteneur :</p>
+    <pre><code class="command">docker service ps haproxy-service</code></pre>
+    <p>Exemple de sortie :</p>
+    <pre><code>
+ID             NAME                IMAGE                            NODE        DESIRED STATE   CURRENT STATE         ERROR     PORTS
+fh3ctyfr5pc0   haproxy-service.1   haproxytech/haproxy-debian:2.0   docker-m1   Running         Running 25 seconds ago            *:80->80/tcp,*:1936->1936/tcp
+    </code></pre>
+    <div class="note">
+        Notez l'ID du conteneur (ex: <code>fh3ctyfr5pc0</code>) pour le débogage.
+    </div>
+
+    <h3 class="section-title">2.4. Mise à Jour de la Configuration HAProxy</h3>
+    <p>Si vous modifiez <code>haproxy.cfg</code>, vous devez d'abord mettre à jour le "config" Docker Swarm, puis forcer le service à le recharger.</p>
+    <pre><code class="command">docker config rm haproxy-config                      <span class="comment"># Supprime l'ancienne config</span>
+docker config create haproxy-config haproxy.cfg      <span class="comment"># Crée la nouvelle config</span>
+docker service update --force haproxy-service        <span class="comment"># Force le service à redémarrer avec la nouvelle config</span>
+    </code></pre>
+
+    <h2 class="section-title">3. Débogage et Diagnostic</h2>
+
+    <h3 class="section-title">3.1. Accès aux Logs du Service/Conteneur</h3>
+    <p>Pour voir les logs du service HAProxy (très utile pour les erreurs de démarrage ou de santé des backends) :</p>
+    <pre><code class="command">docker service logs haproxy-service</code></pre>
+    <p>Ou, pour les logs d'un conteneur spécifique (utilisez l'ID du conteneur obtenu avec <code>docker service ps</code>) :</p>
+    <pre><code class="command">docker logs &lt;CONTAINER_ID&gt;</code></pre>
+
+    <h3 class="section-title">3.2. Accès à la Page de Statistiques HAProxy</h3>
+    <p>Cette page est cruciale pour voir l'état des serveurs backend et les métriques de trafic. Accessible après avoir exposé le port 1936.</p>
+    <pre><code class="command">curl http://&lt;IP_DE_DOCKER-M1&gt;:1936/stats</code></pre>
+    <p>Ou via votre navigateur web.</p>
+
+    <h3 class="section-title">3.3. Vérification de la Connectivité Réseau (depuis un conteneur temporaire)</h3>
+    <p>L'image HAProxy étant minimale, elle ne contient pas <code>ping</code> ou <code>curl</code>. Pour déboguer les problèmes de connectivité réseau (ex: "Layer4 timeout"), lancez un conteneur temporaire sur le même réseau Swarm :</p>
+    <pre><code class="command">docker run --rm -it --network apache-network alpine/git sh</code></pre>
+    <p>Une fois dans le shell du conteneur temporaire, exécutez les tests suivants :</p>
+    <pre><code>
+<span class="comment"># Tester la connectivité de base (ping)</span>
+ping -c 3 192.168.0.77
+ping -c 3 192.168.10.14
+ping -c 3 192.168.0.127
+
+<span class="comment"># Tester la connectivité HTTP (curl)</span>
+curl -vvv http://192.168.0.77:8080
+curl -vvv http://192.168.10.14:8080
+curl -vvv http://192.168.0.127:8080
+    </code></pre>
+    <div class="warning">
+        <strong>Interprétation :</strong> Si ces tests échouent, le problème vient du réseau ou du pare-feu entre le réseau Docker Swarm et vos serveurs backend. Si les tests réussissent, le problème est probablement lié à la configuration de la vérification de santé d'HAProxy (comme le <code>timeout connect</code>).
+    </div>
+
+    <h3 class="section-title">3.4. Vérification de la Configuration HAProxy en Cours d'Exécution</h3>
+    <p>Pour vérifier le contenu exact du fichier <code>haproxy.cfg</code> que le conteneur HAProxy utilise actuellement :</p>
+    <pre><code class="command">docker exec &lt;CONTAINER_ID&gt; cat /etc/haproxy/haproxy.cfg</code></pre>
+
+    <h3 class="section-title">3.5. Recharger HAProxy sans Redémarrer le Conteneur (Reload "Graceful")</h3>
+    <p>Pour que HAProxy prenne en compte une nouvelle configuration sans couper les connexions existantes (si vous modifiez le <code>.cfg</code> directement dans le conteneur, ce qui n'est pas recommandé pour un service Swarm) :</p>
+    <pre><code class="command">docker exec &lt;CONTAINER_ID&gt; haproxy -sf $(pidof haproxy) -f /etc/haproxy/haproxy.cfg</code></pre>
+    <p>Ou, plus simplement pour la plupart des images officielles :</p>
+    <pre><code class="command">docker kill -s HUP &lt;CONTAINER_ID&gt;</code></pre>
+    <div class="warning">
+        <strong>Attention :</strong> Pour un service Docker Swarm avec une config Swarm, la méthode <code>docker service update --force</code> (vue en 2.4) est la plus robuste et recommandée pour appliquer des changements de configuration.
+    </div>
+
+    <h2 class="section-title">4. Suppression du Service</h2>
+    <p>Pour arrêter et supprimer le service HAProxy :</p>
+    <pre><code class="command">docker service rm haproxy-service</code></pre>
+    <p>Pour supprimer la config Docker Swarm (après avoir supprimé le service qui l'utilise) :</p>
+    <pre><code class="command">docker config rm haproxy-config</code></pre>
+
+</body>
+</html>
