@@ -1,68 +1,69 @@
-<!DOCTYPE html>
-<html lang="fr">
 <head>
-    <title>Portfolio</title>
-    <link rel="icon" href="../DND.gif">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos de Moi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&family=Fjalla+One&display=swap" rel="stylesheet">
+    <title>À Propos de Moi - Côme Servy</title>
+    <link rel="icon" href="../DND.gif"> 
+    <link rel="stylesheet" href="/css/global.css"> 
     <link rel="stylesheet" href="Perso.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="page-container">
-        <a href="../index.html" class="back-button">
-            ← Retour
-        </a>
 
-        <div class="profile-section-container">
-            <section class="profile-section">
-                <div class="profile-image" style="margin-right: 25px; cursor: pointer;" onclick="window.location.href='https://www.youtube.com/watch?v=_fr4SV4fGAw';">
-                    <img src="tempo.jpg" alt="Profile Image">
-                </div>
-                 <div class="profile-text">
-                    <h2>Côme</h2>
-                    <p>21 ans, Apprenti Technicien au Pole informatique de Vichy</p>
-                    <table>
-                        <thead>
-                        <tbody>
-                            <tr>
-                                <td><img src="https://static-00.iconduck.com/assets.00/html5-icon-2018x2048-st7q7lm6.png" alt="HTML5 Icon" width="50" style="padding-right: 5px;"></td>
-                                <td><img src="https://static-00.iconduck.com/assets.00/proxmox-icon-2048x2048-i8gl93w2.png" alt="Proxmox Icon" width="50" style="padding-right: 5px;"></td>
-                                <td><img src="https://cdn-icons-png.flaticon.com/512/919/919853.png" alt="CSS Icon" width="50" style="padding-right: 5px;"></td>
-                                <td><img src="https://static-00.iconduck.com/assets.00/cisco-icon-2048x2048-yvjuekbj.png" alt="Cisco Icon" width="50" style="padding-right: 5px;"></td>
-                                <td><img src="storm.png" alt="Storm Icon" width="50"></td>
-                                <td><img src="https://clipart-library.com/images_k/server-transparent/server-transparent-22.png" alt="Server Icon" width="50"></td>
-                                <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1727px-Tux.svg.png" alt="Linux Icon" width="50"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+    <nav class="top-nav">
+        <a href="../index.html" class="nav-left">Retour</a>
+        <div class="nav-right">
+            <a href="../Projet/Projet.html">Projets</a>
+            <a href="../Exp/exp.html">Expériences</a>
+            <a href="../Veille/Veille.html">Veille</a>
+            <a href="Perso.html">À Propos</a>
         </div>
+    </nav>
 
-        <main>
-            <section>
+    <div class="page-content-container">
+        <section class="profile-container-card">
+            <div class="profile-image-wrapper" onclick="window.location.href='https://www.youtube.com/watch?v=_fr4SV4fGAw';" title="Voir sur YouTube (placeholder)">
+                <img src="tempo.jpg" alt="Côme Servy - Image de Profil">
+            </div>
+            <div class="profile-text-content">
+                <h2 class="profile-name">Côme Servy</h2>
+                <p class="profile-tagline">21 ans, Apprenti Technicien Informatique au Pôle Universitaire de Vichy.</p>
+                <div class="tech-icons">
+                    <img src="https://static-00.iconduck.com/assets.00/html5-icon-2018x2048-st7q7lm6.png" alt="HTML5 Icon" title="HTML5">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919853.png" alt="CSS Icon" title="CSS3">
+                    <img src="https://static-00.iconduck.com/assets.00/proxmox-icon-2048x2048-i8gl93w2.png" alt="Proxmox Icon" title="Proxmox">
+                    <img src="https://static-00.iconduck.com/assets.00/cisco-icon-2048x2048-yvjuekbj.png" alt="Cisco Icon" title="Cisco Networking">
+                    <img src="storm.png" alt="Stormshield Icon" title="Stormshield"> <img src="https://clipart-library.com/images_k/server-transparent/server-transparent-22.png" alt="Server Icon" title="Serveurs">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1727px-Tux.svg.png" alt="Linux Icon" title="Linux">
+                </div>
+            </div>
+        </section>
+
+        <main class="main-content-sections">
+            <section class="content-section-perso">
                 <h2>Qui suis-je ?</h2>
-                <p>Je suis actuellement sous status d'apprentissage en <a style="color: rgba(0, 255, 136, 0.6);" href="../BtsSio/Btssio.html">BTS SIO</a> au Pôle Universitaire de Vichy.
-                    Depuis mon plus jeune âge, l’informatique me passionne. C’est cette passion qui m’a conduit à me spécialiser en obtenant un bac professionnel en systèmes numériques,
-                    avec une option en audiovisuel, réseau et équipements domestiques. À l’époque, mon objectif était de travailler dans le domaine de l’audiovisuel ou du graphisme.
-                </p>
+                <p>Je suis actuellement sous statut d'apprentissage en <a href="../BtsSio/Btssio.html" class="inline-link">BTS SIO</a> au Pôle Universitaire de Vichy. Depuis mon plus jeune âge, l’informatique me passionne. C’est cette passion qui m’a conduit à me spécialiser en obtenant un bac professionnel en systèmes numériques, avec une option en audiovisuel, réseau et équipements domestiques. À l’époque, mon objectif était de travailler dans le domaine de l’audiovisuel ou du graphisme.</p>
             </section>
 
-            <section>
-                <h2>CV</h2>
+            <section class="content-section-perso">
+                <h2>Mon CV</h2>
                 <div class="cv-container">
-                    <iframe src="CV.pdf" class="cv-embed" title="Mon CV"></iframe>
+                    <iframe src="CV.pdf" class="cv-embed" title="Mon CV - Côme Servy"></iframe>
+                    <a href="CV.pdf" class="download-cv-button" download="CV_Come_Servy.pdf">Télécharger le CV</a>
                 </div>
             </section>
         </main>
     </div>
 
     <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+        // Any page-specific JS can go here if needed
+        // For example, making the profile image clickable if the inline onclick is not preferred
+        // const profileImage = document.querySelector('.profile-image-wrapper');
+        // if (profileImage) {
+        //     profileImage.addEventListener('click', () => {
+        //         window.location.href = 'https://www.youtube.com/watch?v=_fr4SV4fGAw';
+        //     });
+        // }
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

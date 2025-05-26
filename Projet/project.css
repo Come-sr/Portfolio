@@ -1,317 +1,179 @@
-/* Simplified Dark Theme */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
+:root {
+    /* --- Obsidian & Volt Green Palette --- */
+    --color-bg: #0D1017; /* Near-black Obsidian */
+    --color-surface: #161B22; /* Slightly lighter surface (e.g., for cards) */
+    --color-accent: #518eee; /* Electric Volt Green */
+    --color-accent-hover: #518eee; /* Lighter Volt for hover */
+    --color-text-primary: #e8edf3; /* Bright, clean off-white */
+    --color-text-secondary: #b0c7e0; /* Muted grey-blue for descriptions */
+    --color-border-subtle: #518dee23; /* Volt green subtle border */
+    --color-border-strong: #518dee49; /* Volt green stronger border/glow */
+    --color-shadow: rgba(0, 0, 0, 0.4);
+    --color-nav-bg: rgba(13, 16, 23, 0.7); /* Nav background */
+
+    --font-display: 'Playfair Display', serif; /* For main titles */
+    --font-body: 'Inter', sans-serif;      /* For body and UI text */
+    
+    --radius-main: 16px; /* Main border radius for cards */
+    --transition-fast: 0.25s ease-out;
+    --transition-smooth: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Back Button */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body.projets-page {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    line-height: 1.65;
+    padding: 1rem;
+    padding-top: 80px; /* Space for fixed nav */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* --- Top Navigation --- */
+.top-nav {
+    width: 100%; display: flex; justify-content: space-between; align-items: center;
+    position: fixed; top: 0; left: 0; padding: 0.8rem 2rem;
+    background-color: var(--color-nav-bg);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.top-nav a {
+    color: var(--color-text-secondary); /* Muted color for nav links */
+    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    padding: 0.5rem 0.8rem; border-radius: 8px;
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+.top-nav a.nav-left {
+    font-family: var(--font-display); font-size: 1.3rem; font-weight: 700;
+    color: var(--color-accent); /* Brand name in accent */
+}
+.top-nav a:not(.nav-left):hover {
+    color: var(--color-accent);
+    background-color: #518dee31;
+}
+.nav-right { display: flex; gap: 1rem; }
 .back-button {
-  position: fixed;
-  top: 2rem;
-  left: 2rem;
-  display: inline-block;
-  color: #00ff88;
-  text-decoration: none;
-  padding: 0.8rem 1.5rem;
-  border: 1px solid rgba(0, 255, 136, 0.3);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  z-index: 1000;
+    position: fixed; top: 1.1rem; left: 2rem;
+    color: var(--color-text-secondary); text-decoration: none; font-size: 1.5rem;
+    z-index: 1001; transition: color var(--transition-fast), transform var(--transition-fast);
+}
+.back-button:hover { color: var(--color-accent); transform: translateX(-4px) scale(1.05); }
+
+/* --- Page Layout & Headers --- */
+.page-content-container { max-width: 1600px; margin: 2.5rem auto; padding: 0 1.5rem; }
+.page-header {
+    text-align: center; margin: 2rem auto 4rem; padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+.page-header h1 {
+    font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 3.8rem);
+    color: var(--color-text-primary); margin-bottom: 0.75rem; letter-spacing: -0.5px;
+}
+.page-header p { font-size: 1.1rem; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto; }
+
+.project-category-section { margin-bottom: 4rem; }
+.category-title {
+    font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3rem);
+    color: var(--color-accent); margin-bottom: 2.5rem;
+    padding-bottom: 0.75rem; border-bottom: 2px solid var(--color-accent);
+    text-align: left; display: inline-block; /* Makes border fit content */
 }
 
-.back-button:hover {
-  background: rgba(0, 255, 136, 0.1);
-  transform: translateX(-5px);
+/* --- "Super Good" Project Cards --- */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Aim for 3 cards */
+    gap: 2.5rem;
 }
 
-body, html {
-  font-family: 'Helvetica Neue', sans-serif;
-  background: #0a0a0a;
-  color: rgba(255, 255, 255, 0.92);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow-x: hidden;
+.mission-card {
+    position: relative; border-radius: var(--radius-main); overflow: hidden;
+    text-decoration: none; display: flex; flex-direction: column;
+    background-color: var(--color-surface);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+    aspect-ratio: 4 / 3.2; /* Slightly taller than 4/3 */
+    border: 1px solid color-mix(in srgb, var(--color-surface) 80%, #000000 20%); /* Subtle border based on card bg */
 }
 
-/* Subtle cyber grid overlay */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-      linear-gradient(rgba(0, 255, 136, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 255, 136, 0.02) 1px, transparent 1px);
-  background-size: 20px 20px;
-  pointer-events: none;
-  z-index: -1;
+.card-image-wrapper {
+    width: 100%;
+    height: 60%; /* Image takes a good portion */
+    overflow: hidden;
+    position: relative; /* For potential overlay effects */
+}
+.mission-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.2s ease-out, filter 0.4s ease-in-out;
+    filter: saturate(0.7) brightness(0.85) contrast(1.1); /* Moody initial look */
 }
 
-.container, .container2 {
-  width: 90%;
-  max-width: 1400px;
-  margin: 2rem auto;
-  background-color: rgba(255, 255, 255, 0.02);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* First Year Section Theme */
-.first-year {
-  background: linear-gradient(to right, rgba(0, 255, 136, 0.1), rgba(0, 255, 136, 0.05)); /* Cyber Green */
-  border: 1px solid rgba(0, 255, 136, 0.2);
-}
-
-.first-year .section-header:hover {
-  background-color: rgba(0, 255, 136, 0.15);
-}
-
-/* Second Year Section Theme */
-.second-year {
-  background: linear-gradient(to right, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0.05)); /* Cyber Blue */
-  border: 1px solid rgba(0, 123, 255, 0.2);
-}
-
-.second-year .section-header:hover {
-  background-color: rgba(0, 123, 255, 0.15);
-}
-
-/* Apprenticeship Section Theme */
-.apprenticeship {
-  background: linear-gradient(to right, rgba(255, 65, 108, 0.1), rgba(255, 65, 108, 0.05)); /* Cyber Red */
-  border: 1px solid rgba(255, 65, 108, 0.2);
-}
-
-.apprenticeship .section-header:hover {
-  background-color: rgba(255, 65, 108, 0.15);
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-}
-
-.section-header:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.toggle-icon {
-  font-size: 1.5rem;
-  transition: transform 0.3s ease;
-}
-
-.section-header.active .toggle-icon {
-  transform: rotate(180deg);
-}
-
-.section-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease-out;
-}
-
-.section-content.active {
-  max-height: 2000px;
-}
-
-.header {
-  text-align: left;
-}
-
-h1 {
-  font-family: "Fjalla One", sans-serif;
-  font-size: 2.5rem;
-  color: #00ff88; /* Cyber Green */
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-}
-
-.second-year h1 {
-  color: #007bff; /* Cyber Blue */
-}
-
-.apprenticeship h1 {
-  color: #ff416c; /* Cyber Red */
-}
-
-h2 {
-  font-size: 1.2rem;
-  font-weight: 300;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.mission-grid, .testt {
-  display: flex;
-  justify-content: space-between; /* Adjusted for 4 cards per line */
-  flex-wrap: wrap;
-  padding: 2rem;
-  gap: 20px;
-}
-
-
-.mission-card, .mission-card3 {
-  width: calc(25% - 20px); /* Adjusted for 4 cards per line */
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.mission-card2 {
-  width: calc(25% - 20px); /* Adjusted for 4 cards per line */
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.mission-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3); /* Cyber Green */
-  border: 1px solid rgba(0, 255, 136, 0.5);
-}
-
-.mission-card3:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3); /* Cyber Blue */
-  border: 1px solid rgba(0, 123, 255, 0.5);
-}
-
-.mission-card2:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(255, 65, 108, 0.3); /* Cyber Red */
-  border: 1px solid rgba(255, 65, 108, 0.5);
+.card-content {
+    padding: 1.25rem 1.5rem;
+    display: flex; flex-direction: column;
+    justify-content: space-between; /* Distribute space */
+    flex-grow: 1;
+    text-align: left;
 }
 
 .mission-card h3 {
-  padding: 1rem;
-  margin: 0;
-  font-size: 1.2rem;
-  text-align: center;
-  color: #00ff88; /* Cyber Green */
+    font-size: 1.15rem; /* Slightly smaller for balance */
+    color: var(--color-text-primary);
+    font-weight: 700; /* Bolder titles */
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+    transition: color var(--transition-fast);
 }
 
-.mission-card2 h3 {
-  padding: 1rem;
-  margin: 0;
-  font-size: 1.2rem;
-  text-align: center;
-  color: #ff416c; /* Cyber Red */}
-
-  .mission-card3 h3 {
-    padding: 1rem;
-    margin: 0;
-    font-size: 1.2rem;
-    text-align: center;
-  color: #007bff; /* Cyber Blue */
-  }
-
-.second-year .mission-card h3 {
-  color: #007bff; /* Cyber Blue */
+.card-description {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    flex-grow: 1; /* Allows description to take space */
 }
 
-.apprenticeship .mission-card2 h3 {
-  color: #ff416c; /* Cyber Red */
+/* --- Hover Effects for Cards --- */
+.mission-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 40px var(--color-shadow), 0 0 25px var(--color-border-glow);
+    border-color: var(--color-border-strong);
 }
-
-.mission-card img, .mission-card2 img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  object-position: center;
-  margin-top: auto;
-  transition: transform 0.3s ease;
+.mission-card:hover img {
+    transform: scale(1.1);
+    filter: saturate(1) brightness(1) contrast(1);
 }
-
-.mission-card3 img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  object-position: center;
-  margin-top: auto;
-  transition: transform 0.3s ease;
-}
-
-.mission-card3:hover img {
-  transform: scale(1.1);
-}
-
-.mission-card:hover img, .mission-card2:hover img {
-  transform: scale(1.1);
-}
-
-/* Mobile adjustments */
-@media screen and (max-width: 1200px) {
-  .mission-card, .mission-card3 {
-      width: calc(33.33% - 20px); /* 3 cards per line */
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .mission-card, .mission-card3 {
-      width: calc(50% - 20px); /* 2 cards per line */
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .mission-card, .mission-card2, .mission-card3 {
-      width: calc(100% - 20px); /* 1 card per line */
-  }
-  
-  .mission-card h3, .mission-card2 h3, .mission-card3 h3 {
-      font-size: 1rem;
-  }
-  
-  .mission-card img, .mission-card2 img, .mission-card3 img {
-      height: 180px;
-  }
-}
-
-/* Add these rules to project.css */
-
-/* First Year Mission Cards */
-.first-year .mission-card h3 {
-  color: #00ff88 !important;
-}
-.first-year .mission-card:hover {
-  box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3) !important;
-  border-color: rgba(0, 255, 136, 0.5) !important;
-}
-
-/* Second Year Mission Cards */
-.second-year .mission-card h3 {
-  color: #007bff !important;
-}
-.second-year .mission-card:hover {
-  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3) !important;
-  border-color: rgba(0, 123, 255, 0.5) !important;
+.mission-card:hover h3 {
+    color: var(--color-accent);
 }
 
 
-
+/* --- Responsive --- */
+@media (max-width: 1200px) {
+    .mission-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+}
+@media (max-width: 992px) { /* Usually 2 cards */
+    .mission-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+}
+@media (max-width: 768px) { /* 1 card */
+    .top-nav .nav-right { display: none; }
+    .mission-grid { grid-template-columns: 1fr; }
+    .page-header h1 { font-size: 2.5rem; }
+    .category-title { font-size: 2.2rem; }
+    .page-content-container { margin: 1.5rem auto; padding: 0 1rem;}
+    body.projets-page { padding: 0.8rem; padding-top: 70px; }
+}
+@media (max-width: 480px) {
+    .top-nav { padding: 0.6rem 1rem; }
+    .top-nav a.nav-left { font-size: 1.2rem; }
+    .back-button { font-size: 1.4rem; top: 0.9rem; left: 1rem;}
+    body.projets-page { padding-top: 65px; }
+    .mission-card { aspect-ratio: 3 / 2.5; } /* Slightly taller on mobile */
+}

@@ -1,169 +1,375 @@
-/* Simplified Dark Theme */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    /* --- User's Base Palette (Light Green/Cyan BG, Blue Accent) --- */
+    --palette-accent: #518eee ;
+    --palette-bg: #8bafe942; 
+
+    /* --- Semantic Theme Variables --- */
+    --color-bg: var(--palette-bg);
+    --color-text-primary: var(--palette-accent); /* Blue text on light bg */
+    --color-text-on-dark: var(--palette-bg); /* Light text for any dark elements */
+    --color-accent-primary: var(--palette-accent);
+    
+    --color-surface-nav: #518eee; /* Light bg with opacity for nav */
+    --color-card-bg: #618fd838; /* White cards for crispness */
+    --color-section-bg: transparent; /* Sections blend with body or slightly off like #fafdfc */
+    
+    --color-accent-secondary: color-mix(in srgb, var(--palette-accent) 80%, var(--palette-bg) 20%); /* Muted blue */
+    --color-text-secondary: color-mix(in srgb, var(--palette-accent) 70%, var(--palette-bg) 35%); /* Softer blue for secondary text */
+    
+    --color-border-subtle: rgba(81, 142, 238, 0.25);
+    --color-border-glow: rgba(81, 142, 238, 0.4);
+    --color-shadow-tint: rgba(81, 142, 238, 0.12);
+
+    /* --- Structural & Non-Theme Specific Variables --- */
+    --font-serif: 'Montserrat', sans-serif;
+    --font-sans: 'Inter', sans-serif;  
+    --shadow-light: 0 4px 12px var(--color-shadow-tint); 
+    --shadow-medium: 0 7px 20px var(--color-shadow-tint);
+    --radius-card: 18px;
+    --radius-section: 24px; 
+    --content-max-width: 1400px; 
+    --grid-max-width: 1700px; 
 }
 
-body, html {
-    font-family: 'Helvetica Neue', sans-serif;
-    background: #0a0a0a;
-    color: rgba(255, 255, 255, 0.92);
-    line-height: 1.6;
+/* === Basic Reset & Body === */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-weight: 400;
+    line-height: 1.7; 
+    padding: 1rem;
+    padding-top: 75px; 
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; 
 }
 
-/* Subtle cyber grid overlay */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(0, 255, 136, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 136, 0.02) 1px, transparent 1px);
-    background-size: 20px 20px;
-    pointer-events: none;
-    z-index: -1;
+/* === Typography === */
+h1, h2, h3, h4, h5, h6 { 
+    margin-bottom: 0.8em; 
+    line-height: 1.25; 
+    font-weight: 700;
 }
-
-.page-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
+h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--color-text-primary); letter-spacing: -0.5px; }
+h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.8rem); color: var(--color-accent-primary); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 600; color: var(--color-text-primary); }
+p, li { 
+    margin-bottom: 1.25rem; 
+    color: var(--color-text-secondary); 
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    max-width: 720px; 
 }
+ul, ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+li { margin-bottom: 0.5rem; }
+ul li::marker { color: var(--color-accent-primary); } 
 
-/* Header */
-header {
+a { color: var(--color-accent-primary); text-decoration: none; transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out; }
+a:hover, a:focus { opacity: 0.75; color: var(--color-accent-secondary); }
+
+strong { font-weight: 600; color: var(--color-text-primary); }
+hr { border: none; height: 1px; background-color: var(--color-border-subtle); margin: 2.5rem 0; }
+img { max-width: 100%; height: auto; display: block; border-radius: 8px; } 
+figure { margin: 0 0 1.5rem 0; }
+figcaption { font-size: 0.85rem; color: var(--color-text-secondary); text-align: center; margin-top: 0.5rem; }
+
+/* === Navigation & Back Button === */
+.top-nav {
+    width: 100%; display: flex; justify-content: space-between; align-items: center;
+    position: fixed; top: 0; left: 0; padding: 0.8rem 2rem;
+    background-color: var(--color-surface-nav); 
+    box-shadow: 0 1px 3px rgba(81, 142, 238, 0.1); 
+    z-index: 1000; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+}
+.top-nav a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.9rem; padding: 0.5rem; transition: color 0.3s ease, transform 0.2s ease; }
+.top-nav a.nav-left { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: #ffffff; }
+.top-nav a:hover { color: var(--color-accent-primary); transform: translateY(-1px); }
+.nav-right { display: flex; gap: 1.5rem; }
+.back-button { position: fixed; top: 1.1rem; left: 2rem; color: var(--color-text-primary); text-decoration: none; font-size: 1.5rem; z-index: 1001; transition: color 0.3s ease, transform 0.3s ease; }
+.back-button:hover { color: var(--color-accent-primary); transform: translateX(-5px) scale(1.1); }
+
+/* === Page Layout & Shared Sections === */
+.page-content-container { 
+    max-width: var(--content-max-width); 
+    margin: 2.5rem auto; 
+    padding: 0 1rem; 
+}
+.page-header {
     text-align: center;
-    margin-bottom: 4rem;
-    padding: 2rem 0;
+    margin: 2rem auto 3.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border-subtle);
 }
+.page-header h1 { margin-bottom: 0.5rem; }
+.page-header p { max-width: 650px; margin-left: auto; margin-right: auto; }
 
-h1, h2 {
-    font-family: "Fjalla One", sans-serif;
-    color: #ffffff;
-    text-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
-}
-
-h1 {
-    font-size: 2.8rem;
-    margin-bottom: 1rem;
-}
-
-h2 {
-    font-size: 2rem;
-    margin: 3rem 0 1.5rem;
+.section-title { 
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4vw, 2.8rem); 
+    color: var(--color-accent-primary);
+    margin-top: 3.5rem;
+    margin-bottom: 2.5rem;
     padding-bottom: 0.75rem;
-    border-bottom: 2px solid rgba(0, 255, 136, 0.6);
-    position: relative;
+    border-bottom: 2px solid var(--color-border-subtle);
+    text-align: left;
 }
+.section-title:first-of-type { margin-top: 0; } 
 
-p {
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    text-align: justify;
+/* === Project Cards (For Projet.html) === */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); 
+    gap: 2.5rem;
 }
+.mission-card {
+    position: relative; border-radius: var(--radius-card); overflow: hidden;
+    text-decoration: none; display: flex; flex-direction: column;
+    background-color: var(--color-card-bg); box-shadow: var(--shadow-medium);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+                border-color 0.4s ease; 
+    aspect-ratio: 4 / 3; 
+    border: 1px solid var(--color-border-subtle); 
+}
+.card-image-wrapper {
+    width: 100%; height: 60%; overflow: hidden;
+    border-top-left-radius: var(--radius-card); border-top-right-radius: var(--radius-card);
+}
+.mission-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s ease;
+    filter: brightness(0.95) saturate(1); 
+}
+.card-content {
+    padding: 1.25rem 1.5rem; display: flex; flex-direction: column;
+    justify-content: center; flex-grow: 1; text-align: left;
+}
+.mission-card h3 {
+    font-size: 1.2rem; color: var(--color-text-primary); font-weight: 600;
+    margin-bottom: 0.25rem; line-height: 1.3;
+}
+.card-description {
+    font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.4;
+}
+.mission-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 18px 35px rgba(81, 142, 238, 0.22), 0 0 20px var(--color-border-glow); 
+    border-color: var(--color-border-glow); 
+}
+.mission-card:hover img { transform: scale(1.05); filter: brightness(1.05) saturate(1.1); }
+.mission-card:hover h3 { color: var(--color-accent-primary); }
 
-.profile-section-container {
+/* === Generic Content Card (for other pages like Veille, Perso) === */
+.content-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.content-card {
+    background-color: var(--color-card-bg);
+    padding: 2rem;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--color-border-subtle);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+.content-card h3 { margin-top: 0; }
+
+/* === Responsive Adjustments === */
+@media (max-width: 1200px) { 
+    .mission-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .page-content-container { max-width: 90%; }
+}
+@media (max-width: 768px) { 
+    .top-nav .nav-right { display: none; }
+    .mission-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .page-header h1 { font-size: 2.5rem; }
+    .section-title { font-size: 2rem; }
+    .page-content-container { margin: 1.5rem auto; }
+    body { padding: 0.8rem; padding-top: 65px; }
+    .card-content { padding: 1rem 1.25rem; }
+    .mission-card h3 { font-size: 1.1rem; }
+    .card-description { font-size: 0.85rem; }
+}
+@media (max-width: 480px) {
+    .top-nav { padding: 0.6rem 1rem; }
+    .top-nav a.nav-left { font-size: 1.1rem; }
+    .back-button { font-size: 1.3rem; top: 0.9rem; left: 1rem;}
+    body { padding-top: 60px; }
+}
+/* Specific styles for Perso.html, assuming global_theme.css is linked first */
+
+.profile-container-card {
     display: flex;
-    justify-content: center;
+    flex-direction: row; /* Default for larger screens */
     align-items: center;
-    height: 24vh;
+    gap: 2.5rem;
+    background-color: var(--color-card-bg); /* White background for the card */
+    padding: 2.5rem;
+    border-radius: var(--radius-section); /* Use larger radius for this main card */
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--color-border-subtle);
+    margin: 1rem auto 3rem auto; /* Centered with margin */
+    max-width: 1000px; /* Max width for the profile card */
 }
 
-.profile-section {
-    display: flex;
+.profile-image-wrapper {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(81, 142, 238, 0.2); /* Accent shadow */
+    border: 5px solid var(--color-bg); /* Page background color as border for "inset" feel */
+    outline: 2px solid var(--color-accent-primary); /* Accent outline */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.profile-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px; /* Adjust as needed */
-    height: 150px; /* Adjust as needed */
-    border-radius: 50%; /* Makes the image circular */
-    overflow: hidden; /* Ensures the image stays within the circle */
+.profile-image-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(81, 142, 238, 0.3), 0 0 15px var(--color-border-glow);
 }
-
-.profile-image img {
+.profile-image-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image scales properly */
+    object-fit: cover;
 }
 
-.profile-text h2 {
-    color: rgba(0, 255, 136, 0.6);
-    margin: 0;
-    font-size: 1.8rem;
+.profile-text-content {
+    flex-grow: 1;
+    text-align: left;
 }
 
-.profile-text p {
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0;
-    align-items: center;
-    text-align: center;
-    margin-top: 10px;
+.profile-name { /* This is an h2 */
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.8rem); /* Responsive name size */
+    color: var(--color-text-primary);
+    margin-bottom: 0.4rem !important; /* Override global h2 margin */
 }
+
+.profile-tagline { /* This is a p */
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem !important; /* Override global p margin */
+    font-weight: 500;
+}
+
+.tech-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem; /* Space above icons */
+    justify-content: flex-start;
+}
+.tech-icons img {
+    height: 38px;
+    width: auto;
+    opacity: 0.75;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-radius: 0; /* Remove global image border-radius for icons */
+}
+.tech-icons img:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.main-content-sections {
+    /* Styles for the container of "Qui suis-je" and "CV" sections if needed */
+}
+
+.content-section-perso { /* For "Qui suis-je" and "CV" text sections */
+    padding: 1rem 0;
+    max-width: 800px; /* Consistent width for text content */
+    margin: 0 auto 3rem auto; /* Centered text sections */
+}
+.content-section-perso h2 { /* Using global h2 style, these are for local overrides */
+    text-align: left;
+    font-size: clamp(1.8rem, 3vw, 2.2rem); /* Slightly smaller than page/section titles */
+    margin-top: 0; /* Remove top margin if it's first in its own section */
+    margin-bottom: 1rem;
+    border-bottom: none; /* Remove global H2 border if not desired here */
+    padding-bottom: 0;
+}
+.content-section-perso p a.inline-link {
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--color-border-subtle);
+    text-underline-offset: 3px;
+}
+.content-section-perso p a.inline-link:hover {
+    text-decoration-color: var(--color-accent-primary);
+}
+
 
 .cv-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--color-border-subtle);
+    text-align: center; /* Center the download button */
 }
-
 .cv-embed {
     width: 100%;
-    height: 800px;
-    max-width: 800px;
-    border: none;
+    height: 750px; /* Adjusted height */
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 10px; 
 }
-
-/* Back Button (Fixed Position) */
-.back-button {
-    position: fixed;
-    top: 2rem;
-    left: 2rem;
-    color: #00ff88;
-    text-decoration: none;
-    padding: 0.8rem 1.5rem;
-    border: 1px solid rgba(0, 255, 136, 0.3);
+.download-cv-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-accent-primary);
+    color: var(--palette-bg); /* Use page background color for text on accent button */
     border-radius: 8px;
-    background: rgba(18, 18, 18, 0.8);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.download-cv-button:hover {
+    background-color: var(--color-accent-secondary);
+    color: var(--palette-bg);
+    opacity: 1; /* Override global link hover opacity */
+    transform: translateY(-2px);
 }
 
-.back-button:hover {
-    background: rgba(0, 255, 136, 0.1);
-    transform: translateX(-5px);
-}
 
-/* Responsive Design */
+/* Responsive for Perso page specific elements */
 @media (max-width: 768px) {
-    .page-container {
-        padding: 2rem 1rem;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.6rem;
-    }
-
-    .profile-section {
+    .profile-container-card {
         flex-direction: column;
-        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 2rem 1.5rem;
     }
-
-    .profile-image {
-        margin-right: 0;
-        margin-bottom: 1.5rem;
+    .profile-text-content {
+        text-align: center;
     }
+    .profile-name,
+    .profile-tagline {
+        text-align: center;
+    }
+    .tech-icons {
+        justify-content: center;
+    }
+    .profile-image-wrapper {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 1rem;
+    }
+    .content-section-perso h2 {
+        text-align: center;
+    }
+    .cv-container { padding: 0.5rem; }
+    .cv-embed { height: 600px; }
 }

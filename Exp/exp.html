@@ -4,79 +4,200 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expérience Professionnelle - Côme Servy</title>
-    <link rel="stylesheet" href="exp.css">
+    <link rel="stylesheet" href="css/global.css"> <link rel="stylesheet" href="exp.css">
     <link rel="icon" href="../DND.gif">
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .modern-timeline {
+            position: relative;
+            padding: 2rem 0;
+            max-width: 900px; /* Center timeline content */
+            margin: 0 auto;
+        }
+        .modern-timeline::before { /* The central line */
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background-color: var(--color-border-subtle);
+            border-radius: 3px;
+        }
+        .timeline-item-modern {
+            margin-bottom: 3rem;
+            position: relative;
+            width: 50%;
+            padding: 0 2rem;
+        }
+        .timeline-item-modern:nth-child(odd) { /* Left side */
+            left: 0;
+            padding-right: 30px; /* Space from center line */
+            text-align: right;
+        }
+        .timeline-item-modern:nth-child(even) { /* Right side */
+            left: 50%;
+            padding-left: 30px; /* Space from center line */
+            text-align: left;
+        }
+        .timeline-item-modern::after { /* The dot on the line */
+            content: '';
+            position: absolute;
+            top: 5px; /* Align with text */
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: var(--color-accent-primary);
+            border: 3px solid var(--color-bg);
+            z-index: 1;
+            box-shadow: 0 0 10px var(--color-border-glow);
+        }
+        .timeline-item-modern:nth-child(odd)::after {
+            right: -9px; /* (18px / 2) */
+            transform: translateX(50%);
+        }
+        .timeline-item-modern:nth-child(even)::after {
+            left: -9px;
+            transform: translateX(-50%);
+        }
+        .timeline-content-modern {
+            background-color: var(--color-card-bg);
+            padding: 1.5rem;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--color-border-subtle);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .timeline-content-modern:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        .timeline-content-modern h3 { /* Event Title */
+            font-size: 1.3rem;
+            color: var(--color-accent-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        .timeline-content-modern p {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary); /* Consistent with global p */
+            margin-bottom: 0;
+            max-width: 100%; /* Override global max-width for p inside card */
+        }
+        .timeline-content-modern img {
+            width: 100%;
+            max-width: 200px; /* Limit image size in timeline */
+            border-radius: 10px;
+            margin-top: 1rem;
+            border: 1px solid var(--color-border-subtle);
+        }
+        .timeline-item-modern:nth-child(odd) img { float: right; margin-left: 1rem; }
+        .timeline-item-modern:nth-child(even) img { float: left; margin-right: 1rem; }
+
+        /* Responsive Timeline */
+        @media (max-width: 768px) {
+            .modern-timeline::before { left: 9px; transform: translateX(0); }
+            .timeline-item-modern,
+            .timeline-item-modern:nth-child(odd),
+            .timeline-item-modern:nth-child(even) {
+                width: 100%;
+                left: 0;
+                padding-left: 45px; /* Space for dot and line */
+                padding-right: 0;
+                text-align: left;
+            }
+            .timeline-item-modern:nth-child(odd)::after,
+            .timeline-item-modern:nth-child(even)::after {
+                left: 0; /* Align dot to the line */
+            }
+             .timeline-item-modern:nth-child(odd) img,
+             .timeline-item-modern:nth-child(even) img { float: none; display: block; margin: 1rem auto; }
+        }
+    </style>
 </head>
 <body>
-    <a href="../index.html" class="back-button">
-        ← Retour
-    </a>
+    <a href="../index.html" class="back-button">←</a>
 
-    <div class="container">
-        <header class="header">
-            <h1>Expérience Professionnelle</h1>
+    <nav class="top-nav">
+        <a href="../index.html" class="nav-left">Côme</a>
+        <div class="nav-right">
+            <a href="../Projet/Projet.html">Projets</a>
+            <a href="exp.html">Expériences</a>
+            <a href="../Veille/Veille.html">Veille</a>
+            <a href="../Perso/Perso.html">À Propos</a>
+        </div>
+    </nav>
+
+    <div class="page-content-container">
+        <header class="page-header">
+            <h1>Mon Parcours Professionnel</h1>
+            <p>Un aperçu de mes expériences et formations clés.</p>
         </header>
 
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h2>Alternance Pôle Universitaire de Vichy</h2>
-                    <div class="date">2024-2025</div>
-                    <p>Depuis le 20 mai 2024, je suis en apprentissage au Pôle universitaire de Vichy. Cette expérience est très enrichissante pour moi, car elle me permet de développer et d'utiliser toutes les connaissances que j'ai acquises au cours de mon parcours professionnel et scolaire.</p>
-                    <img src="https://www.vichy-communaute.fr/wp-content/uploads/2023/01/Vichy-co_Plan-de-travail-1-scaled.jpg">
+        <div class="modern-timeline">
+            <div class="timeline-item-modern">
+                <div class="timeline-content-modern">
+                    <h3>Alternance Pôle Universitaire de Vichy</h3>
+                    <div class="timeline-date">2024 - 2025</div>
+                    <p>Apprentissage enrichissant, développement de compétences pratiques et participation à des projets d'infrastructure et de support.</p>
+                    <img src="https://www.vichy-communaute.fr/wp-content/uploads/2023/01/Vichy-co_Plan-de-travail-1-scaled.jpg" alt="Pôle Universitaire Vichy">
                 </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h2 style="color: aquamarine;">Entrée en BTS SIO option SISR</h2>
-                    <div class="date">2023-2025</div>
-                    <a href="../BtsSio/Btssio.html">Info sur le BTS SIO</a>
+            <div class="timeline-item-modern">
+                <div class="timeline-content-modern">
+                    <h3 style="color: var(--color-text-primary);">Entrée en BTS SIO option SISR</h3>
+                    <div class="timeline-date">2023 - 2025</div>
+                    <p>Formation spécialisée en Solutions d'Infrastructure, Systèmes et Réseaux. <a href="../BtsSio/Btssio.html">Plus d'infos sur le BTS SIO</a>.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item-modern">
+                <div class="timeline-content-modern">
+                    <h3>Bac Professionnel Systèmes Numériques</h3>
+                    <div class="timeline-date">2020 - 2023 (Mention Bien)</div>
+                    <p>Option Audiovisuels, réseau et équipements domestiques (ARED). Solides bases techniques en électronique et informatique.</p>
+                    <img src="https://www.leguidepratique.com/storage/app/media/guides/montlucon/annonces/LYCEE%20ALBERT%20EINSTEIN/Image%20cour.jpg" alt="Lycée Albert Einstein">
                 </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h2 style="color: aquamarine;">Bac Professionnel Systèmes Numériques</h2>
-                    <div class="date">2020 - 2023</div>
-                    <p>Obtention en 2023 du Bac Pro SN - Option Audiovisuels, réseau et équipements domestiques (ARED) mention Bien.</p>
-                    <img src="https://www.leguidepratique.com/storage/app/media/guides/montlucon/annonces/LYCEE%20ALBERT%20EINSTEIN/Image%20cour.jpg" >
+            <div class="timeline-item-modern">
+                <div class="timeline-content-modern">
+                    <h3>Stage Pôle Universitaire de Vichy</h3>
+                    <div class="timeline-date">2 Mois (2023)</div>
+                    <p>Consolidation des compétences en réseau informatique, découverte du fonctionnement d'un SI d'envergure.</p>
                 </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h2>Stage Pôle Universitaire de Vichy</h2>
-                    <div class="date">2 Mois</div>
-                    <p>Stage enrichissant en entreprise, où j'ai consolidé mes compétences en réseau informatique, ouvrant ainsi de nouvelles perspectives pour mon avenir professionnel.</p>
+            <div class="timeline-item-modern">
+                <div class="timeline-content-modern">
+                    <h3>Stage Maintenance Informatique</h3>
+                    <div class="timeline-date">2 Mois (2021)</div>
+                    <p>Expérience en dépannage et bonnes pratiques en boutique de maintenance.</p>
+                    <img src="https://www.allier-auvergne-tourisme.com//contenus/422/visuel/m_1200_630_crop_191022103121_vi068lo-2012-2019.jpg" alt="Saint Pourçain Informatique (Placeholder)">
+                </div>
+            </div>
+            
+            <div class="timeline-item-modern">
+                <div class="timeline-content-modern">
+                    <h3>Stage Agence de Communication</h3>
+                    <div class="timeline-date">6 Semaines (2022)</div>
+                    <p>Acquisition d'expérience en design graphique.</p>
                 </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h2>Stage Maintenance informatique</h2>
-                    <div class="date">2 Mois</div>
-                    <p>Stage intéressant au sein d'une petite boutique de maintenance informatique, où j'ai acquis beaucoup d'expériences et de bonnes pratiques dans le dépannage informatique.</p>
-                    <img src="https://www.allier-auvergne-tourisme.com//contenus/422/visuel/m_1200_630_crop_191022103121_vi068lo-2012-2019.jpg" alt="Pôle Universitaire de Vichy">
-
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h2>Stage Agence de Communication</h2>
-                    <div class="date">6 Semaines</div>
-                    <p>Stage intéressant au sein d'une agence de communication, où j'ai acquis une expérience significative en design et graphisme.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h2>Stage à l'Hôtel d'Agglomération de Vichy Communauté</h2>
-                    <div class="date">1 Mois</div>
-                    <p>Mon premier vrai stage en informatique. C'est cette expérience qui a confirmé mon envie de faire carrière et de poursuivre mes études dans ce domaine.</p>
-                    <img src="https://www.vichy-communaute.fr/wp-content/uploads/2015/01/CC-5-520x245.jpg" alt="Pôle Universitaire de Vichy">
+            <div class="timeline-item-modern">
+                <div class="timeline-content-modern">
+                    <h3>Stage Hôtel d'Agglomération Vichy Communauté</h3>
+                    <div class="timeline-date">1 Mois (2019)</div>
+                    <p>Première immersion professionnelle en informatique, confirmant mon orientation de carrière.</p>
+                     <img src="https://www.vichy-communaute.fr/wp-content/uploads/2015/01/CC-5-520x245.jpg" alt="Vichy Communauté">
                 </div>
             </div>
         </div>
