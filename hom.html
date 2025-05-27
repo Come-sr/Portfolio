@@ -307,7 +307,7 @@
                     <h3>Plex Media Server</h3>
                     <p>Serveur de médias</p>
                 </div>
-                 <p class="note">Accès direct : http://YOUR_LXC_IP:32400/web</p>
+                 <p class="note">Accès direct : http://192.168.0.24:32400/web</p>
             </a>
 
             </div>
@@ -335,9 +335,8 @@
 </body>
 
     <script>
-        // !! IMPORTANT !!
-        // Remplacez 'YOUR_LXC_IP' ci-dessous par l'adresse IP réelle de votre LXC ou serveur.
-        const LXC_IP = 'YOUR_LXC_IP'; 
+        // L'adresse IP de votre LXC ou serveur.
+        const LXC_IP = '192.168.0.24'; 
 
         const serviceUrls = {
             prowlarr: { public: 'https://prowlarr.yourdomain.com', local: `http://${LXC_IP}:9696` },
@@ -346,13 +345,8 @@
             qbittorrent: { public: 'https://qbit.yourdomain.com',  local: `http://${LXC_IP}:8080` },
             overseerr: { public: 'https://overseerr.yourdomain.com',local: `http://${LXC_IP}:5055` },
             plex:     { public: 'https://plex.yourdomain.com',     local: `http://${LXC_IP}:32400/web` },
-            // Ajoutez ici vos URL publiques si vous en avez, sinon laissez-les comme exemples
-            // nas: { public: 'https://nas.20te4.cloud', local: `http://${LXC_IP}:58677` },
-            // paperless: { public: 'https://paperless.20te4.cloud', local: `http://${LXC_IP}:50309` },
-            // plextats: { public: 'https://plextats.20te4.cloud', local: `http://${LXC_IP}:8181` },
-            // read: { public: 'https://read.20te4.cloud', local: `http://${LXC_IP}:2060` },
-            // supervision: { public: 'https://supervision.20te4.cloud', local: `http://${LXC_IP}:12624` },
-            // tools: { public: 'https://tools.20te4.cloud', local: `http://${LXC_IP}:3005` }
+            // Remplacez 'yourdomain.com' par votre domaine public si vous en avez un.
+            // Sinon, vous pouvez supprimer les URL publiques ou les laisser comme exemples.
         };
 
         function toggleTheme() {
@@ -371,10 +365,13 @@
              const services = document.querySelectorAll('.service-card[data-service]');
              services.forEach(service => {
                  const serviceName = service.dataset.service;
-                 if (serviceUrls[serviceName]) {
+                 if (serviceUrls[serviceName] && serviceUrls[serviceName][mode]) {
                     service.href = serviceUrls[serviceName][mode];
+                 } else if (serviceUrls[serviceName]) {
+                    // Fallback to local if public isn't set or vice-versa
+                    service.href = serviceUrls[serviceName].local || serviceUrls[serviceName].public || '#';
                  } else {
-                     service.href = '#'; // Lien par défaut si non trouvé
+                     service.href = '#'; // Default link if service not found
                  }
              });
          }
@@ -407,7 +404,7 @@
             }
 
             // URL mode initialization
-            const savedUrlMode = localStorage.getItem('urlMode') || 'public';
+            const savedUrlMode = localStorage.getItem('urlMode') || 'public'; // Default to public
             const modeToggle = document.querySelector('.mode-toggle');
             
             if (savedUrlMode === 'local') {
@@ -417,11 +414,6 @@
                  modeToggle.innerHTML = `<i class="fas fa-globe"></i> Mode Public`;
             }
             setUrls(savedUrlMode); // Set initial URLs
-
-            // Alert if IP not set
-            if (LXC_IP === 'YOUR_LXC_IP') {
-                alert("N'oubliez pas de remplacer 'YOUR_LXC_IP' dans le code HTML/JS par votre adresse IP réelle !");
-            }
         });
 
     </script>
