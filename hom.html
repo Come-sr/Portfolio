@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Mon Centre de Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -41,33 +41,32 @@
         }
 
         .mode-toggle {
-    /* ... existing styles ... */
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition);
-}
+     position: relative;
+     overflow: hidden;
+     transition: var(--transition);
+        }
 
-.mode-toggle::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(42, 157, 143, 0.1);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s;
-}
+        .mode-toggle::after {
+     content: '';
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     width: 0;
+     height: 0;
+     background: rgba(42, 157, 143, 0.1);
+     border-radius: 50%;
+     transform: translate(-50%, -50%);
+     transition: width 0.3s, height 0.3s;
+        }
 
-.mode-toggle:hover::after {
-    width: 100px;
-    height: 100px;
-}
+        .mode-toggle:hover::after {
+     width: 100px;
+     height: 100px;
+        }
 
-.mode-toggle:active {
-    transform: scale(0.95);
-}
+        .mode-toggle:active {
+     transform: scale(0.95);
+        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -79,6 +78,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 3rem;
+            flex-wrap: wrap; /* Added for responsiveness */
+            gap: 1rem; /* Added for spacing */
         }
 
         h1 {
@@ -89,7 +90,14 @@
             font-weight: 600;
         }
 
-        .theme-toggle {
+        .button-container {
+     display: flex;
+     justify-content: center; /* Center align horizontally */
+     align-items: center; /* Center align vertically */
+     gap: 1rem; /* Space between buttons */
+        }
+
+        .theme-toggle, .mode-toggle { /* Combined styles */
             background: var(--bg-light);
             border: none;
             color: var(--text-main);
@@ -102,7 +110,7 @@
             gap: 0.5rem;
         }
 
-        .theme-toggle:hover {
+        .theme-toggle:hover, .mode-toggle:hover { /* Combined styles */
             background: var(--primary);
             box-shadow: var(--glow);
         }
@@ -121,6 +129,14 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
+            display: flex; /* Added for flex layout */
+            flex-direction: column; /* Stack items vertically */
+            justify-content: space-between; /* Push p to bottom */
+            min-height: 220px; /* Ensure a consistent height */
+        }
+        
+        .service-card-content {
+            flex-grow: 1; /* Allow content to grow */
         }
 
         .service-card::before {
@@ -165,6 +181,17 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.5;
+            margin-bottom: 1rem; /* Space before note */
+        }
+        
+        .service-card .note {
+            font-size: 0.8rem;
+            color: #c5a33a; /* A noticeable color */
+            background-color: rgba(255, 235, 150, 0.1);
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-top: auto; /* Push note to the bottom */
+            line-height: 1.3;
         }
 
         @media (max-width: 768px) {
@@ -175,162 +202,116 @@
             h1 {
                 font-size: 2rem;
             }
-        }
-        .mode-toggle {
-            background: var(--bg-light);
-            border: none;
-            color: var(--text-main);
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-left: 1rem;
+            header {
+                flex-direction: column; /* Stack header items on small screens */
+                align-items: center;
+            }
         }
 
-        .mode-toggle:hover {
-            background: var(--primary);
-            box-shadow: var(--glow);
+        footer {
+            margin-top: 4rem; /* Add some space before the footer */
+            padding-bottom: 2rem; /* Add padding at the very bottom */
         }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
+     .social-links {
+         display: flex;
+         justify-content: center;
+         gap: 2rem;
+         flex-wrap: wrap;
+     }
 
-    .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-    }
+     .social-link {
+         color: var(--text-secondary);
+         font-size: 1.5rem;
+         transition: var(--transition);
+         text-decoration: none;
+     }
 
-    .social-link {
-        color: var(--text-secondary);
-        font-size: 1.5rem;
-        transition: var(--transition);
-        text-decoration: none;
-    }
+     .social-link:hover {
+         color: var(--primary);
+         transform: translateY(-3px);
+     }
 
-    .social-link:hover {
-        color: var(--primary);
-        transform: translateY(-3px);
-    }
+     @media (max-width: 768px) {
+         .social-links {
+             gap: 1.5rem;
+         }
+     }
 
-    @media (max-width: 768px) {
-        .social-links {
-            gap: 1.5rem;
-        }
-    }
-
-    .button-container {
-    display: flex;
-    justify-content: center; /* Center align horizontally */
-    align-items: center; /* Center align vertically */
-    gap: 1rem; /* Space between buttons */
-}
-</style>
+    </style>
 
 </head>
 
 <body>
     <div class="container">
         <header>
-            <h1>v2</h1>
+            <h1>Mon Hub Média</h1>
             <div class="button-container">
                 <button class="theme-toggle" onclick="toggleTheme()">
                     <i class="fas fa-sun"></i>
-                    Light Mode
+                    Mode Clair
                 </button>
                 <button class="mode-toggle" onclick="toggleUrlMode()">
                     <i class="fas fa-globe"></i>
-                    Public Mode
+                    Mode Public
                 </button>
             </div>
         </header>
         
         <div class="grid">
-            <a href="https://nas.20te4.cloud" class="service-card" data-service="nas">
-                <i class="fas fa-server"></i>
-                <h3>NAS</h3>
-                <p>Centralized storage and file management</p>
+            
+            <a href="#" class="service-card" data-service="prowlarr">
+                <div class="service-card-content">
+                    <i class="fas fa-search"></i>
+                    <h3>Prowlarr</h3>
+                    <p>Gestionnaire d'indexeurs</p>
+                </div>
             </a>
 
-            <a href="https://overseer.20te4.cloud" class="service-card" data-service="overseer">
-                <i class="fas fa-tv"></i>
-                <h3>Overseerr</h3>
-                <p>Media request management system</p>
+            <a href="#" class="service-card" data-service="radarr">
+                <div class="service-card-content">
+                    <i class="fas fa-film"></i>
+                    <h3>Radarr</h3>
+                    <p>Automatisation des films</p>
+                </div>
             </a>
 
-            <a href="https://paperless.20te4.cloud" class="service-card" data-service="paperless">
-                <i class="fas fa-file-alt"></i>
-                <h3>Paperless</h3>
-                <p>Document archiving and organization</p>
+            <a href="#" class="service-card" data-service="sonarr">
+                <div class="service-card-content">
+                    <i class="fas fa-tv"></i>
+                    <h3>Sonarr</h3>
+                    <p>Automatisation des séries TV</p>
+                </div>
             </a>
 
-            <a href="https://plextats.20te4.cloud" class="service-card" data-service="plextats">
-                <i class="fas fa-chart-line"></i>
-                <h3>Plextats</h3>
-                <p>Plex media server analytics</p>
+            <a href="#" class="service-card" data-service="qbittorrent">
+                <div class="service-card-content">
+                    <i class="fas fa-download"></i>
+                    <h3>qBittorrent</h3>
+                    <p>Client de téléchargement de torrents</p>
+                </div>
+                <p class="note">ID par défaut : admin / adminadmin - Changez-les !</p>
             </a>
 
-            <a href="https://prowlarr.20te4.cloud" class="service-card" data-service="prowlarr">
-                <i class="fas fa-search"></i>
-                <h3>Prowlarr</h3>
-                <p>Indexer aggregator for media searches</p>
+            <a href="#" class="service-card" data-service="overseerr">
+                <div class="service-card-content">
+                    <i class="fas fa-eye"></i>
+                    <h3>Overseerr</h3>
+                    <p>Gestion des demandes de médias</p>
+                </div>
             </a>
 
-            <a href="https://qbit.20te4.cloud" class="service-card" data-service="qbit">
-                <i class="fas fa-download"></i>
-                <h3>qBittorrent</h3>
-                <p>Torrent download management interface</p>
+            <a href="#" class="service-card" data-service="plex">
+                <div class="service-card-content">
+                    <i class="fas fa-play-circle"></i>
+                    <h3>Plex Media Server</h3>
+                    <p>Serveur de médias</p>
+                </div>
+                 <p class="note">Accès direct : http://YOUR_LXC_IP:32400/web</p>
             </a>
 
-            <a href="https://radarr.20te4.cloud" class="service-card" data-service="radarr">
-                <i class="fas fa-film"></i>
-                <h3>Radarr</h3>
-                <p>Movie collection management</p>
-            </a>
-
-            <a href="https://read.20te4.cloud" class="service-card" data-service="read">
-                <i class="fas fa-book"></i>
-                <h3>Read</h3>
-                <p>E-book and document reader</p>
-            </a>
-
-            <a href="https://sonar.20te4.cloud" class="service-card" data-service="sonarr">
-                <i class="fas fa-tv"></i>
-                <h3>Sonarr</h3>
-                <p>TV show download automation</p>
-            </a>
-
-            <a href="https://supervision.20te4.cloud" class="service-card" data-service="supervision">
-                <i class="fas fa-eye"></i>
-                <h3>Supervision</h3>
-                <p>System monitoring dashboard</p>
-            </a>
-
-            <a href="https://tools.20te4.cloud" class="service-card" data-service="tools">
-                <i class="fas fa-tools"></i>
-                <h3>Tools</h3>
-                <p>Utilities and maintenance scripts</p>
-            </a>
-            <a href="https://plex.20te4.cloud" class="service-card" data-service="plex">
-                <i class="fa-solid fa-tablet"></i>
-                <h3>Plex</h3>
-                <p>Media Streaming Jelly</p>
-            </a>
-        </div>
+            </div>
     </div>
-
-
 
     <footer>
         <div class="container">
@@ -354,129 +335,96 @@
 </body>
 
     <script>
-        function toggleTheme() {
-            const body = document.body;
-            const themeToggle = document.querySelector('.theme-toggle');
-            const isDark = body.classList.toggle('light-theme');
-            
-            themeToggle.innerHTML = isDark 
-                ? `<i class="fas fa-moon"></i> Dark Mode`
-                : `<i class="fas fa-sun"></i> Light Mode`;
+        // !! IMPORTANT !!
+        // Remplacez 'YOUR_LXC_IP' ci-dessous par l'adresse IP réelle de votre LXC ou serveur.
+        const LXC_IP = 'YOUR_LXC_IP'; 
 
-            localStorage.setItem('lightTheme', isDark);
-        }
+        const serviceUrls = {
+            prowlarr: { public: 'https://prowlarr.yourdomain.com', local: `http://${LXC_IP}:9696` },
+            radarr:   { public: 'https://radarr.yourdomain.com',   local: `http://${LXC_IP}:7878` },
+            sonarr:   { public: 'https://sonarr.yourdomain.com',   local: `http://${LXC_IP}:8989` },
+            qbittorrent: { public: 'https://qbit.yourdomain.com',  local: `http://${LXC_IP}:8080` },
+            overseerr: { public: 'https://overseerr.yourdomain.com',local: `http://${LXC_IP}:5055` },
+            plex:     { public: 'https://plex.yourdomain.com',     local: `http://${LXC_IP}:32400/web` },
+            // Ajoutez ici vos URL publiques si vous en avez, sinon laissez-les comme exemples
+            // nas: { public: 'https://nas.20te4.cloud', local: `http://${LXC_IP}:58677` },
+            // paperless: { public: 'https://paperless.20te4.cloud', local: `http://${LXC_IP}:50309` },
+            // plextats: { public: 'https://plextats.20te4.cloud', local: `http://${LXC_IP}:8181` },
+            // read: { public: 'https://read.20te4.cloud', local: `http://${LXC_IP}:2060` },
+            // supervision: { public: 'https://supervision.20te4.cloud', local: `http://${LXC_IP}:12624` },
+            // tools: { public: 'https://tools.20te4.cloud', local: `http://${LXC_IP}:3005` }
+        };
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const isLight = localStorage.getItem('lightTheme') === 'true';
-            const themeToggle = document.querySelector('.theme-toggle');
-            
-            if (isLight) {
-                document.body.classList.add('light-theme');
-                themeToggle.innerHTML = `<i class="fas fa-moon"></i> Dark Mode`;
-            }
-        });
-    </script>
-
-<script>
-    // Add URL configuration
-    const serviceUrls = {
-        nas: { public: 'https://nas.20te4.cloud', local: 'http://192.168.0.11:58677' },
-        overseer: { public: 'https://overseer.20te4.cloud', local: 'http://192.168.0.11:5055' },
-        paperless: { public: 'https://paperless.20te4.cloud', local: 'http://192.168.0.11:50309' },
-        plextats: { public: 'https://plextats.20te4.cloud', local: 'http://192.168.0.11:8181' },
-        prowlarr: { public: 'https://prowlarr.20te4.cloud', local: 'http://192.168.0.11:9696' },
-        qbit: { public: 'https://qbit.20te4.cloud', local: 'http://192.168.0.11:8080' },
-        radarr: { public: 'https://radarr.20te4.cloud', local: 'http://192.168.0.11:7878' },
-        read: { public: 'https://read.20te4.cloud', local: 'http://192.168.0.11:2060' },
-        sonarr: { public: 'https://sonar.20te4.cloud', local: 'http://192.168.0.11:8989' },
-        supervision: { public: 'https://supervision.20te4.cloud', local: 'http://192.168.0.11:12624' },
-        tools: { public: 'https://tools.20te4.cloud', local: 'http://192.168.0.11:3005' },
-        plex: { public: 'https://plex.20te4.cloud', local: 'http://192.168.0.11:32400' }
-
-    };
-
-    function toggleUrlMode() {
-        const modeToggle = document.querySelector('.mode-toggle');
-        const isLocal = document.body.classList.toggle('local-mode');
-        const services = document.querySelectorAll('.service-card[data-service]');
-
-        services.forEach(service => {
-            const serviceName = service.dataset.service;
-            service.href = isLocal ? serviceUrls[serviceName].local : serviceUrls[serviceName].public;
-        });
-
-        modeToggle.innerHTML = isLocal 
-            ? `<i class="fas fa-home"></i> Local Mode`
-            : `<i class="fas fa-globe"></i> Public Mode`;
-
-        localStorage.setItem('urlMode', isLocal ? 'local' : 'public');
-    }
-
-    //Function to toggle theme
-    function toggleUrlMode() {
-    const modeToggle = document.querySelector('.mode-toggle');
-    const isLocal = document.body.classList.toggle('local-mode');
-    const services = document.querySelectorAll('.service-card[data-service]');
-
-    // Add animation class
-    modeToggle.classList.add('animating');
-    
-    services.forEach(service => {
-        const serviceName = service.dataset.service;
-        service.href = isLocal ? serviceUrls[serviceName].local : serviceUrls[serviceName].public;
-    });
-
-    // Update button after animation
-    setTimeout(() => {
-        modeToggle.innerHTML = isLocal 
-            ? `<i class="fas fa-home"></i> Local Mode`
-            : `<i class="fas fa-globe"></i> Public Mode`;
-        modeToggle.classList.remove('animating');
-    }, 300);
-
-    localStorage.setItem('urlMode', isLocal ? 'local' : 'public');
-}
-        // Updated toggle function
         function toggleTheme() {
             const body = document.body;
             const themeToggle = document.querySelector('.theme-toggle');
             const isLight = body.classList.toggle('light-theme');
             
             themeToggle.innerHTML = isLight 
-                ? `<i class="fas fa-moon"></i> Dark Mode`
-                : `<i class="fas fa-sun"></i> Light Mode`;
+                ? `<i class="fas fa-moon"></i> Mode Sombre`
+                : `<i class="fas fa-sun"></i> Mode Clair`;
 
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
         }
 
-        // Initialize theme
-window.addEventListener('DOMContentLoaded', () => {
-    // Theme initialization
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    const themeToggle = document.querySelector('.theme-toggle');
-    
-    if (savedTheme === 'light') {
-        document.body.classList.add('light-theme');
-        themeToggle.innerHTML = `<i class="fas fa-moon"></i> Dark Mode`;
-    } else {
-        themeToggle.innerHTML = `<i class="fas fa-sun"></i> Light Mode`;
-    }
+         function setUrls(mode) {
+             const services = document.querySelectorAll('.service-card[data-service]');
+             services.forEach(service => {
+                 const serviceName = service.dataset.service;
+                 if (serviceUrls[serviceName]) {
+                    service.href = serviceUrls[serviceName][mode];
+                 } else {
+                     service.href = '#'; // Lien par défaut si non trouvé
+                 }
+             });
+         }
 
-    // URL mode initialization
-    const urlMode = localStorage.getItem('urlMode') || 'public';
-    const modeToggle = document.querySelector('.mode-toggle');
-    
-    if (urlMode === 'local') {
-        document.body.classList.add('local-mode');
-        modeToggle.innerHTML = `<i class="fas fa-home"></i> Local Mode`;
-        document.querySelectorAll('.service-card[data-service]').forEach(service => {
-            service.href = serviceUrls[service.dataset.service].local;
+
+        function toggleUrlMode() {
+            const modeToggle = document.querySelector('.mode-toggle');
+            const isLocal = document.body.classList.toggle('local-mode');
+            
+            const currentMode = isLocal ? 'local' : 'public';
+            setUrls(currentMode);
+
+            modeToggle.innerHTML = isLocal 
+                ? `<i class="fas fa-home"></i> Mode Local`
+                : `<i class="fas fa-globe"></i> Mode Public`;
+
+            localStorage.setItem('urlMode', currentMode);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Theme initialization
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+                themeToggle.innerHTML = `<i class="fas fa-moon"></i> Mode Sombre`;
+            } else {
+                themeToggle.innerHTML = `<i class="fas fa-sun"></i> Mode Clair`;
+            }
+
+            // URL mode initialization
+            const savedUrlMode = localStorage.getItem('urlMode') || 'public';
+            const modeToggle = document.querySelector('.mode-toggle');
+            
+            if (savedUrlMode === 'local') {
+                document.body.classList.add('local-mode');
+                modeToggle.innerHTML = `<i class="fas fa-home"></i> Mode Local`;
+            } else {
+                 modeToggle.innerHTML = `<i class="fas fa-globe"></i> Mode Public`;
+            }
+            setUrls(savedUrlMode); // Set initial URLs
+
+            // Alert if IP not set
+            if (LXC_IP === 'YOUR_LXC_IP') {
+                alert("N'oubliez pas de remplacer 'YOUR_LXC_IP' dans le code HTML/JS par votre adresse IP réelle !");
+            }
         });
-    }
-});
 
-</script>
-
+    </script>
 
 </body>
 </html>
