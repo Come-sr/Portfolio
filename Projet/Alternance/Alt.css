@@ -1,284 +1,190 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&family=Fjalla+One&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
 :root {
-    /* --- Obsidian & Blue Accent Palette (From Your Tweaked CSS for Projet.html) --- */
-    --color-bg: #0D1017; /* Near-black Obsidian */
-    --color-surface: #161B22; /* Slightly lighter surface (e.g., for .BOITEFLOU) */
-    --color-accent: #518eee; /* Electric Blue */
-    --color-accent-hover: #6F9FFF; /* Lighter Blue for hover */
-    --color-text-primary: #e8edf3; /* Bright, clean off-white - "WHITE" TEXT */
-    --color-text-secondary: #b0c7e0; /* Muted grey-blue for less emphasis */
-    --color-border-subtle: rgba(81, 142, 238, 0.2); 
-    --color-border-strong: rgba(81, 142, 238, 0.4); 
-    --color-shadow: rgba(0, 0, 0, 0.3); 
-    --color-nav-bg: rgba(13, 16, 23, 0.8); 
+    /* --- Palette --- */
+    --color-bg-deep: #0d0f1a;
+    --color-bg-mid: #15192d;
+    --color-surface: #161B22;
+    --color-accent: #518eee;
+    --color-accent-hover: #79a7ff;
+    --color-accent-glow: rgba(81, 142, 238, 0.3);
+    --color-text-primary: #e8edf3;
+    --color-text-secondary: #b0c7e0;
+    --color-text-nav: #c8d4e8;
+    --color-text-nav-hover: #ffffff;
+    --color-border-subtle: rgba(81, 142, 238, 0.2);
+    --color-border-strong: rgba(81, 142, 238, 0.4);
+    --color-nav-bg: rgba(13, 16, 23, 0.7);
+    --color-shadow: rgba(0, 0, 0, 0.4);
 
-    --font-heading: 'Inter', sans-serif;      /* MODERN FONT FOR TITLES */
-    --font-body: 'Inter', sans-serif;
-    --font-brand: 'Inter', sans-serif; /* For "Côme" in nav */
-    
-    --radius-main: 12px; 
-    --radius-image: 10px;
-    --transition-fast: 0.2s ease-out;
-    --transition-smooth: 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    /* --- Fonts --- */
+    --font-display: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-tech: 'Fjalla One', sans-serif;
+
+    /* --- Structure --- */
+    --radius-main: 16px;
+    --radius-card: 12px;
+    --transition-fast: 0.25s ease-out;
+    --transition: 0.3s ease-out;
+    --sidebar-width: 250px;
+    --sidebar-padding: 25px;
 }
 
-/* === Base Styles === */
+/* === Base & Body === */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
-
-body { /* Targeting the body of ALT1.HTML */
-    font-family: var(--font-body);
-    background-color: var(--color-bg);
-    color: var(--color-text-primary); 
-    line-height: 1.7; 
-    padding: 1rem;
-    padding-top: 80px; 
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-}
-
-/* === Typography (Targeting elements in ALT1.HTML structure) === */
-/* Main page title (inside .header.header in your ALT1.HTML) */
-.header h1 { 
-    font-family: var(--font-heading); /* Modern font */
-    font-weight: 800; 
-    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-    text-align: center;
-    margin-bottom: 2rem; 
-    color: var(--color-accent); /* Title in Accent Blue */
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--color-border-subtle);
-}
-/* Subheadings (h2 inside .BOITEFLOU in your ALT1.HTML) */
-.BOITEFLOU h2 { 
-    font-family: var(--font-heading); /* Modern font */
-    font-weight: 700; 
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    color: var(--color-accent); /* Subheadings also in Accent Blue */
-    margin-top: 2.5rem; 
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--color-border-subtle);
-}
-.BOITEFLOU h2:first-of-type { /* The first h2 inside .BOITEFLOU */
-    margin-top: 0;
-}
-
-.BOITEFLOU p {
-    color: var(--color-text-primary); /* Paragraph text is "white" */
-    margin-bottom: 1.35rem;
-    font-size: 1rem; 
-    max-width: 780px; /* Readability for content text */
-}
-/* For specific highlighted text like "CAVILAM" if you use a span */
-.BOITEFLOU p span { 
-    color: var(--color-accent); /* Highlight in accent color */
-    font-weight: 600;
-}
-
-.BOITEFLOU ul, .BOITEFLOU ol {
+body {
+    font-family: var(--font-sans);
+    background: linear-gradient(170deg, var(--color-bg-deep) 0%, var(--color-bg-mid) 70%);
     color: var(--color-text-primary);
-    padding-left: 1.8rem;
-    margin-bottom: 1.35rem;
+    line-height: 1.7;
+    padding: 1rem;
+    padding-top: 80px;
+    min-height: 100vh;
+    background-attachment: fixed;
+    /* NO padding-left here initially */
 }
-.BOITEFLOU li { margin-bottom: 0.5rem; }
-.BOITEFLOU ul li::marker { color: var(--color-accent); }
-
-.BOITEFLOU a { 
-    color: var(--color-accent); 
-    text-decoration: underline; /* Make links in content more obvious */
-    text-underline-offset: 3px;
-    font-weight: 500; 
-    transition: color var(--transition-fast), opacity var(--transition-fast); 
-}
-.BOITEFLOU a:hover { 
-    color: var(--color-accent-hover); 
-    opacity: 0.85; 
-    text-decoration-color: var(--color-accent-hover);
+body::after { /* Grid Overlay */
+    content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-image:
+        linear-gradient(rgba(81, 142, 238, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(81, 142, 238, 0.03) 1px, transparent 1px);
+    background-size: 25px 25px; pointer-events: none; z-index: -1;
 }
 
-/* --- Top Navigation & Back Button --- */
+/* === Typography & Links === */
+h1 {
+    font-family: var(--font-tech); color: var(--color-text-primary);
+    font-size: 2.5rem; text-align: center; margin-bottom: 3rem;
+    padding-bottom: 1rem; border-bottom: 2px solid var(--color-accent);
+}
+h2 {
+    font-family: var(--font-tech); color: var(--color-accent);
+    font-size: 1.8rem; margin-top: 2rem; margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border-subtle);
+}
+h2:first-of-type { margin-top: 0; }
+p, li { color: var(--color-text-secondary); font-size: 1.05rem; margin-bottom: 1.2rem; }
+a { color: var(--color-accent); text-decoration: none; transition: var(--transition); }
+a:hover { color: var(--color-accent-hover); }
+ul { list-style: none; padding-left: 1.5rem; }
+li { margin-bottom: 0.8rem; position: relative; }
+li::before {
+    content: "▹"; color: var(--color-accent); position: absolute;
+    left: -1.5rem; font-size: 1.3em; line-height: 1; top: 0;
+}
+img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+
+/* === Navigation === */
 .top-nav {
     width: 100%; display: flex; justify-content: space-between; align-items: center;
-    position: fixed; top: 0; left: 0; padding: 0.8rem 2rem;
+    position: fixed; top: 0; left: 0; padding: 0.8rem 2.5rem;
     background-color: var(--color-nav-bg);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    z-index: 1000; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px var(--color-shadow); z-index: 1000;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
 }
 .top-nav a {
-    color: var(--color-text-secondary);
-    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    color: var(--color-text-nav);
+    text-decoration: none; font-weight: 600; font-size: 0.95rem;
     padding: 0.5rem 0.8rem; border-radius: 8px;
     transition: color var(--transition-fast), background-color var(--transition-fast);
 }
-.top-nav a.nav-left { /* Ensure your HTML has class="nav-left" on the Côme link */
-    font-family: var(--font-brand); 
-    font-size: 1.3rem; font-weight: 700;
+.top-nav a.nav-left {
+    font-family: var(--font-display); font-size: 1.4rem; font-weight: 700;
     color: var(--color-accent);
+}
+.top-nav a.nav-left[href*="../Projet.html"] {
+    font-family: var(--font-sans); font-size: 1.1rem;
 }
 .top-nav a:not(.nav-left):hover {
-    color: var(--color-accent);
-    background-color: rgba(81, 142, 238, 0.1); 
+    color: var(--color-text-nav-hover);
+    background-color: rgba(81, 142, 238, 0.15);
 }
-.nav-right { display: flex; gap: 1rem; }
-.back-button { /* Ensure this exists in your ALT1.HTML */
-    position: fixed; top: 1.1rem; left: 2rem;
-    color: var(--color-text-secondary); text-decoration: none; font-size: 1.5rem;
-    z-index: 1001; transition: color var(--transition-fast), transform var(--transition-fast);
-}
-.back-button:hover { color: var(--color-accent); transform: translateX(-4px) scale(1.05); }
-
-/* --- Page Layout & Main Content Styling for ALT1.HTML --- */
-.page-container { /* Your existing main wrapper in ALT1.HTML */
-    max-width: 900px; 
-    margin: 2.5rem auto; 
-    padding: 0 1rem; 
+.nav-right { display: flex; gap: 1.5rem; }
+.back-button { /* Use this ONLY if top-nav isn't present */
+    display: none; /* Hide if top-nav is preferred */
 }
 
-.BOITEFLOU { /* Your main content wrapper from ALT1.HTML */
-    background-color: var(--color-surface); 
-    padding: 2.5rem; 
-    border-radius: var(--radius-main);
-    margin-top: 1.5rem; 
-    box-shadow: 0 8px 30px var(--color-shadow); 
+/* === Layout & Content === */
+.page-container {
+    max-width: 1000px;
+    margin: 2rem 0 2rem calc(var(--sidebar-width) + var(--sidebar-padding) * 2);
+    padding: 0 2rem;
+    transition: margin-left 0.3s ease-out; /* Smooth transition */
 }
-
-/* --- Image Styling & Centering --- */
-/* This targets images directly within .BOITEFLOU if you don't want to add a class to every image */
-.BOITEFLOU img {
-    display: block;           
-    margin-left: auto;        
-    margin-right: auto;       
-    max-width: 80%;  /* Default max-width for content images, adjust as needed */
-    height: auto;             
-    margin-top: 1.8rem;       
-    margin-bottom: 1.8rem;    
-    border-radius: var(--radius-image);      
+section { /* Main content box */
+    background-color: var(--color-surface); padding: 2.5rem;
+    border-radius: var(--radius-card); box-shadow: 0 8px 25px var(--color-shadow);
     border: 1px solid var(--color-border-subtle);
-    box-shadow: 0 5px 20px var(--color-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    margin-bottom: 2.5rem; text-align: justify;
 }
-.BOITEFLOU img:hover {
-    transform: scale(1.02); 
-    box-shadow: 0 7px 25px var(--color-shadow);
+section img {
+    max-width: 80%; margin: 2rem auto; border-radius: var(--radius-card);
+    border: 1px solid var(--color-border-strong); box-shadow: 0 5px 20px var(--color-shadow);
+    transition: var(--transition); background-color: #fff;
 }
-
-/* Styling for the logo gallery div in your ALT1.HTML */
-/* Targets the div with inline styles: style="display: flex; justify-content: center; ..." */
-.BOITEFLOU div[style*="justify-content: center"][style*="align-items: center"] { 
-    display: flex !important; 
-    justify-content: center !important;
-    align-items: center !important;
-    flex-wrap: wrap !important;
-    gap: 2.5rem !important; /* Increased gap from your inline style */
-    margin: 2.5rem 0 !important;
-    padding: 1.5rem 0 !important;
-    border-top: 1px solid var(--color-border-subtle) !important;
-    border-bottom: 1px solid var(--color-border-subtle) !important;
+section img:hover { transform: scale(1.03); box-shadow: 0 8px 25px var(--color-shadow), 0 0 15px var(--color-accent-glow); }
+pre {
+    background-color: var(--color-bg-deep); border: 1px solid var(--color-border-subtle);
+    padding: 1.5rem; border-radius: 8px; overflow-x: auto;
+    color: #c9d1d9; font-size: 0.9rem; line-height: 1.6;
 }
-
-.BOITEFLOU div[style*="justify-content: center"][style*="align-items: center"] img { 
-    max-height: 50px; /* Slightly smaller for a cleaner look */
-    width: auto;
-    object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(91%) sepia(7%) saturate(1000%) hue-rotate(185deg) brightness(98%) contrast(95%); /* Tint to text-primary */
-    opacity: 0.85;
-    transition: filter var(--transition-fast), transform var(--transition-fast), opacity var(--transition-fast);
-    /* Resetting styles from general .BOITEFLOU img if necessary */
-    margin: 0; 
-    border: none; 
-    box-shadow: none; 
-    border-radius: 0; /* Logos typically don't have rounded corners unless the image itself does */
+.glpi-screenshot {
+    border: 2px solid var(--color-border-strong);
+    border-radius: var(--radius-card);
+    box-shadow: 0 10px 30px var(--color-shadow);
+    margin: 2.5rem 0; overflow: hidden;
 }
-.BOITEFLOU div[style*="justify-content: center"][style*="align-items: center"] img:hover {
-    opacity: 1;
-    filter: none; /* Show original color on hover */
-    transform: scale(1.05);
+.glpi-screenshot img {
+    width: 100%; display: block; margin: 0;
+    border: none; box-shadow: none; border-radius: 0; background: none;
 }
 
-/* --- Fixed Info Panel (Styling your table.info-table) --- */
-table.info-table {
-  position: fixed;
-  top: var(--top-nav-total-height); 
-  left: var(--info-panel-spacing);
-  width: var(--info-panel-width);
-  max-height: calc(100vh - var(--top-nav-total-height) - var(--info-panel-spacing)); /* Space at bottom */
-  overflow-y: auto; /* Scroll if content too long */
-  background-color: var(--color-surface);
-  border-radius: var(--radius-main);
-  padding: 1.25rem 1.5rem; /* Adjusted padding */
-  box-shadow: 0 6px 25px rgba(0,0,0,0.3);
-  border: 1px solid var(--color-border-subtle);
-  z-index: 900; 
-  border-collapse: separate; /* For border-radius on table */
-  border-spacing: 0;
+/* === Fixed Info Table === */
+.info-table, table[style*="position: fixed"] {
+    position: fixed !important; top: 80px !important; left: var(--sidebar-padding) !important;
+    width: var(--sidebar-width) !important; max-height: calc(100vh - 100px); overflow-y: auto;
+    border-collapse: collapse !important; background: var(--color-surface) !important;
+    border: 1px solid var(--color-border-strong) !important;
+    border-radius: var(--radius-card) !important; padding: 1.5rem !important;
+    box-shadow: 0 5px 20px var(--color-shadow); z-index: 500;
+    transition: position 0.3s ease-out, width 0.3s ease-out, left 0.3s ease-out;
 }
-
-table.info-table th {
-  display: block; 
-  font-family: var(--font-heading);
-  font-size: 1.05rem; /* Slightly smaller for panel */
-  font-weight: 700;
-  color: var(--color-accent);
-  text-align: left;
-  padding-bottom: 0.6rem;
-  margin-bottom: 0.8rem;
-  border-bottom: 1px solid var(--color-border-subtle);
-  width: 100%;
-  background-color: transparent !important; /* Override inline */
-  padding: 0 !important;
-  border: none !important;
-  border-radius: 0 !important;
+.info-table th, table[style*="position: fixed"] th {
+    background: transparent !important; padding: 0 0 1rem 0 !important;
+    border: none !important; border-radius: 0 !important;
+    font-family: var(--font-tech); font-size: 1.3rem; color: var(--color-accent);
+    text-align: left; border-bottom: 1px solid var(--color-border-subtle) !important;
+    display: block; width: 100%;
 }
-
-table.info-table td {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 0.88rem; /* Slightly smaller for panel */
-  color: var(--color-text-primary); /* "White" text */
-  line-height: 1.65;
-  padding: 0 !important; /* Override inline */
-  border: none !important;
+.info-table td, table[style*="position: fixed"] td {
+    padding: 1rem 0 0 0 !important; border: none !important;
+    color: var(--color-text-secondary); font-size: 0.9rem; display: block;
 }
-
-table.info-table td strong {
-  font-weight: 500;
-  display: list-item; 
-  list-style-type: "▹  "; /* Custom bullet, adjust spacing */
-  margin-left: 0.2em; /* Indent items slightly */
-  margin-bottom: 0.7rem; /* Space between items */
-  padding-left: 0.3em; /* Space after bullet */
-  color: var(--color-text-primary); /* Ensure strong is also white */
+.info-table strong, table[style*="position: fixed"] strong {
+    color: var(--color-text-primary); font-weight: 600; display: block; margin-bottom: 0.8rem;
 }
-table.info-table td strong:last-child { margin-bottom: 0; }
-table.info-table td strong br { display: none; } /* Hide <br>s to rely on list-item styling */
+.info-table br, table[style*="position: fixed"] br { display: none; }
+.info-table i, table[style*="position: fixed"] i { font-style: italic; color: var(--color-accent-hover); }
 
-
-/* The multiple <br> tags in your HTML will create additional spacing.
- It's hard to control that perfectly with CSS alone without changing the HTML.
- The margin-bottom on <strong> will provide consistent spacing for each item.
- If you can change the HTML to use <ul><li> for the list, styling would be cleaner. */
-
-/* --- Responsive --- */
+/* === Responsive === */
+@media (max-width: 1024px) { /* Breakpoint to make sidebar static */
+    .page-container {
+        margin-left: auto; /* Center when sidebar is static */
+        margin-right: auto;
+        padding: 0 1rem; /* Adjust padding */
+    }
+    .info-table, table[style*="position: fixed"] {
+        position: static !important; width: 100% !important;
+        margin-bottom: 2.5rem; max-height: none;
+        left: 0 !important; /* Reset left */
+    }
+}
 @media (max-width: 768px) {
-    .top-nav .nav-right { display: none; }
-    .header h1 { font-size: 2rem; }
-    .BOITEFLOU h2 { font-size: 1.6rem; }
-    .page-container { margin: 1.5rem auto; padding: 0 0.5rem;}
-    body { padding: 0.8rem; padding-top: 70px; }
-    .BOITEFLOU { padding: 1.5rem; }
-    .BOITEFLOU div[style*="justify-content: center"] { gap: 1.5rem; }
-    .BOITEFLOU div[style*="justify-content: center"] img { max-height: 40px; }
-}
-@media (max-width: 480px) {
-    .top-nav { padding: 0.6rem 1rem; }
-    .top-nav a.nav-left { font-size: 1.2rem; }
-    .back-button { font-size: 1.4rem; top: 0.9rem; left: 1rem;}
-    body { padding-top: 65px; }
-    .header h1 { font-size: 1.8rem; }
-    .BOITEFLOU h2 { font-size: 1.4rem; }
-    .BOITEFLOU { padding: 1.25rem; }
+    .nav-right { display: none; }
+    h1 { font-size: 2.2rem; } h2 { font-size: 1.6rem; }
+    section { padding: 1.5rem; }
+    .top-nav { padding: 0.8rem 1.5rem; }
 }

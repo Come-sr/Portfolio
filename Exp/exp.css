@@ -1,43 +1,50 @@
-/* Add to Exp/exp.css (or global_theme.css if preferred) */
+/* Core styles assumed from global.css */
+
+.page-header h1 { border: none; } /* Remove border for exp page title */
 .modern-timeline {
-    position: relative; padding: 2rem 0; max-width: 900px; margin: 0 auto;
+    position: relative; padding: 2rem 0; max-width: 900px; margin: 3rem auto;
 }
-.modern-timeline::before {
+.modern-timeline::before { /* The central line */
     content: ''; position: absolute; left: 50%; transform: translateX(-50%);
-    top: 0; width: 3px; height: 100%;
-    background-color: var(--color-border-subtle); border-radius: 3px;
+    top: 0; width: 4px; height: 100%;
+    background: linear-gradient(to bottom, var(--color-accent), var(--color-surface), var(--color-bg-deep));
+    border-radius: 4px; box-shadow: 0 0 10px var(--color-accent-glow);
 }
-.timeline-item-modern { margin-bottom: 3rem; position: relative; width: 50%; padding: 0 2rem; }
-.timeline-item-modern:nth-child(odd) { left: 0; padding-right: 30px; text-align: right; }
-.timeline-item-modern:nth-child(even) { left: 50%; padding-left: 30px; text-align: left; }
-.timeline-item-modern::after {
-    content: ''; position: absolute; top: 5px; 
-    width: 18px; height: 18px; border-radius: 50%;
-    background-color: var(--color-accent-primary);
-    border: 3px solid var(--color-bg);
-    z-index: 1; box-shadow: 0 0 10px var(--color-border-glow);
+.timeline-item-modern { margin-bottom: 4rem; position: relative; width: 50%; padding: 0 2.5rem; }
+.timeline-item-modern:nth-child(odd) { left: 0; padding-right: 40px; text-align: right; }
+.timeline-item-modern:nth-child(even) { left: 50%; padding-left: 40px; text-align: left; }
+.timeline-item-modern::after { /* The dot on the line */
+    content: ''; position: absolute; top: 10px;
+    width: 20px; height: 20px; border-radius: 50%;
+    background-color: var(--color-accent);
+    border: 4px solid var(--color-bg-mid);
+    z-index: 1; box-shadow: 0 0 15px var(--color-accent-glow);
 }
-.timeline-item-modern:nth-child(odd)::after { right: -9px; transform: translateX(50%); }
-.timeline-item-modern:nth-child(even)::after { left: -9px; transform: translateX(-50%); }
-.timeline-content-modern {
-    background-color: var(--color-card-bg); padding: 1.5rem;
-    border-radius: var(--radius-card); box-shadow: var(--shadow-light);
+.timeline-item-modern:nth-child(odd)::after { right: -10px; transform: translateX(50%); }
+.timeline-item-modern:nth-child(even)::after { left: -10px; transform: translateX(-50%); }
+.timeline-content-modern { /* Use .content-card style */
+    background-color: var(--color-surface); padding: 1.8rem;
+    border-radius: var(--radius-card); box-shadow: 0 6px 20px var(--color-shadow);
     border: 1px solid var(--color-border-subtle);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: var(--transition); position: relative;
 }
-.timeline-content-modern:hover { transform: translateY(-5px); box-shadow: var(--shadow-medium); }
-.timeline-content-modern h3 { font-size: 1.3rem; color: var(--color-accent-primary); margin-bottom: 0.5rem; font-weight: 600; }
-.timeline-date { font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 0.75rem; font-weight: 500; }
-.timeline-content-modern p { font-size: 0.95rem; color: var(--color-text-secondary); margin-bottom: 0; max-width: 100%; }
-.timeline-content-modern img { max-width: 200px; border-radius: 10px; margin-top: 1rem; border: 1px solid var(--color-border-subtle); }
-.timeline-item-modern:nth-child(odd) img { float: right; margin-left: 1rem; }
-.timeline-item-modern:nth-child(even) img { float: left; margin-right: 1rem; }
+.timeline-content-modern:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px var(--color-shadow), 0 0 22px var(--color-accent-glow);
+    border-color: var(--color-border-strong);
+}
+.timeline-content-modern h3 { font-size: 1.5rem; margin-bottom: 0.5rem; margin-top: 0; }
+.timeline-date { font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1rem; font-weight: 500; display: block; }
+.timeline-content-modern p { font-size: 0.95rem; max-width: 100%; }
+.timeline-content-modern img { max-width: 180px; border-radius: 8px; margin-top: 1rem; border: 1px solid var(--color-border-subtle); }
+.timeline-item-modern:nth-child(odd) img { float: right; margin-left: 1.5rem; }
+.timeline-item-modern:nth-child(even) img { float: left; margin-right: 1.5rem; }
 
 @media (max-width: 768px) {
-    .modern-timeline::before { left: 9px; transform: translateX(0); }
+    .modern-timeline::before { left: 10px; }
     .timeline-item-modern, .timeline-item-modern:nth-child(odd), .timeline-item-modern:nth-child(even) {
-        width: 100%; left: 0; padding-left: 45px; padding-right: 0; text-align: left;
+        width: 100%; left: 0; padding-left: 55px; padding-right: 0; text-align: left;
     }
     .timeline-item-modern:nth-child(odd)::after, .timeline-item-modern:nth-child(even)::after { left: 0; }
-    .timeline-item-modern:nth-child(odd) img, .timeline-item-modern:nth-child(even) img { float: none; display: block; margin: 1rem auto; }
+    .timeline-item-modern:nth-child(odd) img, .timeline-item-modern:nth-child(even) img { float: none; display: block; margin: 1.5rem auto; }
 }
