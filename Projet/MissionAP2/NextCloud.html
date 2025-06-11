@@ -1,68 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Travail Collaboratif</title>
-  <link rel="icon" href="../DND.gif">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="AP.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Whisper&display=swap" rel="stylesheet">  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission: Travail Collaboratif Nextcloud</title>
+    <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" href="AP.css">
 </head>
 <body>
-  <div class="page-container">
-    <header class="header">
-      <h1>Travail Collaboratif</h1>
-    </header>
 
-    <table style="position: fixed; top: 124px; left: 4%; border-collapse: collapse;">
-      <tr>
-        <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Informations Complémentaires</th>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Outils :</strong> Serveur Ubuntu Server, Microsoft Word </td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Période :</strong> <i> 03/19 - 08/10</i> </td>
-      </tr>
-      <tr>
-        <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00; border-radius: 16px;">Compétences Mises en Oeuvre</th>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border: 1px solid #cccccc00;"> 
-          <strong> - Gérer le patrimoine informatique<br><br> 
-            - Travailler en mode projet <br><br> 
-          - Mettre à disposition des utilisateurs <br> &nbsp;&nbsp;&nbsp;&nbsp; un service informatique<br><br> 
-          - Organiser son développement professionnel
-          </strong>
-        </td>
-      </tr>
-    </table>
+    <nav class="top-nav">
+        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
+        <div class="nav-right">
+            <a href="../Projet.html">Projets</a>
+            <a href="../../Exp/exp.html">Expériences</a>
+            <a href="../../Veille/Veille.html">Veille</a>
+            <a href="../../Perso/Perso.html">À Propos</a>
+        </div>
+    </nav>
 
-    <main>
-      
-      <a href="../Projet.html" class="back-button">
-        ← Retour aux Missions
-      </a>
+    <div class="page-wrapper">
+        <aside class="info-panel">
+             <h4>Informations</h4>
+            <div class="competence-list">
+                <p><strong>Outils:</strong> Ubuntu Server, Nextcloud, LDAP</p>
+                <p><strong>Période:</strong> 03/19 - 08/10</p>
+            </div>
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Gérer le patrimoine informatique</p>
+                <p>Travailler en mode projet</p>
+                <p>Mettre à disposition un service informatique</p>
+                <p>Organiser son développement professionnel</p>
+            </div>
+        </aside>
 
-      <section>
-        <h2>Contexte</h2>
-        <p>Dans ce projet, j'ai eu pour mission de rechercher des solutions adaptées à un cahier des charges spécifique. Cela incluait une évaluation de différentes options et la sélection de la solution la plus adéquate, qui s'est avérée être Nextcloud. L'objectif principal était de fournir un service de cloud collaboratif pour l'établissement.</p>
+        <main class="main-content">
+            <h1>Déploiement d'une Solution de Travail Collaboratif</h1>
+            
+            <h2>Contexte</h2>
+            <p>Dans ce projet, j'ai eu pour mission de rechercher et de déployer une solution de cloud collaboratif répondant à un cahier des charges spécifique. La solution retenue fut Nextcloud.</p>
+            
+            <h2>Mise en Place de Nextcloud</h2>
+            <p>Après avoir choisi Nextcloud, j'ai procédé à son installation sur un serveur Ubuntu. Ce processus a inclus la configuration des utilisateurs via LDAP pour une gestion centralisée des comptes et des permissions. De plus, j'ai rédigé des tutoriels d'installation et de paramétrage pour faciliter l'adoption de la solution par les utilisateurs.</p>
+            
+            <h2>Retour Personnel</h2>
+            <p>Cette expérience m'a permis de comprendre l'importance d'une bonne analyse des besoins et de la lecture de documentations. J'ai acquis des compétences techniques précieuses dans l'installation et la configuration de systèmes, ainsi que dans la création de documentation claire.</p>
+        </main>
+    </div>
 
-        <h2>Mise en Place de Nextcloud</h2>
-        <p>Après avoir choisi Nextcloud, j'ai procédé à son installation sur le serveur. Ce processus a inclus la configuration des utilisateurs via LDAP, assurant ainsi une gestion efficace des comptes et des permissions. De plus, j'ai rédigé des tutoriels d'installation et de paramétrage pour faciliter l'adoption de la solution par les utilisateurs.</p>
-
-        <h2>Retour Personnel</h2>
-        <p>Cette expérience m'a permis de comprendre l'importance d'une bonne analyse des besoins et de la lecture de documentations. J'ai acquis des compétences techniques précieuses dans l'installation et la 
-          configuration de systèmes d'exploitation, ainsi que dans la création de documention.</p>
-      </section>
-    </main>
-  </div>
 </body>
-
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
 </html>

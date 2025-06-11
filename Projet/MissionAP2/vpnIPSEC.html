@@ -3,86 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Installation VPN IPSEC Cisco</title>
+    <title>Mission: Installation VPN IPSEC</title>
     <link rel="icon" href="../DND.gif">
-    <link rel="stylesheet" type="text/css" href="AP.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="AP.css">
 </head>
+<body>
 
-<table style="position: fixed; top: 124px; left: 4%; border-collapse: collapse;">
-    <tr>
-      <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Informations Complémentaires</th>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Outils :</strong>Serveur Linux Fedora, Service Asterisk</td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Période :</strong> <i> 15/10 - 19/11</i> </td>
-    </tr>
-    <tr>
-      <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00; border-radius: 16px;">Compétences Mises en Oeuvre</th>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> 
-        <strong>- Gérer le patrimoine informatique <br><br> 
-        </strong> 
+    <nav class="top-nav">
+        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
+        <div class="nav-right">
+            <a href="../Projet.html">Projets</a>
+            <a href="../../Exp/exp.html">Expériences</a>
+            <a href="../../Veille/Veille.html">Veille</a>
+            <a href="../../Perso/Perso.html">À Propos</a>
+        </div>
+    </nav>
 
-        <strong>- Mettre à disposition des utilisateurs <br> &nbsp;&nbsp;&nbsp;&nbsp; un service informatique<br><br> 
-        </strong>
+    <div class="page-wrapper">
+        <aside class="info-panel">
+            <h4>Informations</h4>
+            <div class="competence-list">
+                <p><strong>Outils:</strong> Cisco Packet Tracer, Routeurs Cisco</p>
+                <p><strong>Période:</strong> 15/10 - 19/11</p>
+            </div>
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Gérer le patrimoine informatique</p>
+                <p>Mettre à disposition un service informatique</p>
+                <p>Organiser son développement professionnel</p>
+            </div>
+        </aside>
 
-        <strong>- Organiser son développement professionnel
-        </strong>
+        <main class="main-content">
+            <h1>Installation d'un VPN IPSEC Site-à-Site</h1>
+            
+            <h2>Contexte</h2>
+            <p>Dans le cadre de notre projet de mise en place d'infrastructure réseau, nous avons déployé un VPN IPSEC sur deux routeurs Cisco pour sécuriser les communications entre deux sites.</p>
+            
+            <h2>Qu'est-ce qu'un VPN IPSEC ?</h2>
+            <p>Un VPN IPsec (Internet Protocol Security) est une technologie utilisée pour sécuriser les communications sur un réseau IP. Il chiffre les données échangées, garantissant leur confidentialité et leur intégrité, ce qui est essentiel pour connecter des sites distants de manière sécurisée.</p>
+            <img src="https://documentation.stormshield.eu/SNS/v4/fr/Content/Resources/Images/IPSEC-PSK/VPNIPSecpr_partag_e.png" alt="Schéma d'un tunnel VPN IPsec">
+            
+            <h2>Configuration et Tests</h2>
+            <p>Nous avons d'abord configuré les équipements sur Packet Tracer pour nous familiariser avec les commandes. Nous avons ensuite mis en place le VPN IPSEC sur deux routeurs Cisco physiques et effectué les tests nécessaires pour assurer la bonne communication à travers le tunnel VPN.</p>
+            
+            <h2>Retour Personnel</h2>
+            <p>Ce projet m'a permis de découvrir les VPN et de comprendre leur fonctionnement pratique. J'ai appris à configurer un tunnel IPSEC sur des routeurs Cisco et à effectuer les vérifications nécessaires pour valider la connexion sécurisée.</p>
+        </main>
+    </div>
 
-      </td>
-    </tr>
-  </table>
-
-  <body>
-    <div class="page-container">
-        <header class="header">
-            <h1>Installation VPN IPSEC Cisco</h1>
-        </header>
-
-        <main>
-          
-          <a href="../Projet.html" class="back-button">
-            ← Retour aux Missions
-          </a>
-
-            <section>
-                <h2>Contexte</h2>
-                <p>Dans le cadre de notre projet de mise en place d'infrastructure réseau, nous avons déployé un VPN IPSEC sur deux routeurs Cisco pour la gestion des appels, avec des fichiers de
-                   configuration.</p>
-
-                <h2>Qu'est ce qu'un VPN IPSEC</h2>
-                <p>Un VPN IPsec (Internet Protocol Security) est une technologie utilisée en entreprise et par les particuliers pour 
-                  sécuriser les communications sur un réseau IP. Il chiffre les données échangées, garantissant leur confidentialité. 
-                  L'un des avantages clés d'IPsec est que la connexion reste active et sécurisée en permanence, assurant une communication 
-                  fiable entre différents sites ou pour les employés à distance. À cela s'ajoute le concept de VPN sur demande, qui établit 
-                  une connexion sécurisée uniquement lorsque cela est nécessaire, optimisant ainsi les ressources réseau et la sécurité.</p>
-               
-                <div style="display: flex; justify-content: center; margin: 20px 0;">
-                    <img src="https://documentation.stormshield.eu/SNS/v4/fr/Content/Resources/Images/IPSEC-PSK/VPNIPSecpr_partag_e.png" alt="Schéma réseau téléphonie">
-                </div>
-
-                <h2>Configuration des equipements et tests</h2>
-                <p>Nous avons configuré les equipements sur un fichier packet tracer dans un premier temps afin de se familiariser avec les commandes. 
-                    Nous avons ensuite mis en place le VPN IPSEC sur deux routeurs Cisco et fait les différents tests necessaires pour assurer la bonne communication en VPN entre les deux routeurs.
-                </p>
-
-                <div class="BOITEFLOU2">
-                  <table>
-                    <tr>
-                      <td> <img class="img" src="vpnIPSEC.png"> </td>
-                      <td> <img class="img2" src="vpnIPSEC2.png"> </td>
-                        </tr>
-                  </table>
-                </div>
-
-                
-                <h2>Retour Personnel</h2>
-                <p>Ce projet m'a permis de découvrir les VPN et de comprendre leur fonctionnement. J'ai appris à configurer un VPN IPSEC sur des routeurs Cisco et à effectuer les tests nécessaires pour 
-                  vérifier que la communication entre les deux routeurs passe par le VPN.</p>
-
+</body>
+</html>

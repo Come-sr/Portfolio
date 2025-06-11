@@ -1,78 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>Portfolio</title>
-  <link rel="icon" href="../DND.gif">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <link rel="stylesheet" type="text/css" href="AP.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Whisper&display=swap" rel="stylesheet">  
-  <link rel="icon" href="DND.gif">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission: Création de Portfolio</title>
+    <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" href="AP.css">
 </head>
-
 <body>
-  <div class="page-container">
-    <header class="header">
-      <h1>Portfolio</h1>
-    </header>
 
-    <a href="../Projet.html" class="back-button">
-      ← Retour aux Missions
-    </a>
-  
-    <table class="info-table">
-      <tr>
-        <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Informations Complémentaires</th>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Outils :</strong> Visual Studio Code (HTML & CSS) </td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Période :</strong> <i> 06/03 - Aujourd'hui</i> </td>
-          </td>
-      </tr>
-      <tr>
-        <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Compétences Mises en Oeuvre</th>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong>- Organiser son développement professionnel </td>
-  
-        </strong></td>
-      </tr>
-    </table>
+    <nav class="top-nav">
+        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
+        <div class="nav-right">
+            <a href="../Projet.html">Projets</a>
+            <a href="../../Exp/exp.html">Expériences</a>
+            <a href="../../Veille/Veille.html">Veille</a>
+            <a href="../../Perso/Perso.html">À Propos</a>
+        </div>
+    </nav>
 
-    <main>
-      <section>
-        <h2>Contexte</h2>
-        <p>J'ai décidé de créer ce portfolio pour partager mes expériences et mes connaissances acquises lors de mes missions. Je voulais avoir un endroit où je puisse présenter mes réalisations et mes compétences.</p>
- 
-        <h2>Réalisations</h2>
-        <ul>
-          <li>Programmation de ce portfolio (HTML, CSS et JavaScript)</li>
-          <li>Intégration de mes missions et de mes expériences dans ce portfolio</li>
-        </ul>
+    <div class="page-wrapper">
+        <aside class="info-panel">
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Organiser son développement professionnel</p>
+            </div>
+        </aside>
 
-        <h2>Compétences acquises</h2>
-        <ul>
-          <li>Hebergement WEB (ici sur github)</li>
-          <li>Capacité à organiser et structurer mes réalisations</li>
-          <li>Programmation en HTML, CSS et JavaScript</li>
-        </ul>
+        <main class="main-content">
+            <h1>Création de mon Portfolio</h1>
 
-        <h2>Retour Personnel</h2>
-        <p>La création de ce portfolio m'a permis de developper mes competences en programmation web. J'ai également pu constater que toutes les missions que je fais sont intéressantes et m'apportent beaucoup 
-          de nouvelles connaissances et expériences. Ce qui me sera utile dans le futur.</p>
-      </section>
+            <h2>Contexte</h2>
+            <p>J'ai décidé de créer ce portfolio pour partager mes expériences et mes connaissances acquises lors de mes missions. Je voulais avoir un endroit où je puisse présenter mes réalisations et mes compétences.</p>
 
-    </main>
-  </div>
+            <h2>Réalisations</h2>
+            <ul>
+                <li>Programmation de ce portfolio (HTML, CSS).</li>
+                <li>Intégration de mes missions et de mes expériences.</li>
+                <li>Hébergement sur une plateforme en ligne.</li>
+            </ul>
+            
+            <h2>Retour Personnel</h2>
+            <p>La création de ce portfolio m'a permis de développer mes compétences en programmation web. J'ai également pu constater que toutes les missions que je fais sont intéressantes et m'apportent beaucoup de nouvelles connaissances, ce qui me sera utile dans le futur.</p>
+        </main>
+    </div>
 
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

@@ -1,78 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mise à jour des téléphones IP</title>
-    <link rel="stylesheet" type="text/css" href="Alt.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Whisper&display=swap" rel="stylesheet">
+    <title>Mission: Migration Téléphonie IP</title>
     <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" href="Alt.css">
 </head>
-
-
-<table class="info-table">
-      <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Compétences Mises en Oeuvre</th>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> - Gérer le patrimoine informatique
-</td>
-    </tr>
-  </table>
-
-
 <body>
-    
-  <nav class="top-nav">
-    <a href="../Projet.html" class="nav-left">← Retour aux Missions</a>
-    <div class="nav-right">
-        <a href="Projet.html">Projets</a>
-        <a href="../Exp/exp.html">Expériences</a>
-        <a href="../Veille/Veille.html">Veille</a>
-        <a href="../Perso/Perso.html">À Propos</a>
-    </div>
-</nav>
 
-    <div class="page-container">
-        <header class="header">
-            <h1>Mise à jour des téléphones cuivre vers des téléphones IP</h1>
-        </header>
-        
-        <div class="BOITEFLOU">
-            <h2>Description de la mission</h2>
+    <nav class="top-nav">
+        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
+        <div class="nav-right">
+            <a href="../Projet.html">Projets</a>
+            <a href="../Exp/exp.html">Expériences</a>
+            <a href="../Veille/Veille.html">Veille</a>
+            <a href="../Perso/Perso.html">À Propos</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <aside class="info-panel">
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Gérer le patrimoine informatique</p>
+                <p>Mettre à disposition un service informatique</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <h1>Migration de la Téléphonie Cuivre vers IP</h1>
+
+            <h2>Description de la Mission</h2>
             <p>
-                Cette mission consiste à remplacer les anciens téléphones cuivre par des téléphones IP dans un environnement de communication basé sur le logiciel MITEL. 
-                Cela implique des mises à jour sur le logiciel MITEL, ainsi que des ajustements sur les commutateurs réseau (VLAN, POE) pour assurer le fonctionnement des nouveau téléphones.
+                Cette mission consiste à remplacer les anciens téléphones cuivre par des téléphones IP dans un environnement de communication basé sur le logiciel MITEL. Cela implique des mises à jour sur le logiciel MITEL, ainsi que des ajustements sur les commutateurs réseau (VLAN, POE) pour assurer le fonctionnement des nouveaux téléphones.
             </p>
 
             <h2>Étapes de la mise à jour</h2>
             <ul>
-                <li>1. Mise à jour des lignes sur le serveur MITEL.</li>
-                <li>2. Configuration des commutateurs réseau pour la gestion des VLAN et du POE.</li> 
-                <li>3. Migration des utilisateurs vers les nouveaux téléphones IP.</li>
+                <li>Mise à jour des lignes et des utilisateurs sur le serveur MITEL.</li>
+                <li>Configuration des ports des commutateurs réseau pour la gestion du VLAN Voix et de l'alimentation PoE (Power over Ethernet).</li> 
+                <li>Migration physique des postes et assistance aux utilisateurs.</li>
             </ul>
             
-            <h2>Mise à jour du logiciel MITEL</h2>
-
-            <p> J'ai observé mon maître de stage effectuer cette étape. Il fallait créer une ligne sur le serveur MITEL et assigner l'utilisateur à cette ligne. </p>
-            
-            <h2>Configuration des commutateurs VLAN et VOIP</h2>
+            <h2>Configuration des Commutateurs</h2>
             <p>
-                Une fois la ligne mise à jour, il faut configurer les commutateurs pour assurer le bon fonctionnement du téléphone. Les VLANs doivent être configurés pour séparer les
-                 flux de données et voix, tandis que le POE doit etre configuree pour que le telephone puisse avoir le courant necessaire a son fonctionnement.
+                Une fois la ligne utilisateur créée sur MITEL, il faut configurer le port du commutateur pour assurer le bon fonctionnement du téléphone. Les VLANs doivent être configurés pour séparer les flux de données et de voix, tandis que le PoE doit être activé pour alimenter le téléphone directement via le câble réseau.
             </p>
-            <img src="Images/MITEL1.png" alt="Configuration GLPI" style="margin: -1px;" />
-
-            <h2>Migration vers les téléphones IP</h2>
-            <p>
-                La dernière étape de la mission consiste à installer les telephones dans les bureaux et les salles
-            </p>
-
-            <h2>Retour personnel</h2>
-            <p> J'ai beaucoup apprecie cette mission car elle m'a permis de me familiariser avec le bâtiment et les personnes qui y travaillent. 
-                 </p>
-        </div>
+            <img src="Images/MITEL1.png" alt="Configuration d'un port de switch">
+        </main>
     </div>
+
 </body>
 </html>

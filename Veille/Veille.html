@@ -3,57 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Véille Informatique - Docker</title>
-    <link rel="stylesheet" href="../global.css">
+    <title>Veille Informatique - Docker</title>
     <link rel="stylesheet" href="Veille.css">
-    
     <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <a href="../index.html" class="back-button">
-        ← Retour au Portfolio
-    </a>
+
+    <nav class="top-nav">
+        <a href="../index.html" class="nav-left"><i class="fa-solid fa-house"></i></a>
+        <div class="nav-right">
+            <a href="../Projet/Projet.html">Projets</a>
+            <a href="../Exp/exp.html">Expériences</a>
+            <a href="Veille.html">Veille</a>
+            <a href="../Perso/Perso.html">À Propos</a>
+        </div>
+    </nav>
     
-    <section class="page-container">
+    <div class="content-wrapper">
         
-    <header>
-        <h1>Veille Informatique</h1>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/610px-Docker_%28container_engine%29_logo.svg.png" class="img">
-    </header>
+        <header class="veille-header">
+            <h1>Veille Informatique sur Docker</h1>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/610px-Docker_%28container_engine%29_logo.svg.png" class="docker-logo" alt="Logo Docker">
+        </header>
 
+        <main>
+            <h2>Introduction</h2>
+            <p>Docker est une plateforme open-source qui permet aux développeurs de créer, distribuer et gérer des applications de manière efficace à travers des conteneurs. Les conteneurs sont des environnements légers et isolés qui permettent de séparer les applications les unes des autres et de leur fournir les ressources nécessaires pour fonctionner.</p>
 
-        <h2>Introduction</h2>
+            <h2>Principes de base</h2>
+            <ul>
+                <li>Les conteneurs sont des environnements isolés qui séparent les applications.</li>
+                <li>Ils sont légers et ne nécessitent pas de machine virtuelle complète pour fonctionner.</li>
+                <li>Ils peuvent être créés, déployés et gérés de manière rapide et efficace.</li>
+            </ul>
+            <img src="https://miro.medium.com/v2/resize:fit:1400/1*6hG1fvFGUCh6YekJ1N9DhQ.png" class="content-image" alt="Schéma Docker">
 
-        <p>Docker est une plateforme open-source innovante qui permet aux développeurs de créer, distribuer et gérer des applications de manière efficace à travers des conteneurs. Les conteneurs sont des environnements
-             légers et isolés qui permettent de séparer les applications les unes des autres et de leur fournir les ressources nécessaires pour fonctionner.</p>
+            <h2>Docker Compose</h2>
+            <p>Docker Compose est un outil qui facilite la configuration et le déploiement de multiples conteneurs. Grâce à un simple fichier de configuration (YAML), il permet de définir et de lancer l'ensemble des services nécessaires pour une application complexe.</p>
 
+            <h2>Cas d'utilisation</h2>
+            <ul>
+                <li>La création de microservices.</li>
+                <li>La mise en place de pipelines de déploiement continu (CI/CD).</li>
+                <li>La création de clusters de serveurs avec Docker Swarm.</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>Docker est un outil puissant qui transforme la manière de créer et de gérer des applications. Il offre de nombreux avantages, notamment une meilleure isolation, une réduction de la complexité des environnements et une amélioration de la portabilité des applications.</p>
+        </main>
         
-        <h2>Principes de base de Docker</h2>
-        <p>Docker repose sur les principes suivants :</p>
-        <ul>
-            <li>Les conteneurs sont des environnements isolés qui permettent de séparer les applications les unes des autres.</li>
-            <li>Les conteneurs sont légers et ne nécessitent pas de machine virtuelle pour fonctionner.</li>
-            <li>Les conteneurs peuvent être créés, déployés et gérés de manière rapide et efficace.</li>
-        </ul>
-
-        <img src="https://miro.medium.com/v2/resize:fit:1400/1*6hG1fvFGUCh6YekJ1N9DhQ.png" class="img" style="max-width:80%;margin-left: 6%;">
-
-
-        <h2>Docker Compose</h2>
-        <p>Docker Compose est un outil qui facilite la configuration et le déploiement de conteneurs. Grâce à une syntaxe claire,
-             il permet de définir rapidement l'environnement nécessaire pour l'application ou le service que l'on souhaite mettre en place.</p>
-
-        </ul>
-        <h2>Cas d'utilisation de Docker</h2>
-        <p>Docker peut être utilisé dans de nombreux cas, notamment :</p>
-        <ul>
-            <li>La création de microservices.</li>
-            <li>La mise en place de pipelines de déploiement continu.</li>
-            <li>La création de clusters de serveurs.</li>
-        </ul>
-        <h2>Conclusion</h2>
-        <p>Docker est un outil puissant qui permet de créer, de déployer et de gérer des applications dans des conteneurs. Il offre de nombreux avantages, notamment une meilleure isolation des applications, une réduction de la complexité de la gestion des environnements et une amélioration de la sécurité.</p>
-
-    </section>
+    </div>
 </body>
 </html>

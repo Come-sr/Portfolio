@@ -1,55 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stormshield</title>
-    <link rel="stylesheet" type="text/css" href="Alt.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Whisper&display=swap" rel="stylesheet">
+    <title>Mission: Configuration Firewall Stormshield</title>
     <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" href="Alt.css">
 </head>
-
-<table class="info-table">
-<th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Compétences Mises en Oeuvre</th>
-    </tr>
-    <tr>
-        <td style="padding: 10px; border: 1px solid #cccccc00;">- Gérer le patrimoine informatique <br><br> - Répondre aux incidents et aux <br> demandes d'assistance et d'évolution
-            <br><br>- Mettre à disposition des utilisateurs <br> un service informatique
-      </strong></td>
-    </tr>
-  </table>
-
 <body>
-    
-  <nav class="top-nav">
-    <a href="../Projet.html" class="nav-left">← Retour aux Missions</a>
-    <div class="nav-right">
-        <a href="Projet.html">Projets</a>
-        <a href="../Exp/exp.html">Expériences</a>
-        <a href="../Veille/Veille.html">Veille</a>
-        <a href="../Perso/Perso.html">À Propos</a>
+
+    <nav class="top-nav">
+        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
+        <div class="nav-right">
+            <a href="../Projet.html">Projets</a>
+            <a href="../Exp/exp.html">Expériences</a>
+            <a href="../Veille/Veille.html">Veille</a>
+            <a href="../Perso/Perso.html">À Propos</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <aside class="info-panel">
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Gérer le patrimoine informatique</p>
+                <p>Répondre aux incidents et aux demandes</p>
+                <p>Mettre à disposition un service informatique</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <h1>Configuration Firewall Stormshield</h1>
+            
+            <p>Auparavant, le filtrage web était assuré par les firewalls du pôle. Nous avons depuis déployé un serveur OLFEO dédié à cette fonction, ce qui nous a permis de supprimer ces règles devenues obsolètes. Les nouvelles règles destinées aux futurs firewalls ont été documentées dans un fichier Excel.</p>
+            
+            <img src="Images/Stormshield1.png" alt="Configuration des règles Stormshield">
+            <img src="Images/Stormshield2.png" alt="Documentation Excel">
+        </main>
     </div>
-</nav>
-    <div class="page-container">
-        <header class="header">
-            <h1>Observation de la configuration de firewall Stormshield</h1>
-        </header>
-        <div class="BOITEFLOU">
-            <p>Auparavant, le filtrage web était assuré par les firewalls du pôle. Nous avons depuis déployé un serveur OLFEO dédié à cette fonction, ce qui nous a permis de supprimer ces règles
-                 devenues obsolètes. Les nouvelles règles destinées aux futurs firewalls ont été documentées dans un fichier Excel. </p>
-
-                 <img src="Images/Stormshield1.png" alt="Configuration GLPI" style="display: block; margin: 0 auto;" />
-                <br>
-                <img src="Images/Stormshield2.png" alt="Configuration GLPI" style="display: block; margin: 0 auto;" />
-
-        <!--    <p> La configuration de deux firewalls Stormshield en mode master/slave offre un avantage significatif en termes de partage des ressources. Ces équipements répartissent intelligemment la charge 
-                de travail entre eux, permettant d'optimiser les performances globales du système. Plutôt que d'avoir un seul firewall qui traite l'intégralité du trafic, cette architecture distribuée permet 
-                de répartir les connexions, les analyses de paquets et les processus de filtrage entre les deux appareils. En période de forte affluence réseau, cette distribution de charge 
-                est particulièrement précieuse pour maintenir des temps de réponse rapides et éviter la saturation d'un équipement unique. De plus, si l'un des firewalls tombe en panne, l'autre 
-                 immédiatement prendre le relais, assurant ainsi une continuité de service transparente pour les utilisateurs.</p>   -->
-
 
 </body>
 </html>

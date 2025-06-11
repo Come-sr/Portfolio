@@ -1,93 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>Portfolio</title>
-  <link rel="icon" href="../DND.gif">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <link rel="stylesheet" type="text/css" href="AP.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Whisper&display=swap" rel="stylesheet">  
-  <div class="page-container">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission: Configuration Réseau</title>
+    <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" href="AP.css">
 </head>
-
-<a href="../Projet.html" class="back-button">
-  ← Retour aux Missions
-</a>
-
-	<header class="header">
-		<h1>Configuration d'un Réseau</h1>
-	</header>
-
-  <table class="info-table">
-    <tr>
-      <th colspan="2" style="background-color: #b6ffc01a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Informations Complémentaires</th>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Outils :</strong> Visual Studio Code (HTML & CSS) </td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Période :</strong> <i> 06/03 - Aujourd'hui</i> </td>
-        </td>
-    </tr>
-    <tr>
-      <th colspan="2" style="background-color: #b6ffc01a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Compétences Mises en Oeuvre</th>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong>- Gérer le patrimoine informatique 
-        <br><br>- Répondre aux incidents et <br> &nbsp;&nbsp;&nbsp;&nbsp;aux demandes d’assistance et d’évolution
-        <br><br>- Travailler en mode projet
-        <br><br>- Mettre à disposition des utilisateurs <br> &nbsp;&nbsp;&nbsp;&nbsp; un service informatique </td>
-              </td>
-
-      </strong></td>
-    </tr>
-  </table>
-
-<section> 
-    <h2>Contexte</h2>
-    <p>Dans cette mission fictive d'appel d'offres, je suis seul et chargé d'intégrer une société de services
-         pour la refonte de l'infrastructure de l'entreprise 
-        BROCKER’INFO. Cette dernière est composée de plusieurs services, notamment les services achat, 
-        informatique, administration/comptabilité, réparation et hotline. Dans un premier temps, je
-        vais concevoir une maquette à l'aide du logiciel Cisco Packet Tracer, puis la mettre en place 
-        physiquement. Pour cela, je dispose de deux commutateurs Catalyst 2950 et d'un routeur Cisco 1841.</p>
-      <p>Les demandes de l'entreprise BROCKER’INFO incluent la sécurisation des accès aux équipements Cisco, 
-        l'optimisation des flux, la mise en place d'un service de sauvegarde via TFTP, ainsi qu'un accès à 
-        Internet.</p>
-
-    <h2>Tâches réalisées</h2>
-    
-    <ul>Le fichier final Packet Tracer de notre solution.</ul>
-    <ul>Les fichiers de sauvegarde issus des fichiers startup-config du routeur 1841 et des deux commutateurs 2950.</ul>
-    <ul>Le tutoriel de présentation, d’installation et d’utilisation du service VTP.</ul>
-    <ul>Le tutoriel de présentation, d’installation et d’utilisation du service TFTP.</ul>
-
-
-    <h2>Retour Personnel</h2>
-    <p>Ce projet a été une expérience particulièrement gratifiante pour moi. Étant seul pendant sa réalisation, j'ai dû m'adapter et
-         planifier mon emploi du temps de manière efficace pour ne pas 
-        prendre de retard. Finalement, j'ai réussi à remplir et respecter l'intégralité du cahier des charges. 
-    </p>
-    <p> Cette mission m'a permis d'acquérir des compétences essentielles en gestion du temps et en résolution de problèmes.</p>
-
-
-	<table>
-		<tr>
-			<td> <img class="img" src="ap4.png"> </td>
-			<td> <img class="img2" src="ap4a.png"> </td>
-        </tr>
-	</table>
-</section>
 <body>
 
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
-  
-  
-</div>
+    <nav class="top-nav">
+        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
+        <div class="nav-right">
+            <a href="../Projet.html">Projets</a>
+            <a href="../../Exp/exp.html">Expériences</a>
+            <a href="../../Veille/Veille.html">Veille</a>
+            <a href="../../Perso/Perso.html">À Propos</a>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <aside class="info-panel">
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Gérer le patrimoine informatique</p>
+                <p>Répondre aux incidents et aux demandes</p>
+                <p>Travailler en mode projet</p>
+                <p>Mettre à disposition un service</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <h1>Configuration d'une Infrastructure Réseau</h1>
+            
+            <h2>Contexte</h2>
+            <p>Dans cette mission fictive, je suis chargé d'intégrer une société de services pour la refonte de l'infrastructure de l'entreprise BROCKER’INFO. Les demandes incluent la sécurisation des accès, l'optimisation des flux via des VLANs, la mise en place d'un service de sauvegarde TFTP et un accès à Internet.</p>
+
+            <h2>Tâches Réalisées</h2>
+            <p>J'ai d'abord conçu une maquette sur Cisco Packet Tracer, puis je l'ai mise en place physiquement avec deux commutateurs Catalyst 2950 et un routeur Cisco 1841.</p>
+            <ul>
+                <li>Fichier final Packet Tracer de la solution.</li>
+                <li>Fichiers de sauvegarde des configurations du routeur et des commutateurs.</li>
+                <li>Tutoriels sur les services VTP et TFTP.</li>
+            </ul>
+            <img src="ap4.png" alt="Schéma réseau sur Packet Tracer">
+
+            <h2>Retour Personnel</h2>
+            <p>Ce projet a été particulièrement gratifiant. Étant seul, j'ai dû planifier mon temps efficacement pour respecter le cahier des charges, ce que j'ai réussi à faire. Cette mission m'a permis d'acquérir des compétences essentielles en gestion du temps et en résolution de problèmes.</p>
+        </main>
+    </div>
+
+</body>
+</html>

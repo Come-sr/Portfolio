@@ -1,79 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Supervision Nagios</title>
-  <link rel="icon" href="../DND.gif">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="AP.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Whisper&display=swap" rel="stylesheet">  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission: Supervision Nagios</title>
+    <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" href="AP.css">
 </head>
 <body>
-  <div class="page-container">
-    <header class="header">
-      <h1>Supervision Nagios</h1>
-    </header>
 
-    
-    <a href="../Projet.html" class="back-button">
-      ← Retour aux Missions
-    </a>
+    <nav class="top-nav">
+        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
+        <div class="nav-right">
+            <a href="../Projet.html">Projets</a>
+            <a href="../../Exp/exp.html">Expériences</a>
+            <a href="../../Veille/Veille.html">Veille</a>
+            <a href="../../Perso/Perso.html">À Propos</a>
+        </div>
+    </nav>
 
-    <table style="position: fixed; top: 124px; left: 4%; border-collapse: collapse;">
-      <tr>
-        <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Informations Complémentaires</th>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Outils :</strong>Serveur Fedora, Service Nagios</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Période :</strong> <i> 05/12 - 19/12</i> </td>
-      </tr>
-      <tr>
-        <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00; border-radius: 16px;">Compétences Mises en Oeuvre</th>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border: 1px solid #cccccc00;"> 
-            <strong> - Gérer le patrimoine informatique<br><br> 
-                - Mettre à disposition des utilisateurs <br> &nbsp;&nbsp;&nbsp;&nbsp; un service informatique<br><br> 
-            </strong>
-        </td>
-      </tr>
-    </table>
+    <div class="page-wrapper">
+        <aside class="info-panel">
+            <h4>Informations</h4>
+            <div class="competence-list">
+                <p><strong>Outils:</strong> Linux Fedora, Nagios</p>
+                <p><strong>Période:</strong> 05/12 - 19/12</p>
+            </div>
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Gérer le patrimoine informatique</p>
+                <p>Mettre à disposition un service informatique</p>
+            </div>
+        </aside>
 
-    <main>
-        <section>
-            <h2>Contexte</h2>
-            <p>Ce projet a consisté à installer et configurer Nagios pour la supervision des services et du matériel informatique au sein d'une infrastructure HSH. Nous avons installé Nagios sur un serveur Linux Fedora et configuré les agents SNMP sur des machines Linux et Windows, ainsi que l'agent NSClient++ pour superviser les services et matériels. La supervision inclut des équipements CISCO tels que des commutateurs et des routeurs.</p>
+        <main class="main-content">
+            <h1>Supervision d'Infrastructure avec Nagios</h1>
             
-            <div style="text-align: center;">
-                <img src="../img/Nagios.png" alt="Schéma de mise en place Nagios" style="width: 110%; height: auto;" />
-            </div>
-
-            <h2>Installation et Configuration de Nagios</h2>
-            <p>Nous avons commencé par installer Nagios sur un serveur Linux Fedora en suivant les étapes de configuration détaillées dans la documentation donné par notre professeur. Après l'installation, nous avons personnalisé les fichiers de configuration de Nagios pour surveiller les services spécifiques et les équipements matériels via SNMP.</p>
-
-            <h3>Installation des Agents SNMP</h3>
-            <p>Des agents SNMP ont été installés sur les machines Linux et Windows pour permettre la supervision des services et du matériel. </p>
+            <h2>Contexte</h2>
+            <p>Ce projet a consisté à installer et configurer Nagios pour la supervision des services et du matériel informatique. Nous avons installé Nagios sur un serveur Linux Fedora et configuré les agents SNMP sur des machines Linux et Windows, ainsi que l'agent NSClient++ pour superviser les services et matériels.</p>
+            <img src="../img/Nagios.png" alt="Topologie de la supervision Nagios">
+            
+            <h2>Installation et Configuration</h2>
+            <p>Nous avons commencé par installer Nagios sur un serveur Fedora, puis nous avons personnalisé les fichiers de configuration pour surveiller les services spécifiques et les équipements matériels via SNMP, y compris des équipements CISCO.</p>
+            
             <h2>Tests et Validation</h2>
-            <p>Des tests ont été effectués pour valider que la configuration de Nagios, des agents SNMP, ainsi que les addons NagiosGraph et NagVis fonctionnent correctement. Des alertes ont été testées et validées pour s'assurer que tout le système de supervision réagissait en cas de défaillance d'un service ou d'un équipement.</p>
-
-            <div style="text-align: center;">
-                <img src="https://www.keenton.com/wp-content/uploads/2014/10/keenton_supervision_globale.png" alt="Schéma de supervision Nagios" style="width: 65%; height: auto;" />
-            </div>
-
+            <p>Des tests ont été effectués pour valider que la configuration de Nagios, des agents SNMP, et des addons comme NagiosGraph fonctionnaient correctement. Des alertes ont été testées pour s'assurer que le système de supervision réagissait en cas de défaillance.</p>
+            
             <h2>Retour Personnel</h2>
-            <p>Ce projet m'a permis de découvrir l'outil de supervision Nagios et de comprendre son fonctionnement. J'ai appris à installer et configurer Nagios pour superviser des services et des 
-              équipements matériels. Ce projet m'a permis de mettre en pratique mes 
-              compétences en gestion du patrimoine informatique et en mise à disposition de services informatiques.</p>
-        </section>
-    </main>
+            <p>Ce projet m'a permis de découvrir l'outil de supervision Nagios et de comprendre son fonctionnement. J'ai appris à installer et configurer Nagios, ce qui m'a permis de mettre en pratique mes compétences en gestion du patrimoine informatique.</p>
+        </main>
+    </div>
 
-<script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

@@ -1,53 +1,204 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
 
-.page-content-container { max-width: 1700px; margin: 3rem auto; padding: 0 2rem; }
+:root {
+    --couleur-fond: #050608;
+    --couleur-accent: #58a6ff;
+    --couleur-texte-principal: #E6EDF3;
+    --couleur-texte-secondaire: #b4bdc8;
+    --couleur-verre-fond: rgba(18, 22, 29, 0.5);
+    --couleur-verre-survol: rgba(30, 36, 47, 0.7);
+    --lueur-survol: rgba(88, 166, 255, 0.1);
+    --ombre-douce: rgba(0, 0, 0, 0.25);
+    --couleur-bordure: rgba(255, 255, 255, 0.1);
+
+    --couleur-aurora-1: #1A2555;
+    --couleur-aurora-2: #302A60;
+    --opacite-aurora: 0.25;
+
+    --police-sans: 'Inter', sans-serif;
+    --police-display: 'Playfair Display', serif;
+    --rayon-arrondi: 16px; /* Arrondi légèrement réduit pour les petites cartes */
+    --transition-douce: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --transition-rapide: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--police-sans);
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte-principal);
+    padding-top: 85px;
+    min-height: 100vh;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, var(--couleur-aurora-1), var(--couleur-aurora-2));
+    background-size: 300% 300%;
+    animation: aurora-flow 50s ease-in-out infinite;
+    z-index: -2;
+    filter: blur(120px);
+    opacity: var(--opacite-aurora);
+}
+
+@keyframes aurora-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.top-nav {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 1000;
+    background: rgba(18, 22, 29, 0.3);
+    border-radius: 999px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 5px 20px var(--ombre-douce);
+    transition: all var(--transition-rapide);
+}
+
+.top-nav a {
+    color: var(--couleur-texte-secondaire);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    transition: all var(--transition-rapide);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.top-nav a:hover {
+    color: var(--couleur-texte-principal);
+    background-color: var(--couleur-verre-survol);
+}
+
+.top-nav a.nav-left {
+    font-weight: 600;
+    color: var(--couleur-texte-principal);
+}
+
+.nav-right {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.page-content-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    animation: fadeIn 0.8s var(--transition-douce) both;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.page-header h1 {
+    font-family: var(--police-sans);
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+.project-category-section {
+    margin-bottom: 5rem;
+}
 
 .category-title {
-    font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 3.8rem);
-    color: var(--color-accent); margin-bottom: 3rem; padding-bottom: 1rem;
-    border-bottom: 3px solid var(--color-accent); display: inline-block;
-    font-weight: 700; text-align: left;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--couleur-texte-principal);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--couleur-bordure);
 }
-.project-category-section { margin-bottom: 5rem; }
 
-.mission-grid {
+.project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
 }
 
-.mission-card {
-    position: relative; border-radius: var(--radius-main); overflow: hidden;
-    text-decoration: none; display: flex; flex-direction: column;
-    background-color: var(--color-surface);
-    box-shadow: 0 8px 25px var(--color-shadow);
-    transition: var(--transition); aspect-ratio: 4 / 3.3;
-    border: 1px solid var(--color-border-subtle);
+.project-card {
+    position: relative;
+    text-decoration: none;
+    border-radius: var(--rayon-arrondi);
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    box-shadow: 0 10px 35px var(--ombre-douce);
+    transition: transform var(--transition-douce), box-shadow var(--transition-douce);
 }
-.card-image-wrapper { width: 100%; height: 60%; overflow: hidden; }
-.mission-card img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.5s ease, filter 0.4s ease;
-    filter: saturate(0.7) brightness(0.9);
-}
-.card-content {
-    padding: 1.5rem; display: flex; flex-direction: column;
-    justify-content: center; flex-grow: 1; text-align: left;
-}
-.mission-card h3 {
-    font-family: var(--font-tech); font-size: 1.3rem;
-    color: var(--color-text-primary); font-weight: 600;
-    margin-bottom: 0.5rem; transition: var(--transition);
-}
-.card-description { font-size: 0.9rem; color: var(--color-text-secondary); }
 
-.mission-card:hover {
-    transform: translateY(-12px) scale(1.04);
-    box-shadow: 0 25px 50px var(--color-shadow), 0 0 30px var(--color-accent-glow);
-    border-color: var(--color-border-strong);
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px var(--ombre-douce), 0 0 50px var(--lueur-survol);
 }
-.mission-card:hover img { transform: scale(1.1); filter: saturate(1) brightness(1); }
-.mission-card:hover h3 { color: var(--color-accent); }
 
-/* Remove back button specific styles if using global */
-/* Add responsive styles if needed beyond global */
+.card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 1.25rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.card-overlay h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--couleur-texte-principal);
+    margin: 0 0 0.25rem 0;
+}
+
+.card-overlay p {
+    font-size: 0.9rem;
+    color: var(--couleur-texte-secondaire);
+    line-height: 1.4;
+}

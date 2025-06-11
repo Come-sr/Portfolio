@@ -3,90 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administration Windows - HSH</title>
+    <title>Mission: Administration Windows Server</title>
     <link rel="icon" href="../DND.gif">
-    <link rel="stylesheet" type="text/css" href="AP.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="AP.css">
 </head>
-
-<a href="../Projet.html" class="back-button">
-  ← Retour aux Missions
-</a>
-
-
-<table style="position: fixed; top: 124px; left: 4%; border-collapse: collapse;">
-    <tr>
-      <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Informations Complémentaires</th>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Outils :</strong> Windows Server 2022, Microsoft Word </td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Période :</strong> <i> 05/09 - 03/10</i> </td>
-    </tr>
-    <tr>
-      <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00; border-radius: 16px;">Compétences Mises en Oeuvre</th>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> 
-        <strong> - Gérer le patrimoine informatique<br><br> 
-        - Mettre à disposition des utilisateurs <br> &nbsp;&nbsp;&nbsp;&nbsp; un service informatique<br><br> 
-        - Organiser son développement professionnel
-        </strong>
-      </td>
-    </tr>
-  </table>
-
 <body>
-    <div class="page-container">
-        <header class="header">
-            <h1>Administration Windows - Mise en Place des Services</h1>
-        </header>
 
-        <main>
-            <section>
-                <h2>Contexte</h2>
-                <p>Dans le cadre de notre projet d'administration Windows, nous avons mis en place des services d'authentification de domaine, de gestion de fichiers, et un service DHCP redondant. Cela implique la configuration de deux serveurs Active Directory (AD), ainsi que des services DNS et DHCP, afin d'assurer la continuité des services et une gestion centralisée des utilisateurs.</p>
+    <nav class="top-nav">
+        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
+        <div class="nav-right">
+            <a href="../Projet.html">Projets</a>
+            <a href="../../Exp/exp.html">Expériences</a>
+            <a href="../../Veille/Veille.html">Veille</a>
+            <a href="../../Perso/Perso.html">À Propos</a>
+        </div>
+    </nav>
 
-                <h2>1. Schéma Infrastructure</h2>
-                <p>Notre infrastructure réseau se compose d’un serveur Windows 2022 et d’un ordinateur client connecté à ce serveur. Cela permet une gestion centralisée des ressources et des utilisateurs.</p>
-                <div style="     display: flex;
-                justify-content: center;
-                margin: 20px 0;">
-                <img src="../img/winserv1.png" alt="Schéma réseau"> </div>
+    <div class="page-wrapper">
+        <aside class="info-panel">
+            <h4>Informations</h4>
+            <div class="competence-list">
+                <p><strong>Outils:</strong> Windows Server 2022</p>
+                <p><strong>Période:</strong> 05/09 - 03/10</p>
+            </div>
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Gérer le patrimoine informatique</p>
+                <p>Mettre à disposition un service informatique</p>
+                <p>Organiser son développement professionnel</p>
+            </div>
+        </aside>
 
-                <h2>2. Infrastructure Active Directory</h2>
-                <p>Nous avons créé quatre unités d'organisation et quatre groupes d'utilisateurs pour faciliter la gestion des permissions au sein de l'organisation.</p>
-                <div style="     display: flex;
-                justify-content: center;
-                margin: 20px 0;">
-                <img src="../img/winserv2.png" alt="Schéma réseau"> </div>
-                    <tbody>
+        <main class="main-content">
+            <h1>Administration des Services Windows Server</h1>
+            
+            <h2>Contexte</h2>
+            <p>Dans le cadre de ce projet, nous avons mis en place des services essentiels d'une infrastructure Microsoft : authentification de domaine, gestion de fichiers, et un service DHCP redondant. Cela a impliqué la configuration de deux serveurs Active Directory (AD), ainsi que des services DNS et DHCP.</p>
+            
+            <h2>Infrastructure Active Directory</h2>
+            <p>Nous avons créé quatre unités d'organisation (UO) et quatre groupes d'utilisateurs pour faciliter la gestion des permissions. Des scripts de logon ont été créés pour mapper automatiquement les lecteurs réseau pour chaque groupe d'utilisateurs.</p>
+            <img src="../img/winserv2.png" alt="Structure Active Directory">
+            
+            <h2>Service de Fichiers et Partages</h2>
+            <p>Notre arborescence de fichiers comprend plusieurs dossiers partagés, organisés par groupe, ainsi que des dossiers personnels pour chaque utilisateur. Les permissions NTFS et les autorisations de partage ont été configurées pour garantir un accès sécurisé aux données.</p>
+            <img src="../img/winserv3.png" alt="Arborescence des partages réseau">
 
-                    </tbody>
-                </table>
-
-                <h2>2.2. Scripts</h2>
-                <p>Pour connecter les différents lecteurs réseaux aux sessions d’utilisateurs lors de leur démarrage, nous avons créé des scripts. Voici un exemple du script <code>logon-comptables.bat</code> qui est utilisé pour connecter les utilisateurs au lecteur réseau approprié :</p>
-                <pre><code>@echo off <br>Net use w: &lt;\\serveur\partage&gt;</code></pre>
-                <br>
-                <p>La ligne <code>@echo off</code> empêche l’affichage du terminal lors de l’exécution du script, et <code>Net use w: &lt;répertoire&gt;</code> connecte le répertoire à la lettre de lecteur W. Ce script est placé dans le répertoire NETLOGON du serveur Windows pour s'appliquer aux utilisateurs concernés.</p>
-
-                <h2>2.3. Service de fichiers</h2>
-                <p>Notre arborescence de fichiers comprend plusieurs dossiers partagés, organisés par groupe, ainsi que des dossiers personnels pour chaque utilisateur. Cela permet une gestion efficace des ressources et un accès sécurisé aux données.</p>
-                <div style="     display: flex;
-                justify-content: center;
-                margin: 20px 0;">
-                <img src="../img/winserv3.png" alt="Schéma réseau"> </div>
-
-                <h2>Retour personnel</h2>
-
-                <p>Cette mission m'a permis de me familiariser et de pouvoir comprendre les fonctionnalités et les services de Windows Server. Mais surtout de pouvoir m'initier au monde de l'administration 
-                  et de la gestion des ressources informatiques. </p>
-            </section>
+            <h2>Retour Personnel</h2>
+            <p>Cette mission m'a permis de me familiariser avec les fonctionnalités et les services fondamentaux de Windows Server. J'ai pu m'initier au monde de l'administration système et de la gestion centralisée des ressources informatiques.</p>
         </main>
     </div>
+
 </body>
 </html>

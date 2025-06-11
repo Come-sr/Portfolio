@@ -1,116 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLPI</title>
-    <link rel="stylesheet" type="text/css" href="Alt.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Whisper&display=swap" rel="stylesheet">
+    <title>Mission: Déploiement GLPI</title>
     <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" href="Alt.css">
 </head>
+<body>
 
-<table class="info-table">
-      <th>Compétences Mises en Oeuvre</th>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> - Gérer le patrimoine informatique <br><br> - Répondre aux incidents et aux <br> demandes d'assistance et d'évolution
-        <br><br>- Mettre à disposition des utilisateurs <br> un service informatique
+    <nav class="top-nav">
+        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
+        <div class="nav-right">
+            <a href="../Projet.html">Projets</a>
+            <a href="../Exp/exp.html">Expériences</a>
+            <a href="../Veille/Veille.html">Veille</a>
+            <a href="../Perso/Perso.html">À Propos</a>
+        </div>
+    </nav>
 
-      </td>
-    </tr>
-  </table>
+    <div class="page-wrapper">
+        <aside class="info-panel">
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Gérer le patrimoine informatique</p>
+                <p>Répondre aux incidents et aux demandes</p>
+                <p>Mettre à disposition un service informatique</p>
+            </div>
+        </aside>
 
-
-
-
-  <nav class="top-nav">
-    <a href="../Projet.html" class="nav-left">← Retour aux Missions</a>
-    <div class="nav-right">
-        <a href="Projet.html">Projets</a>
-        <a href="../Exp/exp.html">Expériences</a>
-        <a href="../Veille/Veille.html">Veille</a>
-        <a href="../Perso/Perso.html">À Propos</a>
-    </div>
-</nav>
-
-    <div class="page-container">
-
-        <div class="BOITEFLOU">
+        <main class="main-content">
+            <h1>Fil Rouge : Déploiement et gestion de GLPI</h1>
+            
             <h2>Qu'est-ce que GLPI?</h2>
             <p>
-                GLPI (Gestionnaire Libre de Parc Informatique) est une solution open-source complète de gestion des ressources informatiques et des services d'assistance. Il permet de centraliser et d'automatiser de nombreuses tâches liées à la gestion d'un parc informatique, telles que:
+                GLPI (Gestionnaire Libre de Parc Informatique) est une solution open-source complète qui permet de centraliser et d'automatiser de nombreuses tâches liées à la gestion d'un parc informatique : inventaire des équipements, gestion des incidents (ticketing) et planification des interventions.
             </p>
+            
+            <h2>Configuration du Serveur</h2>
+            <p>Une de mes missions principales a été la configuration d'un serveur GLPI. L'objectif était d'obtenir un inventaire complet du parc informatique (ordinateurs, switchs, bornes Wi-Fi, etc.) et de mettre en place un système de ticketing efficace.</p>
+            <img src="Images/GLPI1.png" alt="Tableau de bord GLPI">
+
+            <h2>Étapes du Projet</h2>
             <ul>
-                <li>Inventaire des équipements : suivi détaillé des ordinateurs, périphériques, logiciels, et autres ressources.</li>
-                <li>Gestion des incidents : enregistrement et suivi des problèmes techniques rencontrés par les utilisateurs.</li>
-                <li>Planification des interventions : organisation des tâches de maintenance et des interventions techniques.</li>
+                <li>Création des règles d'assignation pour les logiciels et les matériels.</li>
+                <li>Importation des actifs réseau (téléphones, bornes Wi-Fi) via des plugins.</li>
+                <li>Configuration complète du service de ticketing avec collecteur mail.</li>
             </ul>
-            
-            
-            <h2>La configurtation du serveur</h2>    
-            
-            <p>Une des missions m'ayant été confiées depuis mon arrivée au pôle universitaire a été la configuration d'un serveur GLPI. Les objectifs principaux de la 
-                configuration de ce serveur ont été d'avoir un inventaire le plus complet possible du parc informatique du pôle, ordinateur, switch, borne WIFI etc.</p>
-            <img src="Images/GLPI1.png" alt="Configuration GLPI" style="margin: -1px;" />
-            
-            <h2 style="margin: 20px;">Étapes du Projet</h2>
 
-            <ul>
-                <li>Création des règles d'assignation de logiciels</li>
-                <li>Importation des téléphones et des bornes WI-FI</li>
-                <li>Configuration du service de ticketing</li>
-            </ul>
-            
-            <div class="stats-bar">
-                <div class="stat-box stat-green">
-                    <i class="fas fa-box-open"></i> <span class="stat-number">770</span>
-                    <span class="stat-label">Logiciels</span>
-                </div>
-                <div class="stat-box stat-red">
-                    <i class="fas fa-desktop"></i> <span class="stat-number">644</span>
-                    <span class="stat-label">Ordinateurs</span>
-                </div>
-                <div class="stat-box stat-lightblue">
-                    <i class="fas fa-network-wired"></i> <span class="stat-number">110</span>
-                    <span class="stat-label">Matériels Réseau</span>
-                </div>
-                <div class="stat-box stat-greyblue">
-                    <i class="fas fa-phone"></i> <span class="stat-number">150</span>
-                    <span class="stat-label">Téléphones</span>
-                </div>
-                <div class="stat-box stat-darkblue">
-                    <i class="fas fa-print"></i> <span class="stat-number">22</span>
-                    <span class="stat-label">Imprimantes</span>
-                </div>
-            </div>
-
-
-            <h2>Configuration des règles d'assignation de logiciels</h2>
-
-            <p> Les règles d’assignation logicielle de GLPI filtrent les logiciels remontés par les agents GLPI lors de 
-                l’inventaire des machines. Elles permettent de regrouper automatiquement les logiciels dans la section correspondante, facilitant ainsi leur gestion.</p>
-
-                <img src="Images/GLPI2.png" alt="Configuration GLPI" style="margin: -1px;" />
-
-            <h2>Configuration du service de ticketing</h2>
-
-            <p> La mise en place du service de ticketing a commence par la configuration de l'envoi de mail automatique lors de la création d'un ticket. 
-                Ensuite, la configuration des collecteurs mails. </p>
-
-                <p style="margin-top: -5px;"> Dès qu'un e-mail nécessitant un support ou une intervention est reçu, il suffit de le déplacer dans un dossier spécifique de notre boîte mail. GLPI, 
-                    configuré pour scanner ces dossiers toutes les 10 minutes, va alors créer un ticket à partir de l'e-mail, assignant automatiquement l'expéditeur comme demandeur. </p>
-
-                <div style="display: flex; gap: 40px; justify-content:center; margin-top: 20px;">
-                    <img src="Images/GLPI3.png" alt="Configuration GLPI" style="margin: -1px; max-width: 100%;" />
-                    <img src="Images/GLPI4.png" alt="Configuration GLPI" style="margin: -1px; max-width: 100%;" />
-                </div>
-
-                <p style="margin: 12px;"> Il ne reste plus qu'à attribuer un technicien pour prendre en charge l'intervention, qui pourra communiquer directement via GLPI. Le serveur GLPI enverra ensuite toutes les mises à 
-                    jour du ticket au demandeur, permettant ainsi de centraliser l'historique des interventions et de leurs échanges.</p>
-
-                    <img src="Images/GLPI5.png" alt="Configuration GLPI" style="margin: -1px;" />
+            <h2>Configuration du Ticketing</h2>
+            <p>La mise en place du service de ticketing a commencé par la configuration de l'envoi d'e-mails automatiques lors de la création d'un ticket. Dès qu'un e-mail nécessitant un support est reçu, il est déplacé dans un dossier spécifique de notre boîte mail. GLPI scanne ce dossier, crée un ticket et assigne automatiquement l'expéditeur comme demandeur.</p>
+            <img src="Images/GLPI5.png" alt="Exemple de ticket dans GLPI">
+        </main>
+    </div>
 
 </body>
 </html>

@@ -1,37 +1,191 @@
-/* Core styles assumed from global.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
 
-.page-container { padding-top: 2rem; }
-header {
-    text-align: center; padding: 0; margin-bottom: 3rem;
-    display: flex; align-items: center; justify-content: center;
-    gap: 2rem; border-bottom: 2px solid var(--color-border-subtle); padding-bottom: 2rem;
-}
-header h1 { font-size: 3rem; border: none; margin: 0; }
-header .img { /* Docker Logo */
-    width: 80px; height: auto; transition: var(--transition);
-}
-header .img:hover { transform: rotate(15deg) scale(1.1); }
+:root {
+    --couleur-fond: #050608;
+    --couleur-accent: #58a6ff;
+    --couleur-texte-principal: #E6EDF3;
+    --couleur-texte-secondaire: #8A95A1;
+    --couleur-verre-fond: rgba(18, 22, 29, 0.5);
+    --couleur-verre-survol: rgba(30, 36, 47, 0.5);
+    --lueur-survol: rgba(88, 166, 255, 0.08);
+    --ombre-douce: rgba(0, 0, 0, 0.25);
+    --couleur-bordure: rgba(255, 255, 255, 0.1);
 
-section { /* Using .content-section from global */
-    background: none; border: none; box-shadow: none;
-    padding: 0; text-align: justify;
-}
+    --couleur-aurora-1: #1A2555;
+    --couleur-aurora-2: #302A60;
+    --opacite-aurora: 0.25;
 
-ul { padding-left: 1.5rem; margin-bottom: 1.5rem; }
-li { margin-bottom: 0.8rem; position: relative; list-style: none; padding-left: 0.5rem; }
-li::before {
-    content: "▹"; color: var(--color-accent); position: absolute;
-    left: -1.5rem; font-size: 1.3em; line-height: 1; top: 0;
+    --police-sans: 'Inter', sans-serif;
+    --police-display: 'Playfair Display', serif;
+    --rayon-arrondi: 20px;
+    --transition-douce: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --transition-rapide: 0.3s ease;
 }
 
-.img { /* General images in Veille */
-    max-width: 70%; border-radius: var(--radius-card); margin: 2.5rem auto;
-    display: block; border: 1px solid var(--color-border-subtle);
-    box-shadow: 0 5px 15px var(--color-shadow);
-    background-color: #fff; /* Ensure images with transparency look good */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Back button uses global styles */
-.back-button { /* Ensure it's fixed */
-    position: fixed; top: 1.2rem; left: 2.5rem;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--police-sans);
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte-principal);
+    padding-top: 85px;
+    min-height: 100vh;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, var(--couleur-aurora-1), var(--couleur-aurora-2));
+    background-size: 300% 300%;
+    animation: aurora-flow 50s ease-in-out infinite;
+    z-index: -2;
+    filter: blur(120px);
+    opacity: var(--opacite-aurora);
+}
+
+@keyframes aurora-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.top-nav {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 1000;
+    background: rgba(18, 22, 29, 0.3);
+    border-radius: 999px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 5px 20px var(--ombre-douce);
+    transition: all var(--transition-rapide);
+}
+
+.top-nav a {
+    color: var(--couleur-texte-secondaire);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    transition: all var(--transition-rapide);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.top-nav a:hover {
+    color: var(--couleur-texte-principal);
+    background-color: var(--couleur-verre-survol);
+}
+
+.top-nav a.nav-left {
+    font-weight: 600;
+    color: var(--couleur-texte-principal);
+}
+
+.nav-right {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.content-wrapper {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 3rem;
+    background: var(--couleur-verre-fond);
+    border-radius: var(--rayon-arrondi);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    transition: transform var(--transition-douce), box-shadow var(--transition-douce);
+    box-shadow: 0 10px 35px var(--ombre-douce);
+    animation: fadeIn 0.8s var(--transition-douce) both;
+}
+
+.content-wrapper:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px var(--ombre-douce), 0 0 40px var(--lueur-survol);
+}
+
+.veille-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.veille-header h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.veille-header .docker-logo {
+    width: 80px;
+    height: auto;
+}
+
+.content-wrapper h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.content-wrapper p, .content-wrapper li {
+    line-height: 1.7;
+    color: var(--couleur-texte-secondaire);
+}
+
+.content-wrapper ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.content-wrapper li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.content-wrapper li::before {
+    content: "•";
+    color: var(--couleur-accent);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.content-image {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 2.5rem auto;
+    border-radius: 12px;
 }

@@ -3,70 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asterisk</title>
+    <title>Mission: Téléphonie Asterisk</title>
     <link rel="icon" href="../DND.gif">
-    <link rel="stylesheet" type="text/css" href="AP.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="AP.css">
 </head>
+<body>
 
-<a href="../Projet.html" class="back-button">
-  ← Retour aux Missions
-</a>
+    <nav class="top-nav">
+        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
+        <div class="nav-right">
+            <a href="../Projet.html">Projets</a>
+            <a href="../../Exp/exp.html">Expériences</a>
+            <a href="../../Veille/Veille.html">Veille</a>
+            <a href="../../Perso/Perso.html">À Propos</a>
+        </div>
+    </nav>
 
-<table style="position: fixed; top: 124px; left: 4%; border-collapse: collapse;">
-    <tr>
-      <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00;border-radius: 16px;">Informations Complémentaires</th>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Outils :</strong>Serveur Linux Fedora, Service Asterisk</td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> <strong> Période :</strong> <i> 03/10 - 10/10</i> </td>
-    </tr>
-    <tr>
-      <th colspan="2" style="background-color: #ffb6c11a; padding: 10px; border: 1px solid #cccccc00; border-radius: 16px;">Compétences Mises en Oeuvre</th>
-    </tr>
-    <tr>
-      <td style="padding: 10px; border: 1px solid #cccccc00;"> 
-        <strong>- Mettre à disposition des utilisateurs <br> &nbsp;&nbsp;&nbsp;&nbsp; un service informatique<br><br> 
-        </strong>
-      </td>
-    </tr>
-  </table>
+    <div class="page-wrapper">
+        <aside class="info-panel">
+            <h4>Informations</h4>
+            <div class="competence-list">
+                <p><strong>Outils:</strong> Linux Fedora, Asterisk</p>
+                <p><strong>Période:</strong> 03/10 - 10/10</p>
+            </div>
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Mettre à disposition un service informatique</p>
+            </div>
+        </aside>
 
-  <body>
-    <div class="page-container">
-        <header class="header">
+        <main class="main-content">
             <h1>Mise en Place de la Téléphonie avec Asterisk</h1>
-        </header>
+            
+            <h2>Contexte</h2>
+            <p>Dans le cadre de ce projet, nous avons déployé un serveur Fedora avec le service Asterisk pour la gestion des appels. Nous avons également configuré les services DHCP et TFTP pour la prise en charge des téléphones IP, et installé le logiciel 3CXPhone sur les postes clients.</p>
+            <img src="../img/asterisk-network.png" alt="Schéma réseau de la téléphonie Asterisk">
 
-        <main>
-            <section>
-                <h2>Contexte</h2>
-                <p>Dans le cadre de notre projet de mise en place de services de téléphonie IP, nous avons déployé un serveur Fedora avec le service <a style="color: aqua;" href="https://www.asterisk.org/">Asterisk</a> pour la gestion des appels, avec des fichiers de
-                   configuration <code>pjsip.conf</code> et <code>extensions.conf</code>. Nous avons également configuré les services DHCP et TFTP pour la prise en charge des téléphones IP,
-                    et installé le logiciel 3CXPhone sur les postes sous Windows 10. </p>
+            <h2>Configuration</h2>
+            <p>Nous avons configuré les fichiers `pjsip.conf` pour la gestion des utilisateurs et `extensions.conf` pour définir les extensions et les règles de routage des appels. Ces fichiers permettent de gérer les appels et d’assurer la bonne communication entre les différents postes.</p>
 
-                <h2>1. Schéma Réseau</h2>
-                <p>Notre infrastructure réseau inclut un serveur Asterisk, deux téléphones IP virtuel sur des machines Windows 10. Cette configuration permet une communication centralisée et une gestion efficace des ressources téléphoniques au sein de l'organisation.</p>
-                <div style="display: flex; justify-content: center; margin: 20px 0;">
-                    <img src="../img/asterisk-network.png" alt="Schéma réseau téléphonie">
-                </div>
+            <h2>Retour Personnel</h2>
+            <p>Ce projet m'a permis de m'initier à la téléphonie IP et d'acquérir une meilleure compréhension de son fonctionnement. Grâce à cette expérience, j’ai pu explorer les principes fondamentaux de la VoIP, notamment la gestion des appels et la configuration des téléphones.</p>
+        </main>
+    </div>
 
-                <h2>2. Configuration Asterisk</h2>
-                <p>Nous avons configuré les fichiers <code>pjsip.conf</code> pour la gestion des utilisateurs et <code>extensions.conf</code> pour définir les extensions et les règles de routage des appels. Ces fichiers permettent de gérer les appels et d’assurer la bonne communication entre les différents postes.</p>
-                <pre><code>
-                    ; Exemple de configuration dans pjsip.conf
-                    [6001]
-                    type = endpoint
-                    context = local
-                    disallow = all
-                    allow = ulaw
-                    auth = auth6001
-                    aors = 6001
-                </code></pre>
-                <h2>Retour Personnel</h2>
-                <p>Ce projet m'a permis de m'initier à la téléphonie IP et d'acquérir une meilleure compréhension de son fonctionnement. Grâce à cette expérience, j’ai pu explorer les principes fondamentaux de la
-                 VoIP, notamment la gestion des appels ainsi que la configuration des téléphones.</p>
+</body>
+</html>

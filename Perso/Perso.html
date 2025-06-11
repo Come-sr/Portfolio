@@ -1,17 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À Propos de Moi - Côme Servy</title>
     <link rel="icon" href="../DND.gif"> 
-    <link rel="stylesheet" href="../global.css">
     <link rel="stylesheet" href="Perso.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+    <div id="star-container">
+        <div id="stars-small"></div>
+        <div id="stars-medium"></div>
+        <div id="stars-large"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+    </div>
+    
     <nav class="top-nav">
-        <a href="../index.html" class="nav-left">Retour</a>
+    <a href="../index.html" class="nav-left"><i class="fa-solid fa-house"></i></a>
         <div class="nav-right">
             <a href="../Projet/Projet.html">Projets</a>
             <a href="../Exp/exp.html">Expériences</a>
@@ -22,7 +31,7 @@
 
     <div class="page-content-container">
         <section class="profile-container-card">
-            <div class="profile-image-wrapper" onclick="window.location.href='https://www.youtube.com/watch?v=_fr4SV4fGAw';" title="Voir sur YouTube (placeholder)">
+            <div class="profile-image-wrapper">
                 <img src="tempo.jpg" alt="Côme Servy - Image de Profil">
             </div>
             <div class="profile-text-content">
@@ -33,7 +42,8 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/919/919853.png" alt="CSS Icon" title="CSS3">
                     <img src="https://static-00.iconduck.com/assets.00/proxmox-icon-2048x2048-i8gl93w2.png" alt="Proxmox Icon" title="Proxmox">
                     <img src="https://static-00.iconduck.com/assets.00/cisco-icon-2048x2048-yvjuekbj.png" alt="Cisco Icon" title="Cisco Networking">
-                    <img src="storm.png" alt="Stormshield Icon" title="Stormshield"> <img src="https://clipart-library.com/images_k/server-transparent/server-transparent-22.png" alt="Server Icon" title="Serveurs">
+                    <img src="storm.png" alt="Stormshield Icon" title="Stormshield">
+                    <img src="https://clipart-library.com/images_k/server-transparent/server-transparent-22.png" alt="Server Icon" title="Serveurs">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1727px-Tux.svg.png" alt="Linux Icon" title="Linux">
                 </div>
             </div>
@@ -55,15 +65,5 @@
         </main>
     </div>
 
-    <script>
-        // Any page-specific JS can go here if needed
-        // For example, making the profile image clickable if the inline onclick is not preferred
-        // const profileImage = document.querySelector('.profile-image-wrapper');
-        // if (profileImage) {
-        //     profileImage.addEventListener('click', () => {
-        //         window.location.href = 'https://www.youtube.com/watch?v=_fr4SV4fGAw';
-        //     });
-        // }
-    </script>
 </body>
 </html>
