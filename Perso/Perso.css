@@ -38,7 +38,7 @@ body {
     min-height: 100vh;
     background-attachment: fixed;
     position: relative;
-    overflow: hidden; /* Important pour les étoiles filantes */
+    overflow-y: auto; /* Permet le défilement vertical */
 }
 
 
@@ -343,5 +343,69 @@ body {
     }
     .cv-embed {
         height: 600px;
+    }
+}
+
+/* New styles for certification item */
+.certification-item {
+    background: var(--couleur-verre-fond);
+    border-radius: var(--rayon-arrondi);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 2rem;
+    transition: transform var(--transition-douce), box-shadow var(--transition-douce);
+    box-shadow: 0 10px 35px var(--ombre-douce);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.certification-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px var(--ombre-douce), 0 0 40px var(--lueur-survol);
+}
+
+.certification-item h3 {
+    font-size: 1.6rem;
+    color: var(--couleur-accent);
+    margin-bottom: 0.8rem;
+}
+
+.certification-item p {
+    color: var(--couleur-texte-secondaire);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+.certification-item strong {
+    color: var(--couleur-texte-principal);
+}
+
+.diploma-image {
+    max-width: 80%;
+    height: auto;
+    border-radius: var(--rayon-arrondi);
+    margin: 1.5rem auto;
+    display: block;
+    border: 1px solid var(--couleur-bordure);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.diploma-image:hover {
+    transform: scale(1.02);
+}
+
+.certification-date {
+    font-size: 0.9rem;
+    color: var(--couleur-texte-secondaire);
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .certification-item {
+        padding: 1.5rem;
+    }
+    .diploma-image {
+        max-width: 95%;
     }
 }
