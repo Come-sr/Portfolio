@@ -20,6 +20,11 @@
     --rayon-arrondi: 20px;
     --transition-douce: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     --transition-rapide: 0.3s ease;
+
+    /* Hesias Orange Palette */
+    --hesias-orange-accent: #FF8C00; /* Dark Orange */
+    --hesias-orange-background: rgba(255, 140, 0, 0.2); /* Semi-transparent orange background */
+    --hesias-orange-lueur: rgba(255, 140, 0, 0.15); /* Soft orange glow */
 }
 
 * {
@@ -203,4 +208,29 @@ body::before {
 .timeline-content p {
     line-height: 1.6;
     color: var(--couleur-texte-secondaire);
+}
+
+/* Hesias Specific Styling */
+.timeline-item-hesias .timeline-content {
+    background: var(--hesias-orange-background);
+    border: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.timeline-item-hesias .timeline-content:hover {
+    box-shadow: 0 20px 45px var(--ombre-douce), 0 0 40px var(--hesias-orange-lueur);
+}
+
+.timeline-item-hesias::before {
+    background-color: var(--hesias-orange-accent);
+    box-shadow: 0 0 15px var(--hesias-orange-lueur);
+}
+
+.timeline-item-hesias h3 {
+    color: var(--hesias-orange-accent);
+}
+
+.hesias-logo {
+    max-width: 100px; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 1rem; /* Space below logo */
 }
