@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-    --couleur-fond: #050608;
-    --couleur-accent: #58a6ff;
-    --couleur-texte-principal: #E6EDF3;
-    --couleur-texte-secondaire: #8A95A1;
-    --couleur-verre-fond: rgba(18, 22, 29, 0.5);
-    --couleur-verre-survol: rgba(30, 36, 47, 0.5);
-    --lueur-survol: rgba(88, 166, 255, 0.08);
+    /* Mapped from index.html's styles.css "Deep Space Palette V2" */
+    --couleur-fond: #0d0f1a; /* Deepest Space Blue/Black */
+    --couleur-accent: #58a6ff; /* A clean, vibrant blue accent */
+    --couleur-texte-principal: #e8edf3; /* Soft Off-White */
+    --couleur-texte-secondaire: #b0c7e0; /* Lighter grey/blue */
+    --couleur-verre-fond: rgba(21, 25, 45, 0.5); /* Translucent based on space-color-2 */
+    --couleur-verre-survol: rgba(35, 41, 61, 0.7); /* Translucent based on space-color-3 for hover */
+    --lueur-survol: rgba(88, 166, 255, 0.08); /* Glow based on new accent */
     --ombre-douce: rgba(0, 0, 0, 0.25);
-    --couleur-bordure: rgba(255, 255, 255, 0.1);
+    --couleur-bordure: rgba(176, 199, 224, 0.1); /* Subtle border based on secondary text color */
 
-    --couleur-aurora-1: #1A2555;
-    --couleur-aurora-2: #302A60;
+    /* Directly using Aurora colors from index.html's styles.css palette */
+    --couleur-aurora-1: #0d0f1a; /* Deepest Space Blue/Black */
+    --couleur-aurora-2: #15192d; /* Dark Blue */
     --opacite-aurora: 0.25;
 
     --police-sans: 'Inter', sans-serif;
@@ -26,7 +28,6 @@
     --hesias-orange-background: rgba(255, 140, 0, 0.2); /* Semi-transparent orange background */
     --hesias-orange-lueur: rgba(255, 140, 0, 0.15); /* Soft orange glow */
 }
-
 * {
     margin: 0;
     padding: 0;

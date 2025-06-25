@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-    --couleur-fond: #050608;
-    --couleur-accent: #58a6ff;
-    --couleur-texte-principal: #E6EDF3;
-    --couleur-texte-secondaire: #b4bdc8;
-    --couleur-verre-fond: rgba(18, 22, 29, 0.5);
-    --couleur-verre-survol: rgba(30, 36, 47, 0.7);
-    --lueur-survol: rgba(88, 166, 255, 0.1);
+    /* Mapped from index.html's styles.css "Deep Space Palette V2" */
+    --couleur-fond: #0d0f1a; /* Deepest Space Blue/Black */
+    --couleur-accent: #70a0ff; /* A new accent blue that fits the space theme */
+    --couleur-texte-principal: #e8edf3; /* Soft Off-White */
+    --couleur-texte-secondaire: #b0c7e0; /* Lighter grey/blue */
+    --couleur-verre-fond: rgba(21, 25, 45, 0.5); /* Translucent based on --space-color-2 */
+    --couleur-verre-survol: rgba(35, 41, 61, 0.7); /* Translucent based on --space-color-3 for hover */
+    --lueur-survol: rgba(112, 160, 255, 0.1); /* Glow based on new accent */
     --ombre-douce: rgba(0, 0, 0, 0.25);
-    --couleur-bordure: rgba(255, 255, 255, 0.1);
+    --couleur-bordure: rgba(176, 199, 224, 0.1); /* Subtle border based on secondary text color */
 
-    --couleur-aurora-1: #1A2555;
-    --couleur-aurora-2: #302A60;
+    /* Adapted Aurora colors to match the Deep Space theme */
+    --couleur-aurora-1: #282D4B; /* Darker indigo based on nebula-hint-1 */
+    --couleur-aurora-2: #3C1E5A; /* Darker purple based on nebula-hint-2 */
     --opacite-aurora: 0.25;
 
     --police-sans: 'Inter', sans-serif;
@@ -122,7 +124,7 @@ body::before {
 
 .page-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 1,2rem;
 }
 
 .page-header h1 {
@@ -139,7 +141,7 @@ body::before {
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--couleur-texte-principal);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--couleur-bordure);
 }

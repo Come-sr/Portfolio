@@ -1,27 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
 
 :root {
-    /* --- Deep Space Palette V2 --- */
-    --space-color-1: #0d0f1a; /* Deepest Space Blue/Black */
-    --space-color-2: #15192d; /* Dark Blue */
-    --space-color-3: #232946; /* Slightly Lighter Indigo/Blue */
-    
-    /* Subtle Nebula/Galaxy hints for background animation */
-    --nebula-hint-1: rgba(40, 45, 75, 0.5); /* Soft indigo */
-    --nebula-hint-2: rgba(60, 30, 90, 0.3); /* Soft distant purple */
+  /* --- Deep Space Palette V2 --- */
+  --space-color-1: #0d0f1a; /* Deepest Space Blue/Black */
+  --space-color-2: #15192d; /* Dark Blue */
+  --space-color-3: #232946; /* Slightly Lighter Indigo/Blue */
+  
+  /* Subtle Nebula/Galaxy hints for background animation */
+  --nebula-hint-1: rgba(40, 45, 75, 0.5); /* Soft indigo */
+  --nebula-hint-2: rgba(60, 30, 90, 0.3); /* Soft distant purple */
 
-    --text-on-space-primary: #e8edf3;  /* Soft Off-White for main text/name */
-    --text-on-space-secondary: #b0c7e0; /* Lighter grey/blue for tagline */
-    --nav-link-on-space: #c8d4e8;
-    --nav-link-hover-on-space: #ffffff;
-    --icon-filter-on-space: brightness(0) saturate(100%) invert(93%) sepia(15%) saturate(301%) hue-rotate(186deg) brightness(109%) contrast(95%); /* Makes DND.gif white */
+  --text-on-space-primary: #e8edf3;  /* Soft Off-White for main text/name */
+  --text-on-space-secondary: #b0c7e0; /* Lighter grey/blue for tagline */
+  --nav-link-on-space: #c8d4e8;
+  --nav-link-hover-on-space: #ffffff;
+  --icon-filter-on-space: brightness(0) saturate(100%) invert(93%) sepia(15%) saturate(301%) hue-rotate(186deg) brightness(109%) contrast(95%); /* Makes DND.gif white */
 
-    /* Star Colors - more subtle */
-    --star-color: rgba(220, 225, 255, 0.7); /* General star color */
+  /* Star Colors - more subtle */
+  --star-color: rgba(220, 225, 255, 0.7); /* General star color */
 
-    /* Keep your existing font variables */
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Inter', sans-serif;
+  /* Keep your existing font variables */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
 }
 
 * {
@@ -33,7 +33,7 @@
 html, body {
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /* Important for full-screen effects */
   font-family: var(--font-sans);
   background-color: var(--space-color-1); /* Base background */
   color: var(--text-on-space-primary); /* Default text color for body */
@@ -42,7 +42,7 @@ html, body {
   position: relative; 
 }
 
-/* --- Slightly Animated Space Background --- */
+/* --- Slightly Animated Space Background (Nebula Effect) --- */
 body::before { /* Using pseudo-element for main animated gradient */
     content: '';
     position: absolute;
@@ -53,9 +53,10 @@ body::before { /* Using pseudo-element for main animated gradient */
         var(--nebula-hint-1) 60%, 
         var(--nebula-hint-2) 80%, 
         var(--space-color-3) 100%);
-    background-size: 150% 150%; /* To allow for movement */
-    animation: slowGradientShift 90s ease-in-out infinite alternate;
+    background-size: 180% 180%; /* Increased size for more movement */
+    animation: slowGradientShift 120s ease-in-out infinite alternate; /* Slower, more subtle shift */
     z-index: -2; /* Deepest background layer */
+    filter: blur(5px); /* Soften the gradient edges to look more nebulous */
 }
 
 @keyframes slowGradientShift {
@@ -63,83 +64,77 @@ body::before { /* Using pseudo-element for main animated gradient */
     100% { background-position: 100% 100%; }
 }
 
-/* --- Animated Stars Background (CSS Only) --- */
+/* --- Enhanced Animated Stars Background (CSS Only) --- */
 #stars-background {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background: transparent; /* Transparent, stars are drawn */
-    overflow: hidden; /* Important */
+    overflow: hidden; /* Important for animation */
     z-index: -1; /* Above gradient, below content */
-    pointer-events: none;
-}
-
-/* Creating stars with box-shadows for performance and CSS-only solution */
-/* Adjust sizes, number of shadows, and spread for desired density */
-@function createstars($n) {
-  $stars: "#{random(2000)}px #{random(2000)}px var(--star-color)"; 
-  @for $i from 2 through $n {
-    $stars: "#{$stars} , #{random(2000)}px #{random(2000)}px var(--star-color)";
-  }
-  @return unquote($stars);
-}
-
-.stars-small {
-  width: 1px; height: 1px; background: transparent;
-  box-shadow: createstars(700); /* 700 small stars */
-  animation: animStar 50s linear infinite;
-}
-.stars-medium {
-  width: 2px; height: 2px; background: transparent;
-  box-shadow: createstars(200); /* 200 medium stars */
-  animation: animStar 100s linear infinite;
-}
-.stars-large {
-  width: 3px; height: 3px; background: transparent;
-  box-shadow: createstars(100); /* 100 large stars */
-  animation: animStar 150s linear infinite;
-}
-/* Create these divs inside #stars-background in your HTML, or use JS to generate */
-/* For now, we'll rely on just applying these to #stars-background itself using pseudo-elements */
-
-#stars-background::after, /* Small stars */
-#stars-background::before { /* Medium stars - we need another for large if doing it this way */
-    content: " ";
-    position: absolute;
-    top: -1000px; /* Position them to move into view */
-    width: 1px;
-    height: 1px;
-    background: transparent;
-    box-shadow: createstars(700); /* Create 700 stars using Sass function (or hardcode) */
-                                   /* For plain CSS, you'll need to list out box-shadows */
-    animation: animStar 50s linear infinite;
-}
-#stars-background::before { /* Medium stars */
-    width: 2px;
-    height: 2px;
-    box-shadow: createstars(200);
-    animation-duration: 100s;
-}
-/* For a pure CSS solution without a preprocessor, box-shadows must be manually listed
-   or a simpler repeating background image for stars can be used.
-   Let's use a simpler approach for pure CSS stars for this example. */
-
-#stars-background {
+    pointer-events: none; /* Allows clicks to pass through */
+    
+    /* Multiple layers of radial gradients for varied star sizes and density */
     background-image:
-        radial-gradient(1px 1px at 20px 30px, var(--star-color), transparent),
-        radial-gradient(1px 1px at 40% 40%, var(--star-color), transparent),
-        radial-gradient(1px 1px at 90% 10%, var(--star-color), transparent),
+        /* Smallest, densest stars - fastest movement */
+        radial-gradient(1px 1px at 5% 10%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 15% 20%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 25% 5%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 35% 30%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 45% 15%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 55% 40%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 65% 25%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 75% 50%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 85% 35%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 95% 60%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 2% 70%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 12% 80%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 22% 65%, var(--star-color), transparent),
+        radial-gradient(1px 1px at 32% 90%, var(--star-color), transparent),
+
+        /* Medium stars - medium speed */
+        radial-gradient(1.5px 1.5px at 10% 70%, var(--star-color), transparent),
+        radial-gradient(1.5px 1.5px at 80% 10%, var(--star-color), transparent),
+        radial-gradient(1.5px 1.5px at 40% 40%, var(--star-color), transparent),
+        radial-gradient(1.5px 1.5px at 60% 90%, var(--star-color), transparent),
+        radial-gradient(1.5px 1.5px at 20% 55%, var(--star-color), transparent),
+        radial-gradient(1.5px 1.5px at 5% 5%, var(--star-color), transparent),
+        radial-gradient(1.5px 1.5px at 90% 75%, var(--star-color), transparent),
+
+        /* Larger, sparser stars - slowest speed */
+        radial-gradient(2px 2px at 30% 50%, var(--star-color), transparent),
         radial-gradient(2px 2px at 70% 80%, var(--star-color), transparent),
-        radial-gradient(2px 2px at 10% 60%, var(--star-color), transparent),
-        radial-gradient(1px 1px at 50% 90%, var(--star-color), transparent),
-        radial-gradient(1px 1px at 25% 75%, var(--star-color), transparent),
-        radial-gradient(2px 2px at 80% 55%, var(--star-color), transparent);
-    background-size: 1000px 1000px; /* Size of the repeating star pattern */
-    animation: animStarScroll 150s linear infinite;
+        radial-gradient(2px 2px at 15% 95%, var(--star-color), transparent),
+        radial-gradient(2px 2px at 85% 20%, var(--star-color), transparent);
+
+    background-size: 
+        1000px 1000px, /* Smallest stars */
+        1500px 1500px, /* Medium stars */
+        2000px 2000px; /* Largest stars */
+    
+    background-position: 
+        0 0, 
+        0 0, 
+        0 0; /* Initial position for all layers */
+    
+    /* Individual animations for each background-image layer for parallax */
+    animation: 
+        animStarScrollSmall 80s linear infinite,
+        animStarScrollMedium 160s linear infinite,
+        animStarScrollLarge 240s linear infinite;
 }
 
-@keyframes animStarScroll {
+/* Combine all background-position animations into single keyframes for each layer */
+@keyframes animStarScrollSmall {
     from { background-position: 0 0; }
-    to { background-position: -1000px -1000px; } /* Scroll the star pattern */
+    to { background-position: -1000px -1000px; }
+}
+@keyframes animStarScrollMedium {
+    from { background-position: 0 0; }
+    to { background-position: -1500px -1500px; }
+}
+@keyframes animStarScrollLarge {
+    from { background-position: 0 0; }
+    to { background-position: -2000px -2000px; }
 }
 
 
@@ -243,7 +238,7 @@ body { /* Layout part of body */
 @media (max-width: 768px) {
   body { padding: 1rem; }
   .top-nav { padding: 0 1rem; top: 1rem; }
-  .nav-right { gap: 0.8rem; }
+  .nav-right { display: none; }
   .top-nav a { font-size: 0.8rem; }
   .main-name { font-size: 16vw; bottom: 1rem; }
   .center-content p { font-size: 0.9rem; }
