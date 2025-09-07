@@ -1,22 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-    --couleur-fond: #050608;
-    --couleur-accent: #58a6ff;
-    --couleur-texte-principal: #E6EDF3;
-    --couleur-texte-secondaire: #8A95A1;
-    --couleur-verre-fond: rgba(18, 22, 29, 0.5);
-    --couleur-verre-survol: rgba(30, 36, 47, 0.5);
-    --lueur-survol: rgba(88, 166, 255, 0.08);
-    --ombre-douce: rgba(0, 0, 0, 0.25);
-    --etoile-couleur: #FFFFFF;
-
-    --police-sans: 'Inter', sans-serif;
-    --police-display: 'Playfair Display', serif;
-    --rayon-arrondi: 20px;
-    --padding-contenu: 2.5rem;
-    --transition-douce: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-    --transition-rapide: 0.3s ease;
+    /* Modern Minimalist Palette - Matching index.html */
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray-50: #f8f9fa;
+    --color-gray-500: #6c757d;
+    --color-gray-900: #212529;
+    
+    /* Accent Color - Electric Blue */
+    --color-accent: #007bff;
+    --color-accent-hover: #0056b3;
+    --color-accent-light: rgba(0, 123, 255, 0.1);
+    
+    /* Typography */
+    --font-display: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Spacing & Layout */
+    --container-max-width: 1200px;
+    --section-padding: 6rem 0;
+    --grid-gap: 2rem;
+    
+    /* Transitions */
+    --transition-smooth: 0.3s ease-out;
+    --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Shadows */
+    --shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
+    --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -30,102 +43,33 @@ html {
 }
 
 body {
-    font-family: var(--police-sans);
-    background-color: var(--couleur-fond);
-    color: var(--couleur-texte-principal);
-    line-height: 1.7;
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-50) 100%);
+    color: var(--color-gray-900);
+    line-height: 1.6;
     padding-top: 85px;
     min-height: 100vh;
-    background-attachment: fixed;
     position: relative;
-    overflow-y: auto; /* Permet le défilement vertical */
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-
 
 /* ======================================= */
 /* ARRIÈRE-PLAN ÉTOILÉ ET ÉTOILES FILANTES */
 /* ======================================= */
 
-#star-container {
+body::before {
+    content: '';
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-    overflow: hidden;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23f0f0f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.5;
+    z-index: -1;
 }
-
-@keyframes move-stars {
-    from { transform: translateY(0px); }
-    to { transform: translateY(-2000px); }
-}
-
-#stars-small, #stars-medium, #stars-large {
-    width: 100%;
-    height: 2000px; /* Grande hauteur pour l'animation de défilement */
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-#stars-small {
-    background-image: radial-gradient(1px 1px at 10% 30%, var(--etoile-couleur), transparent),
-                      radial-gradient(1px 1px at 80% 60%, var(--etoile-couleur), transparent),
-                      radial-gradient(1px 1px at 50% 90%, var(--etoile-couleur), transparent);
-    background-size: 800px 800px;
-    animation: move-stars 150s linear infinite;
-}
-
-#stars-medium {
-    background-image: radial-gradient(1.5px 1.5px at 20% 70%, var(--etoile-couleur), transparent),
-                      radial-gradient(1.5px 1.5px at 90% 10%, var(--etoile-couleur), transparent),
-                      radial-gradient(1.5px 1.5px at 40% 40%, var(--etoile-couleur), transparent);
-    background-size: 1200px 1200px;
-    animation: move-stars 100s linear infinite;
-}
-
-#stars-large {
-    background-image: radial-gradient(2px 2px at 30% 50%, var(--etoile-couleur), transparent),
-                      radial-gradient(2px 2px at 70% 80%, var(--etoile-couleur), transparent);
-    background-size: 1600px 1600px;
-    animation: move-stars 75s linear infinite;
-}
-
-.shooting-star {
-    position: absolute;
-    left: 50%;
-    top: -50px; /* Commence hors de l'écran */
-    height: 2px;
-    background: linear-gradient(-45deg, var(--couleur-accent), rgba(0, 0, 0, 0));
-    border-radius: 999px;
-    filter: drop-shadow(0 0 6px var(--couleur-accent));
-    animation: shooting-anim 15s ease-in-out infinite;
-}
-
-.shooting-star:nth-child(2) {
-    left: 20%;
-    animation-delay: 8s;
-    animation-duration: 12s;
-}
-
-@keyframes shooting-anim {
-    0% {
-        transform: rotate(315deg) translateX(0);
-        opacity: 1;
-        width: 0;
-    }
-    70% {
-        width: 400px;
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(315deg) translateX(100vw);
-        opacity: 0;
-        width: 0;
-    }
-}
-
 
 /* ======================================= */
 /* LE RESTE DU DESIGN (IDENTIQUE)          */

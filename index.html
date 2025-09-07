@@ -3,27 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Côme - Portfolio</title>
+    <title>Côme Servy - Portfolio</title>
+    <meta name="description" content="Portfolio de Côme Servy, étudiant en cybersécurité et réseaux, développeur passionné recherchant une alternance.">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="DND.gif">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    </head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
 <body>
-    <div id="stars-background"></div> <nav class="top-nav">
-            <a href="Projet/Projet.html">Projets</a>
-            <a href="Exp/exp.html">Expériences</a>
-            <a href="Veille/Veille.html">Veille</a>
-            <a href="Perso/Perso.html">À Propos</a>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">CS</a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="Projet/Projet.html" class="nav-link">Projets</a>
+                <a href="Exp/exp.html" class="nav-link">Expériences</a>
+                <a href="Perso/Perso.html" class="nav-link">À Propos</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </div>
         </div>
     </nav>
 
-    <main class="content-area">
-        <div class="center-content">
-            <p>Apprenti Technicien Informatique<br>Actuellement en Licence Informatique</p>
-        </div> 
-        <h1 class="main-name" style="padding-left: 48px;">Côme Servy</h1>
-    </main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-greeting">Bonjour, je suis</span>
+                    <span class="hero-name">Côme Servy</span>
+                </h1>
+                <p class="hero-subtitle">Étudiant en Licence Administr Infrastructure Sécurisées</p>
+                <p class="hero-description">Actuellement en L3 à Hésias en alternance au Pôle Universitaire de Vichy, je développe mes compétences en cybersécurité et administration d'infrastructures.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+                    <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Projets</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="Projet/Alternance/Images/alt1.jpg" alt="Projet Alternance 1" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="Projet/Alternance/ALT1.HTML" class="project-link">Voir le projet</a>
+                                <a href="Projet/Projet.html" class="project-link">Tous les projets</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Projet Alternance 1</h3>
+                        <p class="project-description">Projet réalisé dans le cadre de mon alternance au Pôle Universitaire de Vichy.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Infrastructure</span>
+                            <span class="tech-badge">Réseaux</span>
+                            <span class="tech-badge">Sécurité</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="Projet/Alternance/Images/alt2.jpg" alt="Projet Alternance 2" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="Projet/Alternance/ALT2.HTML" class="project-link">Voir le projet</a>
+                                <a href="Exp/exp.html" class="project-link">Expériences</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Projet Alternance 2</h3>
+                        <p class="project-description">Deuxième projet d'alternance focalisé sur l'administration système et la cybersécurité.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Administration</span>
+                            <span class="tech-badge">Cybersécurité</span>
+                            <span class="tech-badge">Monitoring</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="Projet/img/docker-infrastructure.jpg" alt="Infrastructure Docker BTS SIO" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="Perso/Perso.html" class="project-link">Voir le projet</a>
+                                <a href="Veille/Veille.html" class="project-link">Veille techno</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Infrastructure Docker - Épreuve BTS SIO</h3>
+                        <p class="project-description">Infrastructure complète avec Proxmox, Docker et services conteneurisés (Portainer, Wikijs, Stirling-PDF, n-tools, Dozzle, Nginx).</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Docker</span>
+                            <span class="tech-badge">Proxmox</span>
+                            <span class="tech-badge">Conteneurisation</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parcours Scolaire Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">Parcours Scolaire</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">BAC +3 - Licence Administrateur d'Infrastructures Sécurisées</h3>
+                        <p class="timeline-company">Hésias</p>
+                        <p class="timeline-period">2025 - Présent</p>
+                        <p class="timeline-description">Formation spécialisée en cybersécurité et administration d'infrastructures, Concepteur Développeur d'Applications.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">BTS SIO - Services Informatiques aux Organisations</h3>
+                        <p class="timeline-company">Option SISR (Solutions d'Infrastructure, Systèmes et Réseaux)</p>
+                        <p class="timeline-period">Obtenu en 2025</p>
+                        <p class="timeline-description">Formation spécialisée en administration des systèmes et réseaux, gestion des infrastructures informatiques et sécurité. Acquisition des compétences techniques en SISR.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">BAC Pro - Systèmes Numériques</h3>
+                        <p class="timeline-company">Option ARED (Audiovisuel, Réseau et Équipements Domestiques)</p>
+                        <p class="timeline-period">2020 - 2023</p>
+                        <p class="timeline-description">Formation professionnelle en systèmes numériques avec spécialisation en audiovisuel, réseaux et équipements domestiques. Première approche des technologies de l'information et de la communication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Discutons de votre projet</h3>
+                    <p>Actuellement en alternance, je suis ouvert à toute opportunité de collaboration et de nouveaux défis techniques. N'hésitez pas à me contacter !</p>
+                    <div class="contact-methods">
+                        <a href="mailto:come.servy@example.com" class="contact-method">
+                            <span class="contact-icon">📧</span>
+                            <span>come.servy@example.com</span>
+                        </a>
+                        <a href="https://linkedin.com/in/comeservy" class="contact-method">
+                            <span class="contact-icon">💼</span>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/comeservy" class="contact-method">
+                            <span class="contact-icon">🔗</span>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Côme Servy. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
 

@@ -1,34 +1,149 @@
 /* Core styles assumed from global.css */
 
-.page-container { padding-top: 2rem; }
-header { text-align: center; padding: 0; margin-bottom: 4rem; }
-header h1 { font-size: 3rem; line-height: 1.2; border: none; }
-section { /* Using .content-section from global */ }
-ul { padding-left: 1.5rem; margin-bottom: 1.5rem; }
-li { margin-bottom: 0.8rem; position: relative; list-style: none; padding-left: 0.5rem; }
+/* BTS SIO Page - Modern Theme */
+
+body {
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-50) 100%);
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23f0f0f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.page-container { 
+  padding-top: 6rem; 
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+header { 
+  text-align: center; 
+  padding: 0; 
+  margin-bottom: 6rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out 0.3s forwards;
+}
+
+header h1 { 
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.2; 
+  border: none;
+  color: var(--color-gray-900);
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+section {
+  background: var(--color-white);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-subtle);
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+h2 {
+  color: var(--color-accent);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--color-gray-500);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+ul { 
+  padding-left: 0; 
+  margin-bottom: 2rem; 
+}
+
+li { 
+  margin-bottom: 1rem; 
+  position: relative; 
+  list-style: none; 
+  padding-left: 2rem;
+  color: var(--color-gray-500);
+  line-height: 1.6;
+}
+
 li::before {
-    content: "▹"; color: var(--color-accent); position: absolute;
-    left: -1.5rem; font-size: 1.3em; line-height: 1; top: 0;
+  content: "→"; 
+  color: var(--color-accent); 
+  position: absolute;
+  left: 0; 
+  font-size: 1.2em; 
+  line-height: 1; 
+  top: 0;
+  font-weight: 600;
 }
+
 .certification-logos {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 3rem; margin: 3.5rem 0; padding: 2rem;
-    background: rgba(13, 16, 23, 0.6); border-radius: var(--radius-card);
-    border: 1px dashed var(--color-border-subtle);
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem; 
+  margin: 3rem 0; 
+  padding: 2.5rem;
+  background: var(--color-gray-50); 
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 .certification-logos img {
-    width: 75%; height: auto; transition: var(--transition);
-    filter: grayscale(0.7) opacity(0.6); border-radius: 8px;
-    margin: 0 auto; display: block;
+  width: 100%; 
+  height: auto; 
+  transition: var(--transition-smooth);
+  filter: grayscale(0.3) opacity(0.8); 
+  border-radius: 8px;
+  margin: 0 auto; 
+  display: block;
 }
+
 .certification-logos img:hover {
-    transform: scale(1.15);
-    filter: grayscale(0) opacity(1) drop-shadow(0 0 12px var(--color-accent-glow));
+  transform: translateY(-5px) scale(1.05);
+  filter: grayscale(0) opacity(1);
+  box-shadow: var(--shadow-medium);
 }
+
 .lycee-image {
-    max-width: 650px; border-radius: var(--radius-card);
-    margin: 2.5rem auto; display: block;
-    border: 2px solid var(--color-border-strong);
-    box-shadow: 0 8px 25px var(--color-shadow);
+  max-width: 100%; 
+  border-radius: 12px;
+  margin: 2.5rem auto; 
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-medium);
+  transition: var(--transition-smooth);
 }
-/* Back button uses global styles */
+
+.lycee-image:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-strong);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
