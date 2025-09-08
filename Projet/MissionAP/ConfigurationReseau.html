@@ -3,52 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission: Configuration Réseau</title>
-    <link rel="icon" href="../DND.gif">
-    <link rel="stylesheet" href="AP.css">
+    <title>Configuration Réseau Cisco - Mission AP | Côme Servy</title>
+    <meta name="description" content="Configuration d'infrastructure réseau avec Cisco Packet Tracer : VLANs, sécurisation des accès, services TFTP et routage.">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="icon" href="../../DND.gif">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <nav class="top-nav">
-        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
-        <div class="nav-right">
-            <a href="../Projet.html">Projets</a>
-            <a href="../../Exp/exp.html">Expériences</a>
-            <a href="../../Veille/Veille.html">Veille</a>
-            <a href="../../Perso/Perso.html">À Propos</a>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">CS</a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../Projet.html" class="nav-link">Projets</a>
+                <a href="../../Exp/exp.html" class="nav-link">Expériences</a>
+                <a href="../../Perso/Perso.html" class="nav-link">À Propos</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </div>
         </div>
     </nav>
 
-    <div class="page-wrapper">
-        <aside class="info-panel">
-            <h4>Compétences</h4>
-            <div class="competence-list">
-                <p>Gérer le patrimoine informatique</p>
-                <p>Répondre aux incidents et aux demandes</p>
-                <p>Travailler en mode projet</p>
-                <p>Mettre à disposition un service</p>
+    <!-- Hero Section -->
+    <section class="hero-compact" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Configuration Réseau Cisco</h1>
+                <p class="hero-subtitle">Mission AP - Infrastructure BROCKER'INFO</p>
             </div>
-        </aside>
+        </div>
+    </section>
 
-        <main class="main-content">
-            <h1>Configuration d'une Infrastructure Réseau</h1>
-            
-            <h2>Contexte</h2>
-            <p>Dans cette mission fictive, je suis chargé d'intégrer une société de services pour la refonte de l'infrastructure de l'entreprise BROCKER’INFO. Les demandes incluent la sécurisation des accès, l'optimisation des flux via des VLANs, la mise en place d'un service de sauvegarde TFTP et un accès à Internet.</p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Contexte Section -->
+            <section class="content-section">
+                <h2 class="section-title">Contexte de la Mission</h2>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <p class="lead">Mission fictive d'intégration chez <strong>BROCKER'INFO</strong> pour la refonte complète de l'infrastructure réseau de l'entreprise.</p>
+                        
+                        <p>Cette mission s'inscrit dans le cadre de la formation BTS SIO et vise à développer les compétences en conception et configuration d'infrastructures réseau complexes.</p>
 
-            <h2>Tâches Réalisées</h2>
-            <p>J'ai d'abord conçu une maquette sur Cisco Packet Tracer, puis je l'ai mise en place physiquement avec deux commutateurs Catalyst 2950 et un routeur Cisco 1841.</p>
-            <ul>
-                <li>Fichier final Packet Tracer de la solution.</li>
-                <li>Fichiers de sauvegarde des configurations du routeur et des commutateurs.</li>
-                <li>Tutoriels sur les services VTP et TFTP.</li>
-            </ul>
-            <img src="ap4.png" alt="Schéma réseau sur Packet Tracer">
+                        <div class="highlight-box">
+                            <h4>Objectifs de la Mission</h4>
+                            <ul class="feature-list">
+                                <li>Sécurisation des accès réseau</li>
+                                <li>Optimisation des flux via VLANs</li>
+                                <li>Mise en place d'un service de sauvegarde TFTP</li>
+                                <li>Configuration de l'accès Internet</li>
+                                <li>Documentation technique complète</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-image">
+                        <img src="ap4.png" alt="Schéma réseau Packet Tracer" loading="lazy">
+                    </div>
+                </div>
+            </section>
 
-            <h2>Retour Personnel</h2>
-            <p>Ce projet a été particulièrement gratifiant. Étant seul, j'ai dû planifier mon temps efficacement pour respecter le cahier des charges, ce que j'ai réussi à faire. Cette mission m'a permis d'acquérir des compétences essentielles en gestion du temps et en résolution de problèmes.</p>
-        </main>
-    </div>
+            <!-- Réalisation Section -->
+            <section class="content-section">
+                <h2 class="section-title">Réalisation Technique</h2>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Conception sur Packet Tracer</h3>
+                        <p>J'ai d'abord conçu une maquette complète sur <strong>Cisco Packet Tracer</strong> pour valider l'architecture avant la mise en place physique.</p>
+                        
+                        <div class="tech-details">
+                            <h4>Équipements Utilisés</h4>
+                            <ul>
+                                <li><strong>2x Commutateurs Catalyst 2950</strong> pour la segmentation VLAN</li>
+                                <li><strong>1x Routeur Cisco 1841</strong> pour le routage inter-VLAN</li>
+                                <li><strong>Serveur TFTP</strong> pour les sauvegardes</li>
+                                <li><strong>Postes clients</strong> pour les tests de connectivité</li>
+                            </ul>
+                        </div>
 
+                        <h3>Mise en Place Physique</h3>
+                        <p>Après validation de la maquette, j'ai reproduit l'infrastructure physiquement avec les équipements réels pour valider le fonctionnement.</p>
+                    </div>
+                    <div class="content-image">
+                        <img src="ap4a.png" alt="Configuration physique" loading="lazy">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Livrables Section -->
+            <section class="content-section">
+                <h2 class="section-title">Livrables Produits</h2>
+                <div class="deliverables-grid">
+                    <div class="deliverable-card">
+                        <div class="deliverable-icon">📁</div>
+                        <h3>Fichier Packet Tracer</h3>
+                        <p>Solution complète avec tous les équipements configurés et fonctionnels</p>
+                    </div>
+                    <div class="deliverable-card">
+                        <div class="deliverable-icon">💾</div>
+                        <h3>Sauvegardes TFTP</h3>
+                        <p>Fichiers de configuration du routeur et des commutateurs sauvegardés</p>
+                    </div>
+                    <div class="deliverable-card">
+                        <div class="deliverable-icon">📚</div>
+                        <h3>Tutoriels Techniques</h3>
+                        <p>Documentation sur les services VTP et TFTP pour l'équipe</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Compétences Section -->
+            <section class="content-section">
+                <h2 class="section-title">Compétences Développées</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Techniques</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Cisco</span>
+                            <span class="skill-tag">VLAN</span>
+                            <span class="skill-tag">Routage</span>
+                            <span class="skill-tag">TFTP</span>
+                            <span class="skill-tag">VTP</span>
+                            <span class="skill-tag">Packet Tracer</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Méthodologiques</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Gestion de Projet</span>
+                            <span class="skill-tag">Planification</span>
+                            <span class="skill-tag">Documentation</span>
+                            <span class="skill-tag">Tests</span>
+                            <span class="skill-tag">Résolution de Problèmes</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Retour Section -->
+            <section class="content-section">
+                <h2 class="section-title">Retour d'Expérience</h2>
+                <div class="quote-section">
+                    <blockquote class="quote">
+                        <p>"Ce projet a été particulièrement gratifiant. Étant seul, j'ai dû planifier mon temps efficacement pour respecter le cahier des charges, ce que j'ai réussi à faire."</p>
+                    </blockquote>
+                    <p>Cette mission m'a permis d'acquérir des compétences essentielles en gestion du temps et en résolution de problèmes. La phase de conception sur Packet Tracer s'est révélée cruciale pour éviter les erreurs lors de la mise en place physique.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Côme Servy. Tous droits réservés. | <a href="mailto:pm@comesr.art" style="color: #007bff;">pm@comesr.art</a></p>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
 </body>
 </html>

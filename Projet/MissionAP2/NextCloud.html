@@ -3,51 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission: Travail Collaboratif Nextcloud</title>
-    <link rel="icon" href="../DND.gif">
-    <link rel="stylesheet" href="AP.css">
+    <title>NextCloud & LDAP - Mission AP2 | Côme Servy</title>
+    <meta name="description" content="Déploiement de NextCloud avec intégration LDAP pour le travail collaboratif et la gestion centralisée des utilisateurs.">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="icon" href="../../DND.gif">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <nav class="top-nav">
-        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
-        <div class="nav-right">
-            <a href="../Projet.html">Projets</a>
-            <a href="../../Exp/exp.html">Expériences</a>
-            <a href="../../Veille/Veille.html">Veille</a>
-            <a href="../../Perso/Perso.html">À Propos</a>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">CS</a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../Projet.html" class="nav-link">Projets</a>
+                <a href="../../Exp/exp.html" class="nav-link">Expériences</a>
+                <a href="../../Perso/Perso.html" class="nav-link">À Propos</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </div>
         </div>
     </nav>
 
-    <div class="page-wrapper">
-        <aside class="info-panel">
-             <h4>Informations</h4>
-            <div class="competence-list">
-                <p><strong>Outils:</strong> Ubuntu Server, Nextcloud, LDAP</p>
-                <p><strong>Période:</strong> 03/19 - 08/10</p>
+    <!-- Hero Section -->
+    <section class="hero-compact" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">NextCloud & LDAP</h1>
+                <p class="hero-subtitle">Mission AP2 - Travail Collaboratif</p>
             </div>
-            <h4>Compétences</h4>
-            <div class="competence-list">
-                <p>Gérer le patrimoine informatique</p>
-                <p>Travailler en mode projet</p>
-                <p>Mettre à disposition un service informatique</p>
-                <p>Organiser son développement professionnel</p>
-            </div>
-        </aside>
+        </div>
+    </section>
 
-        <main class="main-content">
-            <h1>Déploiement d'une Solution de Travail Collaboratif</h1>
-            
-            <h2>Contexte</h2>
-            <p>Dans ce projet, j'ai eu pour mission de rechercher et de déployer une solution de cloud collaboratif répondant à un cahier des charges spécifique. La solution retenue fut Nextcloud.</p>
-            
-            <h2>Mise en Place de Nextcloud</h2>
-            <p>Après avoir choisi Nextcloud, j'ai procédé à son installation sur un serveur Ubuntu. Ce processus a inclus la configuration des utilisateurs via LDAP pour une gestion centralisée des comptes et des permissions. De plus, j'ai rédigé des tutoriels d'installation et de paramétrage pour faciliter l'adoption de la solution par les utilisateurs.</p>
-            
-            <h2>Retour Personnel</h2>
-            <p>Cette expérience m'a permis de comprendre l'importance d'une bonne analyse des besoins et de la lecture de documentations. J'ai acquis des compétences techniques précieuses dans l'installation et la configuration de systèmes, ainsi que dans la création de documentation claire.</p>
-        </main>
-    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Contexte Section -->
+            <section class="content-section">
+                <h2 class="section-title">Contexte de la Mission</h2>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <p class="lead">Déploiement d'une solution de <strong>travail collaboratif</strong> avec NextCloud et intégration LDAP pour la gestion centralisée des utilisateurs.</p>
+                        
+                        <p>Cette mission vise à mettre en place une alternative open-source aux solutions cloud propriétaires tout en conservant le contrôle des données et l'intégration avec l'infrastructure existante.</p>
 
+                        <div class="highlight-box">
+                            <h4>Objectifs de la Mission</h4>
+                            <ul class="feature-list">
+                                <li>Déploiement de NextCloud sur serveur Linux</li>
+                                <li>Intégration avec Active Directory via LDAP</li>
+                                <li>Configuration des partages et permissions</li>
+                                <li>Mise en place des applications collaboratives</li>
+                                <li>Tests de connectivité et de synchronisation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-image">
+                        <img src="https://vazaha.blog/storage/zD0WESOByZtJ2iWb12qHclv9Ss615WiM3kFUFAuS.png" alt="NextCloud Interface" loading="lazy">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Architecture Section -->
+            <section class="content-section">
+                <h2 class="section-title">Architecture Technique</h2>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Stack Technologique</h3>
+                        <p>Déploiement de NextCloud sur un serveur Linux avec Apache, PHP et MySQL, intégré à l'Active Directory existant via LDAP.</p>
+                        
+                        <div class="tech-details">
+                            <h4>Composants Utilisés</h4>
+                            <ul>
+                                <li><strong>NextCloud</strong> - Plateforme de collaboration</li>
+                                <li><strong>Apache</strong> - Serveur web</li>
+                                <li><strong>PHP 8.0+</strong> - Langage de programmation</li>
+                                <li><strong>MySQL</strong> - Base de données</li>
+                                <li><strong>LDAP</strong> - Intégration Active Directory</li>
+                                <li><strong>SSL/TLS</strong> - Sécurisation des communications</li>
+                            </ul>
+                        </div>
+
+                        <h3>Intégration LDAP</h3>
+                        <p>Configuration de l'authentification LDAP pour permettre aux utilisateurs de se connecter avec leurs identifiants Active Directory existants.</p>
+                    </div>
+                    <div class="content-image">
+                        <img src="https://vazaha.blog/storage/zD0WESOByZtJ2iWb12qHclv9Ss615WiM3kFUFAuS.png" alt="Architecture NextCloud" loading="lazy">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fonctionnalités Section -->
+            <section class="content-section">
+                <h2 class="section-title">Fonctionnalités Configurées</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📁</div>
+                        <h3>Gestion des Fichiers</h3>
+                        <p>Partage et synchronisation de fichiers avec contrôle des versions et historique des modifications.</p>
+                        <ul class="feature-list">
+                            <li>Partage de dossiers entre utilisateurs</li>
+                            <li>Synchronisation automatique</li>
+                            <li>Contrôle des versions</li>
+                            <li>Récupération de fichiers supprimés</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Gestion des Utilisateurs</h3>
+                        <p>Intégration LDAP pour l'authentification et la gestion des groupes d'utilisateurs.</p>
+                        <ul class="feature-list">
+                            <li>Authentification LDAP/AD</li>
+                            <li>Gestion des groupes</li>
+                            <li>Permissions granulaires</li>
+                            <li>Quotas de stockage</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📝</div>
+                        <h3>Applications Collaboratives</h3>
+                        <p>Mise en place d'applications pour le travail collaboratif et la productivité.</p>
+                        <ul class="feature-list">
+                            <li>Éditeur de documents collaboratif</li>
+                            <li>Calendrier partagé</li>
+                            <li>Gestion des contacts</li>
+                            <li>Chat intégré</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuration Section -->
+            <section class="content-section">
+                <h2 class="section-title">Configuration LDAP</h2>
+                <div class="config-section">
+                    <div class="config-steps">
+                        <div class="config-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Configuration du Serveur LDAP</h4>
+                                <p>Paramétrage de la connexion vers l'Active Directory avec les bonnes informations de connexion et de base DN.</p>
+                            </div>
+                        </div>
+                        <div class="config-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Mapping des Attributs</h4>
+                                <p>Configuration du mapping entre les attributs LDAP et les champs NextCloud (nom, email, groupes, etc.).</p>
+                            </div>
+                        </div>
+                        <div class="config-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Tests de Connexion</h4>
+                                <p>Validation de la connexion LDAP et des permissions d'accès pour les utilisateurs.</p>
+                            </div>
+                        </div>
+                        <div class="config-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Synchronisation des Groupes</h4>
+                                <p>Configuration de la synchronisation des groupes Active Directory vers NextCloud.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Compétences Section -->
+            <section class="content-section">
+                <h2 class="section-title">Compétences Développées</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Techniques</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">NextCloud</span>
+                            <span class="skill-tag">LDAP</span>
+                            <span class="skill-tag">Apache</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">SSL/TLS</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Fonctionnelles</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Travail Collaboratif</span>
+                            <span class="skill-tag">Gestion Utilisateurs</span>
+                            <span class="skill-tag">Sécurité</span>
+                            <span class="skill-tag">Intégration</span>
+                            <span class="skill-tag">Documentation</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Retour Section -->
+            <section class="content-section">
+                <h2 class="section-title">Retour d'Expérience</h2>
+                <div class="quote-section">
+                    <blockquote class="quote">
+                        <p>"NextCloud offre une excellente alternative open-source aux solutions cloud propriétaires. L'intégration LDAP permet une transition transparente pour les utilisateurs."</p>
+                    </blockquote>
+                    <p>Cette mission m'a permis de découvrir l'écosystème NextCloud et l'importance de l'intégration avec les systèmes d'authentification existants. La configuration LDAP s'est révélée cruciale pour l'adoption de la solution.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Côme Servy. Tous droits réservés. | <a href="mailto:pm@comesr.art" style="color: #007bff;">pm@comesr.art</a></p>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
 </body>
 </html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>munyun</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;200;300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 0, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 255, 0, 0.02) 0%, transparent 50%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'IBM Plex Mono', monospace;
+            color: #00ff00;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Particules mystérieuses */
+        .particle {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: #00ff00;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+            box-shadow: 0 0 3px #00ff00;
+        }
+
+        .particle:nth-child(odd) {
+            background: #00ff00;
+            box-shadow: 0 0 2px #00ff00;
+        }
+
+        .particle:nth-child(even) {
+            background: #008000;
+            box-shadow: 0 0 1px #008000;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 3s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 4s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 0.5s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 1.5s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 2.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10%, 90% { opacity: 0.2; }
+            50% { transform: translateY(-50vh) scale(1); opacity: 0.4; }
+        }
+
+        .main-text {
+            font-size: 4rem;
+            font-weight: 100;
+            letter-spacing: 0.3em;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            animation: fadeInUp 3s ease-out;
+            color: #00ff00;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px #00ff00;
+            font-family: 'Courier New', monospace;
+        }
+
+        .main-text:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+            color: #ffffff;
+        }
+
+        .main-text::before {
+            content: '>';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #00ff00;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 0.8em;
+        }
+
+        .main-text:hover::before {
+            opacity: 1;
+        }
+
+        .main-text::after {
+            content: '_';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #00ff00;
+            opacity: 0;
+            animation: blink 1s infinite;
+            font-size: 0.8em;
+        }
+
+        .main-text:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 0; }
+            51%, 100% { opacity: 1; }
+        }
+
+        .music-text {
+            font-size: 0.9rem;
+            font-weight: 100;
+            text-align: center;
+            opacity: 0.6;
+            max-width: 400px;
+            line-height: 1.8;
+            animation: fadeInUp 3s ease-out 1s both;
+            position: relative;
+            padding: 1rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.2em;
+            color: #008000;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 5px #008000;
+        }
+
+        .music-text:hover {
+            opacity: 1;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            transform: translateY(-2px);
+        }
+
+        .music-text::before {
+            content: '// ';
+            color: #008000;
+            opacity: 0.5;
+        }
+
+        .music-text::after {
+            content: ' //';
+            color: #008000;
+            opacity: 0.5;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Effet de brillance mystérieux */
+        .glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.05; }
+        }
+
+        /* Lignes mystérieuses */
+        .line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, #00ff00, transparent);
+            height: 1px;
+            width: 100px;
+            opacity: 0.3;
+            box-shadow: 0 0 3px #00ff00;
+        }
+
+        .line-1 {
+            top: 20%;
+            left: 10%;
+            animation: slideIn 3s ease-out 1s both;
+        }
+
+        .line-2 {
+            bottom: 20%;
+            right: 10%;
+            animation: slideIn 3s ease-out 1.5s both;
+        }
+
+        @keyframes slideIn {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: 100px;
+                opacity: 0.3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-text {
+                font-size: 4rem;
+                letter-spacing: 0.2em;
+            }
+            
+            .music-text {
+                font-size: 1.1rem;
+                padding: 1.5rem;
+                letter-spacing: 0.3em;
+            }
+
+            .particle {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-text {
+                font-size: 3rem;
+                letter-spacing: 0.15em;
+            }
+            
+            .music-text {
+                font-size: 1rem;
+                letter-spacing: 0.25em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particules flottantes -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <!-- Effet de brillance -->
+    <div class="glow"></div>
+
+    <!-- Lignes décoratives -->
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+
+    <!-- Contenu principal -->
+    <div class="main-text">munyun</div>
+    <div class="music-text">m u s i c</div>
+
+    <script>
+        // Effet de clic mystérieux sur le texte principal
+        document.querySelector('.main-text').addEventListener('click', function() {
+            this.style.transform = 'scale(1.1)';
+            this.style.textShadow = '0 0 30px #00ff00, 0 0 60px #00ff00';
+            this.style.color = '#ffffff';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+                this.style.textShadow = '0 0 10px #00ff00';
+                this.style.color = '#00ff00';
+            }, 300);
+        });
+
+        // Effet de clic sur le texte music
+        document.querySelector('.music-text').addEventListener('click', function() {
+            this.style.transform = 'translateY(-3px)';
+            this.style.textShadow = '0 0 15px #00ff00';
+            this.style.color = '#00ff00';
+            setTimeout(() => {
+                this.style.transform = 'translateY(0)';
+                this.style.textShadow = '0 0 5px #008000';
+                this.style.color = '#008000';
+            }, 300);
+        });
+
+        // Effet de survol mystérieux des particules
+        document.addEventListener('mousemove', function(e) {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 0.005;
+                const x = (e.clientX - window.innerWidth / 2) * speed;
+                const y = (e.clientY - window.innerHeight / 2) * speed;
+                particle.style.transform = `translate(${x}px, ${y}px)`;
+                particle.style.opacity = '0.6';
+            });
+        });
+
+        // Effet de sortie de souris
+        document.addEventListener('mouseleave', function() {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle) => {
+                particle.style.transform = 'translate(0px, 0px)';
+                particle.style.opacity = '0.3';
+            });
+        });
+    </script>
+</body>
+</html>

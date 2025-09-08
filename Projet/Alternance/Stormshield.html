@@ -3,41 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission: Configuration Firewall Stormshield</title>
-    <link rel="icon" href="../DND.gif">
-    <link rel="stylesheet" href="Alt.css">
+    <title>Firewall Stormshield - Configuration Sécurité | Côme Servy</title>
+    <meta name="description" content="Configuration et maintenance du firewall Stormshield au Pôle Universitaire de Vichy : règles de sécurité, filtrage web et gestion des VLAN.">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="icon" href="../../DND.gif">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <nav class="top-nav">
-        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
-        <div class="nav-right">
-            <a href="../Projet.html">Projets</a>
-            <a href="../Exp/exp.html">Expériences</a>
-            <a href="../Veille/Veille.html">Veille</a>
-            <a href="../Perso/Perso.html">À Propos</a>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">CS</a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../Projet.html" class="nav-link">Projets</a>
+                <a href="../../Exp/exp.html" class="nav-link">Expériences</a>
+                <a href="../../Perso/Perso.html" class="nav-link">À Propos</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </div>
         </div>
     </nav>
 
-    <div class="page-wrapper">
-        <aside class="info-panel">
-            <h4>Compétences</h4>
-            <div class="competence-list">
-                <p>Gérer le patrimoine informatique</p>
-                <p>Répondre aux incidents et aux demandes</p>
-                <p>Mettre à disposition un service informatique</p>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-greeting">Firewall Stormshield</span>
+                    <span class="hero-name">Configuration Sécurité</span>
+                </h1>
+                <p class="hero-subtitle">Gestion Sécurité Réseau & Règles de Filtrage</p>
+                <p class="hero-description">Configuration et maintenance du firewall Stormshield au Pôle Universitaire : remplacement des anciens équipements, configuration des règles de sécurité et optimisation du filtrage réseau.</p>
             </div>
-        </aside>
+        </div>
+    </section>
 
-        <main class="main-content">
-            <h1>Configuration Firewall Stormshield</h1>
-            
-            <p>Auparavant, le filtrage web était assuré par les firewalls du pôle. Nous avons depuis déployé un serveur OLFEO dédié à cette fonction, ce qui nous a permis de supprimer ces règles devenues obsolètes. Les nouvelles règles destinées aux futurs firewalls ont été documentées dans un fichier Excel.</p>
-            
-            <img src="Images/Stormshield1.png" alt="Configuration des règles Stormshield">
-            <img src="Images/Stormshield2.png" alt="Documentation Excel">
-        </main>
-    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Contexte Section -->
+            <section class="content-section">
+                <h2 class="section-title">Contexte du Projet</h2>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <p class="lead">J'ai assisté à la <strong>configuration du firewall Stormshield</strong> au Pôle Universitaire de Vichy lors du remplacement des anciens équipements qui n'étaient plus garantis.</p>
+                        
+                        <p>Cette mise à jour s'inscrivait dans le cadre de la modernisation de l'infrastructure de sécurité du Pôle et nécessitait une reconfiguration complète des règles de filtrage.</p>
 
+                        <div class="highlight-box">
+                            <h4>Objectifs de la Configuration</h4>
+                            <ul class="feature-list">
+                                <li>Remplacement des anciens firewalls non garantis</li>
+                                <li>Configuration des règles de routage par VLAN</li>
+                                <li>Différenciation des sorties internet (RENATER/SFR)</li>
+                                <li>Suppression du filtrage web (délégué à OLFEO)</li>
+                                <li>Optimisation des performances de sécurité</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-image">
+                        <img src="Images/Stormshield1.png" alt="Firewall Stormshield" loading="lazy">
+                        <img src="Images/Stormshield2.png" alt="Configuration Stormshield" loading="lazy">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuration Réseau Section -->
+            <section class="content-section">
+                <h2 class="section-title">Configuration Réseau & Routage</h2>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Gestion des Sorties Internet</h3>
+                        <p>Configuration des règles pour différencier les flux selon leur destination : <strong>RENATER pour le Pôle Universitaire</strong> et <strong>SFR pour les autres entités</strong> (IFMK, CAVILAM).</p>
+                        
+                        <div class="tech-details">
+                            <h4>Règles de Routage</h4>
+                            <ul>
+                                <li><strong>VLAN Pôle Universitaire</strong> → Sortie RENATER</li>
+                                <li><strong>VLAN IFMK/CAVILAM</strong> → Sortie SFR</li>
+                                <li><strong>Règles de sécurité</strong> par type de trafic</li>
+                                <li><strong>Monitoring des flux</strong> et alertes</li>
+                            </ul>
+                        </div>
+
+                        <h3>Réseau Universitaire RENATER</h3>
+                        <p>Le Pôle Universitaire a accès au réseau RENATER (Réseau National de télécommunications pour la Technologie, l'Enseignement et la Recherche), tandis que les autres entités utilisent la connexion SFR commerciale.</p>
+                    </div>
+                    <div class="content-image">
+                        <img src="Images/Stormshield1.png" alt="Architecture réseau" loading="lazy">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filtrage Web Section -->
+            <section class="content-section">
+                <h2 class="section-title">Évolution du Filtrage Web</h2>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Délégation à OLFEO</h3>
+                        <p>Suppression du filtrage web sur le firewall Stormshield car cette fonctionnalité est maintenant gérée par <strong>OLFEO</strong>, une solution spécialisée dans le filtrage web et la sécurité internet.</p>
+                        
+                        <div class="migration-steps">
+                            <h4>Processus de Migration</h4>
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h5>Audit des Règles</h5>
+                                    <p>Identification des règles de filtrage web existantes</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h5>Configuration OLFEO</h5>
+                                    <p>Mise en place de la solution OLFEO pour le filtrage web</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h5>Suppression Firewall</h5>
+                                    <p>Retrait des règles de filtrage web du Stormshield</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-image">
+                        <img src="Images/Stormshield2.png" alt="Configuration filtrage" loading="lazy">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Règles de Sécurité Section -->
+            <section class="content-section">
+                <h2 class="section-title">Règles de Sécurité</h2>
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <div class="rule-icon">🌐</div>
+                        <h3>Routage par VLAN</h3>
+                        <p>Configuration des règles de routage pour diriger chaque VLAN vers sa sortie internet appropriée selon les contraintes réglementaires.</p>
+                    </div>
+                    <div class="rule-card">
+                        <div class="rule-icon">🔒</div>
+                        <h3>Sécurité Inter-VLAN</h3>
+                        <p>Mise en place de règles de filtrage entre les différents VLAN pour contrôler les communications internes.</p>
+                    </div>
+                    <div class="rule-card">
+                        <div class="rule-icon">📊</div>
+                        <h3>Monitoring</h3>
+                        <p>Configuration du monitoring des flux et des alertes de sécurité pour détecter les anomalies.</p>
+                    </div>
+                    <div class="rule-card">
+                        <div class="rule-icon">⚡</div>
+                        <h3>Performance</h3>
+                        <p>Optimisation des règles pour améliorer les performances tout en maintenant la sécurité.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Compétences Section -->
+            <section class="content-section">
+                <h2 class="section-title">Compétences Développées</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Techniques</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Stormshield</span>
+                            <span class="skill-tag">Firewall</span>
+                            <span class="skill-tag">VLAN</span>
+                            <span class="skill-tag">Routage</span>
+                            <span class="skill-tag">Sécurité</span>
+                            <span class="skill-tag">RENATER</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Certifications</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">CSNA</span>
+                            <span class="skill-tag">Stormshield</span>
+                            <span class="skill-tag">Sécurité</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Retour Section -->
+            <section class="content-section">
+                <h2 class="section-title">Retour d'Expérience</h2>
+                <div class="quote-section">
+                    <blockquote class="quote">
+                        <p>"Cette configuration m'a permis de comprendre l'importance de la segmentation réseau et des règles de sécurité dans un environnement multi-entités comme le Pôle Universitaire."</p>
+                    </blockquote>
+                    <p>L'assistance à cette configuration m'a donné une vision concrète de la gestion de la sécurité réseau dans un environnement complexe. J'ai pu observer les enjeux de la conformité réglementaire et de l'optimisation des performances.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Côme Servy. Tous droits réservés. | <a href="mailto:pm@comesr.art" style="color: #007bff;">pm@comesr.art</a></p>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
 </body>
 </html>

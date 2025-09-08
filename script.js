@@ -183,12 +183,30 @@ function initContactForm() {
             submitButton.textContent = 'Envoi en cours...';
             submitButton.disabled = true;
             
-            setTimeout(() => {
-                showNotification('Message envoyé avec succès! Je vous répondrai bientôt.', 'success');
-                this.reset();
+            // Submit to Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    showNotification('Message envoyé avec succès! Je vous répondrai bientôt.', 'success');
+                    this.reset();
+                } else {
+                    throw new Error('Erreur lors de l\'envoi');
+                }
+            })
+            .catch(error => {
+                showNotification('Erreur lors de l\'envoi du message. Veuillez réessayer.', 'error');
+                console.error('Error:', error);
+            })
+            .finally(() => {
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
-            }, 1500);
+            });
         });
     }
 }

@@ -3,49 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission: Réseau Poste à Poste</title>
-    <link rel="icon" href="../DND.gif">
+    <title>Réseau Poste à Poste - Mission AP | Côme Servy</title>
+    <meta name="description" content="Configuration d'un réseau local simple avec partage de fichiers et connexions entre postes de travail Windows.">
     <link rel="stylesheet" href="AP.css">
+    <link rel="icon" href="../DND.gif">
 </head>
 <body>
-
     <nav class="top-nav">
         <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
         <div class="nav-right">
             <a href="../Projet.html">Projets</a>
             <a href="../../Exp/exp.html">Expériences</a>
-            <a href="../../Veille/Veille.html">Veille</a>
             <a href="../../Perso/Perso.html">À Propos</a>
         </div>
     </nav>
 
     <div class="page-wrapper">
-        <aside class="info-panel">
-            <h4>Compétences</h4>
+        <div class="info-panel">
+            <h4>Compétences Développées</h4>
             <div class="competence-list">
-                <p>Gérer le patrimoine informatique</p>
-                <p>Mettre à disposition un service informatique</p>
+                <p>Réseau Local</p>
+                <p>Windows</p>
+                <p>TCP/IP</p>
+                <p>Partages</p>
+                <p>Permissions</p>
+                <p>Services</p>
+                <p>Tests</p>
+                <p>Documentation</p>
             </div>
-        </aside>
+        </div>
 
-        <main class="main-content">
+        <div class="main-content">
             <h1>Réseau Poste à Poste</h1>
+            
+            <h2>Contexte de la Mission</h2>
+            <p>Configuration d'un <strong>réseau local simple</strong> permettant la communication et le partage de ressources entre plusieurs postes de travail Windows.</p>
+            
+            <p>Cette mission s'inscrit dans l'apprentissage des bases du réseautage et de la configuration des systèmes Windows en environnement de groupe de travail.</p>
 
-            <h2>Contexte</h2>
-            <p>Dans ce projet, j'ai mis en place un réseau poste à poste. J'ai configuré le service d'authentification sur la base locale SAM d'un système d'exploitation Windows, et géré les fichiers et les partages sous Windows 10.</p>
+            <h2>Configuration Réalisée</h2>
+            <p><strong>Configuration IP :</strong> Paramétrage des adresses IP statiques sur le même sous-réseau pour permettre la communication entre les postes. Adresses IP : 192.168.1.x, Masque de sous-réseau : 255.255.255.0, Pas de passerelle (réseau local uniquement).</p>
+            
+            <p><strong>Partages de Fichiers :</strong> Configuration des partages de dossiers avec gestion des permissions d'accès pour chaque utilisateur. Dossiers partagés par poste, permissions de lecture/écriture et accès par nom d'utilisateur.</p>
+            
+            <p><strong>Services Windows :</strong> Activation des services nécessaires pour le fonctionnement du réseau et des partages. Service de partage de fichiers, découverte du réseau et gestionnaire d'ordinateurs.</p>
 
-            <h2>Réalisations</h2>
-            <ul>
-                <li>Mise en place du service d'authentification dans la base SAM.</li>
-                <li>Gestion des fichiers et des partages sous Windows 10.</li>
-                <li>Création d'un tutoriel pour la gestion des utilisateurs, des groupes, des permissions NTFS et des autorisations de partage.</li>
-            </ul>
-            <img src="../img/posteaposte1.png" alt="Gestion des utilisateurs Windows">
+            <h2>Tests de Connectivité</h2>
+            <p><strong>Ping :</strong> Tests de ping entre tous les postes pour vérifier la connectivité de base.</p>
+            
+            <p><strong>Accès aux Partages :</strong> Vérification de l'accès aux dossiers partagés depuis chaque poste.</p>
+            
+            <p><strong>Authentification :</strong> Tests de connexion avec différents comptes utilisateurs.</p>
+            
+            <p><strong>Performance :</strong> Mesure des vitesses de transfert de fichiers entre postes.</p>
 
-            <h2>Retour Personnel</h2>
-            <p>Ce projet m'a permis de développer mes compétences en configuration réseau et en gestion des systèmes d'exploitation Windows. J'ai également acquis une meilleure compréhension de la nécessité de respecter un cahier des charges et de m'y conformer.</p>
-        </main>
+            <h2>Retour d'Expérience</h2>
+            <p>Cette mission m'a permis de comprendre les bases du réseautage et l'importance de la configuration correcte des paramètres réseau pour assurer la communication entre postes. Bien que simple, cette configuration m'a donné les fondements nécessaires pour comprendre les réseaux plus complexes et l'importance de la documentation des configurations.</p>
+        </div>
     </div>
-
 </body>
 </html>

@@ -3,57 +3,415 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille Informatique - Docker</title>
+    <title>Veille Technologique - Côme Servy</title>
+    <meta name="description" content="Veille technologique sur Docker et la conteneurisation - Projet BTS SIO de Côme Servy">
     <link rel="stylesheet" href="Veille.css">
     <link rel="icon" href="../DND.gif">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
 </head>
 <body>
-
-    <nav class="navbar">
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
         <div class="nav-container">
             <a href="../index.html" class="nav-logo">CS</a>
-            <div class="nav-menu">
+            <div class="nav-menu" id="nav-menu">
                 <a href="../Projet/Projet.html" class="nav-link">Projets</a>
                 <a href="../Exp/exp.html" class="nav-link">Expériences</a>
                 <a href="../Perso/Perso.html" class="nav-link">À Propos</a>
             </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </div>
         </div>
     </nav>
-    
-    <div class="content-wrapper">
-        
-        <header class="veille-header">
-            <h1>Veille Technologique: Conteneurisation avec Docker</h1>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/610px-Docker_%28container_engine%29_logo.svg.png" class="docker-logo" alt="Logo Docker">
-        </header>
 
-        <main>
-            <h2>Introduction au Défi du Déploiement Logiciel</h2>
-            <p>Le déploiement d'applications logicielles rencontre souvent un obstacle majeur : la disparité des environnements. Une application fonctionnant parfaitement dans un contexte de développement peut rencontrer des erreurs inattendues en production, due à des différences de bibliothèques, de configurations ou de systèmes d'exploitation. C'est précisément cette problématique que Docker, une plateforme open-source de conteneurisation, a été conçue pour résoudre, en standardisant l'empaquetage et l'exécution des applications.</p>
+    <!-- Hero Section -->
+    <section class="veille-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">🐳 Epreuve E6</h1>
+                <h2 class="hero-subtitle">Docker & Conteneurisation</h2>
+                <p class="hero-description">Dans le cadre de mon épreuve BTS SIO, j'ai déployé un intranet DSI complet utilisant Docker sur infrastructure Proxmox.</p>
+            </div>
+        </div>
+    </section>
 
-            <h2>Les Principes Fondamentaux de la Conteneurisation</h2>
-            <p>Docker introduit le concept de "conteneur", une unité logicielle standardisée qui regroupe une application et l'ensemble de ses dépendances (bibliothèques, outils système, code, runtime) dans un package isolé et autonome. Contrairement aux machines virtuelles traditionnelles qui virtualisent l'intégralité d'un système d'exploitation, les conteneurs partagent le noyau du système d'exploitation hôte, ce qui les rend beaucoup plus légers et rapides à démarrer.</p>
-            <ul>
-                <li><strong>Isolation et Portabilité:</strong> Chaque conteneur encapsule une application dans un environnement isolé, garantissant qu'elle fonctionne de manière identique, quel que soit le système hôte.</li>
-                <li><strong>Légèreté et Efficience:</strong> En partageant le noyau du système d'exploitation, les conteneurs consomment moins de ressources et démarrent en quelques secondes, optimisant l'utilisation des infrastructures.</li>
-                <li><strong>Cohérence du Cycle de Vie:</strong> De la phase de développement à la production, les conteneurs assurent une cohérence de l'environnement, éliminant les fameux "ça marche sur ma machine" et facilitant la collaboration.</li>
-            </ul>
-            <img src="https://miro.medium.com/v2/resize:fit:1400/1*6hG1fvFGUCh6YekJ1N9DhQ.png" class="content-image" alt="Schéma Docker: Un conteneur est une unité autonome qui contient tout le nécessaire pour qu'une application s'exécute, isolée des autres conteneurs, partageant le noyau de l'OS hôte.">
+    <!-- Architecture Schema -->
+    <section class="architecture-section">
+        <div class="container">
+            <h2 class="section-title">Architecture du Projet</h2>
+            <div class="architecture-diagram">
+                <!-- Proxmox Server -->
+                <div class="proxmox-container">
+                    <div class="proxmox-header">
+                        <div class="proxmox-icon">⚡</div>
+                        <div class="proxmox-info">
+                            <h3>857PROXMOX</h3>
+                            <p>172.20.57.23/24</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Docker LXC Container -->
+                    <div class="docker-lxc-container">
+                        <div class="docker-header">
+                            <div class="docker-icon">🐳</div>
+                            <div class="docker-info">
+                                <h3>857Docker</h3>
+                                <p>172.20.57.24/24</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Docker Services -->
+                        <div class="docker-services-container">
+                            <div class="service-item" data-service="portainer">
+                                <div class="service-icon">🎛️</div>
+                                <div class="service-info">
+                                    <span class="service-name">portainer</span>
+                                    <span class="service-ip">172.20.57.24:9443</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item" data-service="wikijs">
+                                <div class="service-icon">📚</div>
+                                <div class="service-info">
+                                    <span class="service-name">wikijs</span>
+                                    <span class="service-ip">172.20.57.24:2480</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item" data-service="stirling-pdf">
+                                <div class="service-icon">📄</div>
+                                <div class="service-info">
+                                    <span class="service-name">stirling-pdf</span>
+                                    <span class="service-ip">172.20.57.24:2580</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item" data-service="it-tools">
+                                <div class="service-icon">🔧</div>
+                                <div class="service-info">
+                                    <span class="service-name">it-tools</span>
+                                    <span class="service-ip">172.20.57.24:2680</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item" data-service="dozzle">
+                                <div class="service-icon">📊</div>
+                                <div class="service-info">
+                                    <span class="service-name">Dozzle</span>
+                                    <span class="service-ip">172.20.57.24:8080</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item" data-service="nginx">
+                                <div class="service-icon">🌐</div>
+                                <div class="service-info">
+                                    <span class="service-name">Nginx</span>
+                                    <span class="service-ip">172.20.57.24:80</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Docker Slave LXC Container -->
+                    <div class="docker-slave-lxc-container">
+                        <div class="docker-header">
+                            <div class="docker-icon">🐳</div>
+                            <div class="docker-info">
+                                <h3>857DockerSl</h3>
+                                <p>172.20.57.25/24</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Docker Slave Services -->
+                        <div class="docker-services-container">
+                            <div class="service-item" data-service="nginx-slave">
+                                <div class="service-icon">🌐</div>
+                                <div class="service-info">
+                                    <span class="service-name">Nginx</span>
+                                    <span class="service-ip">172.20.57.25:80</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item" data-service="haproxy">
+                                <div class="service-icon">⚖️</div>
+                                <div class="service-info">
+                                    <span class="service-name">HAProxy</span>
+                                    <span class="service-ip">172.20.57.25:8080</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item" data-service="phpmyadmin">
+                                <div class="service-icon">🗄️</div>
+                                <div class="service-info">
+                                    <span class="service-name">phpMyAdmin</span>
+                                    <span class="service-ip">172.20.57.25:8081</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item" data-service="mysql">
+                                <div class="service-icon">🐬</div>
+                                <div class="service-info">
+                                    <span class="service-name">MySQL</span>
+                                    <span class="service-ip">172.20.57.25:3306</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <h2>Docker Compose: Orchestration Simplifiée</h2>
-            <p>Les applications modernes sont souvent composées de plusieurs services interdépendants (ex: un serveur web, une base de données, un microservice d'authentification). Docker Compose est un outil qui simplifie la définition et la gestion de ces applications multi-conteneurs. Grâce à un fichier de configuration unique (YAML), il permet de démarrer, arrêter et gérer l'ensemble des services d'une application en une seule commande, orchestrant ainsi leur interaction et leur déploiement.</p>
+    <!-- Project Details -->
+    <section class="project-details">
+        <div class="container">
+            <div class="project-intro">
+                <h2>Mon Épreuve E6 - BTS SIO</h2>
+                <p>Épreuve technique E6 du BTS SIO : déploiement d'un intranet DSI complet pour une entreprise fictive. Infrastructure : serveur Dell → Proxmox → LXC Debian → Docker avec 6 services métiers. Technologies utilisées : virtualisation, conteneurisation, réseau VLAN 857, intégration LDAP, et haute disponibilité avec Docker Swarm. Infrastructure stable et fonctionnelle pour les utilisateurs de l'entreprise.</p>
+            </div>
+            
+            <div class="details-grid-single">
+                <div class="detail-card">
+                    <h3>🎯 Mission</h3>
+                    <p>Déploiement d'un intranet centralisé pour la DSI d'une entreprise fictive. Centraliser plusieurs outils métiers essentiels pour les administrateurs systèmes et réseaux, offrant un point d'entrée unique et facile d'accès.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3>🛠️ Approche Technique</h3>
+                    <p>Installation de Proxmox sur serveur Dell, création d'un conteneur LXC Debian, déploiement de Docker avec Portainer pour la gestion, orchestration de 6 services métiers via conteneurs isolés.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3>🌐 Portail Intranet</h3>
+                    <p>Création d'un portail web simple en HTML/CSS hébergé par Nginx. Mappage des fichiers et configuration des accès sécurisés aux différents services.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3>📊 Supervision</h3>
+                    <p>Mise en place d'outils de monitoring (Portainer, Dozzle) pour superviser l'ensemble des conteneurs, leurs déploiements et redémarrages automatiques pour garantir la disponibilité.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <h2>Applications et Impact dans l'Industrie</h2>
-            <p>Docker a un impact significatif sur les pratiques de développement et de déploiement logiciel à travers le monde. Ses principaux cas d'utilisation incluent :</p>
-            <ul>
-                <li><strong>Microservices:</strong> Facilite l'architecture en microservices, où les applications sont décomposées en petits services indépendants, améliorant la scalabilité et la maintenance.</li>
-                <li><strong>Intégration et Déploiement Continus (CI/CD):</strong> Permet de créer des pipelines automatisés et fiables, garantissant que les nouvelles versions sont testées et déployées rapidement et de manière cohérente.</li>
-                <li><strong>Développement Local et Collaboratif:</strong> Offre des environnements de développement standardisés, permettant aux équipes de travailler sur les mêmes bases avec un minimum de configuration et de conflits.</li>
-            </ul>
+    <!-- Docker Compose Section -->
+    <section class="docker-compose-section">
+        <div class="container">
+            <h2 class="section-title">Docker Compose - Stack Formation</h2>
+            <div class="compose-description">
+                <p>Pour la formation des stagiaires, j'ai créé un stack automatisé avec phpMyAdmin et MySQL. Voici le fichier docker-compose.yml utilisé :</p>
+            </div>
+            
+            <div class="code-editor">
+                <div class="code-header">
+                    <div class="code-icon">🐳</div>
+                    <span class="code-title">docker-compose.yml</span>
+                    <div class="code-actions">
+                        <span class="code-action">📋</span>
+                        <span class="code-action">▶️</span>
+                    </div>
+                </div>
+                <div class="code-content">
+                    <pre><code>version: '3.8'
 
-          </main>
-        
-    </div>
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_formation
+    environment:
+      MYSQL_ROOT_PASSWORD: root2024!
+      MYSQL_DATABASE: formation_db
+      MYSQL_USER: john.doe0610
+      MYSQL_PASSWORD: MySecurePass123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - formation_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin_formation
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: john.doe0610
+      PMA_PASSWORD: MySecurePass123
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - formation_network
+
+volumes:
+  mysql_data:
+
+networks:
+  formation_network:
+    driver: bridge</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Deep Dive -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Services Déployés</h2>
+            <div class="services-compact">
+                <div class="service-row">
+                    <div class="service-item">
+                        <div class="service-icon-small">🎛️</div>
+                        <div class="service-text">
+                            <h4>Portainer</h4>
+                            <p>Interface de gestion Docker</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon-small">📚</div>
+                        <div class="service-text">
+                            <h4>Wiki.js + LDAP</h4>
+                            <p>Documentation connectée à l'infra HSH Vichy</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon-small">🌐</div>
+                        <div class="service-text">
+                            <h4>Nginx Swarm</h4>
+                            <p>Haute disponibilité avec Docker Swarm</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-row">
+                    <div class="service-item">
+                        <div class="service-icon-small">⚖️</div>
+                        <div class="service-text">
+                            <h4>HAProxy</h4>
+                            <p>Load balancer pour Nginx Swarm</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon-small">🗄️</div>
+                        <div class="service-text">
+                            <h4>phpMyAdmin + MySQL</h4>
+                            <p>Stack automatisé pour formation stagiaires</p>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon-small">📊</div>
+                        <div class="service-text">
+                            <h4>Dozzle</h4>
+                            <p>Monitoring des logs en temps réel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Conclusion -->
+    <section class="conclusion-section">
+        <div class="container">
+            <div class="conclusion-content">
+                <h2>🎓 Bilan de l'Épreuve</h2>
+                <p>Cette réalisation m'a permis de maîtriser plusieurs compétences clés en infrastructure réseau : la conception, l'installation, le déploiement et la supervision d'une solution centralisée reposant sur la conteneurisation légère, tout en utilisant des outils modernes pour simplifier la gestion et améliorer la fiabilité du système.</p>
+                <p>Une expérience qui illustre parfaitement l'évolution vers les infrastructures conteneurisées modernes et l'importance de la veille technologique dans notre domaine.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Côme Servy. Tous droits réservés. | <a href="mailto:pm@comesr.art" style="color: #007bff;">pm@comesr.art</a></p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Animations pour la page de veille
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation d'apparition des éléments
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observer tous les éléments animables
+            const animatedElements = document.querySelectorAll('.server-box, .service-card, .service-item, .skill-item, .detail-card');
+            animatedElements.forEach(el => {
+                el.classList.add('animate-ready');
+                observer.observe(el);
+            });
+
+            // Animation de connexion entre les services et leurs conteneurs
+            const serviceCards = document.querySelectorAll('.service-card');
+            const lxcContainers = document.querySelectorAll('.lxc-container');
+
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const container = this.getAttribute('data-container');
+                    lxcContainers.forEach(lxc => {
+                        if (lxc.classList.contains(container)) {
+                            lxc.classList.add('highlight');
+                        } else {
+                            lxc.classList.add('dim');
+                        }
+                    });
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    lxcContainers.forEach(lxc => {
+                        lxc.classList.remove('highlight', 'dim');
+                    });
+                });
+            });
+
+            // Animation de pulsation pour les services actifs
+            setInterval(() => {
+                const activeServices = document.querySelectorAll('.service-card');
+                activeServices.forEach((service, index) => {
+                    setTimeout(() => {
+                        service.classList.add('pulse');
+                        setTimeout(() => {
+                            service.classList.remove('pulse');
+                        }, 1000);
+                    }, index * 200);
+                });
+            }, 5000);
+
+            // Animation de flux de données
+            const flowAnimation = () => {
+                const arrows = document.querySelectorAll('.server-layer::after');
+                arrows.forEach(arrow => {
+                    arrow.style.animation = 'dataFlow 2s ease-in-out infinite';
+                });
+            };
+
+            setTimeout(flowAnimation, 1000);
+        });
+    </script>
 </body>
 </html>
+
+
+
