@@ -9,13 +9,20 @@
 </head>
 <body>
     
-    <nav class="top-nav">
-        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
-        <div class="nav-right">
-            <a href="../Projet.html">Projets</a>
-            <a href="../Exp/exp.html">Expériences</a>
-            <a href="../Veille/Veille.html">Veille</a>
-            <a href="../Perso/Perso.html">À Propos</a>
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="../Projet.html" class="nav-logo">← Retour</a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../Projet.html" class="nav-link">Projets</a>
+                <a href="../../Exp/exp.html" class="nav-link">Expériences</a>
+                <a href="../../Veille/Veille.html" class="nav-link">Veille</a>
+                <a href="../../Perso/Perso.html" class="nav-link">À Propos</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </div>
         </div>
     </nav>
 
@@ -29,7 +36,7 @@
             </div>
         </aside>
 
-        <main class="main-content">
+    <main class="main-content">
             <h1>Assistance Utilisateurs au Quotidien</h1>
 
             <h2>Support Technique</h2>
@@ -40,7 +47,25 @@
             <p>Ensuite, j'enregistre un compte sur FollowMe, notre serveur d'impression, afin qu'ils puissent imprimer leurs documents depuis les postes de la médiathèque.</p>
             <img src="https://en.geneanet.org/public/img/gallery/pictures/cartes_postales/a1/7754279/large.jpg" alt="Médiathèque de Vichy">
         </main>
-    </div>
+                        </div>
 
+    <script>
+        // Navigation mobile toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
