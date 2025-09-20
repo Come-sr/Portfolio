@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Déploiement GLPI - Fil Rouge Alternance | Côme Servy</title>
-    <meta name="description" content="Découvrez mon projet fil rouge GLPI au Pôle Universitaire de Vichy : configuration SNMP, tickets mail, règles d'affectation et supervision des équipements.">
-    <link rel="stylesheet" href="../../styles.css">
-    <link rel="icon" href="../../DND.gif">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Mission: Déploiement GLPI</title>
+    <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" href="Alt.css">
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav class="nav" id="nav">
         <div class="nav-container">
-            <a href="../../index.html" class="nav-logo">CS</a>
+            <a href="../Projet.html" class="nav-logo">← Retour</a>
             <div class="nav-menu" id="nav-menu">
                 <a href="../Projet.html" class="nav-link">Projets</a>
                 <a href="../../Exp/exp.html" class="nav-link">Expériences</a>
+                <a href="../../Veille/Veille.html" class="nav-link">Veille</a>
                 <a href="../../Perso/Perso.html" class="nav-link">À Propos</a>
             </div>
             <div class="nav-toggle" id="nav-toggle">
@@ -29,197 +26,58 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="hero-greeting">Projet Fil Rouge</span>
-                    <span class="hero-name">Déploiement GLPI</span>
-                </h1>
-                <p class="hero-subtitle">Gestion de Parc Informatique & Ticketing</p>
-                <p class="hero-description">Configuration complète de GLPI pour la gestion du parc informatique du Pôle Universitaire : inventaire automatisé, système de tickets, supervision SNMP et règles d'affectation intelligentes.</p>
+    <div class="page-wrapper">
+        <aside class="info-panel">
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Gérer le patrimoine informatique</p>
+                <p>Répondre aux incidents et aux demandes</p>
+                <p>Mettre à disposition un service informatique</p>
             </div>
-        </div>
-    </section>
+        </aside>
 
-    <!-- Main Content -->
         <main class="main-content">
-        <div class="container">
-            <!-- Contexte Section -->
-            <section class="content-section">
-                <h2 class="section-title">Contexte du Projet</h2>
-                <div class="content-grid">
-                    <div class="content-text">
-                        <p class="lead">GLPI (Gestionnaire Libre de Parc Informatique) est devenu le <strong>projet fil rouge</strong> de mon alternance au Pôle Universitaire de Vichy. Cette solution open-source centralise la gestion du parc informatique et le système de ticketing.</p>
-                        
-                        <p>Le défi principal était de moderniser la gestion des équipements informatiques et d'améliorer le processus de support technique pour les 3000 utilisateurs du Pôle.</p>
+            <h1>Fil Rouge : Déploiement et gestion de GLPI</h1>
+            
+            <h2>Qu'est-ce que GLPI?</h2>
+            <p>
+                GLPI (Gestionnaire Libre de Parc Informatique) est une solution open-source complète qui permet de centraliser et d'automatiser de nombreuses tâches liées à la gestion d'un parc informatique : inventaire des équipements, gestion des incidents (ticketing) et planification des interventions.
+            </p>
+            
+            <h2>Configuration du Serveur</h2>
+            <p>Une de mes missions principales a été la configuration d'un serveur GLPI. L'objectif était d'obtenir un inventaire complet du parc informatique (ordinateurs, switchs, bornes Wi-Fi, etc.) et de mettre en place un système de ticketing efficace.</p>
+            <img src="Images/GLPI1.png" alt="Tableau de bord GLPI">
 
-                        <div class="highlight-box">
-                            <h4>Objectifs du Projet</h4>
-                            <ul class="feature-list">
-                                <li>Inventaire automatisé des équipements réseau</li>
-                                <li>Système de tickets intégré avec collecteur mail</li>
-                                <li>Supervision SNMP des imprimantes et bornes WiFi</li>
-                                <li>Règles d'affectation intelligentes par localisation</li>
-                                <li>Filtrage logiciel et gestion des licences</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="content-image">
-                        <img src="Images/GLPI1.png" alt="Interface GLPI - Tableau de bord" loading="lazy">
-                        <img src="Images/GLPI2.png" alt="Configuration GLPI" loading="lazy">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Configuration SNMP Section -->
-            <section class="content-section">
-                <h2 class="section-title">Configuration SNMP - Supervision Automatique</h2>
-                <div class="content-grid">
-                    <div class="content-text">
-                        <h3>Mise en Place du Monitoring SNMP</h3>
-                        <p>J'ai récemment configuré le <strong>monitoring SNMP</strong> pour que les imprimantes remontent automatiquement le nombre de pages imprimées chaque jour. Cette fonctionnalité permet un suivi précis de la consommation et une maintenance préventive.</p>
-                        
-                        <div class="tech-details">
-                            <h4>Configuration Technique</h4>
-                            <ul>
-                                <li><strong>Protocole SNMP v2c</strong> activé sur les imprimantes</li>
-                                <li><strong>Communauté SNMP</strong> sécurisée pour l'accès en lecture</li>
-                                <li><strong>Collecte quotidienne</strong> des métriques d'impression</li>
-                                <li><strong>Alertes automatiques</strong> en cas de problème d'impression</li>
+            <h2>Étapes du Projet</h2>
+            <ul>
+                <li>Création des règles d'assignation pour les logiciels et les matériels.</li>
+                <li>Importation des actifs réseau (téléphones, bornes Wi-Fi) via des plugins.</li>
+                <li>Configuration complète du service de ticketing avec collecteur mail.</li>
             </ul>
-                        </div>
 
-                        <p>Cette configuration s'étendra bientôt aux <strong>bornes WiFi</strong> pour un monitoring complet de l'infrastructure réseau.</p>
-                    </div>
-                    <div class="content-image">
-                        <img src="Images/GLPI3.png" alt="Configuration SNMP GLPI" loading="lazy">
-                        <img src="Images/GLPI4.png" alt="Monitoring imprimantes" loading="lazy">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Système de Tickets Section -->
-            <section class="content-section">
-                <h2 class="section-title">Système de Tickets Mail</h2>
-                <div class="content-grid">
-                    <div class="content-text">
-                        <h3>Configuration du Collecteur Mail</h3>
-                        <p>J'ai entièrement configuré le système de tickets avec collecteur mail pour automatiser la gestion des demandes de support. Les utilisateurs peuvent maintenant créer des tickets directement par email.</p>
-                        
-                        <div class="ticket-workflow">
-                            <h4>Workflow des Tickets</h4>
-                            <div class="workflow-steps">
-                                <div class="workflow-step">
-                                    <div class="step-number">1</div>
-                                    <div class="step-content">
-                                        <h5>Ouverture</h5>
-                                        <p>Email automatiquement converti en ticket</p>
-                                    </div>
-                                </div>
-                                <div class="workflow-step">
-                                    <div class="step-number">2</div>
-                                    <div class="step-content">
-                                        <h5>Suivi</h5>
-                                        <p>Notifications automatiques par email</p>
-                                    </div>
-                                </div>
-                                <div class="workflow-step">
-                                    <div class="step-number">3</div>
-                                    <div class="step-content">
-                                        <h5>Fermeture</h5>
-                                        <p>Confirmation et archivage automatique</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content-image">
-                        <img src="glpice.png" alt="Configuration tickets mail GLPI" loading="lazy">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Règles d'Affectation Section -->
-            <section class="content-section">
-                <h2 class="section-title">Règles d'Affectation & Filtrage</h2>
-                <div class="content-grid">
-                    <div class="content-text">
-                        <h3>Configuration des Règles Intelligentes</h3>
-                        <p>Mise en place de règles d'affectation automatiques basées sur la localisation des équipements et des utilisateurs pour optimiser la gestion du parc.</p>
-                        
-                        <div class="rules-grid">
-                            <div class="rule-card">
-                                <h4>Affectation par Lieu</h4>
-                                <p>PC automatiquement affectés selon leur localisation physique (bureau, salle de cours, etc.)</p>
-                            </div>
-                            <div class="rule-card">
-                                <h4>Filtrage Logiciel</h4>
-                                <p>Règles de filtrage des logiciels autorisés selon le type d'équipement et l'utilisateur</p>
-                            </div>
-                            <div class="rule-card">
-                                <h4>Gestion des Licences</h4>
-                                <p>Suivi automatique des licences logicielles et alertes de renouvellement</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content-image">
-                        <img src="Images/GLPI5.png" alt="Règles d'affectation GLPI" loading="lazy">
-                        <img src="Images/GLPI10.png" alt="Configuration filtrage" loading="lazy">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Compétences Section -->
-            <section class="content-section">
-                <h2 class="section-title">Compétences Développées</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Techniques</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">GLPI</span>
-                            <span class="skill-tag">SNMP</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">PHP</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">Apache</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Fonctionnelles</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Gestion de Parc</span>
-                            <span class="skill-tag">Ticketing</span>
-                            <span class="skill-tag">Monitoring</span>
-                            <span class="skill-tag">Automatisation</span>
-                            <span class="skill-tag">Règles Métier</span>
-                            <span class="skill-tag">Support</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Évolution Section -->
-            <section class="content-section">
-                <h2 class="section-title">Évolution Continue</h2>
-                <div class="quote-section">
-                    <blockquote class="quote">
-                        <p>"Il y a toujours des trucs à faire sur GLPI. C'est un projet qui évolue constamment selon les besoins du service et les demandes des utilisateurs."</p>
-                    </blockquote>
-                    <p>Ce projet fil rouge me permet de développer continuellement mes compétences en administration système et en gestion de parc informatique. Chaque nouvelle fonctionnalité ajoutée améliore l'efficacité du service informatique du Pôle Universitaire.</p>
-                </div>
-            </section>
-        </div>
+            <h2>Configuration du Ticketing</h2>
+            <p>La mise en place du service de ticketing a commencé par la configuration de l'envoi d'e-mails automatiques lors de la création d'un ticket. Dès qu'un e-mail nécessitant un support est reçu, il est déplacé dans un dossier spécifique de notre boîte mail. GLPI scanne ce dossier, crée un ticket et assigne automatiquement l'expéditeur comme demandeur.</p>
+            <img src="Images/GLPI5.png" alt="Exemple de ticket dans GLPI">
         </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Côme Servy. Tous droits réservés. | <a href="mailto:pm@comesr.art" style="color: #007bff;">pm@comesr.art</a></p>
     </div>
-    </footer>
 
-    <script src="../../script.js"></script>
+    <script>
+        // Navigation mobile toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

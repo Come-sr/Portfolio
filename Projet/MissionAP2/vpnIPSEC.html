@@ -3,93 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPN IPSec Cisco - Mission AP2 | Côme Servy</title>
-    <meta name="description" content="Configuration de tunnels VPN IPSec entre sites : sécurisation des communications, gestion des clés de chiffrement et monitoring.">
-    <link rel="stylesheet" href="AP.css">
+    <title>Mission: Installation VPN IPSEC</title>
     <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" href="AP.css">
 </head>
 <body>
+
     <nav class="top-nav">
         <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
         <div class="nav-right">
             <a href="../Projet.html">Projets</a>
             <a href="../../Exp/exp.html">Expériences</a>
+            <a href="../../Veille/Veille.html">Veille</a>
             <a href="../../Perso/Perso.html">À Propos</a>
         </div>
     </nav>
 
     <div class="page-wrapper">
-        <div class="info-panel">
-            <h4>Compétences Développées</h4>
+        <aside class="info-panel">
+            <h4>Informations</h4>
             <div class="competence-list">
-                <p>IPSec</p>
-                <p>VPN</p>
-                <p>Cisco</p>
-                <p>IKE</p>
-                <p>Chiffrement</p>
-                <p>Routage</p>
-                <p>Cryptographie</p>
-                <p>Monitoring</p>
+                <p><strong>Outils:</strong> Cisco Packet Tracer, Routeurs Cisco</p>
+                <p><strong>Période:</strong> 15/10 - 19/11</p>
             </div>
-        </div>
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Gérer le patrimoine informatique</p>
+                <p>Mettre à disposition un service informatique</p>
+                <p>Organiser son développement professionnel</p>
+            </div>
+        </aside>
 
-        <div class="main-content">
-            <h1>VPN IPSec Cisco</h1>
+        <main class="main-content">
+            <h1>Installation d'un VPN IPSEC Site-à-Site</h1>
             
-            <h2>Contexte de la Mission</h2>
-            <p>Configuration de <strong>tunnels VPN IPSec</strong> entre plusieurs sites d'entreprise pour sécuriser les communications inter-sites sur Internet.</p>
+            <h2>Contexte</h2>
+            <p>Dans le cadre de notre projet de mise en place d'infrastructure réseau, nous avons déployé un VPN IPSEC sur deux routeurs Cisco pour sécuriser les communications entre deux sites.</p>
             
-            <p>Cette mission s'inscrit dans l'apprentissage de la sécurité réseau et de la mise en place d'infrastructures de communication sécurisées.</p>
-
-            <h2>Architecture VPN</h2>
-            <p><strong>Topologie Site-to-Site :</strong> Configuration de tunnels IPSec entre routeurs Cisco pour connecter de manière sécurisée plusieurs sites d'entreprise via Internet.</p>
+            <h2>Qu'est-ce qu'un VPN IPSEC ?</h2>
+            <p>Un VPN IPsec (Internet Protocol Security) est une technologie utilisée pour sécuriser les communications sur un réseau IP. Il chiffre les données échangées, garantissant leur confidentialité et leur intégrité, ce qui est essentiel pour connecter des sites distants de manière sécurisée.</p>
+            <img src="https://documentation.stormshield.eu/SNS/v4/fr/Content/Resources/Images/IPSEC-PSK/VPNIPSecpr_partag_e.png" alt="Schéma d'un tunnel VPN IPsec">
             
-            <p><strong>Composants Utilisés :</strong></p>
-            <ul>
-                <li><strong>Routeurs Cisco</strong> - Terminaisons VPN</li>
-                <li><strong>IPSec</strong> - Protocole de sécurité</li>
-                <li><strong>IKE</strong> - Échange de clés</li>
-                <li><strong>ESP/AH</strong> - Chiffrement et authentification</li>
-                <li><strong>ACLs</strong> - Listes de contrôle d'accès</li>
-                <li><strong>NAT</strong> - Traduction d'adresses</li>
-            </ul>
-
-            <p><strong>Gestion des Clés :</strong> Configuration de l'échange de clés IKE avec authentification pré-partagée et gestion automatique du renouvellement des clés.</p>
-
-            <h2>Configuration des Tunnels</h2>
-            <p><strong>1. Configuration IKE :</strong> Paramétrage de l'échange de clés IKE avec les algorithmes de chiffrement et d'authentification.</p>
+            <h2>Configuration et Tests</h2>
+            <p>Nous avons d'abord configuré les équipements sur Packet Tracer pour nous familiariser avec les commandes. Nous avons ensuite mis en place le VPN IPSEC sur deux routeurs Cisco physiques et effectué les tests nécessaires pour assurer la bonne communication à travers le tunnel VPN.</p>
             
-            <p><strong>2. Définition des Tunnels :</strong> Création des tunnels IPSec avec les paramètres de sécurité et les réseaux à chiffrer.</p>
-            
-            <p><strong>3. Configuration du Routage :</strong> Mise en place des routes statiques pour diriger le trafic vers les tunnels VPN.</p>
-            
-            <p><strong>4. Tests et Validation :</strong> Vérification de la connectivité et des performances des tunnels configurés.</p>
-
-            <h2>Sécurité et Chiffrement</h2>
-            <p><strong>Chiffrement :</strong> Configuration des algorithmes de chiffrement AES-256 pour sécuriser les données en transit.</p>
-            
-            <p><strong>Authentification :</strong> Mise en place de l'authentification HMAC-SHA256 pour vérifier l'intégrité des données.</p>
-            
-            <p><strong>Protection :</strong> Configuration des ACLs pour contrôler l'accès aux tunnels et aux ressources.</p>
-            
-            <p><strong>Renouvellement :</strong> Gestion automatique du renouvellement des clés pour maintenir la sécurité.</p>
-
-            <h2>Monitoring et Maintenance</h2>
-            <p><strong>Surveillance des Tunnels :</strong> Mise en place d'outils de monitoring pour surveiller l'état des tunnels et détecter les problèmes de connectivité.</p>
-            
-            <p><strong>Outils de Monitoring :</strong></p>
-            <ul>
-                <li><strong>Ping de test</strong> - Vérification de la connectivité</li>
-                <li><strong>Logs IPSec</strong> - Surveillance des événements</li>
-                <li><strong>Statistiques</strong> - Suivi des performances</li>
-                <li><strong>Alertes</strong> - Notification des incidents</li>
-            </ul>
-
-            <p><strong>Maintenance Préventive :</strong> Mise en place de procédures de maintenance pour assurer la continuité du service et la sécurité des communications.</p>
-
-            <h2>Retour d'Expérience</h2>
-            <p>La configuration de VPN IPSec nécessite une compréhension approfondie des protocoles de sécurité et une attention particulière aux détails de configuration. Cette mission m'a permis de maîtriser les concepts de sécurité réseau et de comprendre l'importance du chiffrement dans les communications d'entreprise.</p>
-        </div>
+            <h2>Retour Personnel</h2>
+            <p>Ce projet m'a permis de découvrir les VPN et de comprendre leur fonctionnement pratique. J'ai appris à configurer un tunnel IPSEC sur des routeurs Cisco et à effectuer les vérifications nécessaires pour valider la connexion sécurisée.</p>
+        </main>
     </div>
+
 </body>
 </html>

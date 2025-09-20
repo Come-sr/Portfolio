@@ -3,213 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administration Windows Server - Mission AP2 | Côme Servy</title>
-    <meta name="description" content="Configuration d'un serveur Windows avec Active Directory, DNS et DHCP pour la gestion centralisée des utilisateurs et des services réseau.">
-    <link rel="stylesheet" href="../../styles.css">
-    <link rel="icon" href="../../DND.gif">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Mission: Administration Windows Server</title>
+    <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" href="AP.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="nav-container">
-            <a href="../../index.html" class="nav-logo">CS</a>
-            <div class="nav-menu" id="nav-menu">
-                <a href="../Projet.html" class="nav-link">Projets</a>
-                <a href="../../Exp/exp.html" class="nav-link">Expériences</a>
-                <a href="../../Perso/Perso.html" class="nav-link">À Propos</a>
-            </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="nav-toggle-line"></span>
-                <span class="nav-toggle-line"></span>
-                <span class="nav-toggle-line"></span>
-            </div>
+
+    <nav class="top-nav">
+        <a href="../Projet.html" class="nav-left">Retour aux Missions</a>
+        <div class="nav-right">
+            <a href="../Projet.html">Projets</a>
+            <a href="../../Exp/exp.html">Expériences</a>
+            <a href="../../Veille/Veille.html">Veille</a>
+            <a href="../../Perso/Perso.html">À Propos</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-compact" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Administration Windows Server</h1>
-                <p class="hero-subtitle">Mission AP2 - Active Directory, DNS & DHCP</p>
+    <div class="page-wrapper">
+        <aside class="info-panel">
+            <h4>Informations</h4>
+            <div class="competence-list">
+                <p><strong>Outils:</strong> Windows Server 2022</p>
+                <p><strong>Période:</strong> 05/09 - 03/10</p>
             </div>
-        </div>
-    </section>
+            <h4>Compétences</h4>
+            <div class="competence-list">
+                <p>Gérer le patrimoine informatique</p>
+                <p>Mettre à disposition un service informatique</p>
+                <p>Organiser son développement professionnel</p>
+            </div>
+        </aside>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Contexte Section -->
-            <section class="content-section">
-                <h2 class="section-title">Contexte de la Mission</h2>
-                <div class="content-grid">
-                    <div class="content-text">
-                        <p class="lead">Configuration complète d'un <strong>serveur Windows Server</strong> pour la gestion centralisée des utilisateurs et des services réseau d'une entreprise fictive.</p>
-                        
-                        <p>Cette mission s'inscrit dans le cadre de la formation BTS SIO et vise à développer les compétences en administration système Windows et gestion d'infrastructure.</p>
+        <main class="main-content">
+            <h1>Administration des Services Windows Server</h1>
+            
+            <h2>Contexte</h2>
+            <p>Dans le cadre de ce projet, nous avons mis en place des services essentiels d'une infrastructure Microsoft : authentification de domaine, gestion de fichiers, et un service DHCP redondant. Cela a impliqué la configuration de deux serveurs Active Directory (AD), ainsi que des services DNS et DHCP.</p>
+            
+            <h2>Infrastructure Active Directory</h2>
+            <p>Nous avons créé quatre unités d'organisation (UO) et quatre groupes d'utilisateurs pour faciliter la gestion des permissions. Des scripts de logon ont été créés pour mapper automatiquement les lecteurs réseau pour chaque groupe d'utilisateurs.</p>
+            <img src="../img/winserv2.png" alt="Structure Active Directory">
+            
+            <h2>Service de Fichiers et Partages</h2>
+            <p>Notre arborescence de fichiers comprend plusieurs dossiers partagés, organisés par groupe, ainsi que des dossiers personnels pour chaque utilisateur. Les permissions NTFS et les autorisations de partage ont été configurées pour garantir un accès sécurisé aux données.</p>
+            <img src="../img/winserv3.png" alt="Arborescence des partages réseau">
 
-                        <div class="highlight-box">
-                            <h4>Services à Configurer</h4>
-                            <ul class="feature-list">
-                                <li>Active Directory pour la gestion des utilisateurs</li>
-                                <li>DNS pour la résolution de noms</li>
-                                <li>DHCP pour l'attribution automatique d'IP</li>
-                                <li>Gestion des groupes et permissions</li>
-                                <li>Politiques de sécurité et de groupe</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="content-image">
-                        <img src="https://media.licdn.com/dms/image/D5612AQGX5RQVvcK2Fw/article-cover_image-shrink_600_2000/0/1679522063229?e=2147483647&v=beta&t=L7C9oLuY6zBnq3Hq5t0dcO5B8lS4-XF_b0ylPEdgdGQ" alt="Windows Server Dashboard" loading="lazy">
-                    </div>
-                </div>
-            </section>
+            <h2>Retour Personnel</h2>
+            <p>Cette mission m'a permis de me familiariser avec les fonctionnalités et les services fondamentaux de Windows Server. J'ai pu m'initier au monde de l'administration système et de la gestion centralisée des ressources informatiques.</p>
+        </main>
+    </div>
 
-            <!-- Configuration Section -->
-            <section class="content-section">
-                <h2 class="section-title">Configuration des Services</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">👥</div>
-                        <h3>Active Directory</h3>
-                        <p>Installation et configuration du contrôleur de domaine pour la gestion centralisée des utilisateurs, groupes et ordinateurs.</p>
-                        <ul class="service-features">
-                            <li>Création de la structure organisationnelle</li>
-                            <li>Gestion des comptes utilisateurs</li>
-                            <li>Configuration des groupes de sécurité</li>
-                            <li>Politiques de mot de passe</li>
-                        </ul>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🌐</div>
-                        <h3>DNS</h3>
-                        <p>Configuration du service DNS pour la résolution de noms et l'intégration avec Active Directory.</p>
-                        <ul class="service-features">
-                            <li>Zone DNS principale</li>
-                            <li>Enregistrements A et AAAA</li>
-                            <li>Zone de recherche inverse</li>
-                            <li>Intégration AD-DNS</li>
-                        </ul>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🔌</div>
-                        <h3>DHCP</h3>
-                        <p>Mise en place du service DHCP pour l'attribution automatique des adresses IP aux clients du réseau.</p>
-                        <ul class="service-features">
-                            <li>Définition des plages d'adresses</li>
-                            <li>Configuration des options DHCP</li>
-                            <li>Réservations d'adresses</li>
-                            <li>Intégration avec DNS</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Architecture Section -->
-            <section class="content-section">
-                <h2 class="section-title">Architecture Mise en Place</h2>
-                <div class="content-grid">
-                    <div class="content-text">
-                        <h3>Structure Organisationnelle</h3>
-                        <p>Création d'une structure Active Directory adaptée à l'organisation de l'entreprise avec des unités organisationnelles (OU) logiques.</p>
-                        
-                        <div class="tech-details">
-                            <h4>Hiérarchie des OU</h4>
-                            <ul>
-                                <li><strong>Utilisateurs</strong> - Gestion des comptes utilisateurs</li>
-                                <li><strong>Ordinateurs</strong> - Gestion des postes de travail</li>
-                                <li><strong>Serveurs</strong> - Gestion des serveurs</li>
-                                <li><strong>Groupes</strong> - Gestion des groupes de sécurité</li>
-                            </ul>
-                        </div>
-
-                        <h3>Politiques de Sécurité</h3>
-                        <p>Mise en place de politiques de groupe (GPO) pour standardiser la configuration des postes clients et renforcer la sécurité.</p>
-                    </div>
-                    <div class="content-image">
-                        <img src="https://media.licdn.com/dms/image/D5612AQGX5RQVvcK2Fw/article-cover_image-shrink_600_2000/0/1679522063229?e=2147483647&v=beta&t=L7C9oLuY6zBnq3Hq5t0dcO5B8lS4-XF_b0ylPEdgdGQ" alt="Architecture Active Directory" loading="lazy">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tests Section -->
-            <section class="content-section">
-                <h2 class="section-title">Tests et Validation</h2>
-                <div class="tests-grid">
-                    <div class="test-card">
-                        <div class="test-icon">✅</div>
-                        <h3>Connexion des Clients</h3>
-                        <p>Vérification de la connexion des postes clients au domaine et de l'authentification des utilisateurs.</p>
-                    </div>
-                    <div class="test-card">
-                        <div class="test-icon">🌐</div>
-                        <h3>Résolution DNS</h3>
-                        <p>Tests de résolution de noms et de communication entre les différents services.</p>
-                    </div>
-                    <div class="test-card">
-                        <div class="test-icon">🔌</div>
-                        <h3>Attribution DHCP</h3>
-                        <p>Validation de l'attribution automatique des adresses IP et des options DHCP.</p>
-                    </div>
-                    <div class="test-card">
-                        <div class="test-icon">🔒</div>
-                        <h3>Sécurité</h3>
-                        <p>Vérification de l'application des politiques de sécurité et des permissions.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Compétences Section -->
-            <section class="content-section">
-                <h2 class="section-title">Compétences Développées</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Techniques</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Windows Server</span>
-                            <span class="skill-tag">Active Directory</span>
-                            <span class="skill-tag">DNS</span>
-                            <span class="skill-tag">DHCP</span>
-                            <span class="skill-tag">GPO</span>
-                            <span class="skill-tag">PowerShell</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Administratives</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Gestion Utilisateurs</span>
-                            <span class="skill-tag">Sécurité</span>
-                            <span class="skill-tag">Politiques</span>
-                            <span class="skill-tag">Monitoring</span>
-                            <span class="skill-tag">Documentation</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Retour Section -->
-            <section class="content-section">
-                <h2 class="section-title">Retour d'Expérience</h2>
-                <div class="quote-section">
-                    <blockquote class="quote">
-                        <p>"Cette mission m'a permis de comprendre l'importance de la centralisation dans la gestion d'infrastructure. Active Directory est vraiment le cœur d'un environnement Windows."</p>
-                    </blockquote>
-                    <p>La configuration de ces services fondamentaux m'a donné une vision complète de l'administration système Windows et de l'importance de la planification dans la mise en place d'une infrastructure.</p>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Côme Servy. Tous droits réservés. | <a href="mailto:pm@comesr.art" style="color: #007bff;">pm@comesr.art</a></p>
-        </div>
-    </footer>
-
-    <script src="../../script.js"></script>
 </body>
 </html>
