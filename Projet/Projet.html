@@ -5,57 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Projets - Côme Servy</title>
     <meta name="description" content="Portfolio des projets de Côme Servy - Alternance au Pôle Universitaire de Vichy et projets BTS SIO">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="icon" href="../DND.gif">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="project.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="nav-container">
-            <a href="../index.html" class="nav-logo">CS</a>
-            <div class="nav-menu" id="nav-menu">
-                <a href="Projet.html" class="nav-link active">Projets</a>
-                <a href="../Exp/exp.html" class="nav-link">Expériences</a>
-                <a href="../Perso/Perso.html" class="nav-link">À Propos</a>
-            </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="nav-toggle-line"></span>
-                <span class="nav-toggle-line"></span>
-                <span class="nav-toggle-line"></span>
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <a href="../index.html" class="nav-logo">CS</a>
+                <div class="nav-menu">
+                    <a href="Projet.html" class="nav-link active">Projets</a>
+                    <a href="../Exp/exp.html" class="nav-link">Expériences</a>
+                    <a href="../Perso/Perso.html" class="nav-link">À Propos</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-compact" id="hero">
+    <!-- Main Content -->
+    <main class="main-content">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Mes Projets</h1>
-                <p class="hero-subtitle">Alternance & Formation BTS SIO</p>
+            <div class="page-header">
+                <h1>Mes Projets</h1>
+                <p>Alternance & Formation</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Alternance Projects -->
-    <section class="projects" id="alternance">
-        <div class="container">
-            <h2 class="section-title">Alternance - Pôle Universitaire de Vichy</h2>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="img/ete.png" alt="Pôle Universitaire de Vichy - Contexte et missions" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="Alternance/ALT1.HTML" class="project-link">Voir le projet</a>
-                            </div>
+            <!-- Alternance Projects -->
+            <section class="projects" id="alternance">
+                <h2 class="section-title">Alternance - Pôle Universitaire de Vichy</h2>
+                <div class="projects-grid">
+                    <article class="project-card project-card-alternance">
+                        <div class="project-image">
+                            <img src="img/ete.png" alt="Pôle Universitaire de Vichy - Contexte et missions" loading="lazy">
                         </div>
-                    </div>
-                    <div class="project-content">
                         <h3 class="project-title">Contexte & Missions</h3>
                         <p class="project-description">Découverte du fonctionnement d'un réseau informatique de grande taille avec 3000 utilisateurs et 15 bâtiments. Développement des compétences en maintenance et dépannage.</p>
                         <div class="project-tech">
@@ -63,19 +48,13 @@
                             <span class="tech-badge">Support</span>
                             <span class="tech-badge">Réseaux</span>
                         </div>
-                    </div>
-                </article>
+                        <a href="Alternance/ALT1.HTML" class="project-link">Voir le projet →</a>
+                    </article>
 
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="https://cugit-consulting.com/sites/default/files/portfolio/GLPI.gif" alt="GLPI - Système de gestion de parc informatique" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="Alternance/ALT2.HTML" class="project-link">Voir le projet</a>
-                            </div>
+                    <article class="project-card project-card-alternance">
+                        <div class="project-image">
+                            <img src="https://cugit-consulting.com/sites/default/files/portfolio/GLPI.gif" alt="GLPI - Système de gestion de parc informatique" loading="lazy">
                         </div>
-                    </div>
-                    <div class="project-content">
                         <h3 class="project-title">Déploiement GLPI</h3>
                         <p class="project-description">Configuration des règles d'assignation, import des équipements réseau, mise en place du ticketing avec collecteur mail. Projet fil rouge de l'alternance.</p>
                         <div class="project-tech">
@@ -83,19 +62,13 @@
                             <span class="tech-badge">Ticketing</span>
                             <span class="tech-badge">Inventaire</span>
                         </div>
-                    </div>
-                </article>
+                        <a href="Alternance/ALT2.HTML" class="project-link">Voir le projet →</a>
+                    </article>
 
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="img/stormshield.jpg" alt="Firewall Stormshield - Configuration sécurité" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="Alternance/Stormshield.html" class="project-link">Voir le projet</a>
-                            </div>
+                    <article class="project-card project-card-alternance">
+                        <div class="project-image">
+                            <img src="img/stormshield.jpg" alt="Firewall Stormshield - Configuration sécurité" loading="lazy">
                         </div>
-                    </div>
-                    <div class="project-content">
                         <h3 class="project-title">Firewall Stormshield</h3>
                         <p class="project-description">Configuration et gestion des règles de sécurité, maintenance du firewall, optimisation des politiques de filtrage pour la protection du réseau.</p>
                         <div class="project-tech">
@@ -103,19 +76,13 @@
                             <span class="tech-badge">Firewall</span>
                             <span class="tech-badge">Règles</span>
                         </div>
-                    </div>
-                </article>
+                        <a href="Alternance/Stormshield.html" class="project-link">Voir le projet →</a>
+                    </article>
 
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="img/assist.png" alt="Assistance utilisateurs - Support quotidien" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="Alternance/Assistance.html" class="project-link">Voir le projet</a>
-                            </div>
+                    <article class="project-card project-card-alternance">
+                        <div class="project-image">
+                            <img src="img/assist.png" alt="Assistance utilisateurs - Support quotidien" loading="lazy">
                         </div>
-                    </div>
-                    <div class="project-content">
                         <h3 class="project-title">Assistance Utilisateurs</h3>
                         <p class="project-description">Support technique quotidien, résolution d'incidents, formation des utilisateurs et amélioration continue des processus de support.</p>
                         <div class="project-tech">
@@ -123,88 +90,36 @@
                             <span class="tech-badge">Formation</span>
                             <span class="tech-badge">Incidents</span>
                         </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
+                        <a href="Alternance/Assistance.html" class="project-link">Voir le projet →</a>
+                    </article>
+                </div>
+            </section>
 
-    <!-- BTS SIO Projects -->
-    <section class="projects" id="bts">
-        <div class="container">
-            <h2 class="section-title">Formation BTS SIO</h2>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="https://www.memoireonline.com/04/10/3431/Etude-et-optimisation-du-reseau-local-de-inova-si14.png" alt="Réseau poste à poste - Configuration" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="MissionAP/PosteaPoste.html" class="project-link">Voir le projet</a>
-                            </div>
+            <!-- BTS SIO Projects -->
+            <section class="projects" id="bts">
+                <h2 class="section-title">Formation BTS SIO</h2>
+                <div class="projects-grid">
+
+
+
+                    <article class="project-card project-card-bts project-card-purple">
+                        <div class="project-image">
+                            <img src="MissionAP/ap3.png" alt="Outils de maintenance - Clé USB" loading="lazy">
                         </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Réseau Poste à Poste</h3>
-                        <p class="project-description">Configuration d'un réseau local simple, mise en place des partages de fichiers et des connexions entre postes de travail.</p>
+                        <h3 class="project-title">Outils de Maintenance</h3>
+                        <p class="project-description">Configuration d'une clé USB multi-bootable avec antivirus, live Debian, utilitaires de partitionnement et comparatif de gestionnaires de mots de passe.</p>
                         <div class="project-tech">
-                            <span class="tech-badge">Réseau</span>
-                            <span class="tech-badge">Windows</span>
-                            <span class="tech-badge">Partage</span>
+                            <span class="tech-badge">USB Bootable</span>
+                            <span class="tech-badge">Maintenance</span>
+                            <span class="tech-badge">Sécurité</span>
                         </div>
-                    </div>
-                </article>
+                        <a href="MissionAP/Yumii.html" class="project-link">Voir le projet →</a>
+                    </article>
 
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="img/aps12.jpg" alt="Câblage réseau - Planification" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="MissionAP/cablage.html" class="project-link">Voir le projet</a>
-                            </div>
+                    <article class="project-card project-card-bts">
+                        <div class="project-image">
+                            <img src="https://vazaha.blog/storage/zD0WESOByZtJ2iWb12qHclv9Ss615WiM3kFUFAuS.png" alt="Nextcloud - Travail collaboratif" loading="lazy">
                         </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Câblage Réseau</h3>
-                        <p class="project-description">Planification et chiffrage d'un projet de câblage, conception de l'infrastructure physique et gestion des contraintes techniques.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">Câblage</span>
-                            <span class="tech-badge">Planification</span>
-                            <span class="tech-badge">Infrastructure</span>
-                        </div>
-                    </div>
-                </article>
-
-
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="img/BACK.jpg" alt="Configuration réseau Cisco" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="MissionAP/ConfigurationReseau.html" class="project-link">Voir le projet</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Configuration Réseau</h3>
-                        <p class="project-description">Configuration d'équipements Cisco, mise en place de VLAN, gestion des routes et optimisation des performances réseau.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">Cisco</span>
-                            <span class="tech-badge">VLAN</span>
-                            <span class="tech-badge">Routage</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="https://vazaha.blog/storage/zD0WESOByZtJ2iWb12qHclv9Ss615WiM3kFUFAuS.png" alt="Nextcloud - Travail collaboratif" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="MissionAP2/NextCloud.html" class="project-link">Voir le projet</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
                         <h3 class="project-title">Travail Collaboratif</h3>
                         <p class="project-description">Déploiement de Nextcloud avec intégration LDAP, configuration des partages et gestion des utilisateurs pour le travail collaboratif.</p>
                         <div class="project-tech">
@@ -212,19 +127,13 @@
                             <span class="tech-badge">LDAP</span>
                             <span class="tech-badge">Collaboratif</span>
                         </div>
-                    </div>
-                </article>
+                        <a href="MissionAP2/NextCloud.html" class="project-link">Voir le projet →</a>
+                    </article>
 
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="https://media.licdn.com/dms/image/D5612AQGX5RQVvcK2Fw/article-cover_image-shrink_600_2000/0/1679522063229?e=2147483647&v=beta&t=L7C9oLuY6zBnq3Hq5t0dcO5B8lS4-XF_b0ylPEdgdGQ" alt="Windows Server - Administration" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="MissionAP2/WindowsServer.html" class="project-link">Voir le projet</a>
-                            </div>
+                    <article class="project-card project-card-bts">
+                        <div class="project-image">
+                            <img src="https://media.licdn.com/dms/image/D5612AQGX5RQVvcK2Fw/article-cover_image-shrink_600_2000/0/1679522063229?e=2147483647&v=beta&t=L7C9oLuY6zBnq3Hq5t0dcO5B8lS4-XF_b0ylPEdgdGQ" alt="Windows Server - Administration" loading="lazy">
                         </div>
-                    </div>
-                    <div class="project-content">
                         <h3 class="project-title">Administration Windows</h3>
                         <p class="project-description">Configuration d'un serveur Windows, mise en place d'Active Directory, DNS et DHCP pour la gestion centralisée des utilisateurs.</p>
                         <div class="project-tech">
@@ -232,39 +141,14 @@
                             <span class="tech-badge">AD</span>
                             <span class="tech-badge">DNS</span>
                         </div>
-                    </div>
-                </article>
+                        <a href="MissionAP2/WindowsServer.html" class="project-link">Voir le projet →</a>
+                    </article>
 
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="https://www.terratel.eu/wp-content/uploads/2018/05/office-pbx-with-asterisk-sh-1.jpg" alt="Asterisk - Téléphonie VoIP" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="MissionAP2/Asterisk.html" class="project-link">Voir le projet</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Téléphonie Asterisk</h3>
-                        <p class="project-description">Déploiement d'un serveur de téléphonie IP avec Asterisk, configuration des extensions et gestion des appels VoIP.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">Asterisk</span>
-                            <span class="tech-badge">VoIP</span>
-                            <span class="tech-badge">PBX</span>
-                        </div>
-                    </div>
-                </article>
 
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="img/ipsec.webp" alt="VPN IPSec Cisco" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="MissionAP2/vpnIPSEC.html" class="project-link">Voir le projet</a>
-                            </div>
+                    <article class="project-card project-card-bts">
+                        <div class="project-image">
+                            <img src="img/ipsec.webp" alt="VPN IPSec Cisco" loading="lazy">
                         </div>
-                    </div>
-                    <div class="project-content">
                         <h3 class="project-title">VPN IPSec Cisco</h3>
                         <p class="project-description">Configuration de tunnels VPN IPSec entre sites, sécurisation des communications et gestion des clés de chiffrement.</p>
                         <div class="project-tech">
@@ -272,19 +156,13 @@
                             <span class="tech-badge">VPN</span>
                             <span class="tech-badge">Sécurité</span>
                         </div>
-                    </div>
-                </article>
+                        <a href="MissionAP2/vpnIPSEC.html" class="project-link">Voir le projet →</a>
+                    </article>
 
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="https://20998321.fs1.hubspotusercontent-na1.net/hubfs/20998321/switch-cascading-stacking-clustering.png" alt="Redondance infrastructure" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="MissionAP2/Redondance.html" class="project-link">Voir le projet</a>
-                            </div>
+                    <article class="project-card project-card-bts">
+                        <div class="project-image">
+                            <img src="https://20998321.fs1.hubspotusercontent-na1.net/hubfs/20998321/switch-cascading-stacking-clustering.png" alt="Redondance infrastructure" loading="lazy">
                         </div>
-                    </div>
-                    <div class="project-content">
                         <h3 class="project-title">Redondance Infrastructure</h3>
                         <p class="project-description">Mise en place de la redondance avec STP et EtherChannel, optimisation de la disponibilité et de la performance du réseau.</p>
                         <div class="project-tech">
@@ -292,39 +170,14 @@
                             <span class="tech-badge">EtherChannel</span>
                             <span class="tech-badge">Redondance</span>
                         </div>
-                    </div>
-                </article>
+                        <a href="MissionAP2/Redondance.html" class="project-link">Voir le projet →</a>
+                    </article>
 
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="https://rdr-it.com/wp-content/uploads/2020/02/mdt-install-config-90-dep-win.png" alt="WDS MDT - Installation postes" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="MissionAP2/WDSMDT.html" class="project-link">Voir le projet</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Installation Postes</h3>
-                        <p class="project-description">Déploiement automatisé avec WDS et MDT, création d'images système et optimisation des processus d'installation.</p>
-                        <div class="project-tech">
-                            <span class="tech-badge">WDS</span>
-                            <span class="tech-badge">MDT</span>
-                            <span class="tech-badge">Déploiement</span>
-                        </div>
-                    </div>
-                </article>
 
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="img/Nagios.jpg" alt="Nagios - Supervision" loading="lazy">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="MissionAP2/Nagios.html" class="project-link">Voir le projet</a>
-                            </div>
+                    <article class="project-card project-card-bts">
+                        <div class="project-image">
+                            <img src="img/Nagios.jpg" alt="Nagios - Supervision" loading="lazy">
                         </div>
-                    </div>
-                    <div class="project-content">
                         <h3 class="project-title">Supervision Nagios</h3>
                         <p class="project-description">Installation et configuration de Nagios pour la supervision des services, mise en place d'alertes et monitoring des performances.</p>
                         <div class="project-tech">
@@ -332,19 +185,18 @@
                             <span class="tech-badge">Monitoring</span>
                             <span class="tech-badge">Alertes</span>
                         </div>
-                    </div>
-                </article>
-            </div>
+                        <a href="MissionAP2/Nagios.html" class="project-link">Voir le projet →</a>
+                    </article>
+                </div>
+            </section>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Côme Servy. Tous droits réservés. | <a href="mailto:pm@comesr.art" style="color: #007bff;">pm@comesr.art</a></p>
+            <p>&copy; 2025 Côme Servy. Tous droits réservés. | <a href="mailto:pm@comesr.art">pm@comesr.art</a></p>
         </div>
     </footer>
-
-    <script src="../script.js"></script>
 </body>
 </html>

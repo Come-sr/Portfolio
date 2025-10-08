@@ -1,80 +1,78 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos de Moi - Côme Servy</title>
-    <link rel="icon" href="../DND.gif"> 
+    <title>À Propos - Côme Servy</title>
+    <meta name="description" content="À propos de Côme Servy - Étudiant en cybersécurité et administration d'infrastructures">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Perso.css">
 </head>
-
 <body>
-
-    <div id="star-container">
-        <div id="stars-small"></div>
-        <div id="stars-medium"></div>
-        <div id="stars-large"></div>
-        <div class="shooting-star"></div>
-        <div class="shooting-star"></div>
-    </div>
-    
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="../index.html" class="nav-logo">CS</a>
-            <div class="nav-menu">
-                <a href="../Projet/Projet.html" class="nav-link">Projets</a>
-                <a href="../Exp/exp.html" class="nav-link">Expériences</a>
-                <a href="Perso.html" class="nav-link active">À Propos</a>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <a href="../index.html" class="nav-logo">CS</a>
+                <div class="nav-menu">
+                    <a href="../Projet/Projet.html" class="nav-link">Projets</a>
+                    <a href="../Exp/exp.html" class="nav-link">Expériences</a>
+                    <a href="Perso.html" class="nav-link active">À Propos</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="page-content-container">
-        <section class="profile-container-card">
-            <div class="profile-image-wrapper">
-                <img src="tempo.jpg" alt="Côme Servy - Image de Profil">
-            </div>
-            <div class="profile-text-content">
-                <h2 class="profile-name">Côme Servy</h2>
-                <p class="profile-tagline">21 ans, Apprenti Technicien Informatique au Pôle Universitaire de Vichy.</p>
-                <div class="tech-icons">
-                    <img src="https://static-00.iconduck.com/assets.00/html5-icon-2018x2048-st7q7lm6.png" alt="HTML5 Icon" title="HTML5">
-                    <img src="https://cdn-icons-png.flaticon.com/512/919/919853.png" alt="CSS Icon" title="CSS3">
-                    <img src="https://static-00.iconduck.com/assets.00/proxmox-icon-2048x2048-i8gl93w2.png" alt="Proxmox Icon" title="Proxmox">
-                    <img src="https://static-00.iconduck.com/assets.00/cisco-icon-2048x2048-yvjuekbj.png" alt="Cisco Icon" title="Cisco Networking">
-                    <img src="storm.png" alt="Stormshield Icon" title="Stormshield">
-                    <img src="https://clipart-library.com/images_k/server-transparent/server-transparent-22.png" alt="Server Icon" title="Serveurs">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1727px-Tux.svg.png" alt="Linux Icon" title="Linux">
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Profile Section -->
+            <section class="profile-section">
+                <div>
+                    <img src="tempo.jpg" alt="Côme Servy - Image de Profil" class="profile-image">
                 </div>
-            </div>
-        </section>
-
-        <main class="main-content-sections">
-            <section class="content-section-perso">
-                <h2>Qui suis-je ?</h2>
-                <p>Je suis actuellement sous statut d'apprentissage en <a href="../BtsSio/Btssio.html" class="inline-link">BTS SIO</a> au Pôle Universitaire de Vichy. Depuis mon plus jeune âge, l’informatique me passionne. C’est cette passion qui m’a conduit à me spécialiser en obtenant un bac professionnel en systèmes numériques, avec une option en audiovisuel, réseau et équipements domestiques. À l’époque, mon objectif était de travailler dans le domaine de l’audiovisuel ou du graphisme.</p>
+                <div class="profile-info">
+                    <h1>Côme Servy</h1>
+                    <p class="profile-tagline">21 ans, Apprenti Technicien Informatique au Pôle Universitaire de Vichy.</p>
+                    <div class="tech-stack">
+                        <span class="tech-item">HTML5</span>
+                        <span class="tech-item">CSS3</span>
+                        <span class="tech-item">Proxmox</span>
+                        <span class="tech-item">Cisco</span>
+                        <span class="tech-item">Stormshield</span>
+                        <span class="tech-item">Linux</span>
+                        <span class="tech-item">Serveurs</span>
+                    </div>
+                </div>
             </section>
 
-            <section class="content-section-perso">
+            <!-- About Section -->
+            <section class="content-section">
+                <h2>Qui suis-je ?</h2>
+                <p>Je suis actuellement sous statut d'apprentissage en <a href="../BtsSio/Btssio.html" class="inline-link">BTS SIO</a> au Pôle Universitaire de Vichy. Depuis mon plus jeune âge, l'informatique me passionne. C'est cette passion qui m'a conduit à me spécialiser en obtenant un bac professionnel en systèmes numériques, avec une option en audiovisuel, réseau et équipements domestiques. À l'époque, mon objectif était de travailler dans le domaine de l'audiovisuel ou du graphisme.</p>
+            </section>
 
-                <div class="certification-item">
+            <!-- Certification Section -->
+            <section class="content-section">
+                <h2>Certification</h2>
+                <div class="certification">
                     <h3>Certified Stormshield Network Administrator</h3>
-                    <p>Obtenu avec un score de <strong>89%</strong>.</p>
-                    <img src="Stormshield.png" alt="Diplôme Certified Stormshield Network Administrator" class="diploma-image">
+                    <img src="Stormshield.png" alt="Diplôme Certified Stormshield Network Administrator">
                     <p class="certification-date">Certification valide jusqu'au 10/06/2028.</p>
                 </div>
             </section>
 
-            <section class="content-section-perso">
+            <!-- CV Section -->
+            <section class="content-section">
                 <h2>Mon CV</h2>
-                <div class="cv-container">
+                <div class="cv-section">
                     <iframe src="CV.pdf" class="cv-embed" title="Mon CV - Côme Servy"></iframe>
-                    <a href="CV.pdf" class="download-cv-button" download="CV_Come_Servy.pdf">Télécharger le CV</a>
+                    <a href="CV.pdf" class="download-btn" download="CV_Come_Servy.pdf">Télécharger le CV</a>
                 </div>
             </section>
-        </main>
-    </div>
-
+        </div>
+    </main>
 </body>
 </html>
