@@ -12,6 +12,11 @@ body {
     overflow-x: hidden;
 }
 
+html {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #000 #fff; /* For Firefox */
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -99,24 +104,72 @@ body {
     opacity: 0.8;
 }
 
+.profile-info {
+    min-width: 0; /* Allow grid item to shrink below content size */
+}
+
 .tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    display: grid;
+    grid-auto-flow: column; /* Fill columns first */
+    grid-template-rows: repeat(2, auto); /* Create a 2-row layout */
+    gap: 0.6rem;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    padding-bottom: 1rem; /* Make space for the scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #000 #fff;
 }
 
 .tech-item {
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
     border: 1px solid #000;
     font-size: 0.8rem;
     font-weight: 300;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Webkit scrollbar styling */
+.tech-stack::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.tech-stack::-webkit-scrollbar-thumb {
+    background-color: #000;
+    border-radius: 0;
+}
+
+.tech-stack::-webkit-scrollbar-track {
+    background: #fff;
+    border-left: 1px solid #000;
 }
 
 .tech-item:hover {
     background: #000;
     color: #fff;
+}
+
+/* Small icons inside tech items */
+.tech-item i {
+    font-size: 0.9em;
+    line-height: 1;
+    opacity: 0.85;
+}
+
+.tech-item.docker {
+    border-color: #2496ed;
+    color: #fff;
+    background: #2496ed;
+
+}
+
+.tech-item.docker:hover {
+    background: #fff;
+    color: #2496ed;
 }
 
 /* Content Sections */
@@ -151,13 +204,32 @@ body {
     border-bottom-color: #000;
 }
 
+/* Paragraph block styling */
+.paragraph-block {
+    border-left: 2px solid #000;
+    padding-left: 1.5rem;
+}
+
 /* Certification Section */
+.certifications-grid {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding-bottom: 1rem; /* Space for scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #000 #fff;
+}
+
 .certification {
+    flex: 0 0 350px; /* Prevent shrinking, set a fixed width */
     border: 1px solid #000;
     padding: 2rem;
-    margin-bottom: 2rem;
     transition: all 0.3s ease;
 }
+
+.certifications-grid::-webkit-scrollbar { height: 8px; }
+.certifications-grid::-webkit-scrollbar-thumb { background-color: #000; border-radius: 0; }
+.certifications-grid::-webkit-scrollbar-track { background: #fff; border-left: 1px solid #000; }
 
 .certification:hover {
     background: #000;
@@ -185,15 +257,32 @@ body {
 }
 
 .certification img {
-    width: 100%;
+    width: auto; /* Allow image to use its natural width */
     max-width: 300px;
     height: auto;
-    margin: 1rem 0;
+    margin: 1rem auto; /* Center the image */
     border: 1px solid #000;
+    display: block; /* Needed for auto margin centering */
 }
 
 .certification:hover img {
     border-color: #fff;
+}
+
+.certification-placeholder {
+    border: 1px dashed #000;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.certification-placeholder h3 {
+    margin-bottom: 0.5rem;
 }
 
 /* CV Section */
@@ -236,6 +325,88 @@ body {
     background: #fff;
     color: #000;
     border-color: #fff;
+}
+
+/* Interests Section */
+.interests-container {
+    margin-top: 3rem;
+}
+
+.interests-title {
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+}
+
+.interests-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.interest-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    cursor: default;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 6px;
+}
+
+/* Small icons inside interest items */
+.interest-item i {
+    font-size: 0.9em;
+    line-height: 1;
+    opacity: 0.85;
+}
+
+.interest-item:nth-child(1) {
+    background: #ffb3ba;
+    color: #000000;
+}
+
+.interest-item:nth-child(1):hover {
+    background: #ff8a94;
+}
+
+.interest-item:nth-child(2) {
+    background: #bae1ff;
+    color: #000000;
+}
+
+.interest-item:nth-child(2):hover {
+    background: #8ac9ff;
+}
+
+.interest-item:nth-child(3) {
+    background: #baffc9;
+    color: #000000;
+}
+
+.interest-item:nth-child(3):hover {
+    background: #8affaa;
+}
+
+.interest-item:nth-child(4) {
+    background: #ffffba;
+    color: #000000;
+}
+
+.interest-item:nth-child(4):hover {
+    background: #ffff8a;
+}
+
+.interest-item h3 {
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin: 0;
 }
 
 /* Responsive */
