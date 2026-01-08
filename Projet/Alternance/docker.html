@@ -7,8 +7,8 @@
     <title>Infrastructure Docker - Côme Servy</title>
     <meta name="description"
         content="Projet BTS SIO : déploiement d'un intranet DSI avec Docker sur infrastructure Proxmox">
-    <link rel="stylesheet" href="../Projet/Alternance/Alt.css">
-    <link rel="icon" href="../DND.gif">
+    <link rel="stylesheet" href="Alt.css">
+    <link rel="icon" href="../../DND.gif">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -119,11 +119,11 @@
 
     <nav class="nav" id="nav">
         <div class="nav-container">
-            <a href="../index.html" class="nav-logo">CS</a>
+            <a href="../../index.html" class="nav-logo">CS</a>
             <div class="nav-menu" id="nav-menu">
-                <a href="../Projet/Projet.html" class="nav-link">Projets</a>
-                <a href="../Exp/exp.html" class="nav-link">Expériences</a>
-                <a href="../Perso/Perso.html" class="nav-link">À Propos</a>
+                <a href="../Projet.html" class="nav-link">Projets</a>
+                <a href="../../Exp/exp.html" class="nav-link">Expériences</a>
+                <a href="../../Perso/Perso.html" class="nav-link">À Propos</a>
             </div>
             <div class="nav-toggle" id="nav-toggle">
                 <span class="nav-toggle-line"></span>
@@ -206,8 +206,9 @@
                     <p>Documentation technique connectée à l'infrastructure LDAP pour authentification centralisée.</p>
                 </div>
                 <div class="service-card">
-                    <h4>Nginx Swarm</h4>
-                    <p>Portail intranet en haute disponibilité avec Docker Swarm pour la résilience.</p>
+                    <h4>Nginx Intranet</h4>
+                    <p>Portail intranet centralisé servant de point d'entrée unique vers tous les services de
+                        l'entreprise.</p>
                 </div>
                 <div class="service-card">
                     <h4>HAProxy</h4>
@@ -275,6 +276,22 @@ networks:
     driver: bridge</code></pre>
                 </div>
             </div>
+
+            <hr class="section-divider">
+
+            <h2>Portail Intranet Nginx</h2>
+            <p>
+                J'ai configuré un serveur web Nginx agissant comme intranet centralisé pour l'ensemble des services de
+                l'entreprise.
+                Ce portail offre un point d'accès unique permettant de naviguer facilement vers tous les outils
+                déployés.
+                Le fichier HTML est monté via un <strong>bind mount</strong> depuis
+                <code>/opt/intranet/index.html</code> sur l'hôte,
+                facilitant les mises à jour du contenu sans reconstruire l'image Docker.
+            </p>
+
+            <img src="Images/intra.png" alt="Portail Intranet Nginx"
+                style="max-width: 100%; border: 1px solid #000; margin: 1.5rem 0;">
 
             <hr class="section-divider">
 
