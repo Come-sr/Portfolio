@@ -159,6 +159,122 @@ body {
     margin: 2rem auto 3rem auto;
 }
 
+/* Tech Badges */
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.tech-badge {
+    padding: 0.3rem 0.8rem;
+    background: transparent;
+    border: 1px solid #000;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Section Dividers */
+.section-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #000, transparent);
+    margin: 3rem 0;
+    opacity: 0.2;
+}
+
+/* Highlight Box */
+.highlight-box {
+    background: #f8f9fa;
+    border-left: 3px solid #000;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0 2rem 0;
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.highlight-box strong {
+    font-weight: 500;
+}
+
+/* Quote Block */
+.quote-block {
+    position: relative;
+    padding: 1.5rem 2rem;
+    margin: 3rem 0 2rem 0;
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.6;
+    opacity: 0.9;
+    border-left: 2px solid #000;
+    background: linear-gradient(to right, #f8f9fa, transparent);
+}
+
+/* Image with Caption */
+.image-with-caption {
+    margin: 2rem auto 3rem auto;
+    text-align: center;
+}
+
+.image-with-caption img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.image-caption {
+    font-size: 0.8rem;
+    font-weight: 300;
+    opacity: 0.6;
+    margin-top: 0.75rem;
+    font-style: italic;
+}
+
+.quote-block::before {
+    content: '"';
+    position: absolute;
+    top: 0;
+    left: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 200;
+    opacity: 0.3;
+    font-style: normal;
+}
+
+/* Styled List */
+.styled-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.styled-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.styled-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #000;
+    font-weight: 400;
+}
+
 /* Galerie d'images - espace modéré */
 .images-gallery {
     display: flex;

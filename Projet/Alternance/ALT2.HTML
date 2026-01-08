@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="icon" href="../DND.gif">
     <link rel="stylesheet" href="Alt.css">
 </head>
+
 <body>
 
     <nav class="nav" id="nav">
@@ -29,26 +31,110 @@
     <div class="page-wrapper">
         <main class="main-content">
             <h1>Fil Rouge : Déploiement et gestion de GLPI</h1>
-            
-            <h2>Qu'est-ce que GLPI?</h2>
+
+            <div class="tech-badges">
+                <span class="tech-badge">GLPI</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">Linux</span>
+                <span class="tech-badge">Ticketing</span>
+                <span class="tech-badge">Inventaire</span>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Mission principale :</strong> Configurer et optimiser GLPI pour centraliser l'inventaire du parc
+                informatique, automatiser la gestion des tickets et faciliter le suivi économique des équipements.
+            </div>
+
+            <h2>Contexte du Projet</h2>
             <p>
-                GLPI (Gestionnaire Libre de Parc Informatique) est une solution open-source complète qui permet de centraliser et d'automatiser de nombreuses tâches liées à la gestion d'un parc informatique : inventaire des équipements, gestion des incidents (ticketing) et planification des interventions.
+                GLPI (Gestionnaire Libre de Parc Informatique) est une solution open-source complète qui permet de
+                centraliser et d'automatiser de nombreuses tâches liées à la gestion d'un parc informatique : inventaire
+                des équipements, gestion des incidents (ticketing) et planification des interventions.
             </p>
-            
-            <h2>Configuration du Serveur</h2>
-            <p>Une de mes missions principales a été la configuration d'un serveur GLPI. L'objectif était d'obtenir un inventaire complet du parc informatique (ordinateurs, switchs, bornes Wi-Fi, etc.) et de mettre en place un système de ticketing efficace.</p>
-            <img src="Images/GLPI1.png" alt="Tableau de bord GLPI">
+            <p>
+                Je n'avais jamais utilisé GLPI avant ce projet. Un précédent stagiaire avait initié la mise en place de
+                l'outil, mais la configuration n'était pas optimale. Ma mission a été de reprendre en main l'existant,
+                de comprendre son fonctionnement et de l'optimiser en profondeur. Cela m'a demandé d'apprendre la
+                logique de GLPI et de me plonger dans la documentation officielle.
+            </p>
 
-            <h2>Étapes du Projet</h2>
-            <ul>
-                <li>Création des règles d'assignation pour les logiciels et les matériels.</li>
-                <li>Importation des actifs réseau (téléphones, bornes Wi-Fi) via des plugins.</li>
-                <li>Configuration complète du service de ticketing avec collecteur mail.</li>
+            <hr class="section-divider">
+
+            <h2>Mise en Place Technique</h2>
+            <p>
+                L'objectif principal était d'obtenir un inventaire automatique et complet du parc informatique :
+                ordinateurs, switchs, bornes Wi-Fi, téléphones... tout devait être centralisé. En parallèle, j'ai mis en
+                place un système de ticketing utilisé quotidiennement par l'équipe informatique.
+            </p>
+            <p>
+                GLPI fonctionne sur une infrastructure Docker. J'ai réalisé la migration depuis l'image
+                <code>elestio/glpi</code> vers <code>glpi/glpi</code>. Cette opération a nécessité plusieurs étapes :
+            </p>
+            <ul class="styled-list">
+                <li>Vérification de l'intégrité des données existantes</li>
+                <li>Sauvegarde complète de la base de données</li>
+                <li>Transfert et réimportation dans le nouvel environnement</li>
             </ul>
+            <div class="image-with-caption">
+                <img src="Images/GLPI1.png" alt="Tableau de bord GLPI">
+                <p class="image-caption">Vue d'ensemble du tableau de bord GLPI</p>
+            </div>
 
-            <h2>Configuration du Ticketing</h2>
-            <p>La mise en place du service de ticketing a commencé par la configuration de l'envoi d'e-mails automatiques lors de la création d'un ticket. Dès qu'un e-mail nécessitant un support est reçu, il est déplacé dans un dossier spécifique de notre boîte mail. GLPI scanne ce dossier, crée un ticket et assigne automatiquement l'expéditeur comme demandeur.</p>
-            <img src="Images/GLPI5.png" alt="Exemple de ticket dans GLPI">
+            <hr class="section-divider">
+
+            <h2>Configuration et Optimisation</h2>
+            <p>
+                J'ai créé des règles d'assignation basées sur différents critères : type d'équipement, entité de
+                rattachement, ou encore fabricant. Ces règles permettent d'organiser automatiquement les remontées
+                d'informations. Tout au long du projet, j'ai adapté et affiné ces règles pour que l'inventaire
+                automatisé corresponde au mieux à notre organisation. J'ai également configuré des règles de
+                dictionnaire pour normaliser les noms des logiciels inventoriés, assurant ainsi une base de données
+                cohérente et exploitable.
+            </p>
+            <div class="image-with-caption">
+                <img src="Images/GLPI2.png" alt="Exemple de règle de dictionnaire GLPI">
+                <p class="image-caption">Règle de dictionnaire pour normaliser les noms de logiciels</p>
+            </div>
+            <p>
+                Une partie importante du projet consistait à lier les actifs informatiques à leurs factures et bons de
+                commande. Cela centralise les informations économiques pour le suivi et le reporting, et accélère le
+                contact avec les supports constructeurs — en cas de problème sur un poste, on retrouve immédiatement les
+                informations nécessaires sans avoir à chercher en ligne.
+            </p>
+            <p>
+                Au-delà de la configuration de base, j'ai ajouté des champs personnalisés pour répondre aux besoins de
+                l'équipe. Par exemple, un champ dédié aux identifiants TeamViewer permet d'accéder rapidement aux
+                informations de prise en main à distance.
+            </p>
+            <!-- TODO: Ajouter captures d'écran pour factures et champs personnalisés -->
+
+            <hr class="section-divider">
+
+            <h2>Système de Ticketing</h2>
+            <p>
+                La mise en place du service de ticketing a commencé par la configuration de l'envoi d'e-mails
+                automatiques lors de la création d'un ticket. J'ai ensuite paramétré un collecteur mail : dès qu'un
+                e-mail nécessitant un support est reçu, il est analysé par GLPI qui crée automatiquement un ticket et
+                assigne l'expéditeur comme demandeur.
+            </p>
+            <div class="image-with-caption">
+                <img src="Images/GLPI5.png" alt="Exemple de ticket dans GLPI">
+                <p class="image-caption">Ticket créé automatiquement via le collecteur mail</p>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2>Ce que j'ai appris</h2>
+            <p>
+                Ce projet m'a confronté à de nombreux aspects que je ne connaissais pas. J'ai dû apprendre à lire et
+                exploiter la documentation technique, à résoudre des problèmes par moi-même et à adapter mes solutions
+                face à des obstacles imprévus.
+            </p>
+
+            <div class="quote-block">
+                Cette expérience m'a permis de développer une vraie autonomie dans la configuration et la gestion d'un
+                outil métier complet utilisé quotidiennement par l'équipe.
+            </div>
         </main>
     </div>
 
@@ -71,4 +157,5 @@
         });
     </script>
 </body>
+
 </html>
