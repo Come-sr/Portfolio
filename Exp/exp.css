@@ -297,9 +297,6 @@ body {
     min-height: 150px;
 }
 
-.timeline-item-hesias .timeline-content > div:first-child,
-.timeline-item-pole .timeline-content > div:first-child,
-.timeline-item-bts .timeline-content > div:first-child,
 .stage-title-wrapper {
     display: flex;
     align-items: center;

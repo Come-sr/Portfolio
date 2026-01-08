@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission: Administration Windows Server</title>
+    <title>Administration Windows Server</title>
     <link rel="icon" href="../DND.gif">
     <link rel="stylesheet" href="AP.css">
 </head>
@@ -25,7 +25,19 @@
 
     <div class="page-wrapper">
         <main class="main-content">
-            <h1>Administration des Services Windows Server</h1>
+            <h1>Administration Windows Server</h1>
+
+            <div class="tech-badges">
+                <span class="tech-badge">Windows Server</span>
+                <span class="tech-badge">Active Directory</span>
+                <span class="tech-badge">DNS</span>
+                <span class="tech-badge">DHCP</span>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Objectif :</strong> Mettre en place une infrastructure Microsoft complète avec authentification
+                de domaine, gestion de fichiers et services réseau.
+            </div>
 
             <h2>Contexte</h2>
             <p>Dans le cadre de ce projet, nous avons mis en place des services essentiels d'une infrastructure
@@ -33,19 +45,33 @@
                 impliqué la configuration de deux serveurs Active Directory (AD), ainsi que des services DNS et DHCP.
             </p>
 
+            <hr class="section-divider">
+
             <h2>Infrastructure Active Directory</h2>
             <p>Nous avons créé quatre unités d'organisation (UO) et quatre groupes d'utilisateurs pour faciliter la
                 gestion des permissions. Des scripts de logon ont été créés pour mapper automatiquement les lecteurs
                 réseau pour chaque groupe d'utilisateurs.</p>
-            <img src="../img/winserv2.png" alt="Structure Active Directory">
+
+            <div class="image-with-caption">
+                <img src="../img/winserv2.png" alt="Structure Active Directory">
+                <p class="image-caption">Structure de l'Active Directory</p>
+            </div>
+
+            <hr class="section-divider">
 
             <h2>Service de Fichiers et Partages</h2>
             <p>Notre arborescence de fichiers comprend plusieurs dossiers partagés, organisés par groupe, ainsi que des
                 dossiers personnels pour chaque utilisateur. Les permissions NTFS et les autorisations de partage ont
                 été configurées pour garantir un accès sécurisé aux données.</p>
-            <img src="../img/winserv3.png" alt="Arborescence des partages réseau">
 
-            <h2>Retour Personnel</h2>
+            <div class="image-with-caption">
+                <img src="../img/winserv3.png" alt="Arborescence des partages réseau">
+                <p class="image-caption">Arborescence des partages réseau</p>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2>Ce que j'ai appris</h2>
             <p>Cette mission m'a permis de me familiariser avec les fonctionnalités et les services fondamentaux de
                 Windows Server. J'ai pu m'initier au monde de l'administration système et de la gestion centralisée des
                 ressources informatiques.</p>

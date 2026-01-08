@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission: Redondance d'Infrastructure</title>
+    <title>Redondance Infrastructure</title>
     <link rel="icon" href="../DND.gif">
     <link rel="stylesheet" href="AP.css">
 </head>
@@ -25,22 +25,42 @@
 
     <div class="page-wrapper">
         <main class="main-content">
-            <h1>Redondance d'Infrastructure avec STP et EtherChannel</h1>
+            <h1>Redondance d'Infrastructure</h1>
+
+            <div class="tech-badges">
+                <span class="tech-badge">STP</span>
+                <span class="tech-badge">EtherChannel</span>
+                <span class="tech-badge">Cisco</span>
+                <span class="tech-badge">Packet Tracer</span>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Objectif :</strong> Configurer les protocoles STP et EtherChannel pour garantir la haute
+                disponibilité du réseau.
+            </div>
 
             <h2>Contexte</h2>
             <p>Pour ce projet, j'ai mis en place et configuré les protocoles Spanning Tree (STP) et EtherChannel sur une
                 maquette Cisco Packet Tracer afin de garantir la haute disponibilité du réseau.</p>
-            <img src="../img/redondance1.png" alt="Schéma de l'infrastructure redondante">
 
-            <h2>Etherchannel</h2>
-            <p>L’Etherchannel est une technologie qui permet de regrouper plusieurs liens physiques en un seul lien
+            <div class="image-with-caption">
+                <img src="../img/redondance1.png" alt="Schéma de l'infrastructure redondante">
+                <p class="image-caption">Topologie de l'infrastructure redondante</p>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2>EtherChannel</h2>
+            <p>L'EtherChannel est une technologie qui permet de regrouper plusieurs liens physiques en un seul lien
                 logique, augmentant ainsi la bande passante et la redondance.</p>
 
             <h2>Spanning Tree Protocol (STP)</h2>
             <p>Le STP est un protocole qui empêche les boucles de commutation en créant une arborescence logique des
                 chemins, désactivant les liens redondants pour garantir une topologie de réseau sans boucle.</p>
 
-            <h2>Retour Personnel</h2>
+            <hr class="section-divider">
+
+            <h2>Ce que j'ai appris</h2>
             <p>Ce projet m'a permis de comprendre le fonctionnement de STP et d'EtherChannel. J'ai appris à les
                 configurer et j'ai développé mes compétences en autonomie, tout en comprenant l'importance de documenter
                 les commandes de configuration.</p>

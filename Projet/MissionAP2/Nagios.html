@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission: Supervision Nagios</title>
+    <title>Supervision Nagios</title>
     <link rel="icon" href="../DND.gif">
     <link rel="stylesheet" href="AP.css">
 </head>
@@ -25,26 +25,46 @@
 
     <div class="page-wrapper">
         <main class="main-content">
-            <h1>Supervision d'Infrastructure avec Nagios</h1>
+            <h1>Supervision avec Nagios</h1>
+
+            <div class="tech-badges">
+                <span class="tech-badge">Nagios</span>
+                <span class="tech-badge">SNMP</span>
+                <span class="tech-badge">Linux</span>
+                <span class="tech-badge">Monitoring</span>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Objectif :</strong> Installer et configurer Nagios pour la supervision des services et du
+                matériel informatique.
+            </div>
 
             <h2>Contexte</h2>
             <p>Ce projet a consisté à installer et configurer Nagios pour la supervision des services et du matériel
                 informatique. Nous avons installé Nagios sur un serveur Linux Fedora et configuré les agents SNMP sur
                 des machines Linux et Windows, ainsi que l'agent NSClient++ pour superviser les services et matériels.
             </p>
-            <img src="../img/Nagios.png" alt="Topologie de la supervision Nagios">
+
+            <div class="image-with-caption">
+                <img src="../img/Nagios.png" alt="Topologie de la supervision Nagios">
+                <p class="image-caption">Architecture de supervision Nagios</p>
+            </div>
+
+            <hr class="section-divider">
 
             <h2>Installation et Configuration</h2>
             <p>Nous avons commencé par installer Nagios sur un serveur Fedora, puis nous avons personnalisé les fichiers
                 de configuration pour surveiller les services spécifiques et les équipements matériels via SNMP, y
-                compris des équipements CISCO.</p>
+                compris des équipements Cisco.</p>
 
             <h2>Tests et Validation</h2>
             <p>Des tests ont été effectués pour valider que la configuration de Nagios, des agents SNMP, et des addons
                 comme NagiosGraph fonctionnaient correctement. Des alertes ont été testées pour s'assurer que le système
                 de supervision réagissait en cas de défaillance.</p>
 
-            <h2>Retour Personnel</h2>
+            <hr class="section-divider">
+
+            <h2>Ce que j'ai appris</h2>
             <p>Ce projet m'a permis de découvrir l'outil de supervision Nagios et de comprendre son fonctionnement. J'ai
                 appris à installer et configurer Nagios, ce qui m'a permis de mettre en pratique mes compétences en
                 gestion du patrimoine informatique.</p>
