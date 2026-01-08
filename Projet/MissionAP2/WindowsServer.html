@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="icon" href="../DND.gif">
     <link rel="stylesheet" href="AP.css">
 </head>
+
 <body>
 
     <nav class="top-nav">
@@ -15,7 +17,7 @@
             <div class="nav-right">
                 <a href="../Projet.html">Projets</a>
                 <a href="../../Exp/exp.html">Expériences</a>
-                <a href="../../Veille/Veille.html">Veille</a>
+                <a href="../../Veille/docker.html">Veille</a>
                 <a href="../../Perso/Perso.html">À Propos</a>
             </div>
         </div>
@@ -24,22 +26,32 @@
     <div class="page-wrapper">
         <main class="main-content">
             <h1>Administration des Services Windows Server</h1>
-            
+
             <h2>Contexte</h2>
-            <p>Dans le cadre de ce projet, nous avons mis en place des services essentiels d'une infrastructure Microsoft : authentification de domaine, gestion de fichiers, et un service DHCP redondant. Cela a impliqué la configuration de deux serveurs Active Directory (AD), ainsi que des services DNS et DHCP.</p>
-            
+            <p>Dans le cadre de ce projet, nous avons mis en place des services essentiels d'une infrastructure
+                Microsoft : authentification de domaine, gestion de fichiers, et un service DHCP redondant. Cela a
+                impliqué la configuration de deux serveurs Active Directory (AD), ainsi que des services DNS et DHCP.
+            </p>
+
             <h2>Infrastructure Active Directory</h2>
-            <p>Nous avons créé quatre unités d'organisation (UO) et quatre groupes d'utilisateurs pour faciliter la gestion des permissions. Des scripts de logon ont été créés pour mapper automatiquement les lecteurs réseau pour chaque groupe d'utilisateurs.</p>
+            <p>Nous avons créé quatre unités d'organisation (UO) et quatre groupes d'utilisateurs pour faciliter la
+                gestion des permissions. Des scripts de logon ont été créés pour mapper automatiquement les lecteurs
+                réseau pour chaque groupe d'utilisateurs.</p>
             <img src="../img/winserv2.png" alt="Structure Active Directory">
-            
+
             <h2>Service de Fichiers et Partages</h2>
-            <p>Notre arborescence de fichiers comprend plusieurs dossiers partagés, organisés par groupe, ainsi que des dossiers personnels pour chaque utilisateur. Les permissions NTFS et les autorisations de partage ont été configurées pour garantir un accès sécurisé aux données.</p>
+            <p>Notre arborescence de fichiers comprend plusieurs dossiers partagés, organisés par groupe, ainsi que des
+                dossiers personnels pour chaque utilisateur. Les permissions NTFS et les autorisations de partage ont
+                été configurées pour garantir un accès sécurisé aux données.</p>
             <img src="../img/winserv3.png" alt="Arborescence des partages réseau">
 
             <h2>Retour Personnel</h2>
-            <p>Cette mission m'a permis de me familiariser avec les fonctionnalités et les services fondamentaux de Windows Server. J'ai pu m'initier au monde de l'administration système et de la gestion centralisée des ressources informatiques.</p>
+            <p>Cette mission m'a permis de me familiariser avec les fonctionnalités et les services fondamentaux de
+                Windows Server. J'ai pu m'initier au monde de l'administration système et de la gestion centralisée des
+                ressources informatiques.</p>
         </main>
     </div>
 
 </body>
+
 </html>

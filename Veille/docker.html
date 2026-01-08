@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure Docker - Côme Servy</title>
+    <meta name="description"
+        content="Projet BTS SIO : déploiement d'un intranet DSI avec Docker sur infrastructure Proxmox">
+    <link rel="stylesheet" href="../Projet/Alternance/Alt.css">
+    <link rel="icon" href="../DND.gif">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Code block styling */
+        .code-block {
+            background: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .code-header {
+            background: #2d2d30;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .code-title {
+            color: #fff;
+            font-weight: 400;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+        }
+
+        .code-content pre {
+            margin: 0;
+            padding: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .code-content code {
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            white-space: pre;
+        }
+
+        /* Architecture list */
+        .architecture-box {
+            background: #f8f9fa;
+            border: 1px solid #000;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .architecture-box h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .architecture-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .architecture-box li {
+            font-size: 0.85rem;
+            font-weight: 300;
+            padding: 0.4rem 0;
+            font-family: 'Courier New', monospace;
+            opacity: 0.8;
+        }
+
+        /* Services grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .service-card {
+            border: 1px solid #000;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .service-card h4 {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+            font-weight: 300;
+            opacity: 0.8;
+            margin: 0;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">CS</a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../Projet/Projet.html" class="nav-link">Projets</a>
+                <a href="../Exp/exp.html" class="nav-link">Expériences</a>
+                <a href="../Perso/Perso.html" class="nav-link">À Propos</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+        <main class="main-content">
+            <h1>Épreuve E6 : Infrastructure Docker</h1>
+
+            <div class="tech-badges">
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">Proxmox</span>
+                <span class="tech-badge">LXC</span>
+                <span class="tech-badge">Nginx</span>
+                <span class="tech-badge">Docker Swarm</span>
+            </div>
+
+            <div class="highlight-box">
+                <strong>Projet BTS SIO :</strong> Déploiement d'un intranet DSI complet sur infrastructure
+                Docker/Proxmox, avec 6 services métiers conteneurisés et haute disponibilité.
+            </div>
+
+            <h2>Contexte</h2>
+            <p>
+                Dans le cadre de mon épreuve technique E6 du BTS SIO, j'ai déployé une infrastructure complète pour une
+                entreprise fictive. L'objectif était de centraliser plusieurs outils métiers essentiels pour les
+                administrateurs systèmes et réseaux, en offrant un point d'entrée unique et facile d'accès.
+            </p>
+            <p>
+                L'infrastructure repose sur un serveur Dell avec Proxmox, hébergeant des conteneurs LXC Debian qui
+                exécutent Docker. Cette architecture à plusieurs niveaux de virtualisation offre flexibilité et
+                isolation des services.
+            </p>
+
+            <hr class="section-divider">
+
+            <h2>Architecture</h2>
+            <p>
+                L'infrastructure se compose de deux conteneurs Docker principaux, chacun hébergeant plusieurs services :
+            </p>
+
+            <div class="architecture-box">
+                <h4>857Docker (172.20.57.24)</h4>
+                <ul>
+                    <li>→ Portainer :9443 — Interface de gestion Docker</li>
+                    <li>→ Wiki.js :2480 — Documentation avec intégration LDAP</li>
+                    <li>→ Stirling-PDF :2580 — Outil de conversion PDF</li>
+                    <li>→ IT-Tools :2680 — Boîte à outils IT</li>
+                    <li>→ Dozzle :8080 — Monitoring des logs</li>
+                    <li>→ Nginx :80 — Portail intranet</li>
+                </ul>
+            </div>
+
+            <div class="architecture-box">
+                <h4>857DockerSl (172.20.57.25)</h4>
+                <ul>
+                    <li>→ Nginx :80 — Réplica haute disponibilité</li>
+                    <li>→ HAProxy :8080 — Load balancer</li>
+                    <li>→ phpMyAdmin :8081 — Administration BDD</li>
+                    <li>→ MySQL :3306 — Base de données</li>
+                </ul>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2>Services Déployés</h2>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>Portainer</h4>
+                    <p>Interface web pour gérer l'ensemble des conteneurs Docker, leurs déploiements et redémarrages.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h4>Wiki.js + LDAP</h4>
+                    <p>Documentation technique connectée à l'infrastructure LDAP pour authentification centralisée.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Nginx Swarm</h4>
+                    <p>Portail intranet en haute disponibilité avec Docker Swarm pour la résilience.</p>
+                </div>
+                <div class="service-card">
+                    <h4>HAProxy</h4>
+                    <p>Load balancer distribuant le trafic entre les réplicas Nginx.</p>
+                </div>
+                <div class="service-card">
+                    <h4>phpMyAdmin + MySQL</h4>
+                    <p>Stack de base de données automatisé pour la formation des stagiaires.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Dozzle</h4>
+                    <p>Monitoring des logs en temps réel pour tous les conteneurs.</p>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2>Docker Compose</h2>
+            <p>
+                Pour la formation des stagiaires, j'ai créé un stack automatisé avec phpMyAdmin et MySQL :
+            </p>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <span class="code-title">docker-compose.yml</span>
+                </div>
+                <div class="code-content">
+                    <pre><code>version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_formation
+    environment:
+      MYSQL_ROOT_PASSWORD: root2024!
+      MYSQL_DATABASE: formation_db
+      MYSQL_USER: john.doe0610
+      MYSQL_PASSWORD: MySecurePass123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - formation_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin_formation
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: john.doe0610
+      PMA_PASSWORD: MySecurePass123
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - formation_network
+
+volumes:
+  mysql_data:
+
+networks:
+  formation_network:
+    driver: bridge</code></pre>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2>Bilan</h2>
+            <p>
+                Cette réalisation m'a permis de maîtriser plusieurs compétences clés : conception d'infrastructure,
+                déploiement et supervision de solutions conteneurisées, tout en utilisant des outils modernes pour
+                simplifier la gestion et améliorer la fiabilité du système.
+            </p>
+
+            <div class="quote-block">
+                Une expérience qui illustre l'évolution vers les infrastructures conteneurisées modernes et l'importance
+                de la veille technologique dans notre domaine.
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Navigation mobile toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
