@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSAD - Cheatsheet Complète</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0e17;
+  --surface: #111827;
+  --surface2: #1a2236;
+  --border: #2a3450;
+  --accent: #38bdf8;
+  --accent2: #818cf8;
+  --accent3: #f472b6;
+  --accent4: #34d399;
+  --accent5: #fbbf24;
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --code-bg: #0d1321;
+  --success: #22c55e;
+  --warn: #f59e0b;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Search bar */
+.search-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,14,23,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.search-container h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+#search {
+  flex:1;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+#search:focus { border-color: var(--accent); }
+#search::placeholder { color: var(--text-dim); }
+
+/* Navigation */
+nav {
+  position: sticky;
+  top: 54px;
+  z-index: 99;
+  background: rgba(10,14,23,0.92);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 20px;
+  overflow-x: auto;
+  display: flex;
+  gap: 4px;
+  scrollbar-width: none;
+}
+nav::-webkit-scrollbar { display: none; }
+
+nav a {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+nav a:hover { color: var(--accent); background: var(--surface); border-color: var(--border); }
+
+.main { max-width: 1100px; margin: 0 auto; padding: 24px 20px 100px; }
+
+/* Sections */
+.section {
+  margin-bottom: 32px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+  transition: background 0.2s;
+}
+.section-header:hover { background: var(--surface2); }
+
+.section-header .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #000;
+  flex-shrink: 0;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  flex: 1;
+}
+
+.section-header .toggle {
+  font-size: 1.2rem;
+  color: var(--text-dim);
+  transition: transform 0.3s;
+}
+
+.section.collapsed .section-body { display: none; }
+.section.collapsed .toggle { transform: rotate(-90deg); }
+
+.section-body { padding: 0 20px 20px; }
+
+/* Color coding for section numbers */
+.c1 { background: var(--accent); }
+.c2 { background: var(--accent2); }
+.c3 { background: var(--accent3); }
+.c4 { background: var(--accent4); }
+.c5 { background: var(--accent5); }
+.c6 { background: #f87171; }
+.c7 { background: #a78bfa; }
+.c8 { background: #2dd4bf; }
+
+/* Content blocks */
+.block {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: var(--surface2);
+  border-left: 3px solid var(--accent);
+}
+.block.tp { border-left-color: var(--accent3); }
+.block.cmd { border-left-color: var(--accent4); }
+.block.warn { border-left-color: var(--warn); }
+.block.important { border-left-color: #f87171; }
+
+.block h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+.block.tp h3 { color: var(--accent3); }
+.block.cmd h3 { color: var(--accent4); }
+.block.warn h3 { color: var(--warn); }
+.block.important h3 { color: #f87171; }
+
+.block p, .block li {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.block ul { padding-left: 18px; }
+.block li { margin-bottom: 4px; }
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  overflow-x: auto;
+  margin: 8px 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--accent4);
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: var(--accent);
+}
+
+.gpo-path {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--accent5);
+  background: rgba(251,191,36,0.08);
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: block;
+  margin: 4px 0;
+  word-break: break-all;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.84rem;
+}
+th {
+  background: var(--code-bg);
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 700;
+  color: var(--accent);
+  border-bottom: 2px solid var(--border);
+}
+td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+tr:hover td { background: rgba(56,189,248,0.04); }
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-right: 4px;
+}
+.tag-cours { background: rgba(56,189,248,0.15); color: var(--accent); }
+.tag-tp { background: rgba(244,114,182,0.15); color: var(--accent3); }
+.tag-script { background: rgba(52,211,153,0.15); color: var(--accent4); }
+
+.highlight { background: rgba(251,191,36,0.3); border-radius: 2px; }
+
+@media(max-width:768px) {
+  .search-container h1 { display: none; }
+  nav { top: 50px; }
+  .section-header h2 { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="search-container">
+  <h1>MSAD Cheatsheet</h1>
+  <input type="text" id="search" placeholder="Rechercher commande, concept, GPO path...">
+</div>
+
+<nav id="nav">
+  <a href="#s1">1. Intro AD</a>
+  <a href="#s2">2. Install ADDS</a>
+  <a href="#s3">3. Users & Computers</a>
+  <a href="#s4">4. Groupes & OU</a>
+  <a href="#s5">5. GPO</a>
+  <a href="#s6">6. Sites & Réplication</a>
+  <a href="#s7">7. Admin Avancée</a>
+  <a href="#s8">8. Sécurité & Firewall</a>
+  <a href="#s9">9. Scripts TP</a>
+  <a href="#s10">10. GPO TP Paths</a>
+</nav>
+
+<div class="main">
+
+<!-- ============ SECTION 1 : INTRO AD ============ -->
+<div class="section" id="s1">
+  <div class="section-header" onclick="toggleSection(this)">
+    <span class="num c1">01</span>
+    <h2>Introduction Active Directory</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <div class="block">
+      <h3>Les 5 rôles Active Directory</h3>
+      <table>
+        <tr><th>Rôle</th><th>Fonction</th></tr>
+        <tr><td><strong>AD DS</strong></td><td>Annuaire — cœur d'AD, gère utilisateurs, ordinateurs, groupes</td></tr>
+        <tr><td><strong>AD CS</strong></td><td>PKI — certificats numériques (création, gestion, révocation)</td></tr>
+        <tr><td><strong>AD FS</strong></td><td>Fédération — SSO entre organisations (relation de confiance)</td></tr>
+        <tr><td><strong>AD RMS</strong></td><td>Droits — protection des documents (imprimable, copiable, etc.)</td></tr>
+        <tr><td><strong>AD LDS</strong></td><td>Version légère d'AD — LDAP pour applications</td></tr>
+      </table>
+    </div>
+
+    <div class="block">
+      <h3>Composants logiques</h3>
+      <ul>
+        <li><strong>Schéma</strong> : définition de chaque objet (classes + attributs)</li>
+        <li><strong>Domaine</strong> : regroupement d'objets, limite d'authentification et d'autorisation</li>
+        <li><strong>Arbre</strong> : hiérarchie de domaines partageant le nom du parent (ex: fr.ad.net)</li>
+        <li><strong>Forêt</strong> : collection d'arbres, schéma commun, initialisée au 1er domaine</li>
+        <li><strong>OU</strong> : conteneurs pour organiser, déléguer l'admin et appliquer des GPO</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Authentification</h3>
+      <ul>
+        <li><strong>Autonome (sans AD)</strong> : stockée dans SAM, pas de gestion centralisée</li>
+        <li><strong>Domaine (avec AD)</strong> : stockage centralisé, relation de confiance</li>
+        <li><strong>NTLM</strong> : ancien protocole challenge/response</li>
+        <li><strong>Kerberos</strong> : protocole moderne par tickets (TGT → TGS → accès)</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Autorisation — SID et ACL</h3>
+      <p>Chaque utilisateur a un <strong>SID</strong> unique. Lors de l'authentification, un ticket contient son SID + SIDs des groupes. Les ressources sont protégées par des <strong>ACLs</strong>. Les SIDs du ticket sont comparés aux ACLs.</p>
+      <p>⚠️ Recréer un utilisateur avec le même nom ne redonne PAS les droits (SID différent).</p>
+    </div>
+
+    <div class="block">
+      <h3>DNS et AD</h3>
+      <p>AD DS requiert une infrastructure DNS. Le nom de domaine AD DS = nom de domaine DNS. Enregistrements importants : A, AAAA, CNAME, <strong>SRV</strong> (localisation des DC).</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 2 : INSTALLATION ADDS ============ -->
+<div class="section" id="s2">
+  <div class="section-header" onclick="toggleSection(this)">
+    <span class="num c2">02</span>
+    <h2>Installation ADDS</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <div class="block">
+      <h3>Composants Physiques</h3>
+      <ul>
+        <li><strong>Contrôleur de domaine (DC)</strong> : serveur avec le rôle ADDS, contient la base AD, héberge l'authentification</li>
+        <li><strong>RODC</strong> (Read Only Domain Controller) : copie en lecture seule, pas de synchro mdp par défaut, pour agences non sécurisées</li>
+        <li><strong>Catalogue Global</strong> : copie de tous les objets de la forêt (attributs partiels), améliore la recherche</li>
+        <li><strong>NTDS.dit</strong> : base de données AD, par défaut dans <code>%systemRoot%\NTDS</code></li>
+        <li><strong>SYSVOL</strong> : scripts et GPO, par défaut dans <code>%systemRoot%\SYSVOL</code></li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Partitions de NTDS.dit</h3>
+      <p>Schéma, Configuration, Domain naming context, Application (ex: DNS)</p>
+    </div>
+
+    <div class="block cmd">
+      <h3>🔧 TP — Installer les composants AD DS</h3>
+<pre>Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools -IncludeAllSubFeature</pre>
+      <p>Script pour installer les features nécessaires :</p>
+<pre>$FeatureList = @("RSAT-AD-Tools","AD-Domain-Services","DNS")
+Foreach($Feature in $FeatureList){
+  if(((Get-WindowsFeature -Name $Feature).InstallState) -eq "Available"){
+    Add-WindowsFeature -Name $Feature -IncludeManagementTools -IncludeAllSubFeature
+  }
+}</pre>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP — Créer la forêt actus.lan (racine)</h3>
+<pre>Import-Module ADDSDeployment
+Install-ADDSForest `
+  -CreateDnsDelegation:$false `
+  -DatabasePath "C:\Windows\NTDS" `
+  -DomainMode "WinThreshold" `
+  -DomainName "actus.lan" `
+  -DomainNetbiosName "ACTUS" `
+  -ForestMode "WinThreshold" `
+  -InstallDns:$true `
+  -LogPath "C:\Windows\NTDS" `
+  -NoRebootOnCompletion:$false `
+  -SysvolPath "C:\Windows\SYSVOL" `
+  -Force:$true</pre>
+      <p><strong>WinThreshold</strong> = Windows Server 2016+. Pour 2025 utiliser <strong>"Win2025"</strong>.</p>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP — Créer le domaine enfant paris.actus.lan</h3>
+<pre>Import-Module ADDSDeployment
+Install-ADDSDomain `
+  -NoGlobalCatalog:$false `
+  -CreateDnsDelegation:$true `
+  -Credential (Get-Credential) `
+  -DatabasePath "C:\Windows\NTDS" `
+  -DomainMode "WinThreshold" `
+  -DomainType "ChildDomain" `
+  -InstallDns:$true `
+  -LogPath "C:\Windows\NTDS" `
+  -NewDomainName "paris" `
+  -NewDomainNetbiosName "PARIS" `
+  -ParentDomainName "actus.lan" `
+  -NoRebootOnCompletion:$false `
+  -SiteName "Default-First-Site-Name" `
+  -SysvolPath "C:\Windows\SYSVOL" `
+  -Force:$true</pre>
+    </div>
+
+    <div class="block">
+      <h3>IFM — Install From Media</h3>
+      <p>Copie de la base AD pour minimiser la réplication :</p>
+<pre>NTDSutil
+  Create full %Path%
+  Create Sysvol full %Path%</pre>
+    </div>
+
+    <div class="block">
+      <h3>Interfaces d'administration</h3>
+      <ul>
+        <li><strong>Centre d'administration AD</strong> : GUI basée PowerShell</li>
+        <li><strong>Utilisateurs et Ordinateurs</strong> : console MMC classique</li>
+        <li><strong>RSAT</strong> : outils distants (<code>dsadd user</code>, etc.)</li>
+        <li><strong>PowerShell</strong> : <code>Import-Module ActiveDirectory</code></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 3 : USERS & COMPUTERS ============ -->
+<div class="section" id="s3">
+  <div class="section-header" onclick="toggleSection(this)">
+    <span class="num c3">03</span>
+    <h2>Utilisateurs & Ordinateurs</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <div class="block">
+      <h3>Types d'utilisateurs</h3>
+      <ul>
+        <li><strong>Locaux</strong> : stockés dans SAM, accès ressources locales seulement</li>
+        <li><strong>Domaine</strong> : centralisés dans AD, accès réseau, haute disponibilité</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Attributs de nommage importants</h3>
+      <table>
+        <tr><th>Attribut</th><th>Description</th><th>Unique dans</th></tr>
+        <tr><td><code>SAMAccountName</code></td><td>Nom pre-Windows 2000 (max 20 car.)</td><td>Domaine</td></tr>
+        <tr><td><code>userPrincipalName</code></td><td>Nom + @ + domaine (UPN)</td><td>Forêt</td></tr>
+        <tr><td><code>cn</code></td><td>Common Name (nom complet)</td><td>OU</td></tr>
+        <tr><td><code>displayName</code></td><td>Nom affiché (GAL Exchange)</td><td>—</td></tr>
+        <tr><td><code>SID</code></td><td>Identifiant de sécurité unique</td><td>Global</td></tr>
+      </table>
+    </div>
+
+    <div class="block cmd">
+      <h3>🔧 Créer un utilisateur PowerShell</h3>
+<pre>New-ADUser -SamAccountName 'jdoe' -Name 'John Doe' `
+  -Path 'OU=Users,DC=actus,DC=lan' `
+  -AccountPassword (ConvertTo-SecureString 'P@ssw0rd' -AsPlainText -Force) `
+  -Enabled $true</pre>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP — Import CSV d'utilisateurs</h3>
+<pre>Import-Module ActiveDirectory
+$Users = Import-Csv -Delimiter ";" -Path ".\users.csv"
+foreach ($u in $Users) {
+  if($u.Firstname -ne "") {
+    $Ou = "OU=Users,DC=actus,DC=lan"
+    if ($u.OU -eq "Administration") { $Ou="OU=Users,OU=Administration,DC=actus,DC=lan" }
+    if ($u.OU -eq "reporters")      { $Ou="OU=Users,OU=Reporters,DC=actus,DC=lan" }
+    if ($u.OU -eq "Admins")         { $Ou="OU=Admins,OU=IT,DC=actus,DC=lan" }
+    if ($u.OU -eq "WebMaster")      { $Ou="OU=WebMasters,OU=IT,DC=actus,DC=lan" }
+
+    $Password = "P@ssw0rd"
+    $FirstLetterFirstname = $u.Firstname.substring(0,1)
+    $SamAccount = "$($FirstLetterFirstname).$($u.Lastname)"
+    $instance = Get-ADUser "CN=_TemplateAdUsers,OU=Users,OU=Administration,DC=actus,DC=lan" `
+      -Properties st,State,StreetAddress,City,co,PostalCode,country
+
+    $Params = @{
+      Name              = "$($u.Firstname), $($u.Lastname)"
+      SamAccountName    = $SamAccount
+      UserPrincipalName = $SamAccount+"@actus.lan"
+      DisplayName       = "$($u.Firstname), $($u.Lastname)"
+      GivenName         = $u.Firstname
+      Surname           = $u.Lastname
+      Initials          = $FirstLetterFirstname
+      AccountPassword   = (ConvertTo-SecureString $Password -AsPlainText -Force)
+      Enabled           = $true
+      PasswordNeverExpires = $true
+      ChangePasswordAtLogon = $false
+      Path              = $OU
+      Instance          = $instance
+    }
+    New-ADUser @Params
+  }
+}</pre>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP — Créer des comptes ordinateurs en masse</h3>
+<pre>Import-Module ActiveDirectory
+$HostName  = Read-Host "Hostname des comptes ordinateurs"
+$NbComputer = Read-Host "Nombre d'ordinateurs à créer"
+$PathOu    = Read-Host "Chemin de l'OU (eg: OU=Users,OU=Administration)"
+
+if ($PathOu -eq "") { $FullPath="OU=CMPDefault,DC=actus,DC=lan" }
+else { $FullPath = $PathOu+",DC=actus,DC=lan" }
+
+for($i=1; $i -le [int]$NbComputer; $i++) {
+  $FullName = $HostName + $i
+  New-ADcomputer -Name $FullName -SamAccountName $FullName -Path $FullPath
+  Write-Host "$FullName a été créé"
+}</pre>
+    </div>
+
+    <div class="block">
+      <h3>Comptes spéciaux</h3>
+      <ul>
+        <li><strong>Administrateur</strong> : contrôle total, ne peut pas être supprimé → BP : renommer + mdp complexe</li>
+        <li><strong>Invité</strong> : accès temporaire, désactivé par défaut → BP : renommer</li>
+        <li><strong>Comptes de service managés</strong> : pour IIS, Exchange, SharePoint — mdp auto tous les 30j</li>
+      </ul>
+<pre># Créer un compte de service
+New-ADServiceAccount -SAMAccountName 'Name' -Path 'Path'
+# Installer sur un serveur
+Install-ADServiceAccount -Identity 'Name'</pre>
+    </div>
+
+    <div class="block">
+      <h3>Canal sécurisé ordinateur</h3>
+      <p>Si rompu (réinstallation, snapshot restauré) :</p>
+<pre># Tester et réparer
+Test-ComputerSecureChannel -Repair</pre>
+    </div>
+
+    <div class="block">
+      <h3>Moindre privilège</h3>
+      <p>Toujours 2 comptes : un standard + un administrateur. Utiliser <code>Run As</code>.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 4 : GROUPES & OU ============ -->
+<div class="section" id="s4">
+  <div class="section-header" onclick="toggleSection(this)">
+    <span class="num c4">04</span>
+    <h2>Groupes & Unités d'Organisation</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <div class="block">
+      <h3>Types de groupe</h3>
+      <table>
+        <tr><th>Type</th><th>Usage</th></tr>
+        <tr><td><strong>Distribution</strong></td><td>Applications mail — pas de SID, pas de permissions</td></tr>
+        <tr><td><strong>Sécurité</strong></td><td>Donne des permissions (SID) + peut être utilisé pour mail</td></tr>
+      </table>
+    </div>
+
+    <div class="block">
+      <h3>Étendues des groupes</h3>
+      <table>
+        <tr><th>Étendue</th><th>Peut contenir</th><th>Utilisable dans</th></tr>
+        <tr><td><strong>Local</strong></td><td>U, C, GG, DLG du domaine + U, C, GG des forêts</td><td>Machine locale seulement</td></tr>
+        <tr><td><strong>Domaine Local (DLG)</strong></td><td>U, C, GG, DLG du domaine + U, C, GG + UG</td><td>Ressources du domaine</td></tr>
+        <tr><td><strong>Global (GG)</strong></td><td>U, C, GG du même domaine</td><td>Tous les domaines de la forêt</td></tr>
+        <tr><td><strong>Universel (UG)</strong></td><td>U, C, GG, UG de toute la forêt</td><td>Toute la forêt</td></tr>
+      </table>
+    </div>
+
+    <div class="block important">
+      <h3>⚡ BP : Organisation IGDLA</h3>
+      <p><strong>Identité → Groupe Global → Groupe Domaine Local → Accès</strong></p>
+      <p>Convention de nommage : <code>ACL_Ventes_Dossiers_Lecture</code> (Qui → Quoi → Droits)</p>
+    </div>
+
+    <div class="block">
+      <h3>Groupes par défaut</h3>
+      <ul>
+        <li><strong>Admins du domaine</strong> : accès à tous les DC du domaine</li>
+        <li><strong>Utilisateurs du domaine</strong> : tous les comptes utilisateur</li>
+        <li><strong>Admins de l'entreprise</strong> : admin sur toute la forêt</li>
+        <li><strong>Admins du schéma</strong> : modification du schéma</li>
+      </ul>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP — Créer les OUs</h3>
+<pre>New-ADOrganizationalUnit -Name "Administration" -DisplayName "Administration"
+New-ADOrganizationalUnit -Name "Reporters" -DisplayName "Reporters"
+New-ADOrganizationalUnit -Name "IT" -DisplayName "IT"
+
+# Sous-OUs dans Administration
+New-ADOrganizationalUnit -Name "Users" -DisplayName "Users" -Path "OU=Administration,DC=actus,DC=lan"
+New-ADOrganizationalUnit -Name "Groups" -DisplayName "Groups" -Path "OU=Administration,DC=actus,DC=lan"
+New-ADOrganizationalUnit -Name "Computers" -DisplayName "Computers" -Path "OU=Administration,DC=actus,DC=lan"
+
+# Sous-OUs dans Reporters
+New-ADOrganizationalUnit -Name "Users" -DisplayName "Users" -Path "OU=Reporters,DC=actus,DC=lan"
+New-ADOrganizationalUnit -Name "Groups" -DisplayName "Groups" -Path "OU=Reporters,DC=actus,DC=lan"
+New-ADOrganizationalUnit -Name "Computers" -DisplayName "Computers" -Path "OU=Reporters,DC=actus,DC=lan"
+
+# Sous-OUs dans IT
+New-ADOrganizationalUnit -Name "Admins" -DisplayName "Admins" -Path "OU=IT,DC=actus,DC=lan"
+New-ADOrganizationalUnit -Name "Groups" -DisplayName "Groups" -Path "OU=IT,DC=actus,DC=lan"
+New-ADOrganizationalUnit -Name "Computers" -DisplayName "Computers" -Path "OU=IT,DC=actus,DC=lan"
+New-ADOrganizationalUnit -Name "WebMasters" -DisplayName "WebMasters" -Path "OU=IT,DC=actus,DC=lan"</pre>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP — Créer les groupes (role-based)</h3>
+<pre># Groupe Global (rôle) + Groupes Domaine Local (accès)
+New-ADGroup -Name "GG_UsersEnt" -SamAccountName GG_UsersEnt -GroupCategory Security -GroupScope Global `
+  -DisplayName "GG_UsersEnt" -Path "OU=UsersEnt,DC=newb,DC=fr"
+
+New-ADGroup -Name "GS_Direction" -SamAccountName GS_Direction -GroupCategory Security -GroupScope Global `
+  -DisplayName "GS_Direction" -Path $parentDirection
+
+# Groupes locaux pour accès fichiers (READ, CREATE, ALL)
+New-ADGroup -Name "GL_Direction_ALL" -SamAccountName GL_Direction_ALL -GroupCategory Security `
+  -GroupScope DomainLocal -DisplayName "GL_Direction_ALL" -Path $parentDirection
+
+# Ajouter les membres
+Add-ADGroupMember -Identity GG_UsersEnt -Members GS_Direction,GS_Direction_Stagiaire,GS_Vente,...</pre>
+    </div>
+
+    <div class="block cmd">
+      <h3>🔧 Commandes utiles groupes</h3>
+<pre># Copier les membres d'un groupe
+Get-ADGroupMember -Identity 'SourceGroup'
+Add-ADGroupMember -Identity 'DestGroup' -Members 'User1','User2'
+
+# Conversion d'étendue : Global → Universel, DL → Universel, etc.</pre>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 5 : GPO ============ -->
+<div class="section" id="s5">
+  <div class="section-header" onclick="toggleSection(this)">
+    <span class="num c5">05</span>
+    <h2>Group Policy Object (GPO)</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <div class="block">
+      <h3>Concepts clés</h3>
+      <ul>
+        <li><strong>GPO</strong> = ensemble de paramètres pour configurer ordinateurs et utilisateurs (3600+ paramètres)</li>
+        <li>Liaison à : <strong>Sites</strong>, <strong>Domaines</strong>, <strong>OUs</strong></li>
+        <li><strong>Default Domain Policy</strong> : appliquée à tout le domaine — ne toucher que pour la sécurité générale</li>
+        <li><strong>Default Domain Controllers Policy</strong> : spécifique aux DC</li>
+      </ul>
+    </div>
+
+    <div class="block important">
+      <h3>⚡ Héritage GPO — Ordre de priorité</h3>
+      <p>Du moins prioritaire au plus prioritaire :</p>
+      <p>1. Stratégie locale → 2. Site → 3. Domaine → 4. OU → 5. OU enfant</p>
+      <ul>
+        <li><strong>Bloquer l'héritage</strong> : les GPOs supérieures ne s'appliquent plus aux enfants</li>
+        <li><strong>Forcer (Enforced)</strong> : s'applique même si l'héritage est bloqué</li>
+        <li>En cas de conflit : <strong>dernière appliquée gagne</strong> (OU enfant > OU parent)</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Rafraîchissement</h3>
+      <ul>
+        <li>Au démarrage de l'ordinateur / ouverture de session</li>
+        <li>Par défaut toutes les <strong>90 minutes</strong></li>
+        <li>Forcer : <code>GPUpdate /force</code></li>
+      </ul>
+    </div>
+
+    <div class="block cmd">
+      <h3>🔧 Résultat GPO</h3>
+<pre># Rapport HTML complet
+gpresult /H c:\Report.html
+
+# Rapport rapide dans le terminal
+gpresult /R</pre>
+    </div>
+
+    <div class="block">
+      <h3>Filtrage</h3>
+      <ul>
+        <li><strong>WMI Filtering</strong> : filtrer par hardware/OS. Namespace <code>root\CIMv2</code></li>
+        <li><strong>Security Filtering</strong> : spécifier quels utilisateurs/ordinateurs reçoivent la GPO</li>
+      </ul>
+<pre># Exemple WMI : seulement Windows 10
+SELECT * FROM Win32_OperatingSystem WHERE Version LIKE "10.0%" AND ProductType = "1"
+
+# ProductType: 1=client, 2=DC, 3=serveur non-DC
+# Type 6.2/6.3 = Windows 8/8.1, 10.0 = Windows 10</pre>
+    </div>
+
+    <div class="block">
+      <h3>Déploiement d'applications MSI</h3>
+      <ul>
+        <li><strong>Attribué (Assigned)</strong> : installé automatiquement au démarrage/ouverture de session</li>
+        <li><strong>Publié (Published)</strong> : l'utilisateur peut l'installer lui-même via Panneau de config</li>
+        <li>Utiliser un chemin UNC : <code>\\Server\Share\app.msi</code></li>
+        <li>Connexion lente ≤ 500 kbit/s : certaines GPO pas appliquées</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Profils Itinérants (Roaming Profiles)</h3>
+      <ul>
+        <li><strong>Redirection de dossiers</strong> : dossiers perso déplacés sur un serveur de partage</li>
+        <li><strong>Profil itinérant</strong> : copie le profil depuis le serveur à l'ouverture de session, met à jour à la fermeture</li>
+        <li>Processus : créer groupe sécurité → créer dossier partagé → créer GPO → configurer</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Loopback Processing</h3>
+      <ul>
+        <li><strong>Merge</strong> : paramètres ordinateur + utilisateur fusionnés (ordinateur prioritaire si conflit)</li>
+        <li><strong>Replace</strong> : seuls les paramètres ordinateur s'appliquent</li>
+      </ul>
+      <span class="gpo-path">Computer Configuration > Admin Templates > System > Group Policy > Configurer le mode de traitement par bouclage</span>
+    </div>
+
+    <div class="block">
+      <h3>Stockage</h3>
+      <ul>
+        <li><strong>GPC</strong> (Group Policy Container) : stocké dans AD, identifié par GUID</li>
+        <li><strong>GPT</strong> (Group Policy Template) : fichiers dans <code>SYSVOL</code></li>
+        <li><strong>Central Store</strong> : <code>\\domaine\SysVol\domaine\Policies\PolicyDefinitions</code></li>
+        <li>ADMX (paramètres XML) + ADML (langues) remplacent les anciens ADM</li>
+      </ul>
+    </div>
+
+    <div class="block cmd">
+      <h3>🔧 Backup/Restore GPO</h3>
+<pre>Backup-GPO -All -Path "C:\GPOBackup"
+Restore-GPO -Name "NomGPO" -Path "C:\GPOBackup"</pre>
+    </div>
+
+    <div class="block">
+      <h3>Scripts GPO</h3>
+      <p>Placer dans <code>C:\Windows\SYSVOL\domain\Scripts</code>. Chemin UNC : <code>\\Server\NETLOGON</code></p>
+      <p>Options : ouverture/fermeture de session. Langages : PowerShell, VBScript, .BAT, .CMD</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 6 : SITES & REPLICATION ============ -->
+<div class="section" id="s6">
+  <div class="section-header" onclick="toggleSection(this)">
+    <span class="num c6">06</span>
+    <h2>Sites & Réplication</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <div class="block">
+      <h3>Sites AD</h3>
+      <ul>
+        <li>Représentation logique du réseau physique dans AD</li>
+        <li>Permettent aux clients de localiser les DC les plus proches</li>
+        <li>Processus : client DNS → SRV → DC répond → attribue le site → client stocke dans registre</li>
+      </ul>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP — Créer sites, sous-réseaux et liens</h3>
+      <p>3 sites : NY, Paris, Ukraine. Sous-réseaux du TP :</p>
+      <table>
+        <tr><th>Sous-réseau</th><th>Site</th></tr>
+        <tr><td>192.68.1.0/24</td><td>NY</td></tr>
+        <tr><td>192.168.10.0/24</td><td>Paris</td></tr>
+        <tr><td>10.17.40.0/24</td><td>UK</td></tr>
+        <tr><td>192.168.100.0/24 (VPN)</td><td>NY</td></tr>
+      </table>
+      <p>Liens :</p>
+      <ul>
+        <li><strong>NY-PARIS</strong> : pas de réplication entre 8h-12h</li>
+        <li><strong>PARIS-UK</strong> : coût 150, intervalle 180 min</li>
+        <li><strong>NY-UK</strong> : coût 350, intervalle 180 min</li>
+      </ul>
+      <p>Ref: <a href="http://www.rebeladmin.com/2015/02/how-to-setup-active-directory-sites-subnets-site-links/" style="color:var(--accent)">Guide Sites</a></p>
+    </div>
+
+    <div class="block">
+      <h3>Réplication</h3>
+      <ul>
+        <li>Seules les <strong>modifications</strong> sont répliquées (pas l'objet entier, sauf à la création)</li>
+        <li><strong>KCC</strong> (Knowledge Consistency Checker) : crée auto les liens de réplication</li>
+        <li>Topologie par défaut : ≥ 2 chemins, ≤ 3 sauts entre DC</li>
+        <li>Réplication intersite : 180 min par défaut</li>
+        <li>Protocoles : <strong>DS-RPC</strong> (par défaut, IP) ou <strong>ISM-SMTP</strong> (sites déconnectés)</li>
+        <li><strong>Bridgehead</strong> : serveur principal de réplication d'un site</li>
+      </ul>
+    </div>
+
+    <div class="block cmd">
+      <h3>🔧 Outils de monitoring</h3>
+<pre># Statuts de réplication
+repadmin /replsummary
+repadmin /showrepl
+
+# Forcer la réplication
+repadmin /syncall /AeD
+
+# Forcer le KCC
+repadmin /kcc
+
+# Diagnostic
+dcdiag /test:replications</pre>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 7 : ADMIN AVANCEE ============ -->
+<div class="section" id="s7">
+  <div class="section-header" onclick="toggleSection(this)">
+    <span class="num c7">07</span>
+    <h2>Administration Avancée</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <div class="block">
+      <h3>Password Settings Objects (PSO)</h3>
+      <ul>
+        <li>Politiques de mdp affinées — s'appliquent à des <strong>utilisateurs ou groupes</strong> (pas des OUs !)</li>
+        <li>Priorité configurable (<strong>Precedence</strong>) : plus bas = plus prioritaire</li>
+        <li>Si un user a un PSO direct + un PSO via groupe → le PSO direct gagne</li>
+        <li>Vérifier : User > Propriété > Éditeur d'attribut > <code>msDS-ResultantPSO</code></li>
+      </ul>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP — Créer un PSO pour Reporters (PowerShell)</h3>
+<pre>$templatePSO = New-Object Microsoft.ActiveDirectory.Management.ADFineGrainedPasswordPolicy
+
+$templatePSO.DisplayName = "ReporterPso"
+$templatePSO.Precedence = 1
+$templatePSO.ReversibleEncryptionEnabled = $false
+$templatePSO.PasswordHistoryCount = 5
+$templatePSO.ComplexityEnabled = $false
+$templatePSO.MinPasswordLength = 8
+$templatePSO.MinPasswordAge = [TimeSpan]::Parse("0.01:00:00")
+$templatePSO.MaxPasswordAge = [TimeSpan]::Parse("30.00:00:00")
+$templatePSO.LockoutThreshold = 3
+$templatePSO.LockoutObservationWindow = [TimeSpan]::Parse("0.01:00:00")
+$templatePSO.LockoutDuration = -9223372036854775808   # = jamais (admin déverrouille)
+
+New-ADFineGrainedPasswordPolicy -Instance $templatePSO -Name "ReporterPso" `
+  -OtherAttributes @{'msDS-PSOAppliesTo'='CN=GpPsoReporters,OU=Groups,OU=Reporters,DC=actus,DC=lan'}</pre>
+      <p><code>-9223372036854775808</code> = valeur pour spécifier <strong>"jamais"</strong> (admin doit déverrouiller manuellement)</p>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP — Appliquer un PSO à un groupe</h3>
+<pre># Clic droit > propriétés
+# Dans éditeur d'attribut chercher msDS-PSOAppliesTo
+# et sélectionner le groupe
+
+# Vérifier : choisir un utilisateur du groupe
+# Afficher propriétés > éditeur d'attribut > chercher msDS-ResultantPso
+# La valeur doit indiquer le nom de la PSO (common name)</pre>
+    </div>
+
+    <div class="block">
+      <h3>Maîtres d'opération (FSMO)</h3>
+      <table>
+        <tr><th>Niveau</th><th>Rôle</th><th>Fonction</th></tr>
+        <tr><td>Forêt</td><td><strong>Maître du schéma</strong></td><td>Publie les mises à jour du schéma</td></tr>
+        <tr><td>Forêt</td><td><strong>Maître d'attribution des noms</strong></td><td>Contrôle ajout/suppression de domaines</td></tr>
+        <tr><td>Domaine</td><td><strong>Maître RID</strong></td><td>Alloue des séquences d'ID aux DC</td></tr>
+        <tr><td>Domaine</td><td><strong>Émulateur PDC</strong></td><td>Compatibilité Win2000/XP + horloge</td></tr>
+        <tr><td>Domaine</td><td><strong>Maître d'infrastructure</strong></td><td>MAJ objets inter-domaines</td></tr>
+      </table>
+      <p>BP : Infrastructure pas sur un serveur Catalogue Global.</p>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP — Modification du schéma (attribut UserPic)</h3>
+      <ol style="padding-left:18px">
+        <li>Allumer les 2 autres serveurs (RODC + domaine enfant) pour réplication</li>
+        <li>Ouvrir CMD : <code>regsvr32 schmmgmt.dll</code></li>
+        <li>Ouvrir MMC → ajouter composant Schéma Active Directory</li>
+        <li>Dans Attributs > créer un attribut :
+          <ul>
+            <li>Common name : <code>UserPic</code></li>
+            <li>ID objet X.500 unique : <code>1.2.840.113556.1.4.63400</code></li>
+            <li>Syntaxe : chaine unicode</li>
+          </ul>
+        </li>
+        <li>Dans Classes > chercher <code>user</code> > onglet Attributs > ajouter UserPic</li>
+        <li>Redémarrer le service : <code>services.msc</code> → Services de domaine Active Directory</li>
+        <li>Pousser la réplication dans Sites et Services AD</li>
+        <li>Vérifier : propriétés d'un utilisateur > éditeur d'attribut > chercher UserPic</li>
+      </ol>
+    </div>
+
+    <div class="block">
+      <h3>Sauvegarde & Corbeille AD</h3>
+<pre># Activer la corbeille AD (irréversible)
+Enable-ADOptionalFeature -Identity 'CN=Recycle Bin Feature,CN=optional features,CN=Directory Service,CN=Windows NT,CN=Services,CN=Configuration,DC=actus,DC=lan' `
+  -Scope ForestOrConfigurationSet -Target actus.lan
+
+# Sauvegarde Windows Server : état système
+# Restauration : Authoritative vs Non-Authoritative</pre>
+    </div>
+
+    <div class="block">
+      <h3>Clonage de DC</h3>
+<pre>New-ADDCCloneConfigFile -Static -IPv4Address x.x.x.x -IPv4DNSResolver x.x.x.x `
+  -IPv4SubnetMask x.x.x.x -CloneComputerName "NOM" -IPv4DefaultGateway x.x.x.x `
+  -SiteName "NomSite"
+# Puis : Exporter VM → Importer avec "Copier (créer un ID unique)"</pre>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 8 : SECURITE & FIREWALL ============ -->
+<div class="section" id="s8">
+  <div class="section-header" onclick="toggleSection(this)">
+    <span class="num c8">08</span>
+    <h2>Sécurité & Pare-feu Windows</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <div class="block">
+      <h3>Fondamentaux de la sécurité</h3>
+      <ul>
+        <li><strong>Moindre privilège</strong> : comptes séparés par rôle (Admin SQL, Admin AD, compte standard)</li>
+        <li><strong>PowerShell JEA</strong> (Just Enough Administration) : limite les actions + trace tout</li>
+        <li>Par défaut sur Windows Server : pare-feu actif, découverte réseau désactivée, UAC actif</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Windows Filtering Platform (WFP)</h3>
+      <p>Architecture de filtrage réseau. Couche 2+, filtre paquets TCP/IP, IPsec, RPC. Composants :</p>
+      <ul>
+        <li><strong>Base Filtering Engine (BFE)</strong> : cœur de WFP, service <code>bfe.dll</code> dans <code>svchost.exe</code></li>
+        <li><strong>Filter Engine</strong> : ~50 couches noyau + ~10 couches utilisateur</li>
+        <li><strong>Callouts</strong> : fonctionnalités étendues (antivirus, IDS, NAT, contrôle parental)</li>
+        <li><strong>Shims</strong> : entre pile réseau et moteur de filtre, extraction/classification</li>
+        <li><strong>Layers & Sublayers</strong> : organisent les filtres. Les filtres ont un poids (décroissant).</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Pare-feu Windows — Profils</h3>
+      <table>
+        <tr><th>Profil</th><th>Description</th></tr>
+        <tr><td><strong>Domaine</strong></td><td>Auto quand joint à un AD — ne peut pas être défini manuellement</td></tr>
+        <tr><td><strong>Privé</strong></td><td>Réseaux domestiques — peut être défini manuellement</td></tr>
+        <tr><td><strong>Public</strong></td><td>Par défaut pour réseaux non identifiés — sécurité max</td></tr>
+      </table>
+      <p>Comportement par défaut : <strong>bloquer entrant</strong> (sauf sollicité/règle) + <strong>autoriser sortant</strong> (sauf règle)</p>
+    </div>
+
+    <div class="block">
+      <h3>Priorité des règles</h3>
+      <ol style="padding-left:18px">
+        <li>Les règles d'<strong>autorisation explicites</strong> > blocage par défaut</li>
+        <li>Les règles de <strong>blocage explicites</strong> > toute règle d'autorisation en conflit</li>
+        <li>Les règles <strong>plus spécifiques</strong> > règles moins spécifiques (sauf blocage explicite)</li>
+      </ol>
+      <p>⚠️ Le pare-feu Windows <strong>ne supporte pas l'ordre/pondération</strong> des règles.</p>
+    </div>
+
+    <div class="block cmd">
+      <h3>🔧 PowerShell Pare-feu</h3>
+<pre># Voir le profil réseau actif
+Get-NetConnectionProfile
+
+# Activer/désactiver le pare-feu
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
+
+# Créer une règle (ouvrir port 443)
+New-NetFirewallRule -DisplayName "Allow Web 443" -Direction Inbound `
+  -Protocol TCP -LocalPort 443 -Action Allow
+
+# Modifier une règle (restreindre à une IP)
+Set-NetFirewallRule -DisplayName "Allow Web 443" -RemoteAddress 172.16.20.100
+
+# Supprimer une règle
+Remove-NetFirewallRule -DisplayName "Allow Web 443"</pre>
+    </div>
+
+    <div class="block cmd">
+      <h3>🔧 CMD Pare-feu (netsh)</h3>
+<pre># Voir tous les profils
+netsh advfirewall show all
+
+# Activer/désactiver
+netsh advfirewall set allprofiles state on
+netsh advfirewall set allprofiles state off
+
+# Créer une règle
+netsh advfirewall firewall add rule name="Allow Web 443" dir=in protocol=TCP localport=443 action=allow
+
+# Modifier une règle
+netsh advfirewall firewall set rule name="Allow Web 443" new remoteip=172.16.20.100
+
+# Supprimer une règle
+netsh advfirewall firewall delete rule name="Allow Web 443"</pre>
+    </div>
+
+    <div class="block">
+      <h3>Best Practices pare-feu en domaine</h3>
+      <ul>
+        <li>Gérer de manière centralisée via GPO</li>
+        <li>Créer une GPO de base pour tous + GPOs spécifiques par rôle</li>
+        <li>Activer les 3 profils, activer la journalisation</li>
+        <li>Désactiver la fusion des règles locales si nécessaire</li>
+        <li>Convention de nommage des règles</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Outils de sécurité</h3>
+      <ul>
+        <li><strong>Microsoft SCT</strong> (Security Compliance Toolkit) : modèles de sécurité + PolicyAnalyzer + LGPO</li>
+        <li><strong>PingCastle</strong> : audit AD gratuit, score de risque, rapport détaillé</li>
+        <li><strong>Microsoft LAPS</strong> : mdp admin local unique par machine, stocké dans AD, rotation auto</li>
+      </ul>
+    </div>
+
+    <div class="block warn">
+      <h3>⚠️ LAPS — Attention 2 versions</h3>
+      <ul>
+        <li><strong>Legacy LAPS</strong> : ancienne, Win Server 2003-2022</li>
+        <li><strong>Windows LAPS</strong> : nouvelle (après mise à jour 11/04/2023), chiffrement AD, historique mdp, Entra ID</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 9 : SCRIPTS TP ============ -->
+<div class="section" id="s9">
+  <div class="section-header" onclick="toggleSection(this)">
+    <span class="num c1">09</span>
+    <h2>Scripts TP — Référence Rapide</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <div class="block tp">
+      <h3>🎯 TP 2.6 — Security GPO (politique de mdp domaine)</h3>
+      <p>Default Domain Policy → Computer Config > Policies > Windows Settings > Security Settings > Account Policies</p>
+      <table>
+        <tr><th>Paramètre</th><th>Valeur tous</th><th>Valeur IT Admin (PSO)</th></tr>
+        <tr><td>Longueur min</td><td>6</td><td>8</td></tr>
+        <tr><td>Âge max</td><td>90 jours</td><td>30 jours</td></tr>
+        <tr><td>Historique</td><td>5 derniers</td><td>10 derniers</td></tr>
+        <tr><td>Verrouillage après</td><td>5 tentatives</td><td>3 tentatives</td></tr>
+        <tr><td>Reset compteur</td><td>1 heure</td><td>4 heures</td></tr>
+      </table>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP 2.7 — GPO Firewall + WMI Filtering</h3>
+<pre># Créer GPO > ordinateur > strategie > parametre win > parametre de secu > pare-feu
+# Filtre WMI pour Windows 10 seulement :
+root\CIMv2; SELECT * FROM Win32_OperatingSystem WHERE Version LIKE "10.0%" AND ProductType = "1"
+
+# ProductType : 1 = client, 2 = DC, 3 = serveur non-DC</pre>
+      <p>Pour les logs applicatifs du groupe accounting :</p>
+      <span class="gpo-path">Computer Configuration > Policies > Admin Templates > Windows Components > Event Log Service</span>
+      <p>+ Security Filtering sur le groupe accounting. Ou mettre le groupe (qui contient les PC) dans les filtres.</p>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP 2.9 — Slow Link Detection</h3>
+      <span class="gpo-path">Computer Configuration > Admin Templates > System > Group Policy > Group Policy slow link detection</span>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP 2.10 — Folder Redirection (Profils Itinérants)</h3>
+      <span class="gpo-path">User Configuration > Policies > Windows Settings > Folder Redirection</span>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP 2.11 — Advanced Config (PC accueil visiteurs)</h3>
+      <p>Sécuriser un PC de réception + utiliser le <strong>Loopback Processing (Replace)</strong> pour ignorer les GPO utilisateur :</p>
+      <span class="gpo-path">User Configuration > Admin Templates > System > executer uniquement les applications windows → iexplore.exe</span>
+      <span class="gpo-path">User Configuration > Admin Templates > System > logon > exécuter ces programmes à l'ouverture : c:\Program Files\Internet Explorer\iexplore.exe -k www.google.fr</span>
+      <span class="gpo-path">User Configuration > Admin Templates > Start menu and taskbar > accéder au bureau plutôt qu'à Accueil lors de la connexion</span>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP 2.15 — Backup & Restore</h3>
+      <ul>
+        <li>Sauvegarder via Sauvegarde Windows Server (état système)</li>
+        <li>Supprimer un utilisateur → restauration Authoritative (DSRM mode)</li>
+        <li>Activer la corbeille AD pour simplifier</li>
+      </ul>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP 2.16 — Migration pics.lan</h3>
+      <p>Migrer un domaine Win 2008 R2 vers Win 2022. Créer une <strong>relation de confiance de forêt</strong> entre pics.lan et actus.lan.</p>
+    </div>
+
+    <div class="block tp">
+      <h3>🎯 TP 2.17/2.18 — ADCS (PKI 2-tier)</h3>
+      <ul>
+        <li>Serveur 1 : CA Racine Standalone, validité 20 ans</li>
+        <li>Serveur 2 : CA Subordonnée Enterprise + Online Responder</li>
+        <li>Émettre certificat pour le serveur subordonné, installer, démarrer service</li>
+        <li>Sécuriser IIS avec certificat domaine, publier certificat racine via GPO</li>
+        <li>Auto-enrolment pour ordinateurs du domaine</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ SECTION 10 : GPO TP PATHS ============ -->
+<div class="section" id="s10">
+  <div class="section-header" onclick="toggleSection(this)">
+    <span class="num c2">10</span>
+    <h2>GPO Paths — Référence TP</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <div class="block">
+      <h3>TP 2.8 — Paramètres Administration</h3>
+      <span class="gpo-path">User Configuration > Admin Templates > Desktop > Desktop > Wallpaper</span>
+      <span class="gpo-path">User Configuration > Admin Templates > Control Panel > Personalization > Prevent Changing Desktop Background</span>
+      <span class="gpo-path">User Configuration > Admin Templates > Control Panel > Personalization > Prevent user to change screen saver</span>
+      <span class="gpo-path">User Configuration > Admin Templates > Start Menu And Taskbar > Disable the history of recent opened documents</span>
+      <span class="gpo-path">User Configuration > Admin Templates > Control Panel > Print > Prevent user to adding printers</span>
+      <span class="gpo-path">User Configuration > Admin Templates > Control Panel > Disable access to control panel</span>
+      <span class="gpo-path">User Configuration > Admin Templates > System > Disable Command prompt</span>
+      <span class="gpo-path">User Configuration > Admin Templates > System > Remove task manager</span>
+      <span class="gpo-path">Computer Configuration > Policies > Admin Templates > System > Removable Storage Access > Disable Removable Storage Access (read write exe)</span>
+    </div>
+
+    <div class="block">
+      <h3>Drive Maps (lecteurs réseau ciblés par domaine)</h3>
+      <span class="gpo-path">User Configuration > Preferences > Drive Maps > créer 2 lecteurs : fr\admin et us\admin</span>
+      <p>Onglet commun > cocher ciblage > définir ciblage sur domaine (Paris pour fr, Actus pour us)</p>
+    </div>
+
+    <div class="block">
+      <h3>Folder Options & IE</h3>
+      <span class="gpo-path">User Configuration > Preferences > Control Panel Settings > Folder Options > options pour XP et min Vista</span>
+      <span class="gpo-path">User Configuration > Policies > Admin Templates > Windows Components > Internet Explorer > Disable changing home page settings</span>
+    </div>
+
+    <div class="block">
+      <h3>Firewall GPO</h3>
+      <span class="gpo-path">Computer Configuration > Policies > Admin Templates > Windows Components > Event Log Service</span>
+      <span class="gpo-path">Computer Configuration > Windows Settings > Security Settings > Event Log</span>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- .main -->
+
+<script>
+function toggleSection(header) {
+  header.parentElement.classList.toggle('collapsed');
+}
+
+// Search functionality
+const search = document.getElementById('search');
+search.addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  document.querySelectorAll('.section').forEach(s => {
+    if(!q) {
+      s.style.display = '';
+      s.classList.remove('collapsed');
+      s.querySelectorAll('.highlight').forEach(h => {
+        h.outerHTML = h.textContent;
+      });
+      return;
+    }
+    const text = s.textContent.toLowerCase();
+    if(text.includes(q)) {
+      s.style.display = '';
+      s.classList.remove('collapsed');
+    } else {
+      s.style.display = 'none';
+    }
+  });
+});
+
+// Keyboard shortcut: Ctrl+K or / to focus search
+document.addEventListener('keydown', e => {
+  if((e.ctrlKey && e.key === 'k') || (e.key === '/' && document.activeElement.tagName !== 'INPUT')) {
+    e.preventDefault();
+    search.focus();
+  }
+  if(e.key === 'Escape') search.blur();
+});
+</script>
+
+</body>
+</html>
